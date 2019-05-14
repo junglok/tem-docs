@@ -10,6 +10,8 @@ Welcome to tem-docs's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   infrastructure.rst
+   cluster_sw.rst
    sample usage <usage>
 
 Indices and tables
