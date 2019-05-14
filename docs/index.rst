@@ -10,7 +10,7 @@ Welcome to tem-docs's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   usage.rst
+   sample usage <usage>
 
 Indices and tables
 ==================
