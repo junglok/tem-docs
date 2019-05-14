@@ -1,5 +1,5 @@
 ***************
-TEM Users Guide
+TEM users guide
 ***************
 
 Accessing TEM service farm
