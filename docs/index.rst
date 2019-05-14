@@ -11,7 +11,7 @@ Welcome to tem-docs's documentation!
    :caption: Contents:
 
    infrastructure.rst
-   cluster_sw.rst
+   cluster.rst
    sample usage <usage>
 
 Indices and tables
