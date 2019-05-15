@@ -11,11 +11,7 @@ Welcome to tem-docs's documentation!
    :caption: Contents:
 
    infra.rst
-   cluster.rst
-   sw.rst
-   access_farm.rst
-   environment_modules.rst
-   openpbs.rst
+   guide.rst
    sample usage <usage>
 
 Indices and tables
