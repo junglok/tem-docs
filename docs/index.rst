@@ -10,8 +10,12 @@ Welcome to tem-docs's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   infrastructure.rst
+   infra.rst
    cluster.rst
+   sw.rst
+   access_farm.rst
+   environment_modules.rst
+   openpbs.rst
    sample usage <usage>
 
 Indices and tables
