@@ -14,18 +14,14 @@ Computing and storage resources
 
 * Hardware specification of TEM service farm
 
-+-----------------+--------------------------+---------------------------------+------------------------+
-| Category        | Name                     | Specification                   | Resources size (total) |
-+=================+==========================+=================================+========================+
-| Login           | **tem-ui.sdfarm.kr**           | CPU : Intel(R) Xeon(R) CPU E5-2697v3 @ 2.60GHz 14Core * 2 CPUs RAM : DDR4 8GB * 24 (192GB) HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1) | 28 cores |
-|                 | **tem-gpu[01-05].sdfarm.kr**   | CPU : Intel® Xeon® CPU E5-2690v4 @ 2.60GHz 14Core * 2 CPUs RAM : DDR4 16GB * 24 (384GB) SSD : 6G SATA SSD 800GB * 2EA (RAID-1) GPU : NVIDIA P100 * 2ea | 72 cores |
-+-----------------+--------------------------+---------------------------------+------------------------+
-| Computing (master)  | **tem-ce.sdfarm.kr**        | CPU : Intel(R) Xeon(R) CPU E5-2697v3 @ 2.60GHz 14Core * 2 CPUs RAM : DDR4 8GB * 24 (192GB) HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1) | 28 cores |
-+-----------------+--------------------------+---------------------------------+------------------------+
-| Computing (workers) | **tem-wn[1001-1011].sdfarm.kr** | CPU : Intel(R) Xeon(R) CPU E5-2697v3 @ 2.60GHz 14Core * 2 CPUs RAM : DDR4 8GB * 24 (192GB) HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)<br/> | **308 cores** |
-+-----------------+--------------------------+---------------------------------+------------------------+
-| Storage             | **EMC Isilon NAS**              | ...  | **700TB** |
-+-----------------+--------------------------+---------------------------------+------------------------+
++--------------+----------+-----------+-----------+
+| row 1, col 1 | column 2 | column 3  | column 4  |
++--------------+----------+-----------+-----------+
+| row 2        |                                  |
++--------------+----------+-----------+-----------+
+| row 3        |          |           |           |
++--------------+----------+-----------+-----------+
+
 
 
 Cluster management softwares
