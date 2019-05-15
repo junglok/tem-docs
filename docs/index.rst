@@ -13,6 +13,8 @@ Welcome to tem-docs's documentation!
    infra.rst
    guide.rst
    sample usage <usage>
+   faq.rst
+   contact.rst
 
 Indices and tables
 ==================
