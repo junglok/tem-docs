@@ -27,6 +27,7 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
 
 
 * **Show module details**
+
 .. code-block:: bash
 
   $> module show apps/gcc/4.4.7/relion/cpu/3.0-beta
@@ -38,17 +39,17 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   setenv           relion_version 3.0-beta-cpu
   prepend-path     PATH /tem/home/tem/relion3/cpu/bin
   prepend-path     LD_LIBRARY_PATH /tem/home/tem/relion3/cpu/lib
-  setenv     RELION_QUEUE_NAME tem
-  setenv     RELION_MPI_MAX 11
-  setenv     RELION_THREAD_MAX 28
-  setenv     RELION_QSUB_COMMAND qsub
-  setenv     RELION_QSUB_TEMPLATE /tem/home/tem/relion3/cpu/bin/qsub.csh
-  setenv     RELION_CTFFIND_EXECUTABLE /tem/home/tem/ctffind-4.1.8/bin/ctffind
-  setenv     RELION_RESMAP_EXECUTABLE /tem/home/tem/relion-1.4/ResMap/ResMap-1.1.4-linux64
-  setenv     RELION_MOTIONCORR_EXECUTABLE /tem/home/tem/MotionCor2/MotionCor2-01-30-2017
-  setenv     RELION_UNBLUR_EXECUTABLE /tem/home/tem/unblur_1.0.2/bin/unblur_openmp_7_17_15.exe
-  setenv     RELION_SUMMOVIE_EXECUTABLE /tem/home/tem/summovie_1.0.2/bin/sum_movie_openmp_7_17_15.exe
-  conflict         apps/gcc/4.4.7/relion
+  setenv          RELION_QUEUE_NAME tem
+  setenv          RELION_MPI_MAX 11
+  setenv          RELION_THREAD_MAX 28
+  setenv          RELION_QSUB_COMMAND qsub
+  setenv          RELION_QSUB_TEMPLATE /tem/home/tem/relion3/cpu/bin/qsub.csh
+  setenv          RELION_CTFFIND_EXECUTABLE /tem/home/tem/ctffind-4.1.8/bin/ctffind
+  setenv          RELION_RESMAP_EXECUTABLE /tem/home/tem/relion-1.4/ResMap/ResMap-1.1.4-linux64
+  setenv          RELION_MOTIONCORR_EXECUTABLE /tem/home/tem/MotionCor2/MotionCor2-01-30-2017
+  setenv          RELION_UNBLUR_EXECUTABLE /tem/home/tem/unblur_1.0.2/bin/unblur_openmp_7_17_15.exe
+  setenv          RELION_SUMMOVIE_EXECUTABLE /tem/home/tem/summovie_1.0.2/bin/sum_movie_openmp_7_17_15.exe
+  conflict        apps/gcc/4.4.7/relion
   -------------------------------------------------------------------
 
 
