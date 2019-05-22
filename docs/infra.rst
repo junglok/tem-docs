@@ -89,9 +89,9 @@ Data analysis tools
 | Category     | Name                | Description                                                        | Version                                |
 |              |                     |                                                                    | (module path)                          |
 +--------------+---------------------+--------------------------------------------------------------------+----------------------------------------+
-| | Data       | Relion              | | Astand-alone computer program that employs an empirical Bayesian |                                        |
-| | Analysis   |                     | | approach to refinement of (multiple) 3D reconstructions or 2D    |                                        |
-| | Tools      |                     | | class averages in electron cryo-microscopy (cryo-EM).            | | v1.4                                 |
+| Data         | Relion              | | Astand-alone computer program that employs an empirical Bayesian |                                        |
+| Analysis     |                     | | approach to refinement of (multiple) 3D reconstructions or 2D    |                                        |
+| Tools        |                     | | class averages in electron cryo-microscopy (cryo-EM).            | | v1.4                                 |
 |              |                     |                                                                    | | (apps/gcc/4.4.7/relion/cpu/1.4)      |
 |              |                     |                                                                    |                                        |
 |              |                     |                                                                    | | v2.1                                 |
