@@ -125,8 +125,8 @@ Data analysis tools
 |              |                     |                                                                    |                                        |
 |              |                     | - https://www.cgl.ucsf.edu/chimera                                 |                                        |
 |              +---------------------+--------------------------------------------------------------------+----------------------------------------+
-|              | CryoSPARC           | | CryoSPARC is the state-of-the-art platform used globally for     | | not deployed yet                     |
-|              |                     | | obtaining 3D structural information from single particle cryo-EM | | (on the drawing board)               | 
+|              | CryoSPARC           | | CryoSPARC is the state-of-the-art platform used globally for     | | Not deployed yet                     |
+|              |                     | | obtaining 3D structural information from single particle cryo-EM | | (on the drawing board)               |
 |              |                     | | data.                                                            |                                        |
 |              |                     |                                                                    |                                        |
 |              |                     | - https://cryosparc.com                                            |                                        |

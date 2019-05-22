@@ -1,9 +1,12 @@
-***********
-Users guide
-***********
+***************
+TEM users guide
+***************
 
 Accessing TEM service farm
 ==========================
+Before you use GSDC's service farm, you should send an application form to TEM service manager and acquire an user account (please see the contact information for the application form). If you have an already-approved user account, you can log into UI(user interface) server nodes to access/use various kind of cluster resources and software environments (including data analysis tools, e.g., relion, cisTEM, eman, etc.).
+
+
 
 Understanding environment modules
 =================================
