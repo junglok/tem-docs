@@ -75,8 +75,8 @@ Cluster management softwares
 Data analysis tools
 ===================
 
-.. table:: data_analysis_tools
-  :widths: 20 20 40 20
+.. table::data_analysis_tools
+   :widths: 20 20 40 20
 
   +--------------+---------------------+--------------------------------------------------------------------+----------------------------------------+
   | Category     | Name                | Description                                                        | Version                                |
