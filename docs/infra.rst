@@ -101,18 +101,18 @@ Data analysis tools
 |              |                     |                                                                    | (apps/gcc/4.4.7/relion/cpu/3.0-beta)|
 |              |                     |                                                                    | (apps/gcc/4.4.7/relion/gpu/3.0-beta)|
 |              |                     |                                                                    |                                     |
-|              +-----------------------------+------------------------------------------------------------+-------------------------------------+
+|              +---------------------+--------------------------------------------------------------------+-------------------------------------+
 |              | EMAN                | Scientific image processing suite with a primary focus on          | v2.1                                |
 |              |                     | processing data from transmission electron microscopes             | (apps/gcc/4.4.7/eman/2.1)           |
 |              |                     | - https://blake.bcm.edu/emanwiki/EMAN2                             |                                     |
-|              +-----------------------------+------------------------------------------------------------+-------------------------------------+
+|              +---------------------+--------------------------------------------------------------------+-------------------------------------+
 |              | cisTEM              | User-friendly software to process cryo-EM images of macromolecular | v1.0.0                              |
 |              |                     | complexes and obtain high-resolution 3D reconstructions            | (apps/gcc/4.4.7/cistem/1.0.0)       |
 |              |                     | - https://cistem.org                                               |                                     |
-|              +-----------------------------+------------------------------------------------------------+-------------------------------------+
+|              +---------------------+--------------------------------------------------------------------+-------------------------------------+
 |              | Phenix              | Python-based Hierarchical ENvironment for Integrated Xtallography  | v1.13-2998                          |
 |              |                     | - https://www.phenix-online.org/documentation/index.html           | (apps/gcc/4.4.7/phenix/1.13-2998)   |
-|              +-----------------------------+------------------------------------------------------------+-------------------------------------+
+|              +---------------------+--------------------------------------------------------------------+-------------------------------------+
 |              | UCSF Chimera        | Highly extensible program for interactive visualization and        | v1.13                               |
 |              |                     | analysis of molecular structures and related data, including       | (apps/gcc/4.4.7/chimera/1.13)       |
 |              |                     | density maps, supramolecular assemblies, sequence alignments,      |                                     |
