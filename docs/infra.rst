@@ -75,16 +75,15 @@ Cluster management softwares
 Data analysis tools
 ===================
 
-.. table::data_analysis_tools
-   :widths: 20 20 40 20
+.. table:: data_analysis_tools
 
   +--------------+---------------------+--------------------------------------------------------------------+----------------------------------------+
   | Category     | Name                | Description                                                        | Version                                |
   |              |                     |                                                                    | (module path)                          |
   +--------------+---------------------+--------------------------------------------------------------------+----------------------------------------+
   | Data         | **Relion**          | | A stand-alone computer program that employs an empirical Bayesian|                                        |
-  | Analysis     |                     |  approach to refinement of (multiple) 3D reconstructions or 2D     |                                        |
-  | Tools        |                     |  class averages in electron cryo-microscopy (cryo-EM).             | | v1.4                                 |
+  | Analysis     |                     | | approach to refinement of (multiple) 3D reconstructions or 2D    |                                        |
+  | Tools        |                     | | class averages in electron cryo-microscopy (cryo-EM).            | | v1.4                                 |
   |              |                     |                                                                    | | (apps/gcc/4.4.7/relion/cpu/1.4)      |
   |              |                     |                                                                    |                                        |
   |              |                     |                                                                    | | v2.1                                 |

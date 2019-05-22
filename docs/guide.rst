@@ -4,7 +4,24 @@ TEM users guide
 
 Accessing TEM service farm
 ==========================
-Before you use GSDC's service farm, you should send an application form to TEM service manager and acquire an user account (please see the contact information for the application form). If you have an already-approved user account, you can log into UI(user interface) server nodes to access/use various kind of cluster resources and software environments (including data analysis tools, e.g., relion, cisTEM, eman, etc.).
+Before you use GSDC's service farm, you should send an application form to TEM service manager and obtain an user account (please see the contact information for the application form). If you already have approved user accounts, you can log into UI (user interface) nodes to access/use various kind of cluster resources and software environments (including data analysis tools, e.g., relion, cisTEM, eman, etc.).
+
+* **Login UI nodes**
+  
+  * For Linux/Mac user
+
+.. code-block:: bash
+
+  $> ssh -Y -o Port=<port> <userID>@tem-ui.sdfarm.kr
+  $> ssh -Y -o Port=<port> <userID>@tem-gpu[01-03].sdfarm.kr
+
+  
+  * For Windows users
+
+.. code-block:: bash
+
+  $> ssh -Y -o Port=<port> <userID>@tem-ui.sdfarm.kr
+  $> ssh -Y -o Port=<port> <userID>@tem-gpu[01-03].sdfarm.kr
 
 
 
