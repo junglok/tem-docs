@@ -89,11 +89,11 @@ Data analysis tools
 | Category     | Name                | Description                                                        | Version                              |
 |              |                     |                                                                    | (module path)                        |
 +--------------+---------------------+--------------------------------------------------------------------+--------------------------------------+
-| Data         | Relion              |                                                                    | v1.4                                 |
-| Analysis     |                     |                                                                    | (apps/gcc/4.4.7/relion/cpu/1.4)      |
+| Data         | Relion              |                                                                    | | v1.4                               |
+| Analysis     |                     |                                                                    | | (apps/gcc/4.4.7/relion/cpu/1.4)    |
 | Tools        |                     |                                                                    |                                      |
 |              |                     |                                                                    | v2.1                                 |
-|              |                     | https://www3.mrc-lmb.cam.ac.uk/relion/index.php?title=Main_Page    | (apps/gcc/4.4.7/relion/cpu/2.1)      |
+|              |                     | https://www3.mrc-lmb.cam.ac.uk/relion/index.php                    | (apps/gcc/4.4.7/relion/cpu/2.1)      |
 |              |                     |                                                                    | (apps/gcc/4.4.7/relion/gpu/2.1)      |
 |              |                     |                                                                    |                                      |
 |              |                     |                                                                    | v3.0-beta                            |
