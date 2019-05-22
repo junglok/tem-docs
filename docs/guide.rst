@@ -13,15 +13,16 @@ Before you use GSDC's service farm, you should send an application form to TEM s
 .. code-block:: bash
 
   $> ssh -Y -o Port=<port> <userID>@tem-ui.sdfarm.kr
-  $> ssh -Y -o Port=<port> <userID>@tem-gpu[01-03].sdfarm.kr
+  $> ssh -Y -o Port=<port> <userID>@tem-gpu[01-05].sdfarm.kr
 
-  
+*
+
   * For Windows users
 
 .. code-block:: bash
 
   $> ssh -Y -o Port=<port> <userID>@tem-ui.sdfarm.kr
-  $> ssh -Y -o Port=<port> <userID>@tem-gpu[01-03].sdfarm.kr
+  $> ssh -Y -o Port=<port> <userID>@tem-gpu[01-05].sdfarm.kr
 
 
 
