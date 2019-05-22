@@ -39,16 +39,6 @@ Computing and storage resources
 | Storage      | Dell EMC Isilon NAS         | Network attached storage 700 TB                                                             |
 +--------------+-----------------------------+---------------------------------------------------------------------------+-----------------+
 
-+--------------+----------+-----------+-----------+
-| row 1, col 1 | column 2 | column 3  | column 4  |
-+--------------+----------+-----------+-----------+
-| row 2        |                                  |
-+--------------+----------+-----------+-----------+
-| row 3        |          |           |           |
-+--------------+----------+-----------+-----------+
-
-
-
 Cluster management softwares
 ============================
 
@@ -89,9 +79,9 @@ Data analysis tools
 | Category     | Name                | Description                                                        | Version                                |
 |              |                     |                                                                    | (module path)                          |
 +--------------+---------------------+--------------------------------------------------------------------+----------------------------------------+
-| Data         | Relion              | | Astand-alone computer program that employs an empirical Bayesian |                                        |
-| Analysis     |                     | | approach to refinement of (multiple) 3D reconstructions or 2D    |                                        |
-| Tools        |                     | | class averages in electron cryo-microscopy (cryo-EM).            | | v1.4                                 |
+| Data         | **Relion**          | | A stand-alone computer program that employs an empirical Bayesian|                                        |
+| Analysis     |                     |  approach to refinement of (multiple) 3D reconstructions or 2D     |                                        |
+| Tools        |                     |  class averages in electron cryo-microscopy (cryo-EM).             | | v1.4                                 |
 |              |                     |                                                                    | | (apps/gcc/4.4.7/relion/cpu/1.4)      |
 |              |                     |                                                                    |                                        |
 |              |                     |                                                                    | | v2.1                                 |
@@ -103,29 +93,29 @@ Data analysis tools
 |              |                     |                                                                    | | (apps/gcc/4.4.7/relion/gpu/3.0-beta) |
 |              |                     |                                                                    |                                        |
 |              +---------------------+--------------------------------------------------------------------+----------------------------------------+
-|              | EMAN                | | Scientific image processing suite with a primary focus on        | | v2.1                                 |
+|              | **EMAN**            | | Scientific image processing suite with a primary focus on        | | v2.1                                 |
 |              |                     | | processing data from transmission electron microscopes.          | | (apps/gcc/4.4.7/eman/2.1)            |
 |              |                     |                                                                    |                                        |
 |              |                     | - https://blake.bcm.edu/emanwiki/EMAN2                             |                                        |
 |              +---------------------+--------------------------------------------------------------------+----------------------------------------+
-|              | cisTEM              | | User-friendly software to process cryo-EM images of              | | v1.0.0                               |
+|              | **cisTEM**          | | User-friendly software to process cryo-EM images of              | | v1.0.0                               |
 |              |                     | | macromolecular complexes and obtain high-resolution 3D           | | (apps/gcc/4.4.7/cistem/1.0.0)        |
 |              |                     | | reconstructions.                                                 |                                        |
 |              |                     |                                                                    |                                        |
 |              |                     | - https://cistem.org                                               |                                        |
 |              +---------------------+--------------------------------------------------------------------+----------------------------------------+
-|              | Phenix              | | Python-based Hierarchical ENvironment for Integrated Xtallography| | v1.13-2998                           |
+|              | **Phenix**          | | Python-based Hierarchical ENvironment for Integrated Xtallography| | v1.13-2998                           |
 |              |                     |                                                                    | | (apps/gcc/4.4.7/phenix/1.13-2998)    |
 |              |                     | - https://www.phenix-online.org/documentation/index.html           |                                        |
 |              +---------------------+--------------------------------------------------------------------+----------------------------------------+
-|              | UCSF Chimera        | | A highly extensible program for interactive visualization and    | | v1.13                                |
+|              | **UCSF Chimera**    | | A highly extensible program for interactive visualization and    | | v1.13                                |
 |              |                     | | analysis of molecular structures and related data, including     | | (apps/gcc/4.4.7/chimera/1.13)        |
 |              |                     | | density maps, supramolecular assemblies, sequence alignments,    |                                        |
 |              |                     | | docking results, trajectories, and conformational ensembles.     |                                        |
 |              |                     |                                                                    |                                        |
 |              |                     | - https://www.cgl.ucsf.edu/chimera                                 |                                        |
 |              +---------------------+--------------------------------------------------------------------+----------------------------------------+
-|              | CryoSPARC           | | CryoSPARC is the state-of-the-art platform used globally for     | | Not deployed yet                     |
+|              | **CryoSPARC**       | | CryoSPARC is the state-of-the-art platform used globally for     | | Not deployed yet                     |
 |              |                     | | obtaining 3D structural information from single particle cryo-EM | | (on the drawing board)               |
 |              |                     | | data.                                                            |                                        |
 |              |                     |                                                                    |                                        |
