@@ -71,8 +71,8 @@ Cluster management softwares
 |              |                             | - Reference implementation for MPI standard                | (mpi/gcc/openmpi/1.6.5)        |
 |              |                             | - https://www.open-mpi.org                                 |                                |
 |              +-----------------------------+------------------------------------------------------------+--------------------------------+
-|              | cuda                        | - Compute Unified Device Architecture(CUDA)                | v8.0 (cuda/8.0)                |
-|              |                             | - NVIDIA CUDA Runtime & Toolkit                            | v9.2 (cuda/9.2)                |
+|              | cuda                        | - Compute Unified Device Architecture(CUDA)                | - v8.0 (cuda/8.0)              |
+|              |                             | - NVIDIA CUDA Runtime & Toolkit                            | - v9.2 (cuda/9.2)              |
 |              |                             | - https://developer.nvidia.com/cuda-toolkit                |                                |
 |              +-----------------------------+------------------------------------------------------------+--------------------------------+
 |              | anaconda                    | - Virtual application environement (mainly used for python)| v5.2                           |
@@ -85,37 +85,32 @@ Cluster management softwares
 Data analysis tools
 ===================
 
++--------------+---------------------+--------------------------------------------------------------------+--------------------------------------+
+| Category     | Name                | Description                                                        | Version                              |
+|              |                     |                                                                    | (module path)                        |
++--------------+---------------------+--------------------------------------------------------------------+--------------------------------------+
+| Data         | Relion              |                                                                    | v1.4                                 |
+| Analysis     |                     |                                                                    | (apps/gcc/4.4.7/relion/cpu/1.4)      |
+| Tools        |                     |                                                                    |                                      |
+|              |                     |                                                                    | v2.1                                 |
+|              |                     | https://www3.mrc-lmb.cam.ac.uk/relion/index.php?title=Main_Page    | (apps/gcc/4.4.7/relion/cpu/2.1)      |
+|              |                     |                                                                    | (apps/gcc/4.4.7/relion/gpu/2.1)      |
+|              |                     |                                                                    |                                      |
+|              |                     |                                                                    | v3.0-beta                            |
+|              |                     |                                                                    | (apps/gcc/4.4.7/relion/cpu/3.0-beta) |
+|              |                     |                                                                    | (apps/gcc/4.4.7/relion/gpu/3.0-beta) |
+|              |                     |                                                                    |                                      |
+|              +---------------------+--------------------------------------------------------------------+--------------------------------------+
+|              | EMAN                | https://blake.bcm.edu/emanwiki/EMAN2                               | v2.1                                 |
+|              |                     |                                                                    | (apps/gcc/4.4.7/eman/2.1)            |
+|              +---------------------+--------------------------------------------------------------------+--------------------------------------+
+|              | cisTEM              | https://cistem.org                                                 | v1.0.0                               |
+|              |                     |                                                                    | (apps/gcc/4.4.7/cistem/1.0.0)        |
+|              +---------------------+--------------------------------------------------------------------+--------------------------------------+
+|              | Phenix              | https://www.phenix-online.org/documentation/index.html             | v1.13-2998                           |
+|              |                     |                                                                    | (apps/gcc/4.4.7/phenix/1.13-2998)    |
+|              +---------------------+--------------------------------------------------------------------+--------------------------------------+
+|              | UCSF Chimera        | https://www.cgl.ucsf.edu/chimera                                   | v1.13                                |
+|              |                     |                                                                    | (apps/gcc/4.4.7/chimera/1.13)        |
++--------------+---------------------+--------------------------------------------------------------------+--------------------------------------+
 
-+--------------+---------------------+--------------------------------------------------------------------+-------------------------------------+
-| Category     | Name                | Description                                                        | Version                             |
-|              |                     |                                                                    | (module path)                       |
-+--------------+---------------------+--------------------------------------------------------------------+-------------------------------------+
-| Data         | Relion              | A stand-alone computer program that employs an empirical           | v1.4                                |
-|              |                     | Bayesian approach to refinement of (multiple) 3D                   | (apps/gcc/4.4.7/relion/cpu/1.4)     |
-|              |                     | reconstructions or 2D class averages in electron                   |                                     |
-|              |                     | cryo-microscopy (cryo-EM)                                          | v2.1                                |
-| Analysis     |                     | - https://www3.mrc-lmb.cam.ac.uk/relion/index.php?title=Main_Page  | (apps/gcc/4.4.7/relion/cpu/2.1)     |
-|              |                     |                                                                    | (apps/gcc/4.4.7/relion/gpu/2.1)     |
-| Tools        |                     |                                                                    |                                     |
-|              |                     |                                                                    | v3.0-beta                           |
-|              |                     |                                                                    | (apps/gcc/4.4.7/relion/cpu/3.0-beta)|
-|              |                     |                                                                    | (apps/gcc/4.4.7/relion/gpu/3.0-beta)|
-|              |                     |                                                                    |                                     |
-|              +---------------------+--------------------------------------------------------------------+-------------------------------------+
-|              | EMAN                | Scientific image processing suite with a primary focus on          | v2.1                                |
-|              |                     | processing data from transmission electron microscopes             | (apps/gcc/4.4.7/eman/2.1)           |
-|              |                     | - https://blake.bcm.edu/emanwiki/EMAN2                             |                                     |
-|              +---------------------+--------------------------------------------------------------------+-------------------------------------+
-|              | cisTEM              | User-friendly software to process cryo-EM images of macromolecular | v1.0.0                              |
-|              |                     | complexes and obtain high-resolution 3D reconstructions            | (apps/gcc/4.4.7/cistem/1.0.0)       |
-|              |                     | - https://cistem.org                                               |                                     |
-|              +---------------------+--------------------------------------------------------------------+-------------------------------------+
-|              | Phenix              | Python-based Hierarchical ENvironment for Integrated Xtallography  | v1.13-2998                          |
-|              |                     | - https://www.phenix-online.org/documentation/index.html           | (apps/gcc/4.4.7/phenix/1.13-2998)   |
-|              +---------------------+--------------------------------------------------------------------+-------------------------------------+
-|              | UCSF Chimera        | Highly extensible program for interactive visualization and        | v1.13                               |
-|              |                     | analysis of molecular structures and related data, including       | (apps/gcc/4.4.7/chimera/1.13)       |
-|              |                     | density maps, supramolecular assemblies, sequence alignments,      |                                     |
-|              |                     | docking results, trajectories, and conformational ensembles        |                                     |
-|              |                     | - https://www.cgl.ucsf.edu/chimera                                 |                                     |
-+--------------+---------------------+--------------------------------------------------------------------+-------------------------------------+
