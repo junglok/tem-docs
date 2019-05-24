@@ -15,18 +15,25 @@ Before you use GSDC's service farm, you should send an application form to TEM s
 
 * For Windows users
 
-  * using MobaXterm
+  * Using MobaXterm (https://mobaxterm.mobatek.net)
+    MobaXterm is an enhanced terminal for Windows with self-contained X11 server, tabbed SSH client, network tools and much more.
 
 .. image:: images/mobaxterm_resized.JPG
-
+    :scale: 60 %
+    :align: center
 
 ..
 
-  * using Putty with Xwindows manager (e.g., Xming, Xmanager, etc.)
+  * Using Putty with Xwindows manager (e.g., Xming, Xmanager, etc.) (https://www.putty.org)
+    If you use putty terminal application, you must install a 3rd-party Xwindows manager in advance.
 
 .. image:: images/putty-1_resized.JPG
+    :scale: 60 %
+    :align: center
 
 .. image:: images/putty-2_resized.JPG
+    :scale: 60 %
+    :align: center
 
 
 
