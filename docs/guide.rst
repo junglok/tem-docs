@@ -184,6 +184,9 @@ Resources manager and job scheduler
 Directives in Torque job scripts
 --------------------------------
 
+Torque defines some useful directives which can be used to describe job's resources requirements. Users must include those directives in job scripts to submit and execute jobs.
+The order of directives is not important, but the directives must be written prior to job execution commands.
+
 **Resource limits**
 ~~~~~~~~~~~~~~~~~~~
 
