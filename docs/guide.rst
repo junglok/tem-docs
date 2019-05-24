@@ -184,10 +184,13 @@ Resources manager and job scheduler
 Directives in Torque job scripts
 --------------------------------
 
-* **Resource limits** : The "-l" option is used to request resources, including nodes, memory, time, etc.
+**Resource limits**
+~~~~~~~~~~~~~~~~~~~
+
+The "-l" option is used to request resources, including nodes, memory, time, etc.
 
 
-  - Nodes and PPN (Processor Per Node)
+* Nodes and PPN (Processor Per Node)
 
 .. code-block:: bash
 
@@ -206,9 +209,9 @@ Directives in Torque job scripts
   To request 1 node with use of 6 cores and 1 GPU:
   #PBS -l nodes=1:ppn=6:gpus=1
 
-..
 
-  - Wall clock time
+
+* Wall clock time
 
 .. code-block:: bash
 
@@ -216,10 +219,7 @@ Directives in Torque job scripts
   #PBS -l walltime=20:00:00
 
 
-..
-
-
-  - Memory
+* Memory
 
 .. code-block:: bash
 
@@ -233,31 +233,35 @@ Directives in Torque job scripts
 
 ..
 
-* **Job name**
+**Job name**
+~~~~~~~~~~~~
 
 .. code-block:: bash
 
   #PBS -N my_first_job
 
 
-* **Queue name**
+**Queue name**
+~~~~~~~~~~~~~~
 
 .. code-block:: bash
-  
+
   #PBS -q tem
 
-* **Job log files**
+
+**Job log files**
+~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
   #PBS -j oe
 
 
-
 Torque job script examples
 --------------------------
 
-* **Simple sequential job**
+**Simple sequential job**
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -270,7 +274,8 @@ Torque job script examples
   /usr/bin/time ./mysci > mysci.hist
 
 
-* **Serial job with OpenMP multithreading**
+**Serial job with OpenMP multithreading**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -284,7 +289,8 @@ Torque job script examples
   ./a.out > my_results
 
 
-* **Simple parallel job**
+**Simple parallel job**
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Here is an example of an MPI job that uses 4 nodes with 4 cores each, running one process per core (16 processes total).
 
@@ -300,8 +306,8 @@ Here is an example of an MPI job that uses 4 nodes with 4 cores each, running on
   mpirun -machinefile $PBS_NODEFILE ./a.out
 
 
-* **Parallel job with MPI and OpenMP**
-
+**Parallel job with MPI and OpenMP**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This example is a hybrid MPI/OpenMP job. It runs one MPI process per node with 28 threads per process. The assumption here is that the code was written to support multi-level parallelism. 
 
@@ -337,9 +343,10 @@ In response to this command you’ll see a line with your job ID:
 Monitoring and managing your jobs
 ---------------------------------
 
-* **Status of queued jobs**
+**Status of queued jobs**
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  * **qstat**
+* qstat
 
 Use the qstat command to check the status of your jobs. You can see whether your job is queued or running, along with information about requested resources. If the job is running you can see elapsed time and resources used.
 
@@ -360,7 +367,7 @@ Use the qstat command to check the status of your jobs. You can see whether your
 
 ..
 
-  * **showq**
+* showq
 
 The showq command lists job information from the point of view of the scheduler.  Jobs are grouped according to their state: running, idle, or blocked.
 
@@ -392,18 +399,20 @@ Blocked jobs are those that are not currently eligible to run. There are several
  * You can place a hold on your own job using qhold jobid.
 
 
-* **Managing your jobs**
+**Managing your jobs**
+~~~~~~~~~~~~~~~~~~~~~~
 
-  * **Deleting a job**
+* Deleting (canceling) a job
 
 Situations may arise in which you want to delete one of your jobs from the PBS queue. Perhaps you set the resource limits incorrectly, neglected to copy an input file, or had incorrect or missing commands in the batch file. Or maybe the program is taking too long to run (infinite loop). The PBS command to delete a batch job is qdel. It applies to both queued and running jobs.
 
 .. code-block:: bash
-  
+
   $> qdel 123456
 ..
 
-  * **Altering a queued job**
+**Altering a queued job**
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can alter certain attributes of your job while it’s in the queue using the qalter command. This can be useful if you want to make a change without losing your place in the queue. You cannot make any alterations to the executable portion of the script, nor can you make any changes after the job starts running.
 The options argument consists of one or more PBS directives in the form of command-line options. For example, to change the walltime limit on job 123456 to 5 hours and have email sent when the job ends (only):
