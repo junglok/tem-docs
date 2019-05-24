@@ -180,14 +180,14 @@ Resources manager and job scheduler
 * Resource manager : Torque(OpenPBS) v2.5.7
 * Job scheduler : Maui v3.3.1
 
+
 Directives in Torque job scripts
 --------------------------------
 
-PBS 작업 제출, 실행을 위해서는 작업 스크립트에 "#PBS"로 시작하는 디렉티브를 포함시켜야 한다. 디렉티브는 작업이 요청하는 자원에 대한 정보 등을 명시할 수 있다. 디렉티브들 사이의 순서는 중요하지 않지만, 반드시 작업 실행 명령어 전에 기술되어야 한다.
-
 * **Resource limits** : The "-l" option is used to request resources, including nodes, memory, time, etc.
 
-  * Nodes and PPN (Processor Per Node)
+
+  - Nodes and PPN (Processor Per Node)
 
 .. code-block:: bash
 
@@ -208,7 +208,7 @@ PBS 작업 제출, 실행을 위해서는 작업 스크립트에 "#PBS"로 시�
 
 ..
 
-  * Wall clock time
+  - Wall clock time
 
 .. code-block:: bash
 
@@ -219,7 +219,7 @@ PBS 작업 제출, 실행을 위해서는 작업 스크립트에 "#PBS"로 시�
 ..
 
 
-  * Memory
+  - Memory
 
 .. code-block:: bash
 
