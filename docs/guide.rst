@@ -218,7 +218,6 @@ PBS 작업 제출, 실행을 위해서는 작업 스크립트에 "#PBS"로 시�
 
 ..
 
-walltime 시간 이후에도 작업이 종료되지 않을 경우, 스케쥴러는 해당 작업을 강제종료하게 된다. walltime에 대한 디렉티브가 없을 경우, 기본값은 infinite 이다. 
 
   * Memory
 
@@ -236,8 +235,6 @@ walltime 시간 이후에도 작업이 종료되지 않을 경우, 스케쥴러�
 
 * **Job name**
 
-계산작업을 구분할 수 있는 의미있는 이름을 작업에 정의할 수 있다. 작업 이름에 대한 디렉티브가 없는 경우, 기본값은 PBS 작업 스크립트의 이름이다.
-
 .. code-block:: bash
 
   #PBS -N my_first_job
@@ -245,16 +242,11 @@ walltime 시간 이후에도 작업이 종료되지 않을 경우, 스케쥴러�
 
 * **Queue name**
 
-
-계산작업을 제출할 queue 이름을 지정할 수 있다.
-
 .. code-block:: bash
   
   #PBS -q tem
 
 * **Job log files**
-
-PBS는 기본적으로 작업 실행 시, 2개의 로그 파일 (stdout, stderr)을 생성한다. 작업 이름이 my_first_job이고 작업 제출 후 작업 ID가 123456인 경우, my_first_job.o123456, my_first_job.e123456 이라는 이름의 로그 파일들이 작업 실행 디렉토리에 생성된다. 또한 아래의 디렉티브를 사용해서 두 개의 로그 스트림을 하나의 파일로도 병합 가능하다 (병합될 때는 my_first_job.o1234567 파일에 에러 로그까지 같이 기록된다).
 
 .. code-block:: bash
 
