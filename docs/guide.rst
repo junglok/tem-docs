@@ -15,10 +15,18 @@ Before you use GSDC's service farm, you should send an application form to TEM s
 
 * For Windows users
 
-.. code-block:: bash
+  * using MobaXterm
 
-  $> ssh -Y -o Port=<port> <userID>@tem-ui.sdfarm.kr
-  $> ssh -Y -o Port=<port> <userID>@tem-gpu[01-05].sdfarm.kr
+.. image:: images/mobaxterm_resized.JPG
+
+
+..
+
+  * using Putty with Xwindows manager (e.g., Xming, Xmanager, etc.)
+
+.. image:: images/putty-1_resized.JPG
+
+.. image:: images/putty-2_resized.JPG
 
 
 
