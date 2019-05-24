@@ -6,7 +6,8 @@ Accessing TEM service farm
 ==========================
 Before you use GSDC's service farm, you should send an application form to TEM service manager and obtain an user account (please see the contact information for the application form). If you already have valid user accounts, you can log into UI (user interface) nodes to access/use various kind of cluster resources and software environments (including data analysis tools, e.g., relion, cisTEM, eman, etc.).
 
-* For Linux/Mac users
+For Linux/Mac users
+-------------------
 
 .. code-block:: bash
 
@@ -16,7 +17,8 @@ Before you use GSDC's service farm, you should send an application form to TEM s
 
 -Y (or -X) options : enable trusted X11 (or untrusted X11) forwarding
 
-* For Windows users
+For Windows users
+-----------------
 
   * Using MobaXterm (https://mobaxterm.mobatek.net) :
     MobaXterm is an enhanced terminal for Windows with self-contained X11 server, tabbed SSH client, network tools and much more.
