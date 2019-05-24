@@ -411,8 +411,7 @@ Situations may arise in which you want to delete one of your jobs from the PBS q
   $> qdel 123456
 ..
 
-**Altering a queued job**
-~~~~~~~~~~~~~~~~~~~~~~~~~
+* Altering a queued job
 
 You can alter certain attributes of your job while it’s in the queue using the qalter command. This can be useful if you want to make a change without losing your place in the queue. You cannot make any alterations to the executable portion of the script, nor can you make any changes after the job starts running.
 The options argument consists of one or more PBS directives in the form of command-line options. For example, to change the walltime limit on job 123456 to 5 hours and have email sent when the job ends (only):

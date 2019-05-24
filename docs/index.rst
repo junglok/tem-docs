@@ -12,9 +12,10 @@ Welcome to tem-docs's documentation!
 
    infra.rst
    guide.rst
-   sample usage <usage>
+   relion.rst
    faq.rst
    contact.rst
+   sample usage <usage>
 
 Indices and tables
 ==================
