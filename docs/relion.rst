@@ -81,12 +81,103 @@ How to start Relion data analysis tool
 
 
 .. image:: images/relion-screenshot.png
-    :scale: 70 %
+    :scale: 50 %
     :align: center
-
 
 
 
 Torque batch script for Relion
 ==============================
 
+RELION_QSUB_TEMPLATE variable
+-----------------------------
+Relion defines lots of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper Torque batch job script to interact with Torque-based service farm (already included in the environment modules)
+
+.. code-block:: bash
+
+  (for relion 1.4) RELION_QSUB_TEMPLATE /tem/home/tem/relion-1.4/bin/qsub.bash
+  (for relion 2.1) RELION_QSUB_TEMPLATE /tem/home/tem/relion-2.1/cpu/bin/qsub.bash
+  (for relion 2.1 w/ GPU support) RELION_QSUB_TEMPLATE /tem/home/tem/relion-2.1/bin/qsub.bash
+  (for relion 3.0-beta) RELION_QSUB_TEMPLATE /tem/home/tem/relion3/cpu/bin/qsub.bash
+  (for relion 3.0-beta w/ GPU support) RELION_QSUB_TEMPLATE /tem/home/tem/relion3/gpu/bin/qsub.bash
+
+
+Torque strings defined by Relion
+--------------------------------
+
+.. table:: torque_strings_of_relion
+
+  +----------------------+------------------------+------------------------------------------------------------+
+  | String               | Variable type          | Description                                                |
+  +----------------------+------------------------+------------------------------------------------------------+
+  | **XXXcommandXXX**    | string                 | relion command + arguments                                 |
+  +----------------------+------------------------+------------------------------------------------------------+
+  | **XXXqueueXXX**      | string                 | Name of the queue to submit job to                         |
+  +----------------------+------------------------+------------------------------------------------------------+
+  | **XXXmpinodesXXX**   | integer                | The number of MPI processes to use                         |
+  +----------------------+------------------------+------------------------------------------------------------+
+  | **XXXthreadsXXX**    | integer                | The number of threads to use on each MPI process           |
+  +----------------------+------------------------+------------------------------------------------------------+
+  | **XXXcoresXXX**      | integer                | The number of MPI processes times the number of threads    |
+  +----------------------+------------------------+------------------------------------------------------------+
+  | **XXXdedicatedXXX**  | integer                | The minimum number of cores on each node                   |
+  |                      |                        | (use this to fill entire nodes)                            |
+  +----------------------+------------------------+------------------------------------------------------------+
+  | **XXXnodesXXX**      | integer                | The total number of nodes to be requested                  |
+  +----------------------+------------------------+------------------------------------------------------------+
+  | **XXXextra1XXX**     | string                 | Installation-specific                                      |
+  +----------------------+------------------------+------------------------------------------------------------+
+  | **XXXextra2XXX**     | string                 | Installation-specific                                      |
+  +----------------------+------------------------+------------------------------------------------------------+
+
+
+Job script template
+-------------------
+
+
+.. code-block:: bash
+
+  #!/bin/bash
+
+  ### Inherit all current environment variables
+  #PBS -V
+
+  ### Job name
+  #PBS -N XXXnameXXX
+
+  ### Queue name
+  #PBS -q XXXqueueXXX
+
+  ### Specify the number of nodes and thread (ppn) for your job.
+  #PBS -l nodes=XXXmpinodesXXX:ppn=XXXthreadsXXX
+
+  ###########################################################
+  ### Print Environment Variables
+  ###########################################################
+  echo ------------------------------------------------------
+  echo -n 'Job is running on node '; cat $PBS_NODEFILE
+  echo ------------------------------------------------------
+  echo PBS: qsub is running on $PBS_O_HOST
+  echo PBS: originating queue is $PBS_O_QUEUE
+  echo PBS: executing queue is $PBS_QUEUE
+  echo PBS: working directory is $PBS_O_WORKDIR
+  echo PBS: execution mode is $PBS_ENVIRONMENT
+  echo PBS: job identifier is $PBS_JOBID
+  echo PBS: job name is $PBS_JOBNAME
+  echo PBS: node file is $PBS_NODEFILE
+  echo PBS: current home directory is $PBS_O_HOME
+  echo PBS: PATH = $PBS_O_PATH
+  echo PBS: PBS_GPUFILE=$PBS_GPUFILE
+  echo PBS: CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES
+  echo ------------------------------------------------------
+
+  ###########################################################
+  # Switch to the working directory;
+  cd $PBS_O_WORKDIR
+  ###########################################################
+
+  ### Run:
+  module load mpi/gcc/openmpi/1.6.5
+  mpirun --prefix /tem/home/tem/openmpi-1.6.5 -machinefile $PBS_NODEFILE XXXcommandXXX
+
+  echo "Done!"
