@@ -8,6 +8,8 @@ Cryo-EM instrumentations are operated by KBSI. Cryo-EM facilities are directly c
 * Overall architecture between KBSI's Cryo-EM facilities and GSDC's TEM service farm
 
 .. image:: images/tem_service_farm.jpg
+    :scale: 60 %
+    :align: center
 
 Computing and storage resources
 ===============================
