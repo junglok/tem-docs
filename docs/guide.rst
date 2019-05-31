@@ -184,7 +184,7 @@ Resources manager and job scheduler
 Directives in Torque job scripts
 --------------------------------
 
-Torque defines some useful directives which can be used to describe job's resources requirements. Users must include those directives in job scripts to submit and execute jobs.
+Torque defines some useful directives (starting with \'#PBS\') which can be used to describe job's resources requirements. Users must include those directives in job scripts to submit and execute jobs.
 The order of directives is not important, but the directives must be written prior to job execution commands.
 
 **Resource limits**
@@ -221,6 +221,8 @@ The "-l" option is used to request resources, including nodes, memory, time, etc
   To request 20 hours of wall clock time:
   #PBS -l walltime=20:00:00
 
+If a computational job will have not finished until the specified wall clock time, Torque (or maui scheduler) will release the resources that are allocated to the job and stop the runnning.
+If you don't define walltime, the default value is "infinite".
 
 * Memory
 
@@ -239,6 +241,8 @@ The "-l" option is used to request resources, including nodes, memory, time, etc
 **Job name**
 ~~~~~~~~~~~~
 
+You can define a job name using "-N" option. If you omit this directive, the default job name is the same as the file name of job script.
+
 .. code-block:: bash
 
   #PBS -N my_first_job
@@ -247,6 +251,8 @@ The "-l" option is used to request resources, including nodes, memory, time, etc
 **Queue name**
 ~~~~~~~~~~~~~~
 
+In general, a "queue" can be thought of a mapped set of computing resources. You can speficy a queue name (using "-q" option) which the job is enqueued to. 
+
 .. code-block:: bash
 
   #PBS -q tem
@@ -254,6 +260,7 @@ The "-l" option is used to request resources, including nodes, memory, time, etc
 
 **Job log files**
 ~~~~~~~~~~~~~~~~~
+When Torque executes an user's job, Torque creates 2 different types of log files (standard output stream and standart error stream) by default. If the job's name is "my_first_job" and the submitted job ID is "123456", you can find 2 files (my_first_job.o123456 and my_first_job.e123456) that are created in the job execution base directory. You can also merge the two streams into one file using "-j oe" option. In that case, my_first_job.o1234567 file contains the standard error stream.
 
 .. code-block:: bash
 
