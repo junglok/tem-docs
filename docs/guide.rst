@@ -221,7 +221,7 @@ The "-l" option is used to request resources, including nodes, memory, time, etc
   To request 20 hours of wall clock time:
   #PBS -l walltime=20:00:00
 
-If a computational job will have not finished until the specified wall clock time, Torque (or maui scheduler) will release the resources that are allocated to the job and stop the runnning.
+If a computational job will have not finished yet until the specified wall clock time, Torque (or maui scheduler) will release the resources that are allocated to the job and stop the job's runnning.
 If you don't define walltime, the default value is "infinite".
 
 * Memory
@@ -251,7 +251,7 @@ You can define a job name using "-N" option. If you omit this directive, the def
 **Queue name**
 ~~~~~~~~~~~~~~
 
-In general, a "queue" can be thought of a mapped set of computing resources. You can speficy a queue name (using "-q" option) which the job is enqueued to. 
+In general, a "queue" can be thought of a mapped set of computing resources. You can specify a queue name (using "-q" option) which the job is enqueued to. 
 
 .. code-block:: bash
 
