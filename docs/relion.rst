@@ -89,8 +89,8 @@ How to start Relion data analysis tool
 
 
 
-Batch script for CPUs cluster
-=============================
+Using CPU cluster
+=================
 
 RELION_QSUB_TEMPLATE variable
 -----------------------------
@@ -100,9 +100,7 @@ Relion defines lots of environment variables that can be used to execute differe
 
   (for relion 1.4) RELION_QSUB_TEMPLATE /tem/home/tem/relion-1.4/bin/qsub.bash
   (for relion 2.1) RELION_QSUB_TEMPLATE /tem/home/tem/relion-2.1/cpu/bin/qsub.bash
-  (for relion 2.1 w/ GPU support) RELION_QSUB_TEMPLATE /tem/home/tem/relion-2.1/gpu/bin/qsub.bash
   (for relion 3.0-beta) RELION_QSUB_TEMPLATE /tem/home/tem/relion3/cpu/bin/qsub.bash
-  (for relion 3.0-beta w/ GPU support) RELION_QSUB_TEMPLATE /tem/home/tem/relion3/gpu/bin/qsub.bash
 
 
 Torque strings defined by Relion
@@ -183,13 +181,22 @@ Job script template (for CPU use)
   echo "Done!"
 
 
-Batch job script for GPU cluster
-================================
+Using GPGPU cluster
+===================
 
-In Relion, by default, the XXXextra1XXX, XXXextra2XXX, ... variables are not used. They provide additional flexibility for queueing systems that require additional variables. They may be activated by first setting RELION_QSUB_EXTRA_COUNT to the number of fields you need (e.g. 3) and then setting the RELION_QSUB_EXTRA1, RELION_QSUB_EXTRA2, RELION_QSUB_EXTRA3 ... environment variables, respectively. 
+Relion defines lots of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper Torque batch job script to interact with Torque-based service farm (already included in the environment modules)
+
+.. code-block:: bash
+
+  (for relion 2.1 w/ GPU support) RELION_QSUB_TEMPLATE /tem/home/tem/relion-2.1/gpu/bin/qsub.bash
+  (for relion 3.0-beta w/ GPU support) RELION_QSUB_TEMPLATE /tem/home/tem/relion3/gpu/bin/qsub.bash
+
+
+Relion, by default, does not use the XXXextra1XXX, XXXextra2XXX, ... variables. They provide additional flexibility for queueing systems (like Torque)  that require additional variables. They may be activated by first setting RELION_QSUB_EXTRA_COUNT to the number of fields you need (e.g. 3) and then setting the RELION_QSUB_EXTRA1, RELION_QSUB_EXTRA2, RELION_QSUB_EXTRA3 ... environment variables, respectively.
 This will result in extra input fields in the GUI, with the label text being equal to the value of the environment variable. Likewise, their default values (upon starting the GUI) can be set through environment variables RELION_QSUB_EXTRA1_DEFAULT, RELION_QSUB_EXTRA2_DEFAULT, etc and their help messages can be set through environmental variables RELION_QSUB_EXTRA1_HELP, RELION_QSUB_EXTRA2_HELP and so on.
 
-We enable above additional flexibility by setting RELION_QSUB_EXTRA_COUNT to 3, which aims to describe "Number of Nodes", "Number of processes per each node", and "Number of GPUs per node". All these values can be accessed by XXXextra1, XXXextra2XXX, XXXextra3XXX in the batch job script template.
+We have enabled above additional flexibility by setting RELION_QSUB_EXTRA_COUNT to 3, where each option describes "Number of Nodes", "Number of processes per each node", and "Number of GPUs per node", respectively. All these values can be accessed by XXXextra1, XXXextra2XXX, XXXextra3XXX in the batch job script template.
+
 
 .. code-block:: bash
 
@@ -200,6 +207,11 @@ We enable above additional flexibility by setting RELION_QSUB_EXTRA_COUNT to 3, 
   setenv RELION_QSUB_EXTRA1_DEFAULT 2
   setenv RELION_QSUB_EXTRA2_DEFAULT 2
   setenv RELION_QSUB_EXTRA3_DEFAULT 2
+
+
+.. image:: images/relion-script-description.png
+    :scale: 70 %
+    :align: center
 
 
 .. code-block:: bash
@@ -215,7 +227,8 @@ We enable above additional flexibility by setting RELION_QSUB_EXTRA_COUNT to 3, 
   ### Queue name
   #PBS -q XXXqueueXXX
 
-  ### GPU use : Specify the number of nodes (XXXextra1XXX), the number of processes per each node (XXXextra2XXX), and the number of GPGPUs per node (XXXextra3XXX)
+  ### GPU use :
+  ### Specify the number of nodes (XXXextra1XXX), the number of processes per each node (XXXextra2XXX), and the number of GPGPUs per node (XXXextra3XXX)
   #PBS -l nodes=XXXextra1XXX:ppn=XXXextra2XXX:gpus=XXXextra3XXX
 
   #PBS -o ${PBS_JOBNAME}/run.out
@@ -250,7 +263,7 @@ We enable above additional flexibility by setting RELION_QSUB_EXTRA_COUNT to 3, 
   ###########################################################
 
   ### Run:
-  module load apps/gcc/4.4.7/relion/cuda92/3.0-beta
+  module load [relion_module_path]
   mpirun --prefix /tem/home/tem/openmpi-1.6.5 -machinefile $PBS_NODEFILE XXXcommandXXX
 
   echo "Done!"
