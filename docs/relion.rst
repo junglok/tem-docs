@@ -34,6 +34,7 @@ How to start Relion data analysis tool
 .. code-block:: bash
 
   $> module show apps/gcc/4.4.7/relion/gpu/2.1
+
   -------------------------------------------------------------------
   /tem/home/tem/Modules/Modules/default/modulefiles/apps/gcc/4.4.7/relion/gpu/2.1:
 
@@ -41,13 +42,13 @@ How to start Relion data analysis tool
   module           load mpi/gcc/openmpi/1.6.5
   module           load cuda/8.0
   setenv           relion_version 2.1
-  prepend-path     PATH /tem/home/tem/relion-2.1/bin
-  prepend-path     LD_LIBRARY_PATH /tem/lib/glibc-2.14/lib:/tem/home/tem/relion-2.1/lib
+  prepend-path     PATH /tem/home/tem/relion-2.1/gpu/bin
+  prepend-path     LD_LIBRARY_PATH /tem/home/tem/relion-2.1/gpu/lib
   setenv           RELION_QUEUE_NAME tem
   setenv           RELION_MPI_MAX 11
   setenv           RELION_THREAD_MAX 28
   setenv           RELION_QSUB_COMMAND qsub
-  setenv           RELION_QSUB_TEMPLATE /tem/home/tem/relion-2.1/bin/qsub.bash
+  setenv           RELION_QSUB_TEMPLATE /tem/home/tem/relion-2.1/gpu/bin/qsub.bash
   setenv           RELION_CTFFIND_EXECUTABLE /tem/home/tem/ctffind-4.1.8/bin/ctffind
   setenv           RELION_GCTF_EXECUTABLE /tem/home/tem/Gctf_v1.06/bin/Gctf-v1.06_sm_20_cu8.0_x86_64
   setenv           RELION_RESMAP_EXECUTABLE /tem/home/tem/relion-1.4/ResMap/ResMap-1.1.4-linux64
@@ -88,8 +89,8 @@ How to start Relion data analysis tool
 
 
 
-Torque batch script for Relion
-==============================
+Batch script for CPUs cluster
+=============================
 
 RELION_QSUB_TEMPLATE variable
 -----------------------------
@@ -99,7 +100,7 @@ Relion defines lots of environment variables that can be used to execute differe
 
   (for relion 1.4) RELION_QSUB_TEMPLATE /tem/home/tem/relion-1.4/bin/qsub.bash
   (for relion 2.1) RELION_QSUB_TEMPLATE /tem/home/tem/relion-2.1/cpu/bin/qsub.bash
-  (for relion 2.1 w/ GPU support) RELION_QSUB_TEMPLATE /tem/home/tem/relion-2.1/bin/qsub.bash
+  (for relion 2.1 w/ GPU support) RELION_QSUB_TEMPLATE /tem/home/tem/relion-2.1/gpu/bin/qsub.bash
   (for relion 3.0-beta) RELION_QSUB_TEMPLATE /tem/home/tem/relion3/cpu/bin/qsub.bash
   (for relion 3.0-beta w/ GPU support) RELION_QSUB_TEMPLATE /tem/home/tem/relion3/gpu/bin/qsub.bash
 
@@ -133,9 +134,8 @@ Torque strings defined by Relion
   +----------------------+------------------------+------------------------------------------------------------+
 
 
-Job script template
--------------------
-
+Job script template (for CPU use)
+---------------------------------
 
 .. code-block:: bash
 
@@ -169,8 +169,6 @@ Job script template
   echo PBS: node file is $PBS_NODEFILE
   echo PBS: current home directory is $PBS_O_HOME
   echo PBS: PATH = $PBS_O_PATH
-  echo PBS: PBS_GPUFILE=$PBS_GPUFILE
-  echo PBS: CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES
   echo ------------------------------------------------------
 
   ###########################################################
@@ -183,3 +181,77 @@ Job script template
   mpirun --prefix /tem/home/tem/openmpi-1.6.5 -machinefile $PBS_NODEFILE XXXcommandXXX
 
   echo "Done!"
+
+
+Batch job script for GPU cluster
+================================
+
+In Relion, by default, the XXXextra1XXX, XXXextra2XXX, ... variables are not used. They provide additional flexibility for queueing systems that require additional variables. They may be activated by first setting RELION_QSUB_EXTRA_COUNT to the number of fields you need (e.g. 3) and then setting the RELION_QSUB_EXTRA1, RELION_QSUB_EXTRA2, RELION_QSUB_EXTRA3 ... environment variables, respectively. 
+This will result in extra input fields in the GUI, with the label text being equal to the value of the environment variable. Likewise, their default values (upon starting the GUI) can be set through environment variables RELION_QSUB_EXTRA1_DEFAULT, RELION_QSUB_EXTRA2_DEFAULT, etc and their help messages can be set through environmental variables RELION_QSUB_EXTRA1_HELP, RELION_QSUB_EXTRA2_HELP and so on.
+
+We enable above additional flexibility by setting RELION_QSUB_EXTRA_COUNT to 3, which aims to describe "Number of Nodes", "Number of processes per each node", and "Number of GPUs per node". All these values can be accessed by XXXextra1, XXXextra2XXX, XXXextra3XXX in the batch job script template.
+
+.. code-block:: bash
+
+  setenv RELION_QSUB_EXTRA_COUNT 3
+  setenv RELION_QSUB_EXTRA1 "Number of Nodes"
+  setenv RELION_QSUB_EXTRA2 "Number of processes per each node"
+  setenv RELION_QSUB_EXTRA3 "Number of GPUs per node"
+  setenv RELION_QSUB_EXTRA1_DEFAULT 2
+  setenv RELION_QSUB_EXTRA2_DEFAULT 2
+  setenv RELION_QSUB_EXTRA3_DEFAULT 2
+
+
+.. code-block:: bash
+
+  #!/bin/bash
+
+  ### Inherit all current environment variables
+  #PBS -V
+
+  ### Job name
+  #PBS -N XXXnameXXX
+
+  ### Queue name
+  #PBS -q XXXqueueXXX
+
+  ### GPU use : Specify the number of nodes (XXXextra1XXX), the number of processes per each node (XXXextra2XXX), and the number of GPGPUs per node (XXXextra3XXX)
+  #PBS -l nodes=XXXextra1XXX:ppn=XXXextra2XXX:gpus=XXXextra3XXX
+
+  #PBS -o ${PBS_JOBNAME}/run.out
+  #PBS -e ${PBS_JOBNAME}/run.err
+
+  ###########################################################
+  ### Print Environment Variables
+  ###########################################################
+  echo ------------------------------------------------------
+  echo -n 'Job is running on node '; cat $PBS_NODEFILE
+  echo ------------------------------------------------------
+  echo PBS: qsub is running on $PBS_O_HOST
+  echo PBS: originating queue is $PBS_O_QUEUE
+  echo PBS: executing queue is $PBS_QUEUE
+  echo PBS: working directory is $PBS_O_WORKDIR
+  echo PBS: execution mode is $PBS_ENVIRONMENT
+  echo PBS: job identifier is $PBS_JOBID
+  echo PBS: job name is $PBS_JOBNAME
+  echo PBS: node file is $PBS_NODEFILE
+  echo PBS: current home directory is $PBS_O_HOME
+  echo PBS: PATH = $PBS_O_PATH
+  echo PBS: PBS_GPUFILE=$PBS_GPUFILE
+  echo PBS: CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES
+  echo ------------------------------------------------------
+
+  ###########################################################
+  # Switch to the working directory;
+  cd ${PBS_O_WORKDIR}/${PBS_JOBNAME}
+  touch run.out
+  touch run.err
+  cd $PBS_O_WORKDIR
+  ###########################################################
+
+  ### Run:
+  module load apps/gcc/4.4.7/relion/cuda92/3.0-beta
+  mpirun --prefix /tem/home/tem/openmpi-1.6.5 -machinefile $PBS_NODEFILE XXXcommandXXX
+
+  echo "Done!"
+
