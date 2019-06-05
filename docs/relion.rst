@@ -287,3 +287,45 @@ Unlike CPU cluster, we have set the RELION_QSUB_EXTRA_COUNT to 3 for the use of 
 
   echo "Done!"
 
+
+Specifying which GPUs to use
+----------------------------
+
+Here, we describe more advanced syntax for restricting RELION processes to certain GPUs on multi-GPU setups. You can use an argument to the --gpu option to provide a list of device-indices. The syntax is then to delimit ranks with colons [:], and threads by commas [,]. Any GPU indices provided is taken to be a list which is repeated if shorter than the total number of GPUs. By extension, the following rules applies
+
+If a GPU id is specified more than once for a single mpi-rank, that GPU will be assigned proprotionally more of the threads of that rank.
+If no colons are used (i.e. GPUs are only specified for a single rank), then the GPUs specified, apply to all ranks.
+If GPUs are specified for more than one rank but not for all ranks, the unrestricted ranks are assigned the same GPUs as the restricted ranks, by a modulo rule.
+For example, if you would only want to use two of the four GPUs for all mpi-ranks, because you want to leave another two free for a different user/job, then (by the above rule 2) you can specify
+
+.. code-block:: bash
+
+  mpirun -n 3 ‘which relion_refine_mpi‘ --gpu 2:3
+  slave 1 is told to use GPU2. slave 2 is told to use GPU3.
+
+If you want an even spread over ALL GPUs, then you should not specify selection indices, as RELION will handle this itself. On your hypothetical 4-GPU machine, you would simply say
+
+.. code-block:: bash
+
+  mpirun -n 3 ‘which relion_refine_mpi‘ --gpu
+  ## slave 1 will use GPU0 and GPU1 for its threads. slave 2 will use GPU2 and GPU3 for its threads
+
+
+One can also schedule individual threads from MPI processes on the GPUs. This would be most useful when available RAM would be a limitation. Then one could for example run 3 MPI processes, each of which spawn a number of threads on two of the cards each, as follows:
+
+.. code-block:: bash
+
+  mpirun -n 3 ‘which relion_refine_mpi‘ --j 4 --gpu 0,1,1,2:3
+  ## slave 1 is told to put thread 1 on GPU0, threads 2 and 3 on GPU1, and thread 4 on GPU2.  slave 2 is told to put all 4 threads on GPU3.
+
+
+Finally, for completeness, the following is a more complex example to illustrate the full functionality of the GPU-device specification options.
+
+.. code-block:: bash
+
+  mpirun -n 4 ... -j 3 --gpu 2:2:1,3
+  ## slave 1 w/ 3 threads on GPU2, slave 2 w/ 3 threads on GPU2, slave 3 distributes 3 threads as evenly as possible across GPU1 and GPU3.
+
+
+
+For more information, please refer to Relion Benchmarks and computer hardware (https://www3.mrc-lmb.cam.ac.uk/relion/index.php/Benchmarks_%26_computer_hardware)
