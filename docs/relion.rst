@@ -291,6 +291,11 @@ Unlike CPU cluster, we have set the RELION_QSUB_EXTRA_COUNT to 3 for the use of 
 Specifying which GPUs to use
 ----------------------------
 
+.. image:: images/relion-gpu-node-allocation.png
+    :scale: 70 %
+    :align: center
+
+
 Here, we describe more advanced syntax for restricting RELION processes to certain GPUs on multi-GPU setups. You can use an argument to the --gpu option to provide a list of device-indices. The syntax is then to delimit ranks with colons [:], and threads by commas [,]. Any GPU indices provided is taken to be a list which is repeated if shorter than the total number of GPUs. By extension, the following rules applies
 
 If a GPU id is specified more than once for a single mpi-rank, that GPU will be assigned proprotionally more of the threads of that rank.
