@@ -203,6 +203,9 @@ Job script template (for CPU use)
 Using GPGPU cluster
 ===================
 
+Job script template (for GPGPU use)
+-----------------------------------
+
 Relion defines lots of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper Torque batch job script to submit jobs to Torque-based service farm.
 
 .. code-block:: bash
