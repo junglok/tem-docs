@@ -94,7 +94,7 @@ Using CPU cluster
 
 RELION_QSUB_TEMPLATE variable
 -----------------------------
-Relion defines lots of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper Torque batch job script to interact with Torque-based service farm (already included in the environment modules)
+Relion defines lots of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper Torque batch job script to submit jobs to Torque-based service farm.
 
 .. code-block:: bash
 
@@ -131,6 +131,19 @@ Torque strings defined by Relion
   | **XXXextra2XXX**     | string                 | Installation-specific                                      |
   +----------------------+------------------------+------------------------------------------------------------+
 
+Relion, by default, does not use the XXXextra1XXX, XXXextra2XXX, ... variables. They provide additional flexibility for queueing systems (like Torque)  that require additional variables. They may be activated by first setting RELION_QSUB_EXTRA_COUNT to the number of fields you need (e.g. 3) and then setting the RELION_QSUB_EXTRA1, RELION_QSUB_EXTRA2, RELION_QSUB_EXTRA3 ... environment variables, respectively.
+This will result in extra input fields in the GUI, with the label text being equal to the value of the environment variable. Likewise, their default values (upon starting the GUI) can be set through environment variables RELION_QSUB_EXTRA1_DEFAULT, RELION_QSUB_EXTRA2_DEFAULT, etc and their help messages can be set through environmental variables RELION_QSUB_EXTRA1_HELP, RELION_QSUB_EXTRA2_HELP and so on.
+
+For the use of CPU cluster, we have set the RELION_QSUB_EXTRA_COUNT to 2. Two extra options describe "Number of Nodes" and "Number of processes per each node", respectively. These values can be referred by XXXextra1, XXXextra2XXX in the following batch job script template.
+
+.. code-block:: bash
+
+  setenv RELION_QSUB_EXTRA_COUNT 2
+  setenv RELION_QSUB_EXTRA1 "Number of Nodes"
+  setenv RELION_QSUB_EXTRA2 "Number of processes per each node"
+  setenv RELION_QSUB_EXTRA1_DEFAULT 1
+  setenv RELION_QSUB_EXTRA2_DEFAULT 3
+
 
 Job script template (for CPU use)
 ---------------------------------
@@ -148,8 +161,11 @@ Job script template (for CPU use)
   ### Queue name
   #PBS -q XXXqueueXXX
 
-  ### Specify the number of nodes and thread (ppn) for your job.
-  #PBS -l nodes=XXXmpinodesXXX:ppn=XXXthreadsXXX
+  ### CPU cluster use : Specify the number of nodes (XXXextra1XXX) and the number of processes per each node (XXXextra2XXX)
+  #PBS -l nodes=XXXextra1XXX:ppn=XXXextra2XXX
+
+  #PBS -o ${PBS_JOBNAME}/run.out
+  #PBS -e ${PBS_JOBNAME}/run.err
 
   ###########################################################
   ### Print Environment Variables
@@ -171,6 +187,9 @@ Job script template (for CPU use)
 
   ###########################################################
   # Switch to the working directory;
+  cd ${PBS_O_WORKDIR}/${PBS_JOBNAME}
+  touch run.out
+  touch run.err
   cd $PBS_O_WORKDIR
   ###########################################################
 
@@ -184,7 +203,7 @@ Job script template (for CPU use)
 Using GPGPU cluster
 ===================
 
-Relion defines lots of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper Torque batch job script to interact with Torque-based service farm (already included in the environment modules)
+Relion defines lots of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper Torque batch job script to submit jobs to Torque-based service farm.
 
 .. code-block:: bash
 
@@ -192,10 +211,7 @@ Relion defines lots of environment variables that can be used to execute differe
   (for relion 3.0-beta w/ GPU support) RELION_QSUB_TEMPLATE /tem/home/tem/relion3/gpu/bin/qsub.bash
 
 
-Relion, by default, does not use the XXXextra1XXX, XXXextra2XXX, ... variables. They provide additional flexibility for queueing systems (like Torque)  that require additional variables. They may be activated by first setting RELION_QSUB_EXTRA_COUNT to the number of fields you need (e.g. 3) and then setting the RELION_QSUB_EXTRA1, RELION_QSUB_EXTRA2, RELION_QSUB_EXTRA3 ... environment variables, respectively.
-This will result in extra input fields in the GUI, with the label text being equal to the value of the environment variable. Likewise, their default values (upon starting the GUI) can be set through environment variables RELION_QSUB_EXTRA1_DEFAULT, RELION_QSUB_EXTRA2_DEFAULT, etc and their help messages can be set through environmental variables RELION_QSUB_EXTRA1_HELP, RELION_QSUB_EXTRA2_HELP and so on.
-
-We have enabled above additional flexibility by setting RELION_QSUB_EXTRA_COUNT to 3, where each option describes "Number of Nodes", "Number of processes per each node", and "Number of GPUs per node", respectively. All these values can be accessed by XXXextra1, XXXextra2XXX, XXXextra3XXX in the batch job script template.
+Unlike CPU cluster, we have set the RELION_QSUB_EXTRA_COUNT to 3 for the use of GPGPU cluster, where each extra option describes "Number of Nodes", "Number of processes per each node", and "Number of GPUs per node", respectively. All these values can be accessed by XXXextra1, XXXextra2XXX, XXXextra3XXX in the batch job script template.
 
 
 .. code-block:: bash
@@ -204,8 +220,8 @@ We have enabled above additional flexibility by setting RELION_QSUB_EXTRA_COUNT 
   setenv RELION_QSUB_EXTRA1 "Number of Nodes"
   setenv RELION_QSUB_EXTRA2 "Number of processes per each node"
   setenv RELION_QSUB_EXTRA3 "Number of GPUs per node"
-  setenv RELION_QSUB_EXTRA1_DEFAULT 2
-  setenv RELION_QSUB_EXTRA2_DEFAULT 2
+  setenv RELION_QSUB_EXTRA1_DEFAULT 1
+  setenv RELION_QSUB_EXTRA2_DEFAULT 3
   setenv RELION_QSUB_EXTRA3_DEFAULT 2
 
 
