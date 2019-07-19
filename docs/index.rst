@@ -13,13 +13,10 @@ Welcome to tem-docs's documentation!
    infra.rst
    guide.rst
    relion.rst
-   crYOLO.rst
    cisTEM.rst
    cryoSPARC.rst
-   eman.rst
    faq.rst
    contact.rst
-   sample usage <usage>
 
 Indices and tables
 ==================

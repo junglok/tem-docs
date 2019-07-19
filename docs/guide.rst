@@ -1,10 +1,10 @@
-********************
-TEM service farm 101
-********************
+***************
+TEM farm basics
+***************
 
 Accessing TEM service farm
 ==========================
-Before you use GSDC's service farm, you should send an application form to TEM service manager and obtain an user account (please see the contact information for the application form). If you already have valid user accounts, you can log into UI (user interface) nodes to access/use various kind of cluster resources and software environments (including data analysis tools, e.g., relion, cisTEM, eman, etc.).
+Before you use GSDC's service farm, you should send an application form to TEM service manager and get an user account to access the farm (please see the contact information for the application form). If you already have valid user accounts, you can log into UI (user interface) nodes to access/use various kind of cluster resources and software environments (including data analysis tools, e.g., relion, cisTEM, eman, etc.).
 
 For Linux/Mac users
 -------------------
@@ -12,8 +12,6 @@ For Linux/Mac users
 .. code-block:: bash
 
   $> ssh -Y -o Port=<port> <userID>@tem-ui.sdfarm.kr
-  $> ssh -Y -o Port=<port> <userID>@tem-gpu[01-05].sdfarm.kr
-
 
 -Y (or -X) options : enable trusted X11 (or untrusted X11) forwarding
 
@@ -51,42 +49,43 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
 .. code-block:: bash
 
   $> module avail
-  -------------- /tem/home/tem/Modules/Modules/default/modulefiles --------------------
-  apps/gcc/4.4.7/anaconda/5.2           apps/gcc/4.4.7/relion/cuda92/3.0-beta
-  apps/gcc/4.4.7/chimera/1.13           apps/gcc/4.4.7/relion/gpu/2.1
-  apps/gcc/4.4.7/cistem/1.0.0           apps/gcc/4.4.7/relion/gpu/3.0-beta
-  apps/gcc/4.4.7/eman/2.1               cuda/8.0
-  apps/gcc/4.4.7/phenix/1.13-2998       cuda/9.2
-  apps/gcc/4.4.7/relion/cpu/1.4         dot
-  apps/gcc/4.4.7/relion/cpu/2.1         modules
-  apps/gcc/4.4.7/relion/cpu/3.0-beta    mpi/gcc/openmpi/1.6.5
-  apps/gcc/4.4.7/relion/cuda92/2.1
-
+  ----------- /tem/home/tem/Modules/Modules/default/modulefiles ------------
+  apps/gcc/4.4.7/cistem/1.0.0     cuda/9.2
+  apps/gcc/4.4.7/relion/cpu/3.0.7 modules
+  apps/gcc/4.4.7/relion/gpu/3.0.7 mpi/gcc/openmpi/1.8.8
 
 * **Show module details**
 
 .. code-block:: bash
 
-  $> module show apps/gcc/4.4.7/relion/cpu/3.0-beta
+  $> module show apps/gcc/4.4.7/relion/gpu/3.0.7
   -------------------------------------------------------------------
-  /tem/home/tem/Modules/Modules/default/modulefiles/apps/gcc/4.4.7/relion/cpu/3.0-beta:
+  /tem/home/tem/Modules/Modules/default/modulefiles/apps/gcc/4.4.7/relion/gpu/3.0.7:
 
-  module-whatis    Setups `relion-3.0-beta-cpu' environment variables
-  module           load mpi/gcc/openmpi/1.6.5
-  setenv           relion_version 3.0-beta-cpu
-  prepend-path     PATH /tem/home/tem/relion3/cpu/bin
-  prepend-path     LD_LIBRARY_PATH /tem/home/tem/relion3/cpu/lib
-  setenv          RELION_QUEUE_NAME tem
-  setenv          RELION_MPI_MAX 11
-  setenv          RELION_THREAD_MAX 28
-  setenv          RELION_QSUB_COMMAND qsub
-  setenv          RELION_QSUB_TEMPLATE /tem/home/tem/relion3/cpu/bin/qsub.csh
-  setenv          RELION_CTFFIND_EXECUTABLE /tem/home/tem/ctffind-4.1.8/bin/ctffind
-  setenv          RELION_RESMAP_EXECUTABLE /tem/home/tem/relion-1.4/ResMap/ResMap-1.1.4-linux64
-  setenv          RELION_MOTIONCORR_EXECUTABLE /tem/home/tem/MotionCor2/MotionCor2-01-30-2017
-  setenv          RELION_UNBLUR_EXECUTABLE /tem/home/tem/unblur_1.0.2/bin/unblur_openmp_7_17_15.exe
-  setenv          RELION_SUMMOVIE_EXECUTABLE /tem/home/tem/summovie_1.0.2/bin/sum_movie_openmp_7_17_15.exe
-  conflict        apps/gcc/4.4.7/relion
+  module-whatis    Setups `relion-3.0.7' environment variables
+  module           load mpi/gcc/openmpi/1.8.8
+  module           load cuda/9.2
+  setenv           relion_version 3.0.7
+  prepend-path     PATH /tem/home/tem/_Applications/relion-3.0.7/gpu/bin
+  prepend-path     LD_LIBRARY_PATH /tem/home/tem/_Applications/relion-3.0.7/gpu/lib
+  setenv           LANG en_US.UTF-8
+  setenv           RELION_QUEUE_NAME tem
+  setenv           RELION_QSUB_COMMAND qsub
+  setenv           RELION_QSUB_TEMPLATE /tem/home/tem/_Applications/relion-3.0.7/gpu/bin/qsub.bash
+  setenv           RELION_QSUB_EXTRA_COUNT 3
+  setenv           RELION_QSUB_EXTRA1 Number of Nodes
+  setenv           RELION_QSUB_EXTRA2 Number of processes per each node
+  setenv           RELION_QSUB_EXTRA3 Number of GPUs per node
+  setenv           RELION_QSUB_EXTRA1_DEFAULT 2
+  setenv           RELION_QSUB_EXTRA2_DEFAULT 2
+  setenv           RELION_QSUB_EXTRA3_DEFAULT 2
+  setenv           RELION_CTFFIND_EXECUTABLE /tem/home/tem/_Applications/ctffind-4.1.13/bin/ctffind
+  setenv           RELION_GCTF_EXECUTABLE /tem/home/tem/_Applications/Gctf_v1.18_b2/bin/Gctf_v1.18_b2_sm60_cu9.2
+  setenv           RELION_RESMAP_EXECUTABLE /tem/home/tem/_Applications/ResMap-1.1.4/ResMap-1.1.4-linux64
+  setenv           RELION_MOTIONCORR_EXECUTABLE /tem/home/tem/_Applications/MotionCor2/MotionCor2_1.2.6-Cuda92
+  setenv           RELION_UNBLUR_EXECUTABLE /tem/home/tem/_Applications/unblur_1.0.2/bin/unblur_openmp_7_17_15.exe
+  setenv           RELION_SUMMOVIE_EXECUTABLE /tem/home/tem/_Applications/summovie_1.0.2/bin/sum_movie_openmp_7_17_15.exe
+  conflict         apps/gcc/4.4.7/relion
   -------------------------------------------------------------------
 
 * **Loading modules**
@@ -96,16 +95,17 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   $> module load <module_path>
   or
   $> module add <module_path>
-  e.g., $> module load apps/gcc/4.4.7/relion/cpu/3.0-beta
+  e.g., $> module load apps/gcc/4.4.7/relion/gpu/3.0.7
 
 
 * **Listing loaded modules**
 
 .. code-block:: bash
 
+  $> module load apps/gcc/4.4.7/relion/gpu/3.0.7
   $> module list
   Currently Loaded Modulefiles:
-    1) mpi/gcc/openmpi/1.6.5                2) apps/gcc/4.4.7/relion/cpu/3.0-beta
+  1) cuda/9.2                          2) mpi/gcc/openmpi/1.8.8             3) apps/gcc/4.4.7/relion/gpu/3.0.7
 
 
 * **Unloading modules**
@@ -115,7 +115,7 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   $> module unload <module_path>
   or
   $> module rm <module_path>
-  e.g., $> module unload apps/gcc/4.4.7/relion/cpu/3.0-beta
+  e.g., $> module unload apps/gcc/4.4.7/relion/gpu/3.0.7
 
 
 * **Unloading all the modules**
@@ -177,8 +177,8 @@ Job manager (Torque)
 Resources manager and job scheduler
 -----------------------------------
 
-* Resource manager : Torque(OpenPBS) v2.5.7
-* Job scheduler : Maui v3.3.1
+* Resource manager : Torque(OpenPBS) v6.1.2
+* Job scheduler : Torque default FIFO job scheduler
 
 
 Directives in Torque job scripts
@@ -299,7 +299,7 @@ Torque job script examples
   ./a.out > my_results
 
 
-**Simple parallel job**
+**Simple MPI parallel job**
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Here is an example of an MPI job that uses 4 nodes with 4 cores each, running one process per core (16 processes total).
@@ -311,7 +311,7 @@ Here is an example of an MPI job that uses 4 nodes with 4 cores each, running on
   #PBS -l nodes=4:ppn=4
   #PBS -q tem
 
-  module load mpi/gcc/openmpi/1.6.5
+  module load mpi/gcc/openmpi/1.8.8
   cd $PBS_O_WORKDIR
   mpirun -machinefile $PBS_NODEFILE ./a.out
 
@@ -328,7 +328,7 @@ This example is a hybrid MPI/OpenMP job. It runs one MPI process per node with 2
   #PBS -l nodes=4:ppn=28
   #PBS -q tem
 
-  module load mpi/gcc/openmpi/1.6.5
+  module load mpi/gcc/openmpi/1.8.8
   export OMP_NUM_THREADS=28
   cd $PBS_O_WORKDIR
   mpirun --bynode -machinefile $PBS_NODEFILE ./a.out
@@ -376,38 +376,6 @@ Use the qstat command to check the status of your jobs. You can see whether your
   $> qstat -f 123456
 
 ..
-
-* showq
-
-The showq command lists job information from the point of view of the scheduler.  Jobs are grouped according to their state: running, idle, or blocked.
-
-.. code-block:: bash
-
-  ### To list all jobs in the system:
-  $> showq
-
-  ### To list all jobs belonging to a particular user (-u flag may be combined with others):
-  $> showq -u tem_user
-
-Idle jobs are those that are eligible to run; they are listed in priority order. To list details about idle jobs:
-
-.. code-block:: bash
-
-  $> showq -i
-  $> showq -i -u tem_user
-
-
-.. code-block:: bash
-
-  ### To list blocked jobs:
-  $> showq -b
-  $> showq -b -u tem_user 
-
-Blocked jobs are those that are not currently eligible to run. There are several reasons a job may be blocked.
- * If a user or group has reached the limit on the number of jobs or cores allowed, the rest of their jobs will be blocked. The jobs will be released as the running jobs complete. 
- * If a user sets up dependencies among jobs or conditions that have to be met before a job can run, the jobs will be blocked until the dependencies or conditions are met. 
- * You can place a hold on your own job using qhold jobid.
-
 
 **Managing your jobs**
 ~~~~~~~~~~~~~~~~~~~~~~
