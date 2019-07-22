@@ -71,4 +71,83 @@ How to start cisTEM data analysis tool
 Run profiles for job submission
 ===============================
 
+Profile templates
+-----------------
+
+If you need cisTEM to work on multiple computing servers in a cluster which is managed with Torque, you should check out (or create) a "Run Profile" in cisTEM's settings tab.
+You can find a shell script available for your convenience.
+
+.. code-block:: bash
+
+  (cisTEM with job outputs and errors) /tem/home/tem/_Applications/cistem-1.0.0-beta/qsub-cisTEM-cpu.sh
+  (cisTEM without outputs and errors)  /tem/home/tem/_Applications/cistem-1.0.0-beta/qsub-cisTEM-cpu-noout.sh
+
+
+For qsub-cisTEM-cpu.sh,
+
+.. code-block:: bash
+
+  #!/bin/bash
+  queue=
+  while getopts ":q:" OPTION
+  do
+    case "${OPTION}" in
+      q) queue="${OPTARG}";;
+    esac
+  done
+  shift $((OPTIND-1))
+
+  cat - <<EOF | qsub
+  #!/bin/bash
+  #PBS -N cisTEM.${1}
+  #PBS -l nodes=1:ppn=1
+  ${queue:+#PBS -q ${queue}}
+
+  module load apps/gcc/4.4.7/cistem/1.0.0
+  ${@}
+  EOF
+
+For qsub-cisTEM-cpu-noout.sh,
+
+.. code-block:: bash
+
+  #!/bin/bash
+  queue=
+  while getopts ":q:" OPTION
+  do
+    case "${OPTION}" in
+      q) queue="${OPTARG}";;
+    esac
+  done
+  shift $((OPTIND-1))
+
+  cat - <<EOF | qsub
+  #!/bin/bash
+  #PBS -N cisTEM.${1}
+  #PBS -e /dev/null
+  #PBS -o /dev/null
+  #PBS -l nodes=1:ppn=1
+  ${queue:+#PBS -q ${queue}}
+
+  module load apps/gcc/4.4.7/cistem/1.0.0
+  ${@}
+  EOF
+
+
+Adding a new Run Profile
+------------------------
+
+In cisTEM settings, add a new "Run Profile" with the following parameters :
+
+* Manager Command: /tem/home/tem/_Applications/cistem-1.0.0-beta/$command 
+* Gui Address: Automatic
+* Controller Address: Automatic
+* Command -> Edit:
+  ** Command: /tem/home/tem/_Applications/cistem-1.0.0-beta/qsub-cisTEM-cpu.bash -q <your_own_queue_name> $command
+  ** No. Copies: 84
+  ** Delay (ms): 10
+
+.. image:: images/cistem-run-profile.png
+  :scale: 60 %
+  :align: center
 
