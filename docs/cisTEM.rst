@@ -65,6 +65,7 @@ How to start cisTEM data analysis tool
 
 .. image:: images/cistem-screenshot.png
   :scale: 50 %
+  :height: 1400px
   :align: center
 
 
