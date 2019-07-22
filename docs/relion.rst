@@ -142,9 +142,14 @@ For the use of CPU cluster, we have set the RELION_QSUB_EXTRA_COUNT to 2. Two ex
   setenv RELION_QSUB_EXTRA_COUNT 2
   setenv RELION_QSUB_EXTRA1 "Number of Nodes"
   setenv RELION_QSUB_EXTRA2 "Number of processes per each node"
-  setenv RELION_QSUB_EXTRA1_DEFAULT 1
-  setenv RELION_QSUB_EXTRA2_DEFAULT 3
+  setenv RELION_QSUB_EXTRA1_DEFAULT 2
+  setenv RELION_QSUB_EXTRA2_DEFAULT 16
 
+.. image:: images/relion-cpu.jpg
+    :scale: 70 %
+    :align: center
+
+As shown in above figure, you can browse and select "standard submission script" as the location of RELION_QSUB_TEMPLATE for reloin 3.0.7 (i.e., /tem/home/tem/_Applications/relion-3.0.7/cpu/bin/qsub-relion3-cpu.bash or its own your copy), and give "Number of Nodes" and "Number of processes per each node" values instead of default ones to submit  a job to Torque based TEM farm. (NOTE : you MUST use your OWN QUEUEe for "Queue name" and correct "number of MPI procs" which is generally total number of processes (number of nodes x number of processes per each node))
 
 Job script template (for CPU use)
 ---------------------------------
@@ -199,6 +204,8 @@ Job script template (for CPU use)
   mpirun --prefix /tem/home/tem/_SystemLibs/openmpi-1.8.8 -machinefile $PBS_NODEFILE XXXcommandXXX
 
   echo "Done!"
+
+
 
 
 Using GPGPU cluster
