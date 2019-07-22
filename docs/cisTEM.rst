@@ -150,6 +150,6 @@ In cisTEM settings, add a new "Run Profile" with the following parameters :
 
 .. image:: images/cistem-run-profile.png
   :scale: 60 %
-  :height: 700px
+  :height: 1400px
   :align: center
 
