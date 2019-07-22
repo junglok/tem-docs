@@ -75,7 +75,7 @@ Profile templates
 -----------------
 
 If you need cisTEM to work on multiple computing servers in a cluster which is managed with Torque, you should check out (or create) a "Run Profile" in cisTEM's settings tab.
-You can find a shell script available for your convenience.
+You can find a shell script available in following file paths.
 
 .. code-block:: bash
 
@@ -143,10 +143,9 @@ In cisTEM settings, add a new "Run Profile" with the following parameters :
 * Gui Address: Automatic
 * Controller Address: Automatic
 * Command -> Edit:
-
-** Command: /tem/home/tem/_Applications/cistem-1.0.0-beta/qsub-cisTEM-cpu.sh -q <your_own_queue_name> $command
-** No. Copies: 84
-** Delay (ms): 10
+  * Command: /tem/home/tem/_Applications/cistem-1.0.0-beta/qsub-cisTEM-cpu.sh -q <your_own_queue_name> $command
+  * No. Copies: 84
+  * Delay (ms): 10
 
 .. image:: images/cistem-run-profile.png
   :scale: 60 %
