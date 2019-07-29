@@ -12,6 +12,7 @@ Welcome to tem-docs's documentation!
 
    infra.rst
    guide.rst
+   queue.rst
    relion.rst
    cisTEM.rst
    cryoSPARC.rst
