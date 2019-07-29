@@ -57,9 +57,9 @@ Cluster management softwares
 |              | OpenPBS(torque)        | - Cluster resources management                             | v6.1.2                         |
 |              |                        | - http://www.adaptivecomputing.com/products/torque         |                                |
 |              +------------------------+------------------------------------------------------------+--------------------------------+
-|              | Maui                   | - Job scheduler                                            | v3.3.1                         |
-|              |                        | - https://github.com/LabAdvComp/maui                       |                                |
-|              +------------------------+------------------------------------------------------------+--------------------------------+
+.. |              | Maui                   | - Job scheduler                                            | v3.3.1                         |
+.. |              |                        | - https://github.com/LabAdvComp/maui                       |                                |
+.. |              +------------------------+------------------------------------------------------------+--------------------------------+
 |              | OpenMPI                | - Messaging Pass Interface(MPI)                            | | v1.8.8                       |
 |              |                        | - Reference implementation for MPI standard                | | (mpi/gcc/openmpi/1.8.8)      |
 |              |                        | - https://www.open-mpi.org                                 |                                |
