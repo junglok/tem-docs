@@ -71,13 +71,13 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   setenv           LANG en_US.UTF-8
   setenv           RELION_QUEUE_NAME tem
   setenv           RELION_QSUB_COMMAND qsub
-  setenv           RELION_QSUB_TEMPLATE /tem/home/tem/_Applications/relion-3.0.7/gpu/bin/qsub.bash
+  setenv           RELION_QSUB_TEMPLATE /tem/home/tem/_Applications/relion-3.0.7/gpu/bin/qsub-relion3-gpu.bash
   setenv           RELION_QSUB_EXTRA_COUNT 3
   setenv           RELION_QSUB_EXTRA1 Number of Nodes
   setenv           RELION_QSUB_EXTRA2 Number of processes per each node
   setenv           RELION_QSUB_EXTRA3 Number of GPUs per node
-  setenv           RELION_QSUB_EXTRA1_DEFAULT 2
-  setenv           RELION_QSUB_EXTRA2_DEFAULT 2
+  setenv           RELION_QSUB_EXTRA1_DEFAULT 1
+  setenv           RELION_QSUB_EXTRA2_DEFAULT 3
   setenv           RELION_QSUB_EXTRA3_DEFAULT 2
   setenv           RELION_CTFFIND_EXECUTABLE /tem/home/tem/_Applications/ctffind-4.1.13/bin/ctffind
   setenv           RELION_GCTF_EXECUTABLE /tem/home/tem/_Applications/Gctf_v1.18_b2/bin/Gctf_v1.18_b2_sm60_cu9.2

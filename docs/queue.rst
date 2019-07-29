@@ -6,28 +6,22 @@ Batch queue list
 ================
 
 +--------------+-----------------+--------------------------------------------------------------------+------------------------------------+
-| Category     | Queue Name      | Associated Computing Resources                                     |                                    |
+| Category     | Queue Name      | Assigned Computing Resources                                       | Remarks                            |
 +--------------+-----------------+--------------------------------------------------------------------+------------------------------------+
-| Dedicated    | temqueue01      | - tem-wn[1001-1003].sdfarm.kr (28 cores and 192GB memory per node) | - USER and/or GROUP Access Control |
+| Dedicated    | **temqueue01**  | - tem-wn[1001-1003].sdfarm.kr (28 cores and 192GB memory per node) | - USER/GROUP Access Control        |
 |              |                 | - tem-gpu01.sdfarm.kr (28 cores, 2 P100 GPGPUs and 384GB memory)   |                                    | 
-|              |                 |                                                                    |                                    |
-|              +-----------------+--------------------------------------------------------------------+------------------------------------+
-|              | temqueue02      | - tem-wn[1004-1006].sdfarm.kr (28 cores and 192GB memory per node) | - USER and/or GROUP Access Control |
+|              +-----------------+--------------------------------------------------------------------+                                    |
+|              | **temqueue02**  | - tem-wn[1004-1006].sdfarm.kr (28 cores and 192GB memory per node) |                                    |
 |              |                 | - tem-gpu02.sdfarm.kr (28 cores, 2 P100 GPGPUs and 384 GB memory)  |                                    |
-|              |                 |                                                                    |                                    |
-|              +-----------------+--------------------------------------------------------------------+------------------------------------+
-|              | temqueue03      | - tem-wn[1007-1009].sdfarm.kr (28 cores and 192GB memory per node) | - USER and/or GROUP Access Control |
+|              +-----------------+--------------------------------------------------------------------+                                    |
+|              | **temqueue03**  | - tem-wn[1007-1009].sdfarm.kr (28 cores and 192GB memory per node) |                                    |
 |              |                 | - tem-gpu03.sdfarm.kr (28 cores, 2 P100 GPGPUs and 384 GB memory)  |                                    |
-|              |                 |                                                                    |                                    |
 +--------------+-----------------+--------------------------------------------------------------------+------------------------------------+
-| Shared       | temsharedq      | - tem-wn[1010-1011].sdfarm.kr                                      | - 112 logical CPU cores            |
-|              |                 |                                                                    | - hyperthreading enabled           |
-|              |                 |                                                                    |                                    |
+| Shared       | **sharedq**     | - tem-wn[1010-1011].sdfarm.kr                                      | - 112 logical CPU cores            |
+|              |                 |                                                                    | - hyperthreading(H/T) enabled      |
 +--------------+-----------------+--------------------------------------------------------------------+------------------------------------+
-| Experimental | temexpq01       | - tem-gpu04.sdfarm.kr (48 cores, 128GB memory and 1 P40 GPGPU)     | - logical CPU cores                |
-|              |                 |                                                                    |                                    |
+| Experimental | **expq01**      | - tem-gpu04.sdfarm.kr (48 cores, 128GB memory and 2 P40 GPGPU)     | - logical CPU cores, H/T enabled   |
 |              +-----------------+--------------------------------------------------------------------+------------------------------------+
-|              | temexpq02       | - tem-gpu05.sdfarm.kr (72 cores, 256GB memory and 1 P40 GPGPU)     | - logical CPU cores                |
-|              |                 |                                                                    |                                    |
+|              | **expq02**      | - tem-gpu05.sdfarm.kr (72 cores, 256GB memory and 2 P40 GPGPU)     | - logical CPU cores, H/T enabled   |
 +--------------+-----------------+--------------------------------------------------------------------+------------------------------------+
 

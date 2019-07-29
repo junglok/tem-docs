@@ -43,7 +43,7 @@ How to start Relion data analysis tool
   setenv           LANG en_US.UTF-8 
   setenv           RELION_QUEUE_NAME tem 
   setenv           RELION_QSUB_COMMAND qsub 
-  setenv           RELION_QSUB_TEMPLATE /tem/home/tem/_Applications/relion-3.0.7/gpu/bin/qsub.bash 
+  setenv           RELION_QSUB_TEMPLATE /tem/home/tem/_Applications/relion-3.0.7/gpu/bin/qsub-relion3-gpu.bash 
   setenv           RELION_QSUB_EXTRA_COUNT 3 
   setenv           RELION_QSUB_EXTRA1 Number of Nodes 
   setenv           RELION_QSUB_EXTRA2 Number of processes per each node 
