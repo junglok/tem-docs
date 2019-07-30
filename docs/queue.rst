@@ -1,5 +1,5 @@
 ************
-Batch Qeueus
+Batch Queues
 ************
 
 Batch queue list
