@@ -8,13 +8,13 @@ Batch queue list
 +--------------+-----------------+--------------------------------------------------------------------+------------------------------------+
 | Category     | Queue Name      | Assigned Computing Resources                                       | Remarks                            |
 +--------------+-----------------+--------------------------------------------------------------------+------------------------------------+
-| Dedicated    | **temqueue01**  | - tem-wn[1001-1003].sdfarm.kr (28 cores and 192GB memory per node) | - USER/GROUP Access Control        |
+| Dedicated    | **q01**         | - tem-wn[1001-1003].sdfarm.kr (28 cores and 192GB memory per node) | - USER/GROUP Access Control        |
 |              |                 | - tem-gpu01.sdfarm.kr (28 cores, 2 P100 GPGPUs and 384GB memory)   |                                    | 
 |              +-----------------+--------------------------------------------------------------------+                                    |
-|              | **temqueue02**  | - tem-wn[1004-1006].sdfarm.kr (28 cores and 192GB memory per node) |                                    |
+|              | **q02**         | - tem-wn[1004-1006].sdfarm.kr (28 cores and 192GB memory per node) |                                    |
 |              |                 | - tem-gpu02.sdfarm.kr (28 cores, 2 P100 GPGPUs and 384 GB memory)  |                                    |
 |              +-----------------+--------------------------------------------------------------------+                                    |
-|              | **temqueue03**  | - tem-wn[1007-1009].sdfarm.kr (28 cores and 192GB memory per node) |                                    |
+|              | **q03**         | - tem-wn[1007-1009].sdfarm.kr (28 cores and 192GB memory per node) |                                    |
 |              |                 | - tem-gpu03.sdfarm.kr (28 cores, 2 P100 GPGPUs and 384 GB memory)  |                                    |
 +--------------+-----------------+--------------------------------------------------------------------+------------------------------------+
 | Shared       | **sharedq**     | - tem-wn[1010-1011].sdfarm.kr                                      | - 112 logical CPU cores            |
