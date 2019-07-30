@@ -20,8 +20,8 @@ Batch queue list
 | Shared       | **sharedq**     | - tem-wn[1010-1011].sdfarm.kr                                      | - 112 logical CPU cores            |
 |              |                 |                                                                    | - hyperthreading(H/T) enabled      |
 +--------------+-----------------+--------------------------------------------------------------------+------------------------------------+
-| Experimental | **expq01**      | - tem-gpu04.sdfarm.kr (48 cores, 128GB memory and 2 P40 GPGPU)     | - logical CPU cores, H/T enabled   |
+| Experimental | **exp01**       | - tem-gpu04.sdfarm.kr (48 cores, 128GB memory and 2 P40 GPGPU)     | - logical CPU cores, H/T enabled   |
 |              +-----------------+--------------------------------------------------------------------+------------------------------------+
-|              | **expq02**      | - tem-gpu05.sdfarm.kr (48 cores, 128GB memory and 2 P40 GPGPU)     | - logical CPU cores, H/T enabled   |
+|              | **exp02**       | - tem-gpu05.sdfarm.kr (48 cores, 128GB memory and 2 P40 GPGPU)     | - logical CPU cores, H/T enabled   |
 +--------------+-----------------+--------------------------------------------------------------------+------------------------------------+
 
