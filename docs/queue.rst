@@ -25,3 +25,13 @@ Batch queue list
 |              | **exp02**       | - tem-gpu05.sdfarm.kr (48 cores, 128GB memory and 2 P40 GPGPUs)    | - logical CPU cores, H/T enabled   |
 +--------------+-----------------+--------------------------------------------------------------------+------------------------------------+
 
+
+Time schedule for queue assignment
+==================================
+
+.. raw:: html
+
+  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+    <iframe src="https://calendar.google.com/calendar?cid=dWg4MWNzMTFtaHA4Y3I2ZnFqcDAwNWtzOW9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  </div>
+
