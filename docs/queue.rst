@@ -32,6 +32,6 @@ Time schedule for queue assignment
 .. raw:: html
 
   <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-    <iframe src="https://calendar.google.com/calendar/embed?src=uh81cs11mhp8cr6fqjp005ks9o%40group.calendar.google.com&ctz=Asia%2FSeoul" style="border: 0" width="1100" height="700" frameborder="0" scrolling="no"></iframe>
+    <iframe src="https://calendar.google.com/calendar/embed?src=uh81cs11mhp8cr6fqjp005ks9o%40group.calendar.google.com&ctz=Asia%2FSeoul" style="border: 0" width="1050" height="700" frameborder="0" scrolling="no"></iframe>
   </div>
 
