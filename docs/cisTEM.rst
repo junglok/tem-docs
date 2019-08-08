@@ -101,7 +101,7 @@ For qsub-cisTEM-cpu.sh,
   cat - <<EOF | qsub
   #!/bin/bash
   #PBS -N cisTEM.${1}
-  #PBS -l nodes=1:ppn=1
+  ${queue:+#PBS -l nodes=1:ppn=1:${queue}}
   ${queue:+#PBS -q ${queue}}
 
   module load apps/gcc/4.4.7/cistem/1.0.0
@@ -127,7 +127,7 @@ For qsub-cisTEM-cpu-noout.sh,
   #PBS -N cisTEM.${1}
   #PBS -e /dev/null
   #PBS -o /dev/null
-  #PBS -l nodes=1:ppn=1
+  ${queue:+#PBS -l nodes=1:ppn=1:${queue}}
   ${queue:+#PBS -q ${queue}}
 
   module load apps/gcc/4.4.7/cistem/1.0.0
