@@ -25,7 +25,7 @@ How to start Relion data analysis tool
   apps/gcc/4.4.7/relion/gpu/3.0.7 mpi/gcc/openmpi/1.8.8
 
 
-2. Check the module details for the specific relion version (e.g., Relion v3.0.7 with GPGPU support)
+2. Check the module details for the specific relion version (e.g., Relion v3.0.7 with GPGPU support or Relion v3.0.7 with CPU cores support only)
 
 .. code-block:: bash
 
@@ -55,6 +55,37 @@ How to start Relion data analysis tool
   setenv           RELION_GCTF_EXECUTABLE /tem/home/tem/_Applications/Gctf_v1.18_b2/bin/Gctf_v1.18_b2_sm60_cu9.1
   setenv           RELION_RESMAP_EXECUTABLE /tem/home/tem/_Applications/ResMap-1.1.4/ResMap-1.1.4-linux64 
   setenv           RELION_MOTIONCOR2_EXECUTABLE /tem/home/tem/_Applications/MotionCor2/MotionCor2_Cuda9.1_v1.0.5
+  setenv           RELION_UNBLUR_EXECUTABLE /tem/home/tem/_Applications/unblur_1.0.2/bin/unblur_openmp_7_17_15.exe 
+  setenv           RELION_SUMMOVIE_EXECUTABLE /tem/home/tem/_Applications/summovie_1.0.2/bin/sum_movie_openmp_7_17_15.exe 
+  conflict         apps/gcc/4.4.7/relion 
+  -------------------------------------------------------------------
+
+  or
+
+  $> module show apps/gcc/4.4.7/relion/cpu/3.0.7
+
+  -------------------------------------------------------------------
+  /tem/home/tem/Modules/Modules/default/modulefiles/apps/gcc/4.4.7/relion/cpu/3.0.7:
+
+  module-whatis    Setups `relion-3.0.7' environment variables 
+  module           load mpi/gcc/openmpi/1.8.8 
+  setenv           relion_version 3.0.7 
+  prepend-path     PATH /tem/home/tem/_Applications/relion-3.0.7/cpu/bin 
+  prepend-path     LD_LIBRARY_PATH /tem/home/tem/_Applications/relion-3.0.7/cpu/lib 
+  setenv           LANG en_US.UTF-8 
+  setenv           RELION_QUEUE_USE yes 
+  setenv           RELION_QUEUE_NAME own_queue_name 
+  setenv           RELION_QSUB_COMMAND qsub 
+  setenv           RELION_QSUB_TEMPLATE /tem/home/tem/_Applications/relion-3.0.7/cpu/bin/qsub-relion3-cpu.bash 
+  setenv           RELION_QSUB_EXTRA_COUNT 2 
+  setenv           RELION_QSUB_EXTRA1 Number of Nodes 
+  setenv           RELION_QSUB_EXTRA2 Number of processes per each node 
+  setenv           RELION_QSUB_EXTRA1_DEFAULT 2 
+  setenv           RELION_QSUB_EXTRA2_DEFAULT 16 
+  setenv           RELION_CTFFIND_EXECUTABLE /tem/home/tem/_Applications/ctffind-4.1.13/bin/ctffind 
+  setenv           RELION_GCTF_EXECUTABLE /tem/home/tem/_Applications/Gctf_v1.18_b2/bin/Gctf_v1.18_b2_sm60_cu9.1 
+  setenv           RELION_RESMAP_EXECUTABLE /tem/home/tem/_Applications/ResMap-1.1.4/ResMap-1.1.4-linux64 
+  setenv           RELION_MOTIONCOR2_EXECUTABLE /tem/home/tem/_Applications/MotionCor2/MotionCor2_Cuda9.1_v1.0.5 
   setenv           RELION_UNBLUR_EXECUTABLE /tem/home/tem/_Applications/unblur_1.0.2/bin/unblur_openmp_7_17_15.exe 
   setenv           RELION_SUMMOVIE_EXECUTABLE /tem/home/tem/_Applications/summovie_1.0.2/bin/sum_movie_openmp_7_17_15.exe 
   conflict         apps/gcc/4.4.7/relion 
@@ -92,19 +123,19 @@ How to start Relion data analysis tool
 
 
 
-Using CPU cluster
-=================
+Using CPU cluster (apps/gcc/4.4.7/relion/cpu/3.0.7)
+===================================================
 
 RELION_QSUB_TEMPLATE variable
 -----------------------------
-Relion defines lots of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper Torque batch job script template to submit jobs to Torque-based service farm.
+Relion defines a lot of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper batch job script template to submit jobs to the farm.
 
 .. code-block:: bash
 
   (for relion 3.0.7) RELION_QSUB_TEMPLATE /tem/home/tem/_Applications/relion-3.0.7/cpu/bin/qsub-relion3-cpu.bash
 
 
-Torque strings defined by Relion
+PBS strings defined by Relion
 --------------------------------
 
 .. table:: torque_strings_of_relion
@@ -132,10 +163,10 @@ Torque strings defined by Relion
   | **XXXextra2XXX**     | string                 | Installation-specific                                      |
   +----------------------+------------------------+------------------------------------------------------------+
 
-Relion, by default, does not use the XXXextra1XXX, XXXextra2XXX, ... variables. They provide additional flexibility for queueing systems (like Torque)  that require additional variables. They may be activated by first setting RELION_QSUB_EXTRA_COUNT to the number of fields you need (e.g. 3) and then setting the RELION_QSUB_EXTRA1, RELION_QSUB_EXTRA2, RELION_QSUB_EXTRA3 ... environment variables, respectively.
+Relion, by default, does not use the XXXextra1XXX, XXXextra2XXX, ... variables. They provide additional flexibility for queueing systems (like Torque) that require additional variables. They may be activated by first setting RELION_QSUB_EXTRA_COUNT to the number of fields you need (e.g. 3) and then setting the RELION_QSUB_EXTRA1, RELION_QSUB_EXTRA2, RELION_QSUB_EXTRA3 ... environment variables, respectively.
 This will result in extra input fields in the GUI, with the label text being equal to the value of the environment variable. Likewise, their default values (upon starting the GUI) can be set through environment variables RELION_QSUB_EXTRA1_DEFAULT, RELION_QSUB_EXTRA2_DEFAULT, etc and their help messages can be set through environmental variables RELION_QSUB_EXTRA1_HELP, RELION_QSUB_EXTRA2_HELP and so on.
 
-For the use of CPU cluster, we have set the RELION_QSUB_EXTRA_COUNT to 2. Two extra options describe "Number of Nodes" and "Number of processes per each node", respectively. These values can be referred by XXXextra1, XXXextra2XXX in the following batch job script template.
+For the use of CPU cluster nodes, we have set the RELION_QSUB_EXTRA_COUNT to 2. Two extra options describe "Number of Nodes" and "Number of processes per each node", respectively. These values can be referred by XXXextra1, XXXextra2XXX in the following batch job script template.
 
 .. code-block:: bash
 
@@ -149,7 +180,8 @@ For the use of CPU cluster, we have set the RELION_QSUB_EXTRA_COUNT to 2. Two ex
     :scale: 70 %
     :align: center
 
-As shown in above figure, you can browse and select "standard submission script" as the location of RELION_QSUB_TEMPLATE for relion 3.0.7 (i.e., /tem/home/tem/_Applications/relion-3.0.7/cpu/bin/qsub-relion3-cpu.bash or its own your copy), and give "Number of Nodes" and "Number of processes per each node" values instead of default ones to submit  a job to Torque based TEM farm. (NOTE : you MUST use your OWN QUEUEe for "Queue name" and correct "number of MPI procs" which is generally total number of processes (number of nodes x number of processes per each node))
+As shown in above figure, you can browse and select **"standard submission script"** as the location of RELION_QSUB_TEMPLATE for relion 3.0.7 (i.e., /tem/home/tem/_Applications/relion-3.0.7/cpu/bin/qsub-relion3-cpu.bash or its own your copy), and give **"Number of Nodes"** and **"Number of processes per each node"** values instead of default ones to submit a job to Torque based TEM farm.
+**(NOTE : you MUST use your OWN QUEUEe for "Queue name" and correct "number of MPI procs" which is generally total number of processes (number of nodes x number of processes per each node))**
 
 Job script template (for CPU use)
 ---------------------------------
@@ -208,8 +240,8 @@ Job script template (for CPU use)
 
 
 
-Using GPGPU cluster
-===================
+Using GPGPU cluster (apps/gcc/4.4.7/relion/cpu/3.0.7)
+=====================================================
 
 Job script template (for GPGPU use)
 -----------------------------------
