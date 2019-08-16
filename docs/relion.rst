@@ -122,21 +122,8 @@ How to start Relion data analysis tool
     :align: center
 
 
-
-Using CPU cluster (apps/gcc/4.4.7/relion/cpu/3.0.7)
-===================================================
-
-RELION_QSUB_TEMPLATE variable
------------------------------
-Relion defines a lot of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper batch job script template to submit jobs to the farm.
-
-.. code-block:: bash
-
-  (for relion 3.0.7) RELION_QSUB_TEMPLATE /tem/home/tem/_Applications/relion-3.0.7/cpu/bin/qsub-relion3-cpu.bash
-
-
-PBS strings defined by Relion
---------------------------------
+PBS Strings used in Relion
+==========================
 
 .. table:: torque_strings_of_relion
 
@@ -163,8 +150,23 @@ PBS strings defined by Relion
   | **XXXextra2XXX**     | string                 | Installation-specific                                      |
   +----------------------+------------------------+------------------------------------------------------------+
 
-Relion, by default, does not use the XXXextra1XXX, XXXextra2XXX, ... variables. They provide additional flexibility for queueing systems (like Torque) that require additional variables. They may be activated by first setting RELION_QSUB_EXTRA_COUNT to the number of fields you need (e.g. 3) and then setting the RELION_QSUB_EXTRA1, RELION_QSUB_EXTRA2, RELION_QSUB_EXTRA3 ... environment variables, respectively.
+Relion, by default, does not use the XXXextra1XXX, XXXextra2XXX, ... variables. 
+They provide additional flexibility for queueing systems (like Torque) that require additional variables. 
+They may be activated by first setting RELION_QSUB_EXTRA_COUNT to the number of fields you need (e.g. 3) and then setting the RELION_QSUB_EXTRA1, RELION_QSUB_EXTRA2, RELION_QSUB_EXTRA3 ... environment variables, respectively.
 This will result in extra input fields in the GUI, with the label text being equal to the value of the environment variable. Likewise, their default values (upon starting the GUI) can be set through environment variables RELION_QSUB_EXTRA1_DEFAULT, RELION_QSUB_EXTRA2_DEFAULT, etc and their help messages can be set through environmental variables RELION_QSUB_EXTRA1_HELP, RELION_QSUB_EXTRA2_HELP and so on.
+
+
+Using CPU cluster (apps/gcc/4.4.7/relion/cpu/3.0.7)
+===================================================
+
+RELION_QSUB_TEMPLATE variable
+-----------------------------
+Relion defines a lot of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper batch job script template to submit jobs to the farm.
+
+.. code-block:: bash
+
+  (for relion 3.0.7) RELION_QSUB_TEMPLATE /tem/home/tem/_Applications/relion-3.0.7/cpu/bin/qsub-relion3-cpu.bash
+
 
 For the use of CPU cluster nodes, we have set the RELION_QSUB_EXTRA_COUNT to 2. Two extra options describe "Number of Nodes" and "Number of processes per each node", respectively. These values can be referred by XXXextra1, XXXextra2XXX in the following batch job script template.
 
@@ -243,16 +245,16 @@ Job script template (for CPU use)
 Using GPGPU cluster (apps/gcc/4.4.7/relion/gpu/3.0.7)
 =====================================================
 
-Job script template (for GPGPU use)
------------------------------------
-
+RELION_QSUB_TEMPLATE variable
+-----------------------------
 Relion defines a lot of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper batch job script to submit jobs to the farm.
 
 .. code-block:: bash
 
   (for relion 3.0.7 w/ GPU support) RELION_QSUB_TEMPLATE /tem/home/tem/_Applications/relion-3.0.7/gpu/bin/qsub-relion3-gpu.bash
 
-Unlike CPU cluster use case, we have set the RELION_QSUB_EXTRA_COUNT to 3 for the use of GPGPU cluster, where each extra option describes "Number of Nodes", "Number of processes per each node", and "Number of GPUs per node", respectively. All these values can be accessed by XXXextra1, XXXextra2XXX, XXXextra3XXX in the batch job script template.
+Unlike CPU cluster use case, we have set the RELION_QSUB_EXTRA_COUNT to 3 for the use of GPGPU cluster, 
+where each extra option describes "Number of Nodes", "Number of processes per each node", and "Number of GPUs per node", respectively. All these values can be accessed by XXXextra1, XXXextra2XXX, XXXextra3XXX in the batch job script template.
 
 
 .. code-block:: bash
@@ -270,6 +272,9 @@ Unlike CPU cluster use case, we have set the RELION_QSUB_EXTRA_COUNT to 3 for th
     :scale: 70 %
     :align: center
 
+
+Job script template (for GPGPU use)
+-----------------------------------
 
 .. code-block:: bash
 
