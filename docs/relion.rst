@@ -470,7 +470,7 @@ Here, we have set the RELION_QSUB_EXTRA_COUNT to 1 for the statement of more gen
 Job script template
 -------------------
 
-* RELION_QSUB_TEMPLATE : /tem/home/tem/_Applications/relion-3.0.7/test/bin/qsub-relion3-gpu.bash 
+* RELION_QSUB_TEMPLATE : /tem/home/tem/_Applications/relion-3.0.7/test/bin/qsub-relion3-gpu.bash
 
 
 .. code-block:: bash
@@ -530,5 +530,17 @@ Job script template
 Examples
 --------
 
+Motion Correction
+~~~~~~~~~~~~~~~~~
 
+* **MotionCor2-like alignment algorithm**
 
+.. image:: images/relion-motioncor1.png
+    :scale: 70 %
+    :align: center
+
+.. image:: images/relion-motioncor2.png
+    :scale: 70 %
+    :align: center
+
+* **MotionCor2**
