@@ -246,14 +246,13 @@ Using GPGPU cluster (apps/gcc/4.4.7/relion/cpu/3.0.7)
 Job script template (for GPGPU use)
 -----------------------------------
 
-Relion defines lots of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper Torque batch job script to submit jobs to Torque-based service farm.
+Relion defines a lot of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper batch job script to submit jobs to the farm.
 
 .. code-block:: bash
 
   (for relion 3.0.7 w/ GPU support) RELION_QSUB_TEMPLATE /tem/home/tem/_Applications/relion-3.0.7/gpu/bin/qsub-relion3-gpu.bash
 
-
-Unlike CPU cluster, we have set the RELION_QSUB_EXTRA_COUNT to 3 for the use of GPGPU cluster, where each extra option describes "Number of Nodes", "Number of processes per each node", and "Number of GPUs per node", respectively. All these values can be accessed by XXXextra1, XXXextra2XXX, XXXextra3XXX in the batch job script template.
+Unlike CPU cluster use case, we have set the RELION_QSUB_EXTRA_COUNT to 3 for the use of GPGPU cluster, where each extra option describes "Number of Nodes", "Number of processes per each node", and "Number of GPUs per node", respectively. All these values can be accessed by XXXextra1, XXXextra2XXX, XXXextra3XXX in the batch job script template.
 
 
 .. code-block:: bash
