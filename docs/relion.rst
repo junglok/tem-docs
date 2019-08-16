@@ -52,9 +52,9 @@ How to start Relion data analysis tool
   setenv           RELION_QSUB_EXTRA2_DEFAULT 3 
   setenv           RELION_QSUB_EXTRA3_DEFAULT 2 
   setenv           RELION_CTFFIND_EXECUTABLE /tem/home/tem/_Applications/ctffind-4.1.13/bin/ctffind 
-  setenv           RELION_GCTF_EXECUTABLE /tem/home/tem/_Applications/Gctf_v1.18_b2/bin/Gctf_v1.18_b2_sm60_cu9.2 
+  setenv           RELION_GCTF_EXECUTABLE /tem/home/tem/_Applications/Gctf_v1.18_b2/bin/Gctf_v1.18_b2_sm60_cu9.1
   setenv           RELION_RESMAP_EXECUTABLE /tem/home/tem/_Applications/ResMap-1.1.4/ResMap-1.1.4-linux64 
-  setenv           RELION_MOTIONCORR_EXECUTABLE /tem/home/tem/_Applications/MotionCor2/MotionCor2_1.2.6-Cuda92 
+  setenv           RELION_MOTIONCOR2_EXECUTABLE /tem/home/tem/_Applications/MotionCor2/MotionCor2_Cuda9.1_v1.0.5
   setenv           RELION_UNBLUR_EXECUTABLE /tem/home/tem/_Applications/unblur_1.0.2/bin/unblur_openmp_7_17_15.exe 
   setenv           RELION_SUMMOVIE_EXECUTABLE /tem/home/tem/_Applications/summovie_1.0.2/bin/sum_movie_openmp_7_17_15.exe 
   conflict         apps/gcc/4.4.7/relion 
