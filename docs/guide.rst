@@ -50,7 +50,7 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
 
   $> module avail
   ----------- /tem/home/tem/Modules/Modules/default/modulefiles ------------
-  apps/gcc/4.4.7/cistem/1.0.0     cuda/9.2
+  apps/gcc/4.4.7/cistem/1.0.0     cuda/9.1
   apps/gcc/4.4.7/relion/cpu/3.0.7 modules
   apps/gcc/4.4.7/relion/gpu/3.0.7 mpi/gcc/openmpi/1.8.8
 
@@ -64,7 +64,7 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
 
   module-whatis    Setups `relion-3.0.7' environment variables
   module           load mpi/gcc/openmpi/1.8.8
-  module           load cuda/9.2
+  module           load cuda/9.1
   setenv           relion_version 3.0.7
   prepend-path     PATH /tem/home/tem/_Applications/relion-3.0.7/gpu/bin
   prepend-path     LD_LIBRARY_PATH /tem/home/tem/_Applications/relion-3.0.7/gpu/lib
@@ -105,7 +105,7 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   $> module load apps/gcc/4.4.7/relion/gpu/3.0.7
   $> module list
   Currently Loaded Modulefiles:
-  1) cuda/9.2                          2) mpi/gcc/openmpi/1.8.8             3) apps/gcc/4.4.7/relion/gpu/3.0.7
+  1) cuda/9.1                          2) mpi/gcc/openmpi/1.8.8             3) apps/gcc/4.4.7/relion/gpu/3.0.7
 
 
 * **Unloading modules**
@@ -300,7 +300,7 @@ Torque job script examples
 
 
 **Simple MPI parallel job**
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Here is an example of an MPI job that uses 4 nodes with 4 cores each, running one process per core (16 processes total).
 

@@ -19,7 +19,7 @@ How to start cisTEM data analysis tool
   3.2.10
 
   ----------- /tem/home/tem/Modules/Modules/default/modulefiles ------------
-  apps/gcc/4.4.7/cistem/1.0.0     cuda/9.2
+  apps/gcc/4.4.7/cistem/1.0.0     cuda/9.1
   apps/gcc/4.4.7/relion/cpu/3.0.7 modules
   apps/gcc/4.4.7/relion/gpu/3.0.7 mpi/gcc/openmpi/1.8.8
 

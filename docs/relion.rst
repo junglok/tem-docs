@@ -20,7 +20,7 @@ How to start Relion data analysis tool
   3.2.10
 
   ----------- /tem/home/tem/Modules/Modules/default/modulefiles ------------
-  apps/gcc/4.4.7/cistem/1.0.0     cuda/9.2
+  apps/gcc/4.4.7/cistem/1.0.0     cuda/9.1
   apps/gcc/4.4.7/relion/cpu/3.0.7 modules
   apps/gcc/4.4.7/relion/gpu/3.0.7 mpi/gcc/openmpi/1.8.8
 
@@ -36,7 +36,7 @@ How to start Relion data analysis tool
 
   module-whatis    Setups `relion-3.0.7' environment variables 
   module           load mpi/gcc/openmpi/1.8.8 
-  module           load cuda/9.2 
+  module           load cuda/9.1 
   setenv           relion_version 3.0.7 
   prepend-path     PATH /tem/home/tem/_Applications/relion-3.0.7/gpu/bin 
   prepend-path     LD_LIBRARY_PATH /tem/home/tem/_Applications/relion-3.0.7/gpu/lib 
@@ -69,7 +69,7 @@ How to start Relion data analysis tool
   $> module load apps/gcc/4.4.7/relion/gpu/3.0.7
   $> module list
   Currently Loaded Modulefiles:
-    1) mpi/gcc/openmpi/1.8.8             2) cuda/9.2                          3) apps/gcc/4.4.7/relion/gpu/3.0.7
+    1) mpi/gcc/openmpi/1.8.8             2) cuda/9.1                          3) apps/gcc/4.4.7/relion/gpu/3.0.7
 
 4. Check the relion application binary path
 

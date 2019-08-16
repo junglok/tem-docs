@@ -61,7 +61,7 @@ Cluster management softwares
 |              |                        | - Reference implementation for MPI standard                | | (mpi/gcc/openmpi/1.8.8)      |
 |              |                        | - https://www.open-mpi.org                                 |                                |
 |              +------------------------+------------------------------------------------------------+--------------------------------+
-|              | cuda                   | - Compute Unified Device Architecture(CUDA)                | 9.2 (cuda/9.2)                 |
+|              | cuda                   | - Compute Unified Device Architecture(CUDA)                | 9.1 (cuda/9.1)                 |
 |              |                        | - NVIDIA CUDA Runtime & Toolkit                            |                                |
 |              |                        | - https://developer.nvidia.com/cuda-toolkit                |                                |
 |              +------------------------+------------------------------------------------------------+--------------------------------+
