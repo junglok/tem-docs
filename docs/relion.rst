@@ -535,12 +535,35 @@ Motion Correction
 
 * **MotionCor2-like alignment algorithm**
 
+  ** (Motion) Use RELION's own implementation? : Yes
+  ** (Running) Number of MPI Procs : 84
+  ** (Running) Number of threads : 1
+  ** (Running) Queue name : <your own queue name> (e.g., q02)
+  ** (Running) Resource Requirements : nodes=3:ppn=28  (e.g., we assume the use of 3 nodes and all 28 cores each node) 
+  ** (Running) Standard submission script : /tem/home/tem/_Applications/relion-3.0.7/test/bin/qsub-relion3-gpu.bash 
+
 .. image:: images/relion-motioncor1.png
-    :scale: 70 %
+    :scale: 50 %
     :align: center
 
 .. image:: images/relion-motioncor2.png
-    :scale: 70 %
+    :scale: 50 %
     :align: center
 
 * **MotionCor2**
+  
+  ** (Motion) Use RELION's own implementation? : No
+  ** (Motion) MOTIONCOR2 executable : /tem/home/tem/_Applications/MotionCor2/MotionCor2_Cuda9.1_v1.0.5
+  ** (Running) Number of MPI Procs : 2 
+  ** (Running) Number of threads : 1
+  ** (Running) Queue name : <your own queue name> (e.g., q02)
+  ** (Running) Resource Requirements : nodes=1:ppn=2:gpus=2  (e.g., we assume the use of 1 gpu node, 2 cpu cores  and 2 GPU devices)
+  ** (Running) Standard submission script : /tem/home/tem/_Applications/relion-3.0.7/test/bin/qsub-relion3-gpu.bash 
+
+.. image:: images/motioncor2-1.png
+    :scale: 50 %
+    :align: center
+
+.. image:: images/motioncor2-2.png
+    :scale: 50 %
+    :align: center
