@@ -240,7 +240,7 @@ Job script template (for CPU use)
 
 
 
-Using GPGPU cluster (apps/gcc/4.4.7/relion/cpu/3.0.7)
+Using GPGPU cluster (apps/gcc/4.4.7/relion/gpu/3.0.7)
 =====================================================
 
 Job script template (for GPGPU use)
