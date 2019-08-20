@@ -611,7 +611,43 @@ CTF Estimation
     :scale: 50 %
     :align: center
 
+2D Classification
+~~~~~~~~~~~~~~~~~
+
+* **relion_refine_mpi** (CPU-only job)
+
+  * (Compute) Use GPU acceleration? : No
+  * (Running) Number of MPI procs: 112 
+  * (Running) Number of threads: 1
+  * (Running) Submit to queue? : Yes
+  * (Running) Queue name : <your own queue name> (e.g., q02)
+  * (Running) Resource Requirements : nodes=4:ppn=28  (e.g., we assume the use of 4 nodes, 28 cpu cores per each node)
+  * (Running) Standard submission script : /tem/home/tem/_Applications/relion-3.0.7/test/bin/qsub-relion3-gpu.bash
+
+.. image:: images/2dclass-1.png
+    :scale: 50 %
+    :align: center
+
+.. image:: images/2dclass-2.png
+    :scale: 50 %
+    :align: center
 
 
+* **relion_refine_mpi** (GPU-accelerated job)
 
+  * (Compute) Use GPU acceleration? : Yes
+  * (Compute) Which GPUs to use? : 0:1 (i.e., we will assign each slave process to GPU device index 0 and 1, respectively)
+  * (Running) Number of MPI procs: 3 (1 master and 2 slave processes)
+  * (Running) Number of threads: 1
+  * (Running) Submit to queue? : Yes
+  * (Running) Queue name : <your own queue name> (e.g., q02)
+  * (Running) Resource Requirements : nodes=1:ppn=3:gpus=2
+  * (Running) Standard submission script : /tem/home/tem/_Applications/relion-3.0.7/test/bin/qsub-relion3-gpu.bash
 
+.. image:: images/2dclassgpu-1.png
+    :scale: 50 %
+    :align: center
+
+.. image:: images/2dclassgpu-2.png
+    :scale: 50 %
+    :align: center
