@@ -533,7 +533,7 @@ Examples
 Motion Correction
 ~~~~~~~~~~~~~~~~~
 
-* **MotionCor2-like alignment algorithm**
+* **MotionCor2-like alignment algorithm** (CPU-only job, relion-own implementation)
 
   * (Motion) Use RELION's own implementation? : Yes
   * (Running) Number of MPI Procs : 84
@@ -550,7 +550,7 @@ Motion Correction
     :scale: 50 %
     :align: center
 
-* **MotionCor2**
+* **MotionCor2** (GPU-accelerated job)
   
   * (Motion) Use RELION's own implementation? : No
   * (Motion) MOTIONCOR2 executable : /tem/home/tem/_Applications/MotionCor2/MotionCor2_Cuda9.1_v1.0.5
@@ -567,3 +567,51 @@ Motion Correction
 .. image:: images/motioncor2-2.png
     :scale: 50 %
     :align: center
+
+
+CTF Estimation
+~~~~~~~~~~~~~~
+
+* **CTFFIND-4.1** (CPU-only job)
+
+  * (CTFFIND-4.1) Use CTFFIND-4.1? : Yes
+  * (CTFFIND-4.1) CTFFIND-4.1 executable? : /tem/home/tem/_Applications/ctffind-4.1.13/bin/ctffind
+  * (Gctf) Use Gctf instead? : No
+  * (Running) Number of MPI procs: 48
+  * (Running) Submit to queue? : Yes
+  * (Running) Queue name : <your own queue name> (e.g., q02)
+  * (Running) Resource Requirements : nodes=3:ppn=16  (e.g., we assume the use of 3 nodes, 16 cpu cores per each node)
+  * (Running) Standard submission script : /tem/home/tem/_Applications/relion-3.0.7/test/bin/qsub-relion3-gpu.bash
+
+.. image:: images/ctffind-1.png
+    :scale: 50 %
+    :align: center
+
+.. image:: images/ctffind-2.png
+    :scale: 50 %
+    :align: center
+
+* **Gctf** (GPU-accelerated job)
+
+  * (CTFFIND-4.1) Use CTFFIND-4.1? : No
+  * (Gctf) Use Gctf instead? : Yes
+  * (Gctf) Gctf executable: /tem/home/tem/_Applications/Gctf_v1.18_b2/bin/Gctf_v1.18_b2_sm60_cu9.1
+  * (Gctf) Which GPUs to use: <empty> (i.e., relion automatically assigned available GPU devices to the MPI processes)
+  * (Running) Number of MPI procs: 5 (1 master and 4 slave processes) 
+  * (Running) Submit to queue? : Yes
+  * (Running) Queue name : <your own queue name> (e.g., q02)
+  * (Running) Resource Requirements : nodes=1:ppn=5:gpus=2
+  * (Running) Standard submission script : /tem/home/tem/_Applications/relion-3.0.7/test/bin/qsub-relion3-gpu.bash
+
+.. image:: images/gctf-1.png
+    :scale: 50 %
+    :align: center
+
+.. image:: images/gctf-2.png
+    :scale: 50 %
+    :align: center
+
+
+
+
+
