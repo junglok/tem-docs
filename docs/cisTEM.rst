@@ -65,7 +65,6 @@ How to start cisTEM data analysis tool
 
 .. image:: images/cistem-screenshot-re.png
   :scale: 50 %
-  :height: 1400px
   :align: center
 
 
@@ -151,6 +150,5 @@ In cisTEM settings, add a new "Run Profile" with the following parameters :
 
 .. image:: images/cistem-run-profile-re.png
   :scale: 60 %
-  :height: 1400px
   :align: center
 
