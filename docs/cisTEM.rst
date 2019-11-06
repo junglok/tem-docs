@@ -9,7 +9,7 @@ Executing cisTEM
 How to start cisTEM data analysis tool
 --------------------------------------
 
-1. You can find out cisTEM applications' environment module path by listing all the module available on TEM service farm
+1. You can find out cisTEM applications' environment module path by listing all the module available on TEM service farm.
 
 .. code-block:: bash
 
@@ -145,7 +145,7 @@ In cisTEM settings, add a new "Run Profile" with the following parameters :
 * Controller Address: Automatic
 * Command -> Edit:
 
-  * Command: /tem/home/tem/_Applications/cistem-1.0.0-beta/qsub-cisTEM-cpu.sh -q <your_own_queue_name> $command
+  * Command: /tem/home/tem/_Applications/cistem-1.0.0-beta/qsub-cisTEM-cpu.sh **-q <your_own_queue_name>** $command
   * No. Copies: 84
   * Delay (ms): 10
 
