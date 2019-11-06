@@ -72,38 +72,37 @@ Cluster management softwares
 Data analysis tools
 ===================
 
-.. table:: data_analysis_tools
 
-  +--------------+---------------------+--------------------------------------------------------------------+----------------------------------------+
-  | Category     | Name                | Description                                                        | Version                                |
-  |              |                     |                                                                    | (module path)                          |
-  +--------------+---------------------+--------------------------------------------------------------------+----------------------------------------+
-  | Data         | **Relion**          | | A stand-alone computer program that employs an empirical Bayesian|                                        |
-  | Analysis     |                     | | approach to refinement of (multiple) 3D reconstructions or 2D    |                                        |
-  | Tools        |                     | | class averages in electron cryo-microscopy (cryo-EM).            |                                        |
-  |              |                     |                                                                    | | v3.0.7                               |
-  |              |                     |                                                                    | | (apps/gcc/4.4.7/relion/cpu/3.0.7)    |
-  |              |                     |                                                                    | | (apps/gcc/4.4.7/relion/gpu/3.0.7)    |
-  |              |                     | - https://www3.mrc-lmb.cam.ac.uk/relion/index.php                  |                                        |
-  |              |                     |                                                                    |                                        |
-  |              |                     |                                                                    |                                        |
-  |              |                     |                                                                    |                                        |
-  |              |                     |                                                                    |                                        |
-  |              |                     |                                                                    |                                        |
-  |              |                     |                                                                    |                                        |
-  |              +---------------------+--------------------------------------------------------------------+----------------------------------------+
-  |              | **cisTEM**          | | User-friendly software to process cryo-EM images of              | | v1.0.0                               |
-  |              |                     | | macromolecular complexes and obtain high-resolution 3D           | | (apps/gcc/4.4.7/cistem/1.0.0)        |
-  |              |                     | | reconstructions.                                                 |                                        |
-  |              |                     |                                                                    |                                        |
-  |              |                     | - https://cistem.org                                               |                                        |
-  |              +---------------------+--------------------------------------------------------------------+----------------------------------------+
-  |              | **CryoSPARC**       | | CryoSPARC is the state-of-the-art platform used globally for     | | Not deployed yet (TBD)               |
-  |              |                     | | obtaining 3D structural information from single particle cryo-EM |                                        |
-  |              |                     | | data.                                                            |                                        |
-  |              |                     |                                                                    |                                        |
-  |              |                     | - https://cryosparc.com                                            |                                        |
-  |              +---------------------+--------------------------------------------------------------------+----------------------------------------+
-  |              |                     |                                                                    |                                        |
-  +--------------+---------------------+--------------------------------------------------------------------+----------------------------------------+
++--------------+-------------+--------------------------------------------------------------------+----------------------------------------+
+| Category     | Name        | Description                                                        | Version                                |
+|              |             |                                                                    | (module path)                          |
++--------------+-------------+--------------------------------------------------------------------+----------------------------------------+
+| Data         | **Relion**  | | A stand-alone computer program that employs an empirical Bayesian|                                        |
+| Analysis     |             | | approach to refinement of (multiple) 3D reconstructions or 2D    |                                        |
+| Tools        |             | | class averages in electron cryo-microscopy (cryo-EM).            |                                        |
+|              |             |                                                                    | | v3.0.7                               |
+|              |             |                                                                    | | (apps/gcc/4.4.7/relion/cpu/3.0.7)    |
+|              |             |                                                                    | | (apps/gcc/4.4.7/relion/gpu/3.0.7)    |
+|              |             | - https://www3.mrc-lmb.cam.ac.uk/relion/index.php                  |                                        |
+|              |             |                                                                    |                                        |
+|              |             |                                                                    |                                        |
+|              |             |                                                                    |                                        |
+|              |             |                                                                    |                                        |
+|              |             |                                                                    |                                        |
+|              |             |                                                                    |                                        |
+|              +-------------+--------------------------------------------------------------------+----------------------------------------+
+|              | **cisTEM**  | | User-friendly software to process cryo-EM images of              | | v1.0.0                               |
+|              |             | | macromolecular complexes and obtain high-resolution 3D           | | (apps/gcc/4.4.7/cistem/1.0.0)        |
+|              |             | | reconstructions.                                                 |                                        |
+|              |             |                                                                    |                                        |
+|              |             | - https://cistem.org                                               |                                        |
+|              +-------------+--------------------------------------------------------------------+----------------------------------------+
+|              | CryoSPARC   | | CryoSPARC is the state-of-the-art platform used globally for     | | Not deployed yet (TBD)               |
+|              |             | | obtaining 3D structural information from single particle cryo-EM |                                        |
+|              |             | | data.                                                            |                                        |
+|              |             |                                                                    |                                        |
+|              |             | - https://cryosparc.com                                            |                                        |
+|              +-------------+--------------------------------------------------------------------+----------------------------------------+
+|              |             |                                                                    |                                        |
++--------------+-------------+--------------------------------------------------------------------+----------------------------------------+
 
