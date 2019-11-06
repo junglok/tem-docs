@@ -63,7 +63,7 @@ How to start cisTEM data analysis tool
   $> cisTEM
 
 
-.. image:: images/cistem-screenshot.png
+.. image:: images/cistem-screenshot-re.png
   :scale: 50 %
   :height: 1400px
   :align: center
@@ -149,7 +149,7 @@ In cisTEM settings, add a new "Run Profile" with the following parameters :
   * No. Copies: 84
   * Delay (ms): 10
 
-.. image:: images/cistem-run-profile.png
+.. image:: images/cistem-run-profile-re.png
   :scale: 60 %
   :height: 1400px
   :align: center
