@@ -156,7 +156,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'tem-docs.tex', u'초극저온전자현미경(Cryo-EM) 데이터 처리를 위한 분석 클러스터 활용 보고서',
+    (master_doc, 'tem-docs.tex', u'초극저온전자현미경(Cryo-EM) 데이터 처리를 위한 분석 클러스터 활용 기술 보고서',
      u'GSDC', 'manual'),
 ]
 

@@ -1,0 +1,57 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}TEM infrastructure overview}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Computing and storage resources}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Cluster management softwares}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Data analysis tools}{4}{section.1.3}%
+\contentsline {chapter}{\numberline {2}TEM farm basics}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Accessing TEM service farm}{5}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}For Linux/Mac users}{5}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}For Windows users}{5}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Understanding environment modules}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Job manager (Torque)}{8}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Resources manager and job scheduler}{8}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Directives in Torque job scripts}{9}{subsection.2.3.2}%
+\contentsline {subsubsection}{\sphinxstylestrong {Resource limits}}{9}{subsubsection*.3}%
+\contentsline {subsubsection}{\sphinxstylestrong {Job name}}{9}{subsubsection*.4}%
+\contentsline {subsubsection}{\sphinxstylestrong {Queue name}}{10}{subsubsection*.5}%
+\contentsline {subsubsection}{\sphinxstylestrong {Job log files}}{10}{subsubsection*.6}%
+\contentsline {subsection}{\numberline {2.3.3}Torque job script examples}{10}{subsection.2.3.3}%
+\contentsline {subsubsection}{\sphinxstylestrong {Simple sequential job}}{10}{subsubsection*.7}%
+\contentsline {subsubsection}{\sphinxstylestrong {Serial job with OpenMP multithreading}}{10}{subsubsection*.8}%
+\contentsline {subsubsection}{\sphinxstylestrong {Simple MPI parallel job}}{10}{subsubsection*.9}%
+\contentsline {subsubsection}{\sphinxstylestrong {Parallel job with MPI and OpenMP}}{11}{subsubsection*.10}%
+\contentsline {subsection}{\numberline {2.3.4}Job submission}{11}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Monitoring and managing your jobs}{11}{subsection.2.3.5}%
+\contentsline {subsubsection}{\sphinxstylestrong {Status of queued jobs}}{11}{subsubsection*.11}%
+\contentsline {subsubsection}{\sphinxstylestrong {Managing your jobs}}{12}{subsubsection*.12}%
+\contentsline {chapter}{\numberline {3}Batch Queues}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Batch queue list}{13}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Time schedule for queue assignment}{15}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Relion}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Executing Relion GUI tools}{17}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}How to start Relion data analysis tool}{17}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}PBS Strings used in Relion}{20}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Using CPU cluster (apps/gcc/4.4.7/relion/cpu/3.0.7)}{21}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}RELION\_QSUB\_TEMPLATE variable}{21}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Job script template (for CPU use)}{22}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Using GPGPU cluster (apps/gcc/4.4.7/relion/gpu/3.0.7)}{23}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}RELION\_QSUB\_TEMPLATE variable}{23}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Job script template (for GPGPU use)}{24}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Specifying which GPUs to use}{26}{subsection.4.4.3}%
+\contentsline {section}{\numberline {4.5}Executing CPU/GPU jobs in Relion}{27}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Module path}{27}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Job script template}{29}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Examples}{30}{subsection.4.5.3}%
+\contentsline {subsubsection}{Motion Correction}{30}{subsubsection*.13}%
+\contentsline {subsubsection}{CTF Estimation}{34}{subsubsection*.14}%
+\contentsline {subsubsection}{2D Classification}{38}{subsubsection*.15}%
+\contentsline {chapter}{\numberline {5}cisTEM}{43}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Executing cisTEM}{43}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}How to start cisTEM data analysis tool}{43}{subsection.5.1.1}%
+\contentsline {section}{\numberline {5.2}Run profiles for job submission}{44}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Profile templates}{44}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Adding a new Run Profile}{45}{subsection.5.2.2}%
+\contentsline {chapter}{\numberline {6}cryoSPARC}{47}{chapter.6}%
+\contentsline {chapter}{\numberline {7}FAQs}{49}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Contacts}{51}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Indices and tables}{53}{chapter.9}%
