@@ -20,7 +20,9 @@ Computing and storage resources
 | Category     | Name                        | Specification                                                             | Resources size  |
 +--------------+-----------------------------+---------------------------------------------------------------------------+-----------------+
 | Login        | tem-ui.sdfarm.kr            | CPU : Intel(R) Xeon(R) CPU E5-2697v3 @ 2.60GHz 14Core * 2 CPUs            | 28 cores        |
+|              |                             |                                                                           |                 |
 |              |                             | RAM : DDR4 8GB * 24 (192GB)                                               |                 |
+|              |                             |                                                                           |                 |
 |              |                             | HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)                                    |                 |
 +--------------+-----------------------------+---------------------------------------------------------------------------+-----------------+
 | Computing    | tem-ce.sdfarm.kr            | - CPU : Intel(R) Xeon(R) CPU E5-2697v3 @ 2.60GHz 14Core * 2 CPUs          | 28 cores        |
