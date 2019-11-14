@@ -67,6 +67,9 @@ How to start cisTEM data analysis tool
   :scale: 50 %
   :align: center
 
+On startup, the GUI presents a list of previously opened projects, as well as options to create a new project or open an existing project. 
+To continue a previous project, click on the provided link.
+
 
 Run profiles for job submission
 ===============================
@@ -137,7 +140,7 @@ For qsub-cisTEM-cpu-noout.sh,
 Adding a new Run Profile
 ------------------------
 
-In cisTEM settings, add a new "Run Profile" with the following parameters :
+In cisTEM settings, add a new "Run Profile" (called TORQUE here) with the following parameters :
 
 * Manager Command: /tem/home/tem/_Applications/cistem-1.0.0-beta/$command 
 * Gui Address: Automatic
@@ -149,6 +152,49 @@ In cisTEM settings, add a new "Run Profile" with the following parameters :
   * Delay (ms): 10
 
 .. image:: images/cistem-run-profile-re.png
+  :scale: 60 %
+  :align: center
+
+Exampels of running cisTEM jobs
+===============================
+
+With the above cisTEM setting, here, we provide some examples of running cisTEM jobs with cisTEM GUI tools.
+
+Importing Movies and images
+---------------------------
+
+Once a project is open or has been newly created, Assets can be imported. These will usually be Movies or Images but can also be Particle Positions, 3D Volumes and Refinement Packages.
+Click on Assets, then Movies and Import. In the dialog, select "Add Directory" and navigate to the directory containing your own movies.
+The movies are all part of a group called "All Movies". Additional groups can be created using "Add" to select subsets of a dataset for further processing. 
+You should continue with all the data for now. If images are available instead of movies,
+these can be imported as Image Assets in the same way as Movies, by clicking "Images".
+
+.. image:: images/cisTEM-importmovies.png
+  :scale: 60 %
+  :align: center
+
+
+Movie Alignment
+---------------
+
+Movie data collection and frame alignment have been part of the single-particle image processing pipeline since it was first introduced by Brilot et al. in 2012. The original software **Unblur** was developed further by Grant & Grigorieff (2015) when exposure weighting was added to take into account the radiation-dependent signal loss when adding movie frames, yielding signal-optimized frame sums. cisTEM implements the Unblur algorithm in the Align Movies panel, which also provides some background to the method. Click “Actions” and select “Align Movies” to call up the panel.
+
+
+.. image:: images/cisTEM-alignmovies-1.png
+  :scale: 60 %
+  :align: center
+
+Actions panels display parameters that you can change. Some of these are shown on the main panel while others are only accessible when "Show Expert Options" is selected. 
+Movie alignment usually works with the default parameters and you should simply click "Start Alignment" near the bottom of the panel.
+You will notice that next to the start button a menu is shown that allows you to select different run profiles.
+The Local profile should **NOT** be selected because it will launch alignment jobs onto the login node but you should change to other profiles (for example, TORQUE profile) 
+if these were previously set up under Settings.
+
+The alignment of all the  movies takes less than a minute. While the job is running, X,Y traces are displayed for some of the movies and a progress bar indicates the time left until completion of the job. 
+After termination (you must click on “Finish” at the end of all jobs), you can inspect the results by clicking "Results"
+
+
+.. image:: images/cisTEM-alignmovies-2.png
   :scale: 60 %
   :align: center
 
