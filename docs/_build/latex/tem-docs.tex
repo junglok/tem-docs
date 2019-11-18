@@ -18,7 +18,7 @@
   \DeclareUnicodeCharacter{\sphinxdqmaybe2572}{\textbackslash}
 \fi
 \usepackage{cmap}
-%\usepackage[T1]{fontenc}
+%%\usepackage[T1]{fontenc}
 \usepackage{kotex}
 \usepackage{amsmath,amssymb,amstext}
 \usepackage{babel}
@@ -59,10 +59,10 @@
 
 
 
-\title{초극저온전자현미경(Cryo-EM) 데이터 처리를 위한 분석 클러스터 활용 기술 보고서}
+\title{대형연구장비 초극저온전자현미경 데이터 분석을 위한 컴퓨팅 팜 구축 및 활용 보고서}
 \date{Nov 14, 2019}
 \release{1.0}
-\author{GSDC}
+\author{국가슈퍼컴퓨팅본부 대용량데이터허브센터}
 \newcommand{\sphinxlogo}{\vbox{}}
 \renewcommand{\releasename}{Release}
 \makeindex
@@ -1925,6 +1925,9 @@ Execute the cisTEM application (we assume that X11 forwarding is enabled)
 
 \noindent{\hspace*{\fill}\sphinxincludegraphics[scale=0.5]{{cistem-screenshot-re}.png}\hspace*{\fill}}
 
+On startup, the GUI presents a list of previously opened projects, as well as options to create a new project or open an existing project.
+To continue a previous project, click on the provided link.
+
 
 \section{Run profiles for job submission}
 \label{\detokenize{cisTEM:run-profiles-for-job-submission}}
@@ -1992,7 +1995,7 @@ cat \PYGZhy{} \PYG{l+s}{\PYGZlt{}\PYGZlt{}EOF \textbar{} qsub}
 
 \subsection{Adding a new Run Profile}
 \label{\detokenize{cisTEM:adding-a-new-run-profile}}
-In cisTEM settings, add a new “Run Profile” with the following parameters :
+In cisTEM settings, add a new “Run Profile” (called TORQUE here) with the following parameters :
 \begin{itemize}
 \item {} 
 Manager Command: /tem/home/tem/\_Applications/cistem-1.0.0-beta/\$command
@@ -2022,39 +2025,38 @@ Delay (ms): 10
 \noindent{\hspace*{\fill}\sphinxincludegraphics[scale=0.6]{{cistem-run-profile-re}.png}\hspace*{\fill}}
 
 
-\chapter{cryoSPARC}
-\label{\detokenize{cryoSPARC:cryosparc}}\label{\detokenize{cryoSPARC::doc}}
-CryoSPARC is the state-of-the-art platform used globally for obtaining 3D structural information from single particle cryo-EM data. The cryoSPARC platform enables automated, high quality and high-throughput structure discovery of proteins, viruses and molecular complexes for research and drug discovery. (from CryoSPARC offical site \sphinxurl{https://cryosparc.com})
+\section{Exampels of running cisTEM jobs}
+\label{\detokenize{cisTEM:exampels-of-running-cistem-jobs}}
+With the above cisTEM setting, here, we provide some examples of running cisTEM jobs with cisTEM GUI tools.
 
 
-\chapter{FAQs}
-\label{\detokenize{faq:faqs}}\label{\detokenize{faq::doc}}
+\subsection{Importing Movies and images}
+\label{\detokenize{cisTEM:importing-movies-and-images}}
+Once a project is open or has been newly created, Assets can be imported. These will usually be Movies or Images but can also be Particle Positions, 3D Volumes and Refinement Packages.
+Click on Assets, then Movies and Import. In the dialog, select “Add Directory” and navigate to the directory containing your own movies.
+The movies are all part of a group called “All Movies”. Additional groups can be created using “Add” to select subsets of a dataset for further processing.
+You should continue with all the data for now. If images are available instead of movies,
+these can be imported as Image Assets in the same way as Movies, by clicking “Images”.
 
-\chapter{Contacts}
-\label{\detokenize{contact:contacts}}\label{\detokenize{contact::doc}}
-If you have any questions on using TEM service farm, please do not hesitate to contact us.
-\begin{itemize}
-\item {} 
-Il-Yeon Yeo ( ilyeon9 at kisti.re.kr ) Tel: +82-42-869-0658
-
-\item {} 
-Jung-Lok Yu ( junglok.yu at kisti.re.kr ) Tel: +82-42-869-0622
-
-\end{itemize}
+\noindent{\hspace*{\fill}\sphinxincludegraphics[scale=0.6]{{cisTEM-importmovies}.png}\hspace*{\fill}}
 
 
-\chapter{Indices and tables}
-\label{\detokenize{index:indices-and-tables}}\begin{itemize}
-\item {} 
-\DUrole{xref,std,std-ref}{genindex}
+\subsection{Movie Alignment}
+\label{\detokenize{cisTEM:movie-alignment}}
+Movie data collection and frame alignment have been part of the single-particle image processing pipeline since it was first introduced by Brilot et al. in 2012. The original software \sphinxstylestrong{Unblur} was developed further by Grant \& Grigorieff (2015) when exposure weighting was added to take into account the radiation-dependent signal loss when adding movie frames, yielding signal-optimized frame sums. cisTEM implements the Unblur algorithm in the Align Movies panel, which also provides some background to the method. Click “Actions” and select “Align Movies” to call up the panel.
 
-\item {} 
-\DUrole{xref,std,std-ref}{modindex}
+\noindent{\hspace*{\fill}\sphinxincludegraphics[scale=0.6]{{cisTEM-alignmovies-1}.png}\hspace*{\fill}}
 
-\item {} 
-\DUrole{xref,std,std-ref}{search}
+Actions panels display parameters that you can change. Some of these are shown on the main panel while others are only accessible when “Show Expert Options” is selected.
+Movie alignment usually works with the default parameters and you should simply click “Start Alignment” near the bottom of the panel.
+You will notice that next to the start button a menu is shown that allows you to select different run profiles.
+The Local profile should \sphinxstylestrong{NOT} be selected because it will launch alignment jobs onto the login node but you should change to other profiles (for example, TORQUE profile)
+if these were previously set up under Settings.
 
-\end{itemize}
+The alignment of all the  movies takes less than a minute. While the job is running, X,Y traces are displayed for some of the movies and a progress bar indicates the time left until completion of the job.
+After termination (you must click on “Finish” at the end of all jobs), you can inspect the results by clicking “Results”
+
+\noindent{\hspace*{\fill}\sphinxincludegraphics[scale=0.6]{{cisTEM-alignmovies-2}.png}\hspace*{\fill}}
 
 
 

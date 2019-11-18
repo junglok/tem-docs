@@ -15,13 +15,13 @@ Welcome to tem-docs's documentation!
    queue.rst
    relion.rst
    cisTEM.rst
-   cryoSPARC.rst
-   faq.rst
-   contact.rst
+..   cryoSPARC.rst
+..   faq.rst
+..   contact.rst
 
-Indices and tables
-==================
+.. Indices and tables
+.. ==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`

@@ -156,16 +156,23 @@ They may be activated by first setting RELION_QSUB_EXTRA_COUNT to the number of 
 This will result in extra input fields in the GUI, with the label text being equal to the value of the environment variable. Likewise, their default values (upon starting the GUI) can be set through environment variables RELION_QSUB_EXTRA1_DEFAULT, RELION_QSUB_EXTRA2_DEFAULT, etc and their help messages can be set through environmental variables RELION_QSUB_EXTRA1_HELP, RELION_QSUB_EXTRA2_HELP and so on.
 
 
-Using CPU cluster (apps/gcc/4.4.7/relion/cpu/3.0.7)
-===================================================
+Running data analysis jobs using CPU cores (apps/gcc/4.4.7/relion/cpu/3.0.7)
+============================================================================
 
-RELION_QSUB_TEMPLATE variable
------------------------------
-Relion defines a lot of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper batch job script template to submit jobs to the farm.
+Module path
+-----------
+
+Users should load an environment module, whose path is  **apps/gcc/4.4.7/relion/cpu/3.0.7** (i.e., moulde load apps/gcc/4.4.7/relion/cpu/3.0.7) to execute data analysis jobs using CPU cores in relion GUI.
+
+* apps/gcc/4.4.7/relion/cpu/3.0.7
+
+Environment variables
+---------------------
+Relion defines a lot of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper batch job script template (usually called standard job submission script) to submit jobs to the farm.
 
 .. code-block:: bash
 
-  (for relion 3.0.7) RELION_QSUB_TEMPLATE /tem/home/tem/_Applications/relion-3.0.7/cpu/bin/qsub-relion3-cpu.bash
+  (for relion 3.0.7 standard job submission script) RELION_QSUB_TEMPLATE /tem/home/tem/_Applications/relion-3.0.7/cpu/bin/qsub-relion3-cpu.bash
 
 
 For the use of CPU cluster nodes, we have set the RELION_QSUB_EXTRA_COUNT to 2. Two extra options describe "Number of Nodes" and "Number of processes per each node", respectively. These values can be referred by XXXextra1, XXXextra2XXX in the following batch job script template.
@@ -185,8 +192,9 @@ For the use of CPU cluster nodes, we have set the RELION_QSUB_EXTRA_COUNT to 2. 
 As shown in above figure, you can browse and select **"standard submission script"** as the location of RELION_QSUB_TEMPLATE for relion 3.0.7 (i.e., /tem/home/tem/_Applications/relion-3.0.7/cpu/bin/qsub-relion3-cpu.bash or its own your copy), and give **"Number of Nodes"** and **"Number of processes per each node"** values instead of default ones to submit a job to Torque based TEM farm.
 **(NOTE : you MUST use your OWN QUEUEe for "Queue name" and correct "number of MPI procs" which is generally total number of processes (number of nodes x number of processes per each node))**
 
-Job script template (for CPU use)
----------------------------------
+
+Standard job submission script (for CPU use)
+--------------------------------------------
 
 .. code-block:: bash
 
@@ -241,17 +249,16 @@ Job script template (for CPU use)
 
 
 
+Running data analysis jobs using GPGPUs (apps/gcc/4.4.7/relion/gpu/3.0.7)
+=========================================================================
 
-Using GPGPU cluster (apps/gcc/4.4.7/relion/gpu/3.0.7)
-=====================================================
-
-RELION_QSUB_TEMPLATE variable
------------------------------
+Environment variables
+---------------------
 Relion defines a lot of environment variables that can be used to execute different types of subtasks in the analysis workflows. Among these, "RELION_QSUB_TEMPLATE" describes the location of a proper batch job script to submit jobs to the farm.
 
 .. code-block:: bash
 
-  (for relion 3.0.7 w/ GPU support) RELION_QSUB_TEMPLATE /tem/home/tem/_Applications/relion-3.0.7/gpu/bin/qsub-relion3-gpu.bash
+  (for relion 3.0.7 w/ GPU support standard job submission script) RELION_QSUB_TEMPLATE /tem/home/tem/_Applications/relion-3.0.7/gpu/bin/qsub-relion3-gpu.bash
 
 Unlike CPU cluster use case, we have set the RELION_QSUB_EXTRA_COUNT to 3 for the use of GPGPU cluster, 
 where each extra option describes "Number of Nodes", "Number of processes per each node", and "Number of GPUs per node", respectively. All these values can be accessed by XXXextra1, XXXextra2XXX, XXXextra3XXX in the batch job script template.
@@ -273,8 +280,8 @@ where each extra option describes "Number of Nodes", "Number of processes per ea
     :align: center
 
 
-Job script template (for GPGPU use)
------------------------------------
+Standard job submission script (for GPGPU use)
+----------------------------------------------
 
 .. code-block:: bash
 
@@ -330,8 +337,8 @@ Job script template (for GPGPU use)
   echo "Done!"
 
 
-Specifying which GPUs to use
-----------------------------
+Specifying which GPGPUs to use
+------------------------------
 
 .. image:: images/relion-gpu-node-allocation.png
     :scale: 70 %
@@ -378,8 +385,8 @@ Finally, for completeness, the following is a more complex example to illustrate
 For more information, please refer to Relion Benchmarks and computer hardware (https://www3.mrc-lmb.cam.ac.uk/relion/index.php/Benchmarks_%26_computer_hardware)
 
 
-Executing CPU/GPU jobs in Relion
-================================
+Executing CPU/GPU jobs in unified Relion environment
+====================================================
 
 Basically, with GPU-enabled Relion GUI, users can execute GPU-accelerated built-in subprograms, for examples :
 
@@ -467,8 +474,8 @@ Here, we have set the RELION_QSUB_EXTRA_COUNT to 1 for the statement of more gen
 * **gpus** : number of GPU devices per node (default:2)
 
 
-Job script template
--------------------
+Standard job submission script
+------------------------------
 
 * RELION_QSUB_TEMPLATE : /tem/home/tem/_Applications/relion-3.0.7/test/bin/qsub-relion3-gpu.bash
 

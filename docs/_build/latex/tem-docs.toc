@@ -48,10 +48,9 @@
 \contentsline {chapter}{\numberline {5}cisTEM}{43}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Executing cisTEM}{43}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}How to start cisTEM data analysis tool}{43}{subsection.5.1.1}%
-\contentsline {section}{\numberline {5.2}Run profiles for job submission}{44}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Profile templates}{44}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Adding a new Run Profile}{45}{subsection.5.2.2}%
-\contentsline {chapter}{\numberline {6}cryoSPARC}{47}{chapter.6}%
-\contentsline {chapter}{\numberline {7}FAQs}{49}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Contacts}{51}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Indices and tables}{53}{chapter.9}%
+\contentsline {section}{\numberline {5.2}Run profiles for job submission}{45}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Profile templates}{45}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Adding a new Run Profile}{46}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Exampels of running cisTEM jobs}{46}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Importing Movies and images}{47}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Movie Alignment}{47}{subsection.5.3.2}%

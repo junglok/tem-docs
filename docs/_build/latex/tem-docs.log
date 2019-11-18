@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.11.13)  14 NOV 2019 13:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.11.13)  14 NOV 2019 16:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -943,7 +943,7 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 8
 (/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<tem_service_farm.jpg, id=264, 708.7278pt x 549.7338pt>
+<tem_service_farm.jpg, id=260, 708.7278pt x 549.7338pt>
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 9
 0.
 
@@ -1104,12 +1104,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--409
 
 [3] [4]
 Chapter 2.
-<mobaxterm_resized.JPG, id=303, 385.44pt x 279.66985pt>
+<mobaxterm_resized.JPG, id=299, 385.44pt x 279.66985pt>
 File: mobaxterm_resized.JPG Graphic file (type jpg)
 <use mobaxterm_resized.JPG>
 Package pdftex.def Info: mobaxterm_resized.JPG  used on input line 448.
 (pdftex.def)             Requested size: 269.80615pt x 195.76753pt.
-<putty-1_resized.JPG, id=305, 301.125pt x 282.68109pt>
+<putty-1_resized.JPG, id=301, 301.125pt x 282.68109pt>
 File: putty-1_resized.JPG Graphic file (type jpg)
 <use putty-1_resized.JPG>
 Package pdftex.def Info: putty-1_resized.JPG  used on input line 456.
@@ -1117,7 +1117,7 @@ Package pdftex.def Info: putty-1_resized.JPG  used on input line 456.
 [5
 
  <./mobaxterm_resized.JPG>]
-<putty-2_resized.JPG, id=311, 301.125pt x 283.0575pt>
+<putty-2_resized.JPG, id=307, 301.125pt x 283.0575pt>
 File: putty-2_resized.JPG Graphic file (type jpg)
 <use putty-2_resized.JPG>
 Package pdftex.def Info: putty-2_resized.JPG  used on input line 458.
@@ -1144,7 +1144,7 @@ LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <9> not available
  [9]
 [10] [11] [12]
 Chapter 3.
-<queues-description.jpg, id=357, 576.7146pt x 445.665pt>
+<queues-description.jpg, id=353, 576.7146pt x 445.665pt>
 File: queues-description.jpg Graphic file (type jpg)
 <use queues-description.jpg>
 Package pdftex.def Info: queues-description.jpg  used on input line 854.
@@ -1254,13 +1254,13 @@ Overfull \vbox (2.74565pt too high) detected at line 1082
  []
 
 [18]
-<relion-screenshot.png, id=387, 800.9925pt x 799.98875pt>
+<relion-screenshot.png, id=383, 800.9925pt x 799.98875pt>
 File: relion-screenshot.png Graphic file (type png)
 <use relion-screenshot.png>
 Package pdftex.def Info: relion-screenshot.png  used on input line 1127.
 (pdftex.def)             Requested size: 400.49527pt x 399.9934pt.
  [19] [20 <./relion-screenshot.png>]
-<relion-cpu.jpg, id=402, 553.1064pt x 542.025pt>
+<relion-cpu.jpg, id=398, 553.1064pt x 542.025pt>
 File: relion-cpu.jpg Graphic file (type jpg)
 <use relion-cpu.jpg>
 Package pdftex.def Info: relion-cpu.jpg  used on input line 1244.
@@ -1270,14 +1270,14 @@ Overfull \vbox (11.93518pt too high) detected at line 1301
  []
 
 [22 <./relion-cpu.jpg>] [23]
-<relion-script-description.png, id=416, 540.5796pt x 542.025pt>
+<relion-script-description.png, id=412, 540.5796pt x 542.025pt>
 File: relion-script-description.png Graphic file (type png)
 <use relion-script-description.png>
 Package pdftex.def Info: relion-script-description.png  used on input line 1328
 .
 (pdftex.def)             Requested size: 378.40314pt x 379.4149pt.
  [24 <./relion-script-description.png>]
-<relion-gpu-node-allocation.png, id=422, 663.9204pt x 473.1276pt>
+<relion-gpu-node-allocation.png, id=418, 663.9204pt x 473.1276pt>
 File: relion-gpu-node-allocation.png Graphic file (type png)
 <use relion-gpu-node-allocation.png>
 Package pdftex.def Info: relion-gpu-node-allocation.png  used on input line 138
@@ -1297,13 +1297,13 @@ File: omlptm.fd
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 1636.
 
-<relion-motioncor1.png, id=448, 798.985pt x 758.835pt>
+<relion-motioncor1.png, id=443, 798.985pt x 758.835pt>
 File: relion-motioncor1.png Graphic file (type png)
 <use relion-motioncor1.png>
 Package pdftex.def Info: relion-motioncor1.png  used on input line 1648.
 (pdftex.def)             Requested size: 399.49152pt x 379.41658pt.
  [30]
-<relion-motioncor2.png, id=455, 800.9925pt x 761.84625pt>
+<relion-motioncor2.png, id=451, 800.9925pt x 761.84625pt>
 File: relion-motioncor2.png Graphic file (type png)
 <use relion-motioncor2.png>
 Package pdftex.def Info: relion-motioncor2.png  used on input line 1650.
@@ -1315,61 +1315,61 @@ Overfull \hbox (19.66086pt too wide) in paragraph at lines 1659--1660
 ions/MotionCor2/MotionCor2[]Cuda9.1[]v1.0.5 
  []
 
-<motioncor2-1.png, id=461, 795.97375pt x 760.8425pt>
+<motioncor2-1.png, id=457, 795.97375pt x 760.8425pt>
 File: motioncor2-1.png Graphic file (type png)
 <use motioncor2-1.png>
 Package pdftex.def Info: motioncor2-1.png  used on input line 1680.
 (pdftex.def)             Requested size: 397.9859pt x 380.42032pt.
 [32 <./relion-motioncor2.png>]
-<motioncor2-2.png, id=467, 795.97375pt x 763.85374pt>
+<motioncor2-2.png, id=463, 795.97375pt x 763.85374pt>
 File: motioncor2-2.png Graphic file (type png)
 <use motioncor2-2.png>
 Package pdftex.def Info: motioncor2-2.png  used on input line 1682.
 (pdftex.def)             Requested size: 397.9859pt x 381.92593pt.
  [33 <./motioncor2-1.png>]
-<ctffind-1.png, id=474, 797.98125pt x 760.8425pt>
+<ctffind-1.png, id=470, 797.98125pt x 760.8425pt>
 File: ctffind-1.png Graphic file (type png)
 <use ctffind-1.png>
 Package pdftex.def Info: ctffind-1.png  used on input line 1718.
 (pdftex.def)             Requested size: 398.98964pt x 380.42032pt.
  [34 <./motioncor2-2.png>]
-<ctffind-2.png, id=481, 796.9775pt x 761.84625pt>
+<ctffind-2.png, id=477, 796.9775pt x 761.84625pt>
 File: ctffind-2.png Graphic file (type png)
 <use ctffind-2.png>
 Package pdftex.def Info: ctffind-2.png  used on input line 1720.
 (pdftex.def)             Requested size: 398.48776pt x 380.9222pt.
  [35 <./ctffind-1.png>]
-<gctf-1.png, id=487, 797.98125pt x 760.8425pt>
+<gctf-1.png, id=483, 797.98125pt x 760.8425pt>
 File: gctf-1.png Graphic file (type png)
 <use gctf-1.png>
 Package pdftex.def Info: gctf-1.png  used on input line 1756.
 (pdftex.def)             Requested size: 398.98964pt x 380.42032pt.
  [36 <./ctffind-2.png>]
-<gctf-2.png, id=493, 797.98125pt x 760.8425pt>
+<gctf-2.png, id=489, 797.98125pt x 760.8425pt>
 File: gctf-2.png Graphic file (type png)
 <use gctf-2.png>
 Package pdftex.def Info: gctf-2.png  used on input line 1758.
 (pdftex.def)             Requested size: 398.98964pt x 380.42032pt.
  [37 <./gctf-1.png>]
-<2dclass-1.png, id=499, 797.98125pt x 759.83875pt>
+<2dclass-1.png, id=495, 797.98125pt x 759.83875pt>
 File: 2dclass-1.png Graphic file (type png)
 <use 2dclass-1.png>
 Package pdftex.def Info: 2dclass-1.png  used on input line 1791.
 (pdftex.def)             Requested size: 398.98964pt x 379.91844pt.
  [38 <./gctf-2.png>]
-<2dclass-2.png, id=506, 796.9775pt x 759.83875pt>
+<2dclass-2.png, id=502, 796.9775pt x 759.83875pt>
 File: 2dclass-2.png Graphic file (type png)
 <use 2dclass-2.png>
 Package pdftex.def Info: 2dclass-2.png  used on input line 1793.
 (pdftex.def)             Requested size: 398.48776pt x 379.91844pt.
  [39 <./2dclass-1.png>]
-<2dclassgpu-1.png, id=513, 795.97375pt x 758.835pt>
+<2dclassgpu-1.png, id=509, 795.97375pt x 758.835pt>
 File: 2dclassgpu-1.png Graphic file (type png)
 <use 2dclassgpu-1.png>
 Package pdftex.def Info: 2dclassgpu-1.png  used on input line 1826.
 (pdftex.def)             Requested size: 397.9859pt x 379.41658pt.
  [40 <./2dclass-2.png>]
-<2dclassgpu-2.png, id=519, 794.97pt x 758.835pt>
+<2dclassgpu-2.png, id=515, 794.97pt x 758.835pt>
 File: 2dclassgpu-2.png Graphic file (type png)
 <use 2dclassgpu-2.png>
 Package pdftex.def Info: 2dclassgpu-2.png  used on input line 1828.
@@ -1379,7 +1379,7 @@ Chapter 5.
 [43
 
 ]
-<cistem-screenshot-re.png, id=538, 1024.32687pt x 801.49437pt>
+<cistem-screenshot-re.png, id=534, 1024.32687pt x 801.49437pt>
 File: cistem-screenshot-re.png Graphic file (type png)
 <use cistem-screenshot-re.png>
 Package pdftex.def Info: cistem-screenshot-re.png  used on input line 1926.
@@ -1388,63 +1388,65 @@ Package pdftex.def Info: cistem-screenshot-re.png  used on input line 1926.
 
 LaTeX Font Warning: Font shape `OML/ptm/bx/n' undefined
 (Font)              using `OML/ptm/m/it' instead
-(Font)              for symbol `textless' on input line 2010.
+(Font)              for symbol `textless' on input line 2013.
 
 LaTeX Font Info:    Font shape `OML/ptm/m/it' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 2010.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 2013.
 
 LaTeX Font Info:    Font shape `OML/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 2010.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 2013.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2010--2011
+Underfull \hbox (badness 10000) in paragraph at lines 2013--2014
 []\OT1/ptm/m/n/10 Command: /tem/home/tem/[]Applications/cistem-1.0.0-beta/qsub-
 cisTEM-cpu.sh \OT1/ptm/b/n/10 -q
  []
 
-<cistem-run-profile-re.png, id=551, 1024.32687pt x 604.2575pt>
+<cistem-run-profile-re.png, id=547, 1024.32687pt x 604.2575pt>
 File: cistem-run-profile-re.png Graphic file (type png)
 <use cistem-run-profile-re.png>
-Package pdftex.def Info: cistem-run-profile-re.png  used on input line 2022.
+Package pdftex.def Info: cistem-run-profile-re.png  used on input line 2025.
 (pdftex.def)             Requested size: 614.60086pt x 362.5573pt.
 [46 <./cistem-run-profile-re.png>]
-Chapter 6.
-[47
+<cisTEM-importmovies.png, id=553, 1371.1225pt x 901.3675pt>
+File: cisTEM-importmovies.png Graphic file (type png)
+<use cisTEM-importmovies.png>
+Package pdftex.def Info: cisTEM-importmovies.png  used on input line 2041.
+(pdftex.def)             Requested size: 822.67986pt x 540.82466pt.
+<cisTEM-alignmovies-1.png, id=554, 1371.1225pt x 898.35625pt>
+File: cisTEM-alignmovies-1.png Graphic file (type png)
+<use cisTEM-alignmovies-1.png>
+Package pdftex.def Info: cisTEM-alignmovies-1.png  used on input line 2048.
+(pdftex.def)             Requested size: 822.67986pt x 539.0179pt.
+ [47 <./cisTEM-importmovies.png>]
+<cisTEM-alignmovies-2.png, id=560, 1373.13pt x 900.36375pt>
+File: cisTEM-alignmovies-2.png Graphic file (type png)
+<use cisTEM-alignmovies-2.png>
+Package pdftex.def Info: cisTEM-alignmovies-2.png  used on input line 2059.
+(pdftex.def)             Requested size: 823.88437pt x 540.22243pt.
 
-] [48
-
-]
-Chapter 7.
-[49] [50
-
-]
-Chapter 8.
-[51] [52
-
-]
-Chapter 9.
 (./tem-docs.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2063.
- [53]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2063.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2065.
+ [48 <./cisTEM-alignmovies-1.png>] [49 <./cisTEM-alignmovies-2.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2065.
  (./tem-docs.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2063.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2063.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2065.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2065.
 
 Package rerunfilecheck Info: File `tem-docs.out' has not changed.
-(rerunfilecheck)             Checksum: BE81C2B43726BB2AD3A074EA3CB3B5D7;7907.
+(rerunfilecheck)             Checksum: FAB92FBC246670766FBE99BAF21442C7;8098.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2063.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2065.
  ) 
 Here is how much of TeX's memory you used:
- 14650 strings out of 492164
- 208097 string characters out of 6125302
- 488791 words of memory out of 5000000
- 18477 multiletter control sequences out of 15000+600000
- 42905 words of font info for 112 fonts, out of 8000000 for 9000
+ 14672 strings out of 492164
+ 208922 string characters out of 6125302
+ 488796 words of memory out of 5000000
+ 18502 multiletter control sequences out of 15000+600000
+ 44870 words of font info for 124 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  51i,13n,51p,649b,662s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -1454,35 +1456,36 @@ ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texliv
 e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/
 2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbac.pfb></usr/local/texliv
 e/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbad.pfb></usr/local/texl
-ive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbae.pfb></usr/local/te
-xlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbb3.pfb></usr/local/
-texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbb7.pfb></usr/loca
-l/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbb9.pfb></usr/lo
-cal/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbbb.pfb></usr/
-local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbbc.pfb></us
-r/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbbd.pfb></
-usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbc1.pfb>
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbc2.pf
+ive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbb3.pfb></usr/local/te
+xlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbb7.pfb></usr/local/
+texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbbb.pfb></usr/loca
+l/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbbc.pfb></usr/lo
+cal/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbbd.pfb></usr/
+local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbbe.pfb></us
+r/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbc1.pfb></
+usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbc2.pfb>
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbc5.pf
 b></usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbc6.
 pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgtbc
 7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanumgt
 bc8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nanum
-gtbcc.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nan
-umgtbcd.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/n
-anumgtbd0.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1
-/nanumgtbd1.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtyp
-e1/nanumgtbd5.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumt
-ype1/nanumgtbd6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/courier
-/ucrb8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/courier/ucrr8a.
-pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></u
-sr/local/texlive/2019/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/loca
-l/texlive/2019/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/texl
-ive/2019/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2019/t
-exmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on tem-docs.pdf (57 pages, 4215577 bytes).
+gtbcd.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/nan
+umgtbce.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1/n
+anumgtbd1.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtype1
+/nanumgtbd3.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumtyp
+e1/nanumgtbd4.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanumt
+ype1/nanumgtbd5.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/nanu
+mtype1/nanumgtbd6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/couri
+er/ucrb8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/courier/ucrr8
+a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb><
+/usr/local/texlive/2019/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/lo
+cal/texlive/2019/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/te
+xlive/2019/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2019
+/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on tem-docs.pdf (53 pages, 5464861 bytes).
 PDF statistics:
- 717 PDF objects out of 1000 (max. 8388607)
- 576 compressed objects within 6 object streams
- 125 named destinations out of 1000 (max. 500000)
- 480 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 702 PDF objects out of 1000 (max. 8388607)
+ 558 compressed objects within 6 object streams
+ 120 named destinations out of 1000 (max. 500000)
+ 487 words of extra memory for PDF output out of 10000 (max. 10000000)
 
