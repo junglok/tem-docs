@@ -15,9 +15,9 @@ Welcome to tem-docs's documentation!
    queue.rst
    relion.rst
    cisTEM.rst
-..   cryoSPARC.rst
-..   faq.rst
-..   contact.rst
+   cryoSPARC.rst
+   faq.rst
+   contact.rst
 
 .. Indices and tables
 .. ==================
