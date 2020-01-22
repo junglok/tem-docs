@@ -29,7 +29,7 @@ Note that multiple jobs requiring CPU and/or GPU resources can be executed concu
 +--------------+-----------------+--------------------------------------------------------------------+------------------------------------+
 | Shared       | **sharedq**     | - tem-wn[1010-1011].sdfarm.kr (28 cores and 192GB memory per node) | - 116 physical CPU cores total     |
 |              | (default)       | - tem-gpu04.sdfarm.kr (24 cores, 2 P40 GPGPUs and 128GB memory)    | - 4 P40 GPGPUs total               |
-|              |                 | - tem-gpu05.sdfarm.kr (36 cores, 2 P40 GPGPUs and 256GB memory)    |                                    |
+|              |                 | - tem-gpu05.sdfarm.kr (36 cores, 2 P40 GPGPUs and 256GB memory)    | -                                  |
 +--------------+-----------------+--------------------------------------------------------------------+------------------------------------+
 
 
