@@ -27,9 +27,9 @@ Note that multiple jobs requiring CPU and/or GPU resources can be executed concu
 |              | **q03**         | - tem-wn[1007-1009].sdfarm.kr (28 cores and 192GB memory per node) |                                    |
 |              |                 | - tem-gpu03.sdfarm.kr (28 cores, 2 P100 GPGPUs and 384 GB memory)  |                                    |
 +--------------+-----------------+--------------------------------------------------------------------+------------------------------------+
-| Shared       | **sharedq**     | - tem-wn[1010-1011].sdfarm.kr (28 cores and 192GB memory per node) | - hyperthreading(H/T) enabled      |
-|              | (default)       | - tem-gpu04.sdfarm.kr (24 cores, 2 P40 GPGPUs and 128GB memory)    | - 232 logical CPU cores total      |
-|              |                 | - tem-gpu05.sdfarm.kr (36 cores, 2 P40 GPGPUs and 256GB memory)    | - 4 P40 GPGPUs total               |
+| Shared       | **sharedq**     | - tem-wn[1010-1011].sdfarm.kr (28 cores and 192GB memory per node) | - 116 physical CPU cores total     |
+|              | (default)       | - tem-gpu04.sdfarm.kr (24 cores, 2 P40 GPGPUs and 128GB memory)    | - 4 P40 GPGPUs total               |
+|              |                 | - tem-gpu05.sdfarm.kr (36 cores, 2 P40 GPGPUs and 256GB memory)    |                                    |
 +--------------+-----------------+--------------------------------------------------------------------+------------------------------------+
 
 
