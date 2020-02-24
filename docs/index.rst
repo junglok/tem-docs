@@ -17,6 +17,7 @@ Welcome to tem-docs's documentation!
    cisTEM.rst
    cryoSPARC.rst
    faq.rst
+   app.rst
    contact.rst
 
 .. Indices and tables
