@@ -2,7 +2,7 @@
 Application Form & Materials |newi|
 ***********************************
 
-.. |newi| image::images/new-24.png
+.. |newi| image:: images/new-24.png
 
 GSDC TEM Application Form
 =========================
