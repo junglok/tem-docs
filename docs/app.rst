@@ -11,7 +11,7 @@ If you want to get user account to access TEM farm, please download this Applica
 
 * `GSDC TEM Application Form <https://github.com/gsdc/tem-docs/raw/master/docs/GSDC-TEM-Application-Form.pdf>`_
 
-Tutorial ans Materials
-======================
+Tutorial
+========
 
 * `GSDC TEM 소개 자료 (korean) <https://github.com/gsdc/tem-docs/raw/master/docs/GSDC-TEM-overview.pdf>`_
