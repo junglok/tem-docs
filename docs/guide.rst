@@ -4,7 +4,8 @@ TEM farm basics
 
 Accessing TEM service farm
 ==========================
-Before you use GSDC's service farm, you should send an application form to TEM service manager and get an user account to access the farm (please see `APPENDIX : Application Form & Materials`_ section). If you already have valid user accounts, you can log into UI (user interface) nodes to access/use various kind of cluster resources and software environments (including data analysis tools, e.g., relion, cisTEM, eman, etc.).
+Before you use GSDC's service farm, you should send an application form to TEM service manager and get an user account to access the farm (please see `APPENDIX : Application Form & Materials <https://tem-docs.readthedocs.io/en/latest/app.html#appendix-application-form-materials-newi>`_ section). 
+If you already have valid user accounts, you can log into UI (user interface) nodes to access/use various kind of cluster resources and software environments (including data analysis tools, e.g., relion, cisTEM, eman, etc.).
 
 For Linux/Mac users
 -------------------
