@@ -1,8 +1,8 @@
 .. |newi| image:: images/new-24.png
 
-***********************************
-Application Form & Materials |newi|
-***********************************
+**********************************************
+APPENDIX : Application Form & Materials |newi|
+**********************************************
 
 GSDC TEM Application Form
 =========================
