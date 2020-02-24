@@ -17,8 +17,10 @@ Welcome to tem-docs's documentation!
    cisTEM.rst
    cryoSPARC.rst
    faq.rst
-   app.rst
+   app.rst |newi|
    contact.rst
+
+.. |newi| image:: images/new-24.png 
 
 .. Indices and tables
 .. ==================
