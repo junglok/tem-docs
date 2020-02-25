@@ -11,7 +11,7 @@ Users interact with a specific queue to manange their own jobs.
 Within each queue, submitted jobs are executed in order (First-in-first-out).
 Note that multiple jobs requiring CPU and/or GPU resources can be executed concurrently if there are enough available resources in the queue.
 
-.. image:: images/batch.jpg
+.. image:: images/batch.png
   :scale: 70 %
   :align: center
 
