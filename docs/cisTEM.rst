@@ -147,7 +147,7 @@ In cisTEM settings, add a new "Run Profile" (called TORQUE here) with the follow
 * Controller Address: Automatic
 * Command -> Edit:
 
-  * Command: /tem/home/tem/_Applications/cistem-1.0.0-beta/qsub-cisTEM-cpu.sh **-q <your_own_queue_name>** $command
+  * Command: /tem/home/tem/_Applications/cistem-1.0.0-beta/qsub-cisTEM-cpu.sh **-q cpuQ** $command
   * No. Copies: 84
   * Delay (ms): 10
 

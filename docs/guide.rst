@@ -54,6 +54,8 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   apps/gcc/4.4.7/cistem/1.0.0     cuda/9.1
   apps/gcc/4.4.7/relion/cpu/3.0.7 modules
   apps/gcc/4.4.7/relion/gpu/3.0.7 mpi/gcc/openmpi/1.8.8
+  apps/gcc/4.4.7/relion/gpu/3.0.7p 
+
 
 * **Show module details**
 
@@ -246,7 +248,7 @@ You can define a job name using "-N" option. If you omit this directive, the def
 
 .. code-block:: bash
 
-  #PBS -N my_first_job
+  #PBS -N jobName 
 
 
 **Queue name**
@@ -256,12 +258,13 @@ In general, a "queue" can be thought of a mapped set of computing resources. You
 
 .. code-block:: bash
 
-  #PBS -q tem
+  #PBS -q batch 
 
 
 **Job log files**
 ~~~~~~~~~~~~~~~~~
-When Torque executes an user's job, Torque creates 2 different types of log files (standard output stream and standart error stream) by default. If the job's name is "my_first_job" and the submitted job ID is "123456", you can find 2 files (my_first_job.o123456 and my_first_job.e123456) that are created in the job execution base directory. You can also merge the two streams into one file using "-j oe" option. In that case, my_first_job.o1234567 file contains the standard error stream.
+When Torque executes an user's job, Torque creates 2 different types of log files (standard output stream and standart error stream) by default. If the job's name is "jobName" and the submitted job ID is "123456", you can find 2 files (jobName.o123456 and jobName.e123456) that are created in the job execution base directory. 
+You can also merge the two streams into one file using "-j oe" option. In that case, jobName.o1234567 file contains the standard error stream.
 
 .. code-block:: bash
 
@@ -276,10 +279,10 @@ Torque job script examples
 
 .. code-block:: bash
 
-  #PBS -N my_job
+  #PBS -N jobName
   #PBS -l walltime=40:00:00
   #PBS -l nodes=1:ppn=1
-  #PBS -q tem
+  #PBS -q batch 
 
   cd $PBS_O_WORKDIR
   /usr/bin/time ./mysci > mysci.hist
@@ -290,10 +293,10 @@ Torque job script examples
 
 .. code-block:: bash
 
-  #PBS -N my_job
+  #PBS -N jobName 
   #PBS -l walltime=1:00:00
   #PBS -l nodes=1:ppn=28
-  #PBS -q tem
+  #PBS -q batch 
 
   export OMP_NUM_THREADS=28
   cd $PBS_O_WORKDIR
@@ -307,10 +310,10 @@ Here is an example of an MPI job that uses 4 nodes with 4 cores each, running on
 
 .. code-block:: bash
 
-  #PBS -N my_job
+  #PBS -N jobName 
   #PBS -l walltime=10:00:00
   #PBS -l nodes=4:ppn=4
-  #PBS -q tem
+  #PBS -q batch 
 
   module load mpi/gcc/openmpi/1.8.8
   cd $PBS_O_WORKDIR
@@ -324,10 +327,10 @@ This example is a hybrid MPI/OpenMP job. It runs one MPI process per node with 2
 
 .. code-block:: bash
 
-  #PBS -N my_job
+  #PBS -N jobName 
   #PBS -l walltime=20:00:00
   #PBS -l nodes=4:ppn=28
-  #PBS -q tem
+  #PBS -q batch 
 
   module load mpi/gcc/openmpi/1.8.8
   export OMP_NUM_THREADS=28
@@ -363,8 +366,10 @@ Use the qstat command to check the status of your jobs. You can see whether your
 
 .. code-block:: bash
 
-  ### By itself, qstat lists all jobs in the system:
+  ### By itself, qstat lists all jobs in the system in standard or alternate format:
   $> qstat
+  or
+  $> qstat -a
 
   ### To list all the jobs belonging to a particular user:
   $> qstat -u tem_user
@@ -375,6 +380,9 @@ Use the qstat command to check the status of your jobs. You can see whether your
 
   ### To get all the details about a particular job (full status):
   $> qstat -f 123456
+
+  ### To list the status of all the queues 
+  $> qstat -Qf
 
 ..
 

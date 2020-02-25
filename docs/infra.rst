@@ -8,7 +8,7 @@ Cryo-EM instrumentations are operated by KBSI. Cryo-EM facilities are directly c
 * Overall architecture between KBSI's Cryo-EM facilities and GSDC's TEM service farm
 
 .. image:: images/tem_service_farm.jpg
-    :scale: 60 %
+    :scale: 75 %
     :align: center
 
 Computing and storage resources
@@ -31,15 +31,15 @@ Computing and storage resources
 | (workers)    |                             | - RAM : DDR4 8GB * 24 (192GB)                                             |                 |
 |              |                             | - HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)                                  |                 |
 |              +-----------------------------+---------------------------------------------------------------------------+-----------------+
-|              | tem-gpu[01-05].sdfarm.kr    | - CPU : Intel® Xeon® CPU E5-2690v4 @ 2.60GHz 14Core * 2 CPUs              | 140 cores       |
-|              |                             | - RAM : DDR4 16GB * 24 (384GB)                                            |                 |
+|              | tem-gpu[01-05].sdfarm.kr    | - CPU : Intel® Xeon® CPU E5-2690v4 @ 2.60GHz 14Core * 2 CPUs              | - 140 cores     |
+|              |                             | - RAM : DDR4 16GB * 24 (384GB)                                            | - 10 GPGPUs     |
 |              |                             | - SSD : 6G SATA SSD 800GB * 2EA (RAID-1)                                  |                 |
-|              |                             | - GPU : NVIDIA P100 * 2ea (tem-gpu[01-03])                                |                 |
-|              |                             | - GPU : NVIDIA  P40 * 2ea (tem-gpu[04-05])                                |                 |
+|              |                             | - GPU : NVIDIA P100 * 2ea (each tem-gpu[01-03] has 2 P100 GPU devices)    |                 |
+|              |                             | - GPU : NVIDIA  P40 * 2ea (each tem-gpu[04-05] has 2 P40 GPU devices))    |                 |
 +--------------+-----------------------------+---------------------------------------------------------------------------+-----------------+
-| Storage      | Dell EMC Isilon NAS         | Network attached storage 700 TB                                                             |
+| Storage      | Dell EMC Isilon NAS         | Network attached storage 800 TB                                                             |
 +--------------+-----------------------------+---------------------------------------------------------------------------+-----------------+
-| Total                                      | 504 CPU cores, 10 GPGPUs, 700TB Storage                                                     |
+| Total                                      | 504 CPU cores, 10 GPGPUs, 800TB Storage                                                     |
 +--------------+-----------------------------+---------------------------------------------------------------------------+-----------------+
 
 Cluster management softwares
@@ -83,7 +83,7 @@ Data analysis tools
 |          |             |                                                                    | | v3.0.7                               |
 |          |             |                                                                    | | (apps/gcc/4.4.7/relion/cpu/3.0.7)    |
 |          |             |                                                                    | | (apps/gcc/4.4.7/relion/gpu/3.0.7)    |
-|          |             | - https://www3.mrc-lmb.cam.ac.uk/relion/index.php                  |                                        |
+|          |             | - https://www3.mrc-lmb.cam.ac.uk/relion/index.php                  | | (apps/gcc/4.4.7/relion/gpu/3.0.7p)   |
 |          |             |                                                                    |                                        |
 |          |             |                                                                    |                                        |
 |          |             |                                                                    |                                        |

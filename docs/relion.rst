@@ -190,8 +190,9 @@ For the use of CPU cluster nodes, we have set the RELION_QSUB_EXTRA_COUNT to 2. 
     :align: center
 
 As shown in above figure, you can browse and select **"standard submission script"** as the location of RELION_QSUB_TEMPLATE for relion 3.0.7 (i.e., /tem/home/tem/_Applications/relion-3.0.7/cpu/bin/qsub-relion3-cpu.bash or its own your copy), and give **"Number of Nodes"** and **"Number of processes per each node"** values instead of default ones to submit a job to Torque based TEM farm.
-**(NOTE : you MUST use your OWN QUEUEe for "Queue name" and correct "number of MPI procs" which is generally total number of processes (number of nodes x number of processes per each node))**
 
+.. note::
+  Note that you **MUST** use **cpuQ** for the "Queue name" field and give correct "number of MPI procs" which is generally total number of processes (number of nodes x number of processes per each node) 
 
 Standard job submission script (for CPU use)
 --------------------------------------------
@@ -279,6 +280,8 @@ where each extra option describes "Number of Nodes", "Number of processes per ea
     :scale: 70 %
     :align: center
 
+.. note::
+  Note that you **MUST** use **gpuQ** for the "Queue name" field and give correct "number of MPI procs" which is generally total number of processes (number of nodes x number of processes per each node) 
 
 Standard job submission script (for GPGPU use)
 ----------------------------------------------
@@ -473,6 +476,8 @@ Here, we have set the RELION_QSUB_EXTRA_COUNT to 1 for the statement of more gen
 * **ppn** : number of processes(cores) per node (default:3)
 * **gpus** : number of GPU devices per node (default:2)
 
+.. note::
+  Note that if you specify "gpus" in resource requirement field (e.g., nodes=1:ppn=3:gpus=2), you **MUST** use **gpuQ** for the "Queue name" field, otherwise, you **MUST** use **cpuQ** for the "Queue name" field. 
 
 Standard job submission script
 ------------------------------
@@ -545,8 +550,8 @@ Motion Correction
   * (Motion) Use RELION's own implementation? : Yes
   * (Running) Number of MPI Procs : 84
   * (Running) Number of threads : 1
-  * (Running) Queue name : <your own queue name> (e.g., q02)
-  * (Running) Resource Requirements : nodes=3:ppn=28  (e.g., we assume the use of 3 nodes and all 28 cores each node) 
+  * (Running) Queue name : **cpuQ**
+  * (Running) Resource Requirements : nodes=3:ppn=28  (e.g., we assume that the job is allocated to the 3 nodes which have all 28 cores available for each node) 
   * (Running) Standard submission script : /tem/home/tem/_Applications/relion-3.0.7/test/bin/qsub-relion3-gpu.bash 
 
 .. image:: images/relion-motioncor1.png
@@ -563,8 +568,8 @@ Motion Correction
   * (Motion) MOTIONCOR2 executable : /tem/home/tem/_Applications/MotionCor2/MotionCor2_Cuda9.1_v1.0.5
   * (Running) Number of MPI Procs : 2 
   * (Running) Number of threads : 1
-  * (Running) Queue name : <your own queue name> (e.g., q02)
-  * (Running) Resource Requirements : nodes=1:ppn=2:gpus=2  (e.g., we assume the use of 1 gpu node, 2 cpu cores  and 2 GPU devices)
+  * (Running) Queue name : **gpuQ**
+  * (Running) Resource Requirements : nodes=1:ppn=3:gpus=2  (e.g., we assume that the job is allocated to 1 node which has 3 cpu cores and 2 GPU devices available)
   * (Running) Standard submission script : /tem/home/tem/_Applications/relion-3.0.7/test/bin/qsub-relion3-gpu.bash 
 
 .. image:: images/motioncor2-1.png
@@ -586,7 +591,7 @@ CTF Estimation
   * (Gctf) Use Gctf instead? : No
   * (Running) Number of MPI procs: 48
   * (Running) Submit to queue? : Yes
-  * (Running) Queue name : <your own queue name> (e.g., q02)
+  * (Running) Queue name : **cpuQ**
   * (Running) Resource Requirements : nodes=3:ppn=16  (e.g., we assume the use of 3 nodes, 16 cpu cores per each node)
   * (Running) Standard submission script : /tem/home/tem/_Applications/relion-3.0.7/test/bin/qsub-relion3-gpu.bash
 
@@ -606,7 +611,7 @@ CTF Estimation
   * (Gctf) Which GPUs to use: <empty> (i.e., relion automatically assigned available GPU devices to the MPI processes)
   * (Running) Number of MPI procs: 5 (1 master and 4 slave processes) 
   * (Running) Submit to queue? : Yes
-  * (Running) Queue name : <your own queue name> (e.g., q02)
+  * (Running) Queue name : **gpuQ**
   * (Running) Resource Requirements : nodes=1:ppn=5:gpus=2
   * (Running) Standard submission script : /tem/home/tem/_Applications/relion-3.0.7/test/bin/qsub-relion3-gpu.bash
 
@@ -627,7 +632,7 @@ CTF Estimation
   * (Running) Number of MPI procs: 112 
   * (Running) Number of threads: 1
   * (Running) Submit to queue? : Yes
-  * (Running) Queue name : <your own queue name> (e.g., q02)
+  * (Running) Queue name : **cpuQ** 
   * (Running) Resource Requirements : nodes=4:ppn=28  (e.g., we assume the use of 4 nodes, 28 cpu cores per each node)
   * (Running) Standard submission script : /tem/home/tem/_Applications/relion-3.0.7/test/bin/qsub-relion3-gpu.bash
 
@@ -647,7 +652,7 @@ CTF Estimation
   * (Running) Number of MPI procs: 3 (1 master and 2 slave processes)
   * (Running) Number of threads: 1
   * (Running) Submit to queue? : Yes
-  * (Running) Queue name : <your own queue name> (e.g., q02)
+  * (Running) Queue name : **gpuQ** 
   * (Running) Resource Requirements : nodes=1:ppn=3:gpus=2
   * (Running) Standard submission script : /tem/home/tem/_Applications/relion-3.0.7/test/bin/qsub-relion3-gpu.bash
 
