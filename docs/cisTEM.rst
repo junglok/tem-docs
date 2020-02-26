@@ -155,7 +155,7 @@ In cisTEM settings, add a new "Run Profile" (called TORQUE here) with the follow
   :scale: 60 %
   :align: center
 
-Exampels of running cisTEM jobs
+Examples of running cisTEM jobs
 ===============================
 
 With the above cisTEM setting, here, we provide some examples of running cisTEM jobs with cisTEM GUI tools.
