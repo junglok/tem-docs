@@ -64,7 +64,7 @@ How to start cisTEM data analysis tool
 
 
 .. image:: images/cistem-screenshot-re.png
-  :scale: 50 %
+  :scale: 40 %
   :align: center
 
 On startup, the GUI presents a list of previously opened projects, as well as options to create a new project or open an existing project. 
@@ -152,7 +152,7 @@ In cisTEM settings, add a new "Run Profile" (called TORQUE here) with the follow
   * Delay (ms): 10
 
 .. image:: images/cistem-run-profile-re.png
-  :scale: 60 %
+  :scale: 50 %
   :align: center
 
 Examples of running cisTEM jobs
@@ -170,7 +170,7 @@ You should continue with all the data for now. If images are available instead o
 these can be imported as Image Assets in the same way as Movies, by clicking "Images".
 
 .. image:: images/cisTEM-importmovies.png
-  :scale: 60 %
+  :scale: 40 %
   :align: center
 
 
@@ -181,7 +181,7 @@ Movie data collection and frame alignment have been part of the single-particle 
 
 
 .. image:: images/cisTEM-alignmovies-1.png
-  :scale: 60 %
+  :scale: 40 %
   :align: center
 
 Actions panels display parameters that you can change. Some of these are shown on the main panel while others are only accessible when "Show Expert Options" is selected. 
@@ -195,6 +195,6 @@ After termination (you must click on “Finish” at the end of all jobs), you c
 
 
 .. image:: images/cisTEM-alignmovies-2.png
-  :scale: 60 %
+  :scale: 40 %
   :align: center
 

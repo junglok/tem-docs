@@ -192,7 +192,7 @@ For the use of CPU cluster nodes, we have set the RELION_QSUB_EXTRA_COUNT to 2. 
 As shown in above figure, you can browse and select **"standard submission script"** as the location of RELION_QSUB_TEMPLATE for relion 3.0.7 (i.e., /tem/home/tem/_Applications/relion-3.0.7/cpu/bin/qsub-relion3-cpu.bash or its own your copy), and give **"Number of Nodes"** and **"Number of processes per each node"** values instead of default ones to submit a job to Torque based TEM farm.
 
 .. note::
-  Note that you **MUST** use **cpuQ** for the "Queue name" field and give correct "number of MPI procs" which is generally total number of processes (number of nodes x number of processes per each node) 
+  For CPU jobs, note that you **MUST** use **cpuQ** for the "Queue name" field and render correct "number of MPI procs" which is generally total number of processes (# of nodes * # of processes per each node) 
 
 Standard job submission script (for CPU use)
 --------------------------------------------
@@ -281,7 +281,7 @@ where each extra option describes "Number of Nodes", "Number of processes per ea
     :align: center
 
 .. note::
-  Note that you **MUST** use **gpuQ** for the "Queue name" field and give correct "number of MPI procs" which is generally total number of processes (number of nodes x number of processes per each node) 
+  For GPU jobs, note that you **MUST** use **gpuQ** for the "Queue name" field and render correct "number of MPI procs" which is generally total number of processes (# of nodes * # of processes per each node) 
 
 Standard job submission script (for GPGPU use)
 ----------------------------------------------
@@ -476,8 +476,9 @@ Here, we have set the RELION_QSUB_EXTRA_COUNT to 1 for the statement of more gen
 * **ppn** : number of processes(cores) per node (default:3)
 * **gpus** : number of GPU devices per node (default:2)
 
-.. note::
-  Note that if you specify "gpus" in resource requirement field (e.g., nodes=1:ppn=3:gpus=2), you **MUST** use **gpuQ** for the "Queue name" field, otherwise, you **MUST** use **cpuQ** for the "Queue name" field. 
+.. warning::
+  If you set "gpus" in the resource requirement field (e.g., nodes=1:ppn=3:gpus=2), you **MUST** use **gpuQ** for the "Queue name" field so that the job is assigned to the computing servers with **GPU** devices.
+  Otherwise, if you give other queue name, cpuQ for example, the job you submitted will not start running. 
 
 Standard job submission script
 ------------------------------
