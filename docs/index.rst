@@ -10,6 +10,7 @@ Welcome to tem-docs's documentation! ( Last updated : 2020-02-24 )
    :maxdepth: 3
    :caption: Contents:
 
+   changelog.rst
    infra.rst
    guide.rst
    queue.rst
