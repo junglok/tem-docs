@@ -3,7 +3,7 @@ cryoSPARC
 *********
 CryoSPARC is the state-of-the-art platform used globally for obtaining 3D structural information from single particle cryo-EM data. 
 The cryoSPARC platform enables automated, high quality and high-throughput structure discovery of proteins, viruses and molecular complexes 
-for research and drug discovery. (from CryoSPARC offical site https://cryosparc.com)
+for research and drug discovery.
 
 .. note::
   cryoSPARC offical site : https://cryosparc.com
@@ -30,11 +30,11 @@ Getting a cryoSPARC instance
 CryoSPARC is a backend and frontend software system that provides data processing and image analysis capabilities for single particle cryo-EM, 
 along with a browser based user interface and command line tools. CryoSPARC is composed of three major components : cryosparc_master, cryospace_database and cryosparc_worker.
 
-* **cryosparc_master** : Master processes (webapps, command cores, databases, etc.) run together on one node (for our case, tem-ui.sdfarm.kr login node). These processes host HTML5 based web applications, spawn or submit jobs to a cluster scheduler (for example, to PBS-based batch system)
+* **cryosparc_master** : Master processes (webapps, command_core, databases, etc.) run together on one node (for our case, tem-ui.sdfarm.kr login node). These processes host HTML5 based web applications, spawn or submit jobs to a cluster scheduler (for example, to PBS-based batch system)
 
 * **cryosparc_worker** : Worker process can be spawned on any available worker nodes, and do data processing and image analysis tasks which are pre-defined within cryoSPRAC software packags.
 
-* **cryosparc_database** : CryoSPARC database is built on top of mongoDB, managing the metadata of users workflows, jobs, backend clusters or workers as well as users. 
+* **cryosparc_database** : CryoSPARC database is built on top of mongoDB, managing the metadata of users workflows, projects, jobs, backend clusters or workers as well as users. 
 
 1. (Admin) Install and setup a cryoSPARC instance
 -------------------------------------------------
@@ -77,7 +77,7 @@ Also, the configuration code-snippets implicitly add cryoSPARC instance's binary
 2. (User) Verifying installation
 --------------------------------
 
-By default, master processes (webapp, command-core, database, etc.) are automatilly started during configuration automation.
+By default, master processes (webapp, command_core, database, etc.) are automatilly started during configuration automation.
 Users should check and verify whether the master processes are working correctly on tem-ui.sdfarm.kr login node or not. 
 
 * **Checking environment variables for cryoSPARC instance**
@@ -92,16 +92,16 @@ Users should check and verify whether the master processes are working correctly
    export "CRYOSPARC_COMMAND_VIS_PORT=39003"
    export "CRYOSPARC_INSECURE=true"
    export "CRYOSPARC_DEVELOP=false"
-   **export "CRYOSPARC_DB_PATH=/tem/home/<user>/.cryosparc/cryosparc_database"**
+   export "CRYOSPARC_DB_PATH=/tem/home/<user>/.cryosparc/cryosparc_database
    export "CRYOSPARC_HTTP_RTP_PORT=39006"
-   **export "CRYOSPARC_LICENSE_ID=<license_key>"**
+   export "CRYOSPARC_LICENSE_ID=<license_key"
    export "CRYOSPARC_MONGO_PORT=39001"
    export "CRYOSPARC_MONGO_CACHE_GB=4"
    export "CRYOSPARC_HEARTBEAT_SECONDS=60"
    export "CRYOSPARC_COMMAND_PROXY_PORT=39004"
-   **export "CRYOSPARC_ROOT_DIR=/tem/home/<user>/.cryosparc/cryosparc2_master"**
+   export "CRYOSPARC_ROOT_DIR=/tem/home/<user>/.cryosparc/cryosparc2_master"
    export "CRYOSPARC_COMMAND_CORE_PORT=39002"
-   **export "CRYOSPARC_BASE_PORT=39000"**
+   export "CRYOSPARC_BASE_PORT=39000"
    export "CRYOSPARC_PATH=/tem/home/<user>/.cryosparc/cryosparc2_master/deps/anaconda/bin:/tem/home/<user>/.cryosparc/cryosparc2_master/deps/external/mongodb/bin:/tem/home/<user>/.cryosparc/cryosparc2_master/bin"
    export "CRYOSPARC_LIVE_ENABLED=false"
    export "CRYOSPARC_COMMAND_RTP_PORT=39035"
@@ -133,13 +133,13 @@ User must see what kinds of environment variables are set for the cryoSPARC inst
    cryosparcm process status:
    app                              STOPPED   Not started
    app_dev                          STOPPED   Not started
-   **command_core                     RUNNING   pid 171073, uptime 1 day, 5:35:11**
-   **command_proxy                    RUNNING   pid 171175, uptime 1 day, 5:35:02**
+   command_core                     RUNNING   pid 171073, uptime 1 day, 5:35:11
+   command_proxy                    RUNNING   pid 171175, uptime 1 day, 5:35:02
    command_rtp                      STOPPED   Not started
-   **command_vis                      RUNNING   pid 171170, uptime 1 day, 5:35:03**
-   **database                         RUNNING   pid 170997, uptime 1 day, 5:35:14**
+   command_vis                      RUNNING   pid 171170, uptime 1 day, 5:35:03
+   database                         RUNNING   pid 170997, uptime 1 day, 5:35:14
    watchdog_dev                     STOPPED   Not started
-   **webapp                           RUNNING   pid 171178, uptime 1 day, 5:35:00**
+   ebapp                           RUNNING   pid 171178, uptime 1 day, 5:35:00
    webapp_dev                       STOPPED   Not started
 
    ----------------------------------------------------------------------------
@@ -149,7 +149,7 @@ User must see what kinds of environment variables are set for the cryoSPARC inst
    export CRYOSPARC_LICENSE_ID="<license_key>"
    export CRYOSPARC_MASTER_HOSTNAME="tem-ui.sdfarm.kr"
    export CRYOSPARC_DB_PATH="/tem/home/<user>/.cryosparc/cryosparc_database"
-   **export CRYOSPARC_BASE_PORT=39000**
+   export CRYOSPARC_BASE_PORT=39000
    export CRYOSPARC_DEVELOP=false
    export CRYOSPARC_INSECURE=true
    export CRYOSPARC_CLICK_WRAP=true
@@ -157,3 +157,44 @@ User must see what kinds of environment variables are set for the cryoSPARC inst
 
 Launching CryoSPARC instance
 ============================
+
+We assume that user's network setup looks like (most commonly used scenario):
+
+.. code-block:: bash
+
+                   internet
+   [ localhost ]==============[ firewall | tem-ui.sdfarm.kr ]
+
+For Linux/Mac users 
+-------------------
+
+With the following command, you can start an SSH tunnel to export **CRYOSPARC_BASE_PORT** from tem-ui.sdfarm.kr to your local client machine.
+
+.. code-block:: bash
+
+   $> ssh -N -f -L localhost:39000:tem-ui.sdfarm.kr:<CRYOSPARC_BASE_PORT> -o Port=4280 <userid>@tem-ui.sdfarm.kr
+
+   ## -N : Do not execute a remote command. This is useful option for just forwarding ports.
+   ## -f : Requests ssh to go to background just before command execution.
+   ## -L [bind_address:]port:host:hostport
+
+.. note::
+   You can close the terminal window (because 'ssh' will be run in the background) after running the above command. The tunnel will stay open.   
+
+Now, open your browser (Chrome or Firefox recommended) and navigate to http://localhost:39000. You should be presented with the cryoSPARC login page.
+
+For Windows users 
+-----------------
+
+
+Exploring CryoSPARC web apps
+============================
+
+
+Tutorial on processing T20S
+===========================
+
+
+
+Troble shooting
+===============
