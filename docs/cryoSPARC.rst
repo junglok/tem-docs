@@ -155,7 +155,5 @@ User must see what kinds of environment variables are set for the cryoSPARC inst
    export CRYOSPARC_CLICK_WRAP=true
 
 
-
-
 Launching CryoSPARC instance
 ============================
