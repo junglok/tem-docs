@@ -92,7 +92,7 @@ Users should check and verify whether the master processes are working correctly
    export "CRYOSPARC_COMMAND_VIS_PORT=39003"
    export "CRYOSPARC_INSECURE=true"
    export "CRYOSPARC_DEVELOP=false"
-   export "CRYOSPARC_DB_PATH=/tem/home/<user>/.cryosparc/cryosparc_database
+   export "CRYOSPARC_DB_PATH=/tem/home/<user>/.cryosparc/cryosparc_database"
    export "CRYOSPARC_HTTP_RTP_PORT=39006"
    export "CRYOSPARC_LICENSE_ID=<license_key"
    export "CRYOSPARC_MONGO_PORT=39001"
@@ -139,7 +139,7 @@ User must see what kinds of environment variables are set for the cryoSPARC inst
    command_vis                      RUNNING   pid 171170, uptime 1 day, 5:35:03
    database                         RUNNING   pid 170997, uptime 1 day, 5:35:14
    watchdog_dev                     STOPPED   Not started
-   ebapp                           RUNNING   pid 171178, uptime 1 day, 5:35:00
+   webapp                           RUNNING   pid 171178, uptime 1 day, 5:35:00
    webapp_dev                       STOPPED   Not started
 
    ----------------------------------------------------------------------------
@@ -194,7 +194,7 @@ Exploring CryoSPARC web apps
 Tutorial on processing T20S
 ===========================
 
+* Please refer to CryoSPARC's webpage for the tutorial on processing T20S : https://cryosparc.com/docs/tutorials/t20s/
 
-
-Troble shooting
-===============
+Trouble shooting
+================
