@@ -221,10 +221,6 @@ Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http:
 Exploring CryoSPARC web apps
 ============================
 
-.. note::
-   For details on user interface and usages of cryoSPARC, refer to cryoSPARC's official document.
-   https://cryosparc.com/docs/reference/general 
-
 CryoSPARC login
 ---------------
 
@@ -257,6 +253,10 @@ CryoSPARC cluster(lane)
     :align: center
 
 
+.. note::
+   For details on user interface and usages of cryoSPARC, refer to cryoSPARC's official document.
+   https://cryosparc.com/docs/reference/general 
+
 Tutorial on processing T20S
 ===========================
 
@@ -264,3 +264,101 @@ Tutorial on processing T20S
 
 Trouble shooting
 ================
+
+1. How to stop or start the cryoSPARC instance?
+-----------------------------------------------
+
+* Stop the running cryoSPRAC instance
+
+.. code-block:: bash
+
+   $> cryosparcm stop
+
+   CryoSPARC is running.
+   Stopping cryosparc.
+   command_proxy: stopped
+   command_vis: stopped
+   webapp: stopped
+   command_core: stopped
+   database: stopped
+   Shut down
+
+Stop the cryosparc instance if running. This will gracefully kill all the master processes, and will cause any running jobs (potentially on other nodes) to fail.
+
+* Start the cryoSPARC instance
+
+.. code-block:: bash
+
+   $> cryosparcm start
+
+   Starting cryoSPARC System master process..
+   CryoSPARC is not already running.
+   database: started
+   command_core: started
+   cryosparc command core startup complete.
+   command_vis: started
+   command_proxy: started
+   webapp: started
+   -----------------------------------------------------
+   CryoSPARC master started. 
+   From this machine, access cryoSPARC at
+   http://localhost:39030
+
+   From other machines on the network, access cryoSPARC at
+   http://tem-ui.sdfarm.kr:39030
+
+   Startup can take several minutes. Point your browser to the address
+   and refresh until you see the cryoSPARC web interface.
+
+Start the cryosparc instance if stopped. This will cause the database, command, webapp etc processes to start up. 
+Once these processes are started, they are run in the background, so the current shell can be closed and the web UI will continue to run, as will jobs that are spawned.
+
+
+2. How to reset the password of non-admin user?
+-----------------------------------------------
+
+Users can reset the non-admin user's password to a new password with the following command-line execution:
+
+.. code-block:: bash
+
+   $> cryosparcm resetpassword --email <email address> --password <newpassword>
+
+
+3. Job (or Workflow) failed caused by **SSD caching**
+-----------------------------------------------------
+
+Job failure log looks like:
+
+.. code-block:: bash
+
+   [CPU: 166.4 MB]  Traceback (most recent call last):
+   File "cryosparc2_worker/cryosparc2_compute/run.py", line 82, in cryosparc2_compute.run.main
+   File "cryosparc2_worker/cryosparc2_compute/jobs/class2D/run.py", line 64, in cryosparc2_compute.jobs.class2D.run.run_class_2D
+   File "cryosparc2_compute/particles.py", line 61, in read_blobs
+   u_blob_paths = cache.download_and_return_cache_paths(u_rel_paths)
+   File "cryosparc2_compute/jobs/cache.py", line 129, in download_and_return_cache_paths
+   other_instance_ids = get_other_instance_ids(instance_id, ssd_cache_path)
+   File "cryosparc2_compute/jobs/cache.py", line 250, in get_other_instance_ids
+   all_instance_ids = [p for p in os.listdir(ssd_cache_path) if os.path.isdir(os.path.join(ssd_cache_path, p)) and p.startswith('instance_')]
+   OSError: [Errno 2] No such file or directory: ''
+
+During cryoSPARC configuration, we did not provide an option to support any **SSD caching** due to the lack of SSD (or NVMe SSD) drives on the worker nodes.
+However, by default, cryoSPARC seems to have 'SSD caching' enabled on its Web user interface. When you are running jobs that process particles (for example: Ab-Initio, Homogeneous Refinement, 2D Classification, 3D Variability), 
+you will find a parameter at the bottom of the job builder under "Compute Settings" called **Cache particle images on SSD**. 
+Turn this option off to load raw data from their original location instead.
+
+Also, you can set a default parameter value of each project. By default, the Cache particle images on SSD parameter is always on for every job you build, 
+but if you'd like to keep this option off across all jobs in a project, you can set a project-level default by running the following command in a shell on the UI node:
+
+.. code-block:: bash
+
+   $> cryosparcm cli "set_project_param_default('PX', 'compute_use_ssd', False)"
+
+where 'PX' is the Project ID you want to set the default value for (e.g., 'P1', 'P2', etc.)
+
+You can undo this setting by running:
+
+.. code-block:: bash
+   
+   $> cryosparcm cli "unset_project_param_default('PX', 'compute_use_ssd')"
+
