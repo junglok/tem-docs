@@ -115,7 +115,7 @@ Users should check and verify whether the master processes are working correctly
 You can find what kinds of environment variables have been set for the cryoSPARC instance. 
 
 .. note::
-   Especially, user should check **CRYOSPARC_BASE_PORT** (above example, 39000), which is **the listening port of cryoSPARC web application**. 
+   Especially, user should check **CRYOSPARC_BASE_PORT** (above, for example, 39000), which is **the listening port of cryoSPARC web application**. 
    Later, this port number is used to make SSH tunneling between client and tem-ui.sdfarm.kr login node. 
    **Via the tunneled connection over SSH, users can access the web UI of cryoSPARC instance.**    
 
