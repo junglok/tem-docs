@@ -32,7 +32,7 @@ along with a browser based user interface and command line tools. CryoSPARC is c
 
 * **cryosparc_master** : Master processes (webapps, command_core, databases, etc.) run together on one node (for our case, tem-ui.sdfarm.kr login node). These processes host HTML5 based web applications, spawn or submit jobs to a cluster scheduler (for example, to PBS-based batch system)
 
-* **cryosparc_worker** : Worker process can be spawned on any available worker nodes, and do data processing and image analysis tasks which are pre-defined within cryoSPRAC software packags.
+* **cryosparc_worker** : Worker process can be spawned on any available worker nodes, and do data processing and image analysis tasks which are pre-defined within cryoSPRAC software packages.
 
 * **cryosparc_database** : CryoSPARC database is built on top of mongoDB, managing the metadata of users workflows, projects, jobs, backend clusters or workers as well as users. 
 
@@ -172,7 +172,7 @@ With the following command, you can start an SSH tunnel to export **CRYOSPARC_BA
 
 .. code-block:: bash
 
-   $> ssh -N -f -L localhost:39000:tem-ui.sdfarm.kr:<CRYOSPARC_BASE_PORT> -o Port=4280 <userid>@tem-ui.sdfarm.kr
+   $> ssh -N -f -L localhost:39000:tem-ui.sdfarm.kr:<CRYOSPARC_BASE_PORT> -o Port=<ssh_port> <userid>@tem-ui.sdfarm.kr
 
    ## -N : Do not execute a remote command. This is useful option for just forwarding ports.
    ## -f : Requests ssh to go to background just before command execution.
@@ -186,6 +186,35 @@ Now, open your browser (Chrome or Firefox recommended) and navigate to http://lo
 For Windows users 
 -----------------
 
+* Using MobaXterm
+
+  * Open 'MobaXterm' application.
+  * 'MobaXterm' -> 'Tools' -> 'MobaSSHTunnel (port forwarding)' : Open MobaSSHTunnel dialog box.
+  * 'New SSH tunnel' : Set a forwarded port binding option and save the setting.
+  * Give the name to the saved port forwarding settings, and start the tunnelled connection.
+
+.. image:: images/mobaxterm-tunnel1.JPG
+    :scale: 60 %
+    :align: center
+
+.. image:: images/mobaxterm-tunnel2.JPG
+    :scale: 60 %
+    :align: center
+
+Now, open your browser (Chrome or Firefox recommended) and navigate to http://localhost:39000. You should be presented with the cryoSPARC login page.
+
+
+* Using Putty
+  
+  * Open 'PuTTy Configuration' dialog box.
+  * 'PuTTy Configuration' -> 'Session' : Load a SSH session to connect tem-ui login node with the known ssh_port.
+  * 'PuTTy Configuration' -> 'Connection' -> 'SSH' -> 'Tunnels' : Set a forwarded port binding option and Add the entry.
+
+.. image:: images/putty-tunnel.JPG
+    :scale: 60 %
+    :align: center
+
+Now, open your browser (Chrome or Firefox recommended) and navigate to http://localhost:39000. You should be presented with the cryoSPARC login page.
 
 Exploring CryoSPARC web apps
 ============================
