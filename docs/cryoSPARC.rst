@@ -227,27 +227,27 @@ E-mail and password information has been informed to users as the installation a
 Given e-mail and password, users can login to cryoSPARC web interfaces.
 
 .. image:: images/cryosparc-login.png
-    :scale: 60 %
+    :scale: 50 %
     :align: center
 
 * cryoSPARC dashboard
 
 .. image:: images/cryosparc-dashboard.png
-    :scale: 60 %
+    :scale: 45 %
     :align: center
 
 * cryoSPARC project
 
 .. image:: images/cryosparc-project.png
-    :scale: 60 %
+    :scale: 45 %
     :align: center
 
 * cryoSPARC cluster(lane)
 
 .. image:: images/cryosparc-cluster.png
-    :scale: 60 %
+    :scale: 45 %
     :align: center
-    
+
 
 Tutorial on processing T20S
 ===========================
