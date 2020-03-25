@@ -362,3 +362,15 @@ You can undo this setting by running:
    
    $> cryosparcm cli "unset_project_param_default('PX', 'compute_use_ssd')"
 
+4. Failed to launch! 190
+------------------------
+
+As you submit a cryoSPARC job to TEM-FARM cluster, you can encounter an error such as **"Failed to launch! 190"**.
+If you face with this error, you should check **Number of GPUs to parallelize** option under "Compute Setttings" of job builder first.
+Unlike relion, it seems that all the cryoSPARC jobs can not distribute their worker processes onto multiple worker nodes 
+(that is, all the cryoSPARC job is executed on a single CPU or GPU node).
+So, the maximum number of GPUs which can be used to parallelize within a job is 2 (because there are 2 P100 or P40 GPUs on each GPU node in GSDC TEM FARM).
+
+.. image:: images/cryosparc-maxgpus.png
+    :scale: 45 %
+    :align: center
