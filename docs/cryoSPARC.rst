@@ -112,7 +112,7 @@ Users should check and verify whether the master processes are working correctly
    export "PYTHONPATH="
    export "PYTHONNOUSERSITE=true"
 
-User must see what kinds of environment variables are set for the cryoSPARC instance. 
+You can findwhat kinds of environment variables have been set for the cryoSPARC instance. 
 
 .. note::
    Especially, user should check **CRYOSPARC_BASE_PORT** (above example, 39000), which is **the listening port of cryoSPARC web application**. 
@@ -181,7 +181,7 @@ With the following command, you can start an SSH tunnel to export **CRYOSPARC_BA
 .. note::
    You can close the terminal window (because 'ssh' will be run in the background) after running the above command. The tunnel will stay open.   
 
-Now, open your browser (Chrome or Firefox recommended) and navigate to http://localhost:39000. You should be presented with the cryoSPARC login page.
+Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http://localhost:39000. You should be presented with the cryoSPARC login page.
 
 For Windows users 
 -----------------
@@ -191,34 +191,63 @@ For Windows users
   * Open 'MobaXterm' application.
   * 'MobaXterm' -> 'Tools' -> 'MobaSSHTunnel (port forwarding)' : Open MobaSSHTunnel dialog box.
   * 'New SSH tunnel' : Set a forwarded port binding option and save the setting.
-  * Give the name to the saved port forwarding settings, and start the tunnelled connection.
+  * Give the name to the saved port forwarding settings, and start the tunnel connection.
+
+.. note::
+   You must use **CRYOSPARC_BASE_PORT** for the 'Remote server' port section.   
 
 .. image:: images/mobaxterm-tunnel1.JPG
-    :scale: 60 %
+    :scale: 50 %
     :align: center
 
-.. image:: images/mobaxterm-tunnel2.JPG
-    :scale: 60 %
-    :align: center
-
-Now, open your browser (Chrome or Firefox recommended) and navigate to http://localhost:39000. You should be presented with the cryoSPARC login page.
+Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http://localhost:39000. You should be presented with the cryoSPARC login page.
 
 
 * Using Putty
   
   * Open 'PuTTy Configuration' dialog box.
-  * 'PuTTy Configuration' -> 'Session' : Load a SSH session to connect tem-ui login node with the known ssh_port.
-  * 'PuTTy Configuration' -> 'Connection' -> 'SSH' -> 'Tunnels' : Set a forwarded port binding option and Add the entry.
+  * 'PuTTy Configuration' -> 'Session' : Load a SSH session to connect tem-ui login node with the known <ssh_port>.
+  * 'PuTTy Configuration' -> 'Connection' -> 'SSH' -> 'Tunnels' : Set a forwarded port binding option and add the entry.
+
+.. note::
+   You must use **tem-ui.sdfarm.kr:CRYOSPARC_BASE_PORT** for the 'Destination' field. 
 
 .. image:: images/putty-tunnel.JPG
     :scale: 60 %
     :align: center
 
-Now, open your browser (Chrome or Firefox recommended) and navigate to http://localhost:39000. You should be presented with the cryoSPARC login page.
+Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http://localhost:39000. You should be presented with the cryoSPARC login page.
 
 Exploring CryoSPARC web apps
 ============================
 
+* cryoSPARC login
+
+E-mail and password information has been informed to users as the installation and setup is finished.
+Given e-mail and password, users can login to cryoSPARC web interfaces.
+
+.. image:: images/cryosparc-login.png
+    :scale: 60 %
+    :align: center
+
+* cryoSPARC dashboard
+
+.. image:: images/cryosparc-dashboard.png
+    :scale: 60 %
+    :align: center
+
+* cryoSPARC project
+
+.. image:: images/cryosparc-project.png
+    :scale: 60 %
+    :align: center
+
+* cryoSPARC cluster(lane)
+
+.. image:: images/cryosparc-cluster.png
+    :scale: 60 %
+    :align: center
+    
 
 Tutorial on processing T20S
 ===========================
