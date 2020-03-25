@@ -221,28 +221,36 @@ Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http:
 Exploring CryoSPARC web apps
 ============================
 
-* cryoSPARC login
+.. note::
+   For details on user interface and usages of cryoSPARC, refer to cryoSPARC's official document.
+   https://cryosparc.com/docs/reference/general 
 
-E-mail and password information has been informed to users as the installation and setup is finished.
-Given e-mail and password, users can login to cryoSPARC web interfaces.
+CryoSPARC login
+---------------
+
+E-mail and password information will be notified to users as the installation and setup is finished.
+Given e-mail and password, users can login to cryoSPARC web interfaces. 
 
 .. image:: images/cryosparc-login.png
     :scale: 50 %
     :align: center
 
-* cryoSPARC dashboard
+CryoSPARC dashboard
+-------------------
 
 .. image:: images/cryosparc-dashboard.png
     :scale: 45 %
     :align: center
 
-* cryoSPARC project
+CryoSPARC project
+-----------------
 
 .. image:: images/cryosparc-project.png
     :scale: 45 %
     :align: center
 
-* cryoSPARC cluster(lane)
+CryoSPARC cluster(lane)
+-----------------------
 
 .. image:: images/cryosparc-cluster.png
     :scale: 45 %
@@ -252,7 +260,7 @@ Given e-mail and password, users can login to cryoSPARC web interfaces.
 Tutorial on processing T20S
 ===========================
 
-* Please refer to CryoSPARC's webpage for the tutorial on processing T20S : https://cryosparc.com/docs/tutorials/t20s/
+* Please refer to CryoSPARC's webpage for the tutorial on processing T20S : https://cryosparc.com/docs/tutorials/t20s
 
 Trouble shooting
 ================
