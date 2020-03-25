@@ -97,7 +97,7 @@ Data analysis tools
 |          |             |                                                                    |                                        |
 |          |             | - https://cistem.org                                               |                                        |
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
-|          | CryoSPARC   | | CryoSPARC is the state-of-the-art platform used globally for     | | Not deployed yet (TBD)               |
+|          | CryoSPARC   | | CryoSPARC is the state-of-the-art platform used globally for     | | v2.14.2                              |
 |          |             | | obtaining 3D structural information from single particle cryo-EM |                                        |
 |          |             | | data.                                                            |                                        |
 |          |             |                                                                    |                                        |

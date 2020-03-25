@@ -112,7 +112,7 @@ Users should check and verify whether the master processes are working correctly
    export "PYTHONPATH="
    export "PYTHONNOUSERSITE=true"
 
-You can findwhat kinds of environment variables have been set for the cryoSPARC instance. 
+You can find what kinds of environment variables have been set for the cryoSPARC instance. 
 
 .. note::
    Especially, user should check **CRYOSPARC_BASE_PORT** (above example, 39000), which is **the listening port of cryoSPARC web application**. 
