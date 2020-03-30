@@ -378,7 +378,7 @@ So, the maximum number of GPUs which can be used to parallelize within a job is 
 5. Binary locations of Gctf, MotionCor2
 ---------------------------------------
 
-The GPU environment of GSDC TEM farm is built on top of NVIDIA CUDA SDK (driver verion 396.37 and CUDA library verion 9.1).
+The GPU environment of GSDC TEM farm is built on top of NVIDIA CUDA SDK (driver version 396.37 and CUDA library version 9.1).
 Some 3rd-party applications with GPU acceleration, for example, Gctf, MotionCor2, which can be utilized within various number of Cryo-EM toolkit are provided, and
 you can find those binaries in the following locations:
 
