@@ -2,6 +2,7 @@
 Change Logs
 ***********
 
+* 2020-03-30 : CryoSPARC trouble shooting updated (Gctf, MotionCor2 locations added).
 * 2020-03-25 : CryoSPARC usage guide added.
 * 2020-02-24 : Appendix: Application form and materials added.
 * 2020-02-21 : Dedicated queues list removed. Shared queues (cpuQ, gpuQ) and their abstract descriptions added.

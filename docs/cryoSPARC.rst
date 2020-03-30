@@ -104,7 +104,7 @@ Users should check and verify whether the master processes are working correctly
    export "CRYOSPARC_BASE_PORT=39000"
    export "CRYOSPARC_PATH=/tem/home/<user>/.cryosparc/cryosparc2_master/deps/anaconda/bin:/tem/home/<user>/.cryosparc/cryosparc2_master/deps/external/mongodb/bin:/tem/home/<user>/.cryosparc/cryosparc2_master/bin"
    export "CRYOSPARC_LIVE_ENABLED=false"
-   export "CRYOSPARC_COMMAND_RTP_PORT=39035"
+   export "CRYOSPARC_COMMAND_RTP_PORT=39005"
    export "CRYOSPARC_SUPERVISOR_SOCK_FILE=/tmp/cryosparc-supervisor-627a9991e2f2f069094732dfd78d1696.sock"
    export "CRYOSPARC_LD_LIBRARY_PATH="
    export "LD_LIBRARY_PATH=:"
@@ -335,11 +335,11 @@ Job failure log looks like:
    File "cryosparc2_worker/cryosparc2_compute/run.py", line 82, in cryosparc2_compute.run.main
    File "cryosparc2_worker/cryosparc2_compute/jobs/class2D/run.py", line 64, in cryosparc2_compute.jobs.class2D.run.run_class_2D
    File "cryosparc2_compute/particles.py", line 61, in read_blobs
-   u_blob_paths = cache.download_and_return_cache_paths(u_rel_paths)
+      u_blob_paths = cache.download_and_return_cache_paths(u_rel_paths)
    File "cryosparc2_compute/jobs/cache.py", line 129, in download_and_return_cache_paths
-   other_instance_ids = get_other_instance_ids(instance_id, ssd_cache_path)
+      other_instance_ids = get_other_instance_ids(instance_id, ssd_cache_path)
    File "cryosparc2_compute/jobs/cache.py", line 250, in get_other_instance_ids
-   all_instance_ids = [p for p in os.listdir(ssd_cache_path) if os.path.isdir(os.path.join(ssd_cache_path, p)) and p.startswith('instance_')]
+      all_instance_ids = [p for p in os.listdir(ssd_cache_path) if os.path.isdir(os.path.join(ssd_cache_path, p)) and p.startswith('instance_')]
    OSError: [Errno 2] No such file or directory: ''
 
 During cryoSPARC configuration, we did not provide an option to support any **SSD caching** due to the lack of SSD (or NVMe SSD) drives on the worker nodes.
@@ -374,3 +374,18 @@ So, the maximum number of GPUs which can be used to parallelize within a job is 
 .. image:: images/cryosparc-maxgpus.png
     :scale: 45 %
     :align: center
+
+5. Binary locations of Gctf, MotionCor2
+---------------------------------------
+
+The GPU environment of GSDC TEM farm is built on top of NVIDIA CUDA SDK (driver verion 396.37 and CUDA library verion 9.1).
+Some 3rd-party applications with GPU acceleration, for example, Gctf, MotionCor2, which can be utilized within various number of Cryo-EM toolkit are provided, and
+you can find those binaries in the following locations:
+
+.. code-block:: bash
+
+   ## Gctf
+      /tem/home/tem/_Applications/Gctf_v1.18_b2/bin/Gctf_v1.18_b2_sm60_cu9.1
+
+   ## MotionCor2
+      /tem/home/tem/_Applications/MotionCor2/MotionCor2_Cuda9.1_v1.0.5 
