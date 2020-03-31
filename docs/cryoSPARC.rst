@@ -172,11 +172,15 @@ With the following command, you can start an SSH tunnel to export **CRYOSPARC_BA
 
 .. code-block:: bash
 
-   $> ssh -N -f -L localhost:39000:tem-ui.sdfarm.kr:<CRYOSPARC_BASE_PORT> -o Port=<ssh_port> <userid>@tem-ui.sdfarm.kr
+   localhost$> ssh -N -f -L localhost:39000:tem-ui.sdfarm.kr:<CRYOSPARC_BASE_PORT> -o Port=<ssh_port> <userid>@tem-ui.sdfarm.kr
 
    ## -N : Do not execute a remote command. This is useful option for just forwarding ports.
    ## -f : Requests ssh to go to background just before command execution.
    ## -L [bind_address:]port:host:hostport
+
+.. note::
+   You should execute this 'ssh' command on **YOUR LOCAL PC/WORKSTATION** to make a tunnel between 
+   your local machine and tem-ui.sdfarm.kr (localhost:39000 <--> tem-ui.sdfarm.kr:<CRYOSPARC_BASE_PORT>) over secure channel.
 
 .. note::
    You can close the terminal window (because 'ssh' will be run in the background) after running the above command. The tunnel will stay open.   
