@@ -2,6 +2,7 @@
 Change Logs
 ***********
 
+* 2020-11-23 : 2020 SNU CryoEM Hands-On Workshop presentation material added (appendix).
 * 2020-03-30 : CryoSPARC trouble shooting updated (Gctf, MotionCor2 locations added).
 * 2020-03-25 : CryoSPARC usage guide added.
 * 2020-02-24 : Appendix: Application form and materials added.
