@@ -268,20 +268,6 @@ Tutorial on processing T20S
 * Please refer to CryoSPARC's webpage for the tutorial on processing T20S : https://cryosparc.com/docs/tutorials/t20s
 
 
-Topaz Integration
-=================
-
-As explained in CryoSPARC official document, Topaz (https://github.com/tbepler/topaz) is a particle detection tool which incorporates deep learning techniques 
-to automatically pick particles based on a pre-trained model as well as to denoise micrographs.
-CryoSPARC provides the topaz wrapper consisting of four types of jobs : Train, Cross validation, Extract, and Denoise.
-
-We have built ans setup the Topaz particle auto-picking and micrographs denoising packages for users to run picking/denoising tasks in their workflow (or jobs) executions.
-
-.. note::
-   For more details about the Topaz tool, please refer to "Tutorial: Topaz Integration in cryoSPARC" : https://cryosparc.com/docs/tutorials/topaz
-
-
-  
 
 Trouble shooting
 ================
