@@ -1,0 +1,55 @@
+******************
+GSDC TEM 신규 분석 팜
+******************
+
+신규 분석 팜 접속
+=============
+
+리눅스/맥 사용자
+------------
+
+.. code-block:: bash
+
+  $> ssh -Y -o Port=<port> <userID>@tem-ui-el7.sdfarm.kr
+
+-Y (or -X) options : enable trusted X11 (or untrusted X11) forwarding
+
+
+윈도우즈 사용자
+-----------
+
+기존에 사용하시던 MobaXTerm 등의 SSH 클라이언트 프로그램을 사용하는 것은 같습니다만, 접속 로그인 노드는 tem-ui-el7.sdfarm.kr를 사용하셔야 합니다.
+
+
+데이터 분석 도구들
+=============
+
+* **모듈 경로
+
+.. code-block:: bash
+
+  $> module avail
+  --------------------------------- /tem/el7/Modules/apps ----------------------------------
+  apps/cistem/1.0.0      apps/relion/cpu/3.1.0  apps/relion/gpu/3.1.0  
+  apps/relion/cpu/3.0.7  apps/relion/gpu/3.0.7  
+  ----------------------------- /tem/el7/Modules/acceleration ------------------------------
+  cuda/9.2  
+  ---------------------------------- /tem/el7/Modules/mpi ----------------------------------
+  mpi/gcc/openmpi/4.0.3  
+  ------------------------------ /tem/el7/Modules/virtualenv -------------------------------
+  conda/2020.11  
+  --------------------------------- /tem/el7/Modules/tools ---------------------------------
+  tools/ctffind/4.1.14  tools/motioncor2/1.3.1  tools/summovie/1.0.2  
+  tools/gctf/1.18_b2    tools/resmap/1.1.4      tools/unblur/1.0.2    
+
+
+* **cisTEM, relion 관련 데이터 분석 작업 템플릿 경로
+
+.. code-block:: bash
+
+  /tem/el7/qsub-cisTEM-cpu-noout.sh
+  /tem/el7/qsub-cisTEM-cpu.sh
+  /tem/el7/qsub-relion-3.0.7-cpu.bash
+  /tem/el7/qsub-relion-3.1.0-cpu.bash
+  /tem/el7/qsub-relion-3.0.7-cpu.bash
+  /tem/el7/qsub-relion-3.1.0-gpu.bash
