@@ -91,7 +91,7 @@ EL 7.x 기반 신규 데이터 분석 팜 자원 현황
 |          |             |                                                                    |                                        |
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
 |          | **cisTEM**  | | User-friendly software to process cryo-EM images of              | | v1.0.0                               |
-|          |             | | macromolecular complexes and obtain high-resolution 3D           | | (apps/cistem/1.0.0)        |
+|          |             | | macromolecular complexes and obtain high-resolution 3D           | | (apps/cistem/1.0.0)                  |
 |          |             | | reconstructions.                                                 |                                        |
 |          |             |                                                                    |                                        |
 |          |             | - https://cistem.org                                               |                                        |
