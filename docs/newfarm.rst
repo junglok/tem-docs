@@ -20,8 +20,8 @@ EL 7.x 기반 신규 데이터 분석 팜 자원 현황
 | (master)     |                                 | - RAM : DDR4 8GB * 24 (192GB)                                             |                 |
 |              |                                 | - HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)                                  |                 |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
-| Computing    | tem-wn1001-el7.sdfarm.kr        | - CPU : Intel(R) Xeon(R) Gold 6150 CPU @ 2.70GHz 18Core * 2 CPUs          | 380 cores       |
-| (workers)    | tem-wn1002-el7.sdfarm.kr        | - RAM : DDR-4 2,666MHz 16GB * 24EA (384GB)                                |                 |
+| Computing    | tem-wn[1001-1002]-el7.sdfarm.kr | - CPU : Intel(R) Xeon(R) Gold 6150 CPU @ 2.70GHz 18Core * 2 CPUs          | 380 cores       |
+| (workers)    |                                 | - RAM : DDR-4 2,666MHz 16GB * 24EA (384GB)                                |                 |
 |              |                                 | - HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)                                  |                 |
 |              +---------------------------------+---------------------------------------------------------------------------|                 |
 |              | tem-wn[1003-1013]-el7.sdfarm.kr | - CPU : Intel(R) Xeon(R) CPU E5-2697v3 @ 2.60GHz 14Core * 2 CPUs          |                 |
