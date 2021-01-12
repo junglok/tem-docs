@@ -2,6 +2,7 @@
 Change Logs
 ***********
 
+* 2021-01-13 : 신규 데이터 분석 팜 안내 자료 추가.
 * 2020-11-23 : 2020 SNU CryoEM Hands-On Workshop presentation material added (appendix).
 * 2020-03-30 : CryoSPARC trouble shooting updated (Gctf, MotionCor2 locations added).
 * 2020-03-25 : CryoSPARC usage guide added.
