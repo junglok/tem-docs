@@ -229,7 +229,7 @@ GSDC TEM 신규 데이터 분석 팜
 
 .. code-block:: bash
 
-  $tem-ui-el7> pbsnodes -a 
+  $> pbsnodes -a 
   tem-wn1001-el7.sdfarm.kr
     state = free
     power_state = Running
