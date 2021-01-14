@@ -188,17 +188,16 @@ GSDC TEM 신규 데이터 분석 팜
 +--------------+-----------------+-----------------------------------------------------------------------+------------------------------------+
 
 
-전체 계산자원 현황 확인
------------------
+배치 큐 이름 및 상태 확인
+-------------------
 
 .. code-block:: bash
 
-  $> module avail
+  $> qstat -Qf
   Queue: cpuQ
     queue_type = Execution
     total_jobs = 0
-    state_count = Transit:0 Queued:0 Held:0 Waiting:0 Running:0 Exiting:0 Comp
-        lete:0
+    state_count = Transit:0 Queued:0 Held:0 Waiting:0 Running:0 Exiting:0 Complete:0
     resources_default.neednodes = cpuQ
     resources_default.nodes = 1
     acl_group_enable = True
@@ -212,8 +211,7 @@ GSDC TEM 신규 데이터 분석 팜
   Queue: gpuQ
     queue_type = Execution
     total_jobs = 0
-    state_count = Transit:0 Queued:0 Held:0 Waiting:0 Running:0 Exiting:0 Comp
-        lete:0
+    state_count = Transit:0 Queued:0 Held:0 Waiting:0 Running:0 Exiting:0 Complete:0
     resources_default.neednodes = gpuQ
     resources_default.nodes = 1
     acl_group_enable = True
