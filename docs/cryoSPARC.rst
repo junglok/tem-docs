@@ -213,7 +213,7 @@ For Windows users
 .. note::
    You must use **CRYOSPARC_BASE_PORT** for the 'Remote server' port section.   
 
-.. image:: images/mobaxterm-tunnel1.JPG
+.. image:: images/mobaxterm-tunnel1-el7.JPG
     :scale: 50 %
     :align: center
 
