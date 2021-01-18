@@ -9,7 +9,7 @@ for research and drug discovery.
   cryoSPARC offical site : https://cryosparc.com
 
 .. note::
-  At the time of writing this document (Mar. 2020), unforturnatelly, cryoSPARC v2.x does not provide the method of installing **a single cryoSPARC instance**
+  At the time of writing this document (Jan. 2021), unforturnatelly, cryoSPARC v2.x or v3.x does not provide the method of installing **a single cryoSPARC instance**
   (consisting of web applcation, command core, and database) **for use by a number of users with the complete isolation and security of their project data**.
   This problem might be resolved with later versions of cryoSPARC after CryoSPARC re-designs the product with the concept of "Hub" (as mentioned in cryoSPARC forum 
   https://discuss.cryosparc.com/t/use-linux-user-accounts/3480).
@@ -21,7 +21,7 @@ for research and drug discovery.
 Prerequisites
 =============
 
-Now, cryoSPARC is available free of charge for academic use. For a completely isolated cryoSPARC instance, user must have their own non-commercial license key for cryoSPARC v2.
+Now, cryoSPARC is available free of charge for academic use. For a completely isolated cryoSPARC instance, user must have their own non-commercial license key for cryoSPARC v3.
 **Please visit the CryoSPARC official site, request a license key and inform the valid key to GSDC TEM service administrator by e-mail.**  
 
 Getting a cryoSPARC instance 
@@ -30,7 +30,7 @@ Getting a cryoSPARC instance
 CryoSPARC is a backend and frontend software system that provides data processing and image analysis capabilities for single particle cryo-EM, 
 along with a browser based user interface and command line tools. CryoSPARC is composed of three major components : cryosparc_master, cryospace_database and cryosparc_worker.
 
-* **cryosparc_master** : Master processes (webapps, command_core, databases, etc.) run together on one node (for our case, tem-ui.sdfarm.kr login node). These processes host HTML5 based web applications, spawn or submit jobs to a cluster scheduler (for example, to PBS-based batch system)
+* **cryosparc_master** : Master processes (webapps, command_core, databases, etc.) run together on one node (for our case, tem-cs-el7.sdfarm.kr login node). These processes host HTML5 based web applications, spawn or submit jobs to a cluster scheduler (for example, to PBS-based batch system)
 
 * **cryosparc_worker** : Worker process can be spawned on any available worker nodes, and do data processing and image analysis tasks which are pre-defined within cryoSPRAC software packages.
 
@@ -78,7 +78,7 @@ Also, the configuration code-snippets implicitly add cryoSPARC instance's binary
 --------------------------------
 
 By default, master processes (webapp, command_core, database, etc.) are automatilly started during configuration automation.
-Users should check and verify whether the master processes are working correctly on tem-ui.sdfarm.kr login node or not. 
+Users should check and verify whether the master processes are working correctly on tem-cs-el7.sdfarm.kr login node or not. 
 
 * **Checking environment variables for cryoSPARC instance**
 
@@ -86,37 +86,48 @@ Users should check and verify whether the master processes are working correctly
 
    $> cryosparcm env
    
-   export "CRYOSPARC_HTTP_PORT=39000"
-   export "CRYOSPARC_MASTER_HOSTNAME=tem-ui.sdfarm.kr"
+   export "CRYOSPARC_HTTP_PORT=39xxx"
+   export "CRYOSPARC_MASTER_HOSTNAME=tem-cs-el7.sdfarm.kr"
    export "CRYOSPARC_CLICK_WRAP=true"
-   export "CRYOSPARC_COMMAND_VIS_PORT=39003"
+   export "CRYOSPARC_COMMAND_VIS_PORT=39xxx"
+   export "CRYOSPARC_CONDA_ENV=cryosparc_master_env"
+   export "CRYOSPARC_FORCE_USER=false"
    export "CRYOSPARC_INSECURE=true"
    export "CRYOSPARC_DEVELOP=false"
-   export "CRYOSPARC_DB_PATH=/tem/home/<user>/.cryosparc/cryosparc_database"
-   export "CRYOSPARC_HTTP_RTP_PORT=39006"
-   export "CRYOSPARC_LICENSE_ID=<license_key"
-   export "CRYOSPARC_MONGO_PORT=39001"
+   export "CRYOSPARC_DB_PATH=/tem/home/<userid>/.cryosparc/cryosparc_database"
+   export "CRYOSPARC_HTTP_RTP_PORT=39xxx"
+   export "CRYOSPARC_LICENSE_ID=<license_key>"
+   export "CRYOSPARC_HOSTNAME_CHECK=tem-cs-el7.sdfarm.kr"
+   export "CRYOSPARC_MONGO_PORT=39xxx"
    export "CRYOSPARC_MONGO_CACHE_GB=4"
    export "CRYOSPARC_HEARTBEAT_SECONDS=60"
-   export "CRYOSPARC_COMMAND_PROXY_PORT=39004"
-   export "CRYOSPARC_ROOT_DIR=/tem/home/<user>/.cryosparc/cryosparc2_master"
-   export "CRYOSPARC_COMMAND_CORE_PORT=39002"
+   export "CRYOSPARC_ROOT_DIR=/tem/home/<userid>/.cryosparc/cryosparc2_master"
+   export "CRYOSPARC_HTTP_RTP_LEGACY_PORT=39xxx"
+   export "CRYOSPARC_COMMAND_CORE_PORT=39xxx"
    export "CRYOSPARC_BASE_PORT=39000"
-   export "CRYOSPARC_PATH=/tem/home/<user>/.cryosparc/cryosparc2_master/deps/anaconda/bin:/tem/home/<user>/.cryosparc/cryosparc2_master/deps/external/mongodb/bin:/tem/home/<user>/.cryosparc/cryosparc2_master/bin"
-   export "CRYOSPARC_LIVE_ENABLED=false"
-   export "CRYOSPARC_COMMAND_RTP_PORT=39005"
+   export "CRYOSPARC_PATH=/tem/home/<userid>/.cryosparc/cryosparc2_master/deps/external/mongodb/bin:/tem/home/<userid>/.cryosparc/cryosparc2_master/bin"
+   export "CRYOSPARC_LIVE_ENABLED=true"
+   export "CRYOSPARC_COMMAND_RTP_PORT=39xxx"
    export "CRYOSPARC_SUPERVISOR_SOCK_FILE=/tmp/cryosparc-supervisor-627a9991e2f2f069094732dfd78d1696.sock"
-   export "CRYOSPARC_LD_LIBRARY_PATH="
-   export "LD_LIBRARY_PATH=:"
-   export "LD_PRELOAD=/tem/home/<user>/.cryosparc/cryosparc2_master/deps/anaconda/lib/libpython2.7.so.1.0"
-   export "PYTHONPATH="
+   export "CRYOSPARC_LD_LIBRARY_PATH=/tem/home/<userid>/.cryosparc/cryosparc2_master/cryosparc_compute/blobio"
+   export "CRYOSPARC_FORCE_HOSTNAME=false"
+   export "PATH=/tem/home/<userid>.cryosparc/cryosparc2_master/deps/external/mongodb/bin:/tem/home/<userid>/.cryosparc/cryosparc2_master/bin:/tem/home/<userid>/.cryosparc/cryosparc2_master/deps/anaconda/envs/cryosparc_master_env/bin:/tem/home/<userid>/.cryosparc/cryosparc2_master/deps/anaconda/condabin:/tem/home/<userid>/.cryosparc/cryosparc2_master/bin:/usr/local/torquex/bin:/usr/local/torquex/sbin:/usr/local/torquex/bin:/usr/local/torquex/sbin:/tem/el7/Modules/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/tem/home/<userid>/bin"
+   export "LD_LIBRARY_PATH=/tem/home/<userid>/.cryosparc/cryosparc2_master/cryosparc_compute/blobio:"
+   export "LD_PRELOAD="
+   export "PYTHONPATH=/tem/home/<userid>/.cryosparc/cryosparc2_master"
    export "PYTHONNOUSERSITE=true"
+   export "CONDA_SHLVL=1"
+   export "CONDA_PROMPT_MODIFIER=(cryosparc_master_env)"
+   export "CONDA_EXE=/tem/home/<userid>/.cryosparc/cryosparc2_master/deps/anaconda/bin/conda"
+   export "CONDA_PREFIX=/tem/home/<userid>/.cryosparc/cryosparc2_master/deps/anaconda/envs/cryosparc_master_env"
+   export "CONDA_PYTHON_EXE=/tem/home/<userid>/.cryosparc/cryosparc2_master/deps/anaconda/bin/python"
+   export "CONDA_DEFAULT_ENV=cryosparc_master_env"
 
 You can find what kinds of environment variables have been set for the cryoSPARC instance. 
 
 .. note::
    Especially, user should check **CRYOSPARC_BASE_PORT** (above, for example, 39000), which is **the listening port of cryoSPARC web application**. 
-   Later, this port number is used to make SSH tunneling between client and tem-ui.sdfarm.kr login node. 
+   Later, this port number is used to make SSH tunneling between client and tem-cs-el7.sdfarm.kr login node. 
    **Via the tunneled connection over SSH, users can access the web UI of cryoSPARC instance.**    
 
 * **Checking the status of cryoSPARC instance**
@@ -126,20 +137,22 @@ You can find what kinds of environment variables have been set for the cryoSPARC
    $> cryosparcm status
    ----------------------------------------------------------------------------
    CryoSPARC System master node installed at
-   /tem/home/<user>/.cryosparc/cryosparc2_master
-   Current cryoSPARC version: v2.14.2
+   /tem/home/<userid>/.cryosparc/cryosparc2_master
+   Current cryoSPARC version: v3.0.1
    ----------------------------------------------------------------------------
 
    cryosparcm process status:
-   app                              STOPPED   Not started
+
+   app                              RUNNING   pid 21581, uptime 2 days, 22:58:58
    app_dev                          STOPPED   Not started
-   command_core                     RUNNING   pid 171073, uptime 1 day, 5:35:11
-   command_proxy                    RUNNING   pid 171175, uptime 1 day, 5:35:02
-   command_rtp                      STOPPED   Not started
-   command_vis                      RUNNING   pid 171170, uptime 1 day, 5:35:03
-   database                         RUNNING   pid 170997, uptime 1 day, 5:35:14
+   command_core                     RUNNING   pid 21505, uptime 2 days, 22:59:15
+   command_rtp                      RUNNING   pid 21532, uptime 2 days, 22:59:08
+   command_vis                      RUNNING   pid 21527, uptime 2 days, 22:59:09
+   database                         RUNNING   pid 21428, uptime 2 days, 22:59:19
+   liveapp                          RUNNING   pid 21603, uptime 2 days, 22:58:55
+   liveapp_dev                      STOPPED   Not started
    watchdog_dev                     STOPPED   Not started
-   webapp                           RUNNING   pid 171178, uptime 1 day, 5:35:00
+   webapp                           RUNNING   pid 21564, uptime 2 days, 22:58:59
    webapp_dev                       STOPPED   Not started
 
    ----------------------------------------------------------------------------
@@ -147,8 +160,8 @@ You can find what kinds of environment variables have been set for the cryoSPARC
    global config variables:
 
    export CRYOSPARC_LICENSE_ID="<license_key>"
-   export CRYOSPARC_MASTER_HOSTNAME="tem-ui.sdfarm.kr"
-   export CRYOSPARC_DB_PATH="/tem/home/<user>/.cryosparc/cryosparc_database"
+   export CRYOSPARC_MASTER_HOSTNAME="tem-cs-el7.sdfarm.kr"
+   export CRYOSPARC_DB_PATH="/tem/home/<userid>/.cryosparc/cryosparc_database"
    export CRYOSPARC_BASE_PORT=39000
    export CRYOSPARC_DEVELOP=false
    export CRYOSPARC_INSECURE=true
@@ -163,16 +176,16 @@ We assume that user's network setup looks like (most commonly used scenario):
 .. code-block:: bash
 
                    internet
-   [ localhost ]==============[ firewall | tem-ui.sdfarm.kr ]
+   [ localhost ]==============[ firewall | tem-cs-el7.sdfarm.kr ]
 
 For Linux/Mac users 
 -------------------
 
-With the following command, you can start an SSH tunnel to export **CRYOSPARC_BASE_PORT** from tem-ui.sdfarm.kr to your local client machine.
+With the following command, you can start an SSH tunnel to export **CRYOSPARC_BASE_PORT** from tem-cs-el7.sdfarm.kr to your local client machine.
 
 .. code-block:: bash
 
-   localhost$> ssh -N -f -L localhost:39000:tem-ui.sdfarm.kr:<CRYOSPARC_BASE_PORT> -o Port=<ssh_port> <userid>@tem-ui.sdfarm.kr
+   localhost$> ssh -N -f -L localhost:39500:tem-cs-el7.sdfarm.kr:<CRYOSPARC_BASE_PORT> -o Port=<ssh_port> <userid>@tem-cs-el7.sdfarm.kr
 
    ## -N : Do not execute a remote command. This is useful option for just forwarding ports.
    ## -f : Requests ssh to go to background just before command execution.
@@ -180,12 +193,12 @@ With the following command, you can start an SSH tunnel to export **CRYOSPARC_BA
 
 .. note::
    You should execute this 'ssh' command on **YOUR LOCAL PC/WORKSTATION** to make a tunnel between 
-   your local machine and tem-ui.sdfarm.kr (localhost:39000 <--> tem-ui.sdfarm.kr:<CRYOSPARC_BASE_PORT>) over secure channel.
+   your local machine and tem-cs-el7.sdfarm.kr (localhost:39500 <--> tem-cs-el7.sdfarm.kr:<CRYOSPARC_BASE_PORT>) over secure channel.
 
 .. note::
    You can close the terminal window (because 'ssh' will be run in the background) after running the above command. The tunnel will stay open.   
 
-Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http://localhost:39000. You should be presented with the cryoSPARC login page.
+Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http://localhost:39500. You should be presented with the cryoSPARC login page.
 
 For Windows users 
 -----------------
@@ -210,17 +223,17 @@ Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http:
 * Using Putty
   
   * Open 'PuTTy Configuration' dialog box.
-  * 'PuTTy Configuration' -> 'Session' : Load a SSH session to connect tem-ui login node with the known <ssh_port>.
+  * 'PuTTy Configuration' -> 'Session' : Load a SSH session to connect tem-cs-el7.sdfarm.kr login node with the known <ssh_port>.
   * 'PuTTy Configuration' -> 'Connection' -> 'SSH' -> 'Tunnels' : Set a forwarded port binding option and add the entry.
 
 .. note::
-   You must use **tem-ui.sdfarm.kr:CRYOSPARC_BASE_PORT** for the 'Destination' field. 
+   You must use **tem-cs-el7.sdfarm.kr:CRYOSPARC_BASE_PORT** for the 'Destination' field. 
 
 .. image:: images/putty-tunnel.JPG
     :scale: 60 %
     :align: center
 
-Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http://localhost:39000. You should be presented with the cryoSPARC login page.
+Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http://localhost:39500. You should be presented with the cryoSPARC login page.
 
 Exploring CryoSPARC web apps
 ============================
@@ -282,11 +295,13 @@ Trouble shooting
    $> cryosparcm stop
 
    CryoSPARC is running.
-   Stopping cryosparc.
-   command_proxy: stopped
-   command_vis: stopped
-   webapp: stopped
+   Stopping cryoSPARC
+   app: stopped
    command_core: stopped
+   command_rtp: stopped
+   command_vis: stopped
+   liveapp: stopped
+   webapp: stopped
    database: stopped
    Shut down
 
@@ -302,17 +317,30 @@ Stop the cryosparc instance if running. This will gracefully kill all the master
    CryoSPARC is not already running.
    database: started
    command_core: started
-   cryosparc command core startup complete.
+   command_core connection succeeded
+
    command_vis: started
-   command_proxy: started
+   command_rtp: started
+   command_rtp connection succeeded
+
    webapp: started
+   app: started
+   liveapp: started
    -----------------------------------------------------
-   CryoSPARC master started. 
+
+   CryoSPARC master started.
    From this machine, access cryoSPARC at
-   http://localhost:39030
+      http://localhost:<CRYOSPARC_BASE_PORT>
+   and access cryoSPARC Live at
+      http://localhost:<CRYOSPARC_BASE_PORT+6>
+   please note the legacy cryoSPARC Live application is running at
+      http://localhost:<CRYOSPARC_BASE_PORT+7>
 
    From other machines on the network, access cryoSPARC at
-   http://tem-ui.sdfarm.kr:39030
+      http://tem-cs-el7.sdfarm.kr:<CRYOSPARC_BASE_PORT>
+   and access cryoSPARC Live at
+      http://tem-cs-el7.sdfarm.kr:<CRYOSPARC_BASE_PORT+6>
+
 
    Startup can take several minutes. Point your browser to the address
    and refresh until you see the cryoSPARC web interface.
@@ -385,14 +413,72 @@ So, the maximum number of GPUs which can be used to parallelize within a job is 
 5. Binary locations of Gctf, MotionCor2
 ---------------------------------------
 
-The GPU environment of GSDC TEM farm is built on top of NVIDIA CUDA SDK (driver version 396.37 and CUDA library version 9.1).
+The GPU environment of GSDC TEM farm is built on top of NVIDIA CUDA SDK (driver version 396.37 and CUDA library version 9.2).
 Some 3rd-party applications with GPU acceleration, for example, Gctf, MotionCor2, which can be utilized within various number of Cryo-EM toolkit are provided, and
 you can find those binaries in the following locations:
 
 .. code-block:: bash
 
    ## Gctf
-      /tem/home/tem/_Applications/Gctf_v1.18_b2/bin/Gctf_v1.18_b2_sm60_cu9.1
+   $> module avail
+   ------------------------------------------------ /tem/el7/Modules/apps ------------------------------------------------
+   apps/cistem/1.0.0  apps/relion/cpu/3.0.7  apps/relion/cpu/3.1.0  apps/relion/gpu/3.0.7  apps/relion/gpu/3.1.0
+
+   -------------------------------------------- /tem/el7/Modules/acceleration --------------------------------------------
+   cuda/9.2
+
+   ------------------------------------------------ /tem/el7/Modules/mpi -------------------------------------------------
+   mpi/gcc/openmpi/4.0.3
+
+   --------------------------------------------- /tem/el7/Modules/virtualenv ---------------------------------------------
+   conda/2020.11
+
+   ----------------------------------------------- /tem/el7/Modules/tools ------------------------------------------------
+   tools/ctffind/4.1.14  tools/motioncor2/1.3.1  tools/summovie/1.0.2
+   tools/gctf/1.18_b2    tools/resmap/1.1.4      tools/unblur/1.0.2
+
+   $> module show tools/gctf/1.18_b2
+   -------------------------------------------------------------------
+   /tem/el7/Modules/tools/tools/gctf/1.18_b2:
+
+   module-whatis   {Setup gctf v1.18_b2}
+   module          load cuda/9.2
+   prepend-path    PATH /tem/el7/Gctf_v1.18_b2/bin
+   conflict        tools/gctf
+   -------------------------------------------------------------------
+
+   $> ls -al /tem/el7/Gctf_v1.18_b2/bin
+   total 63122
+   drwxr-xr-x. 2 tem tem     462 Apr  9  2020 .
+   drwxr-xr-x. 4 tem tem      42 Apr  9  2020 ..
+   -rwxr-xr-x. 1 tem tem 3429036 Aug 22  2018 Gctf_v1.18_b2_sm60_cu8.0
+   -rwxr-xr-x. 1 tem tem 3520460 Aug 22  2018 Gctf_v1.18_b2_sm60_cu9.0
+   **-rwxr-xr-x. 1 tem tem 3674669 Aug 22  2018 Gctf_v1.18_b2_sm60_cu9.2** (compatible)
+   -rwxr-xr-x. 1 tem tem 3429036 Aug 22  2018 Gctf_v1.18_b2_sm61_cu8.0
+   -rwxr-xr-x. 1 tem tem 3520460 Aug 22  2018 Gctf_v1.18_b2_sm61_cu9.0
+   **-rwxr-xr-x. 1 tem tem 3674669 Aug 22  2018 Gctf_v1.18_b2_sm61_cu9.2** (compatible)
+   -rwxr-xr-x. 1 tem tem 3429036 Aug 22  2018 Gctf_v1.18_b2_sm62_cu8.0
+   -rwxr-xr-x. 1 tem tem 6224329 Aug 22  2018 Gctf_v1.18_b2_sm62_cu9.0
+   **-rwxr-xr-x. 1 tem tem 6373822 Aug 22  2018 Gctf_v1.18_b2_sm62_cu9.2** (compatible)
+   -rwxr-xr-x. 1 tem tem 3959148 Aug 22  2018 Gctf_v1.18_b2_sm70_cu9.0
+   -rwxr-xr-x. 1 tem tem 4117037 Aug 22  2018 Gctf_v1.18_b2_sm70_cu9.2
 
    ## MotionCor2
-      /tem/home/tem/_Applications/MotionCor2/MotionCor2_Cuda9.1_v1.0.5 
+   $> module show tools/motioncor2/1.3.1
+   -------------------------------------------------------------------
+   /tem/el7/Modules/tools/tools/motioncor2/1.3.1:
+
+   module-whatis   {Setup motioncor2 1.3.1}
+   module          load cuda/9.2
+   prepend-path    PATH /tem/el7/MotionCor2_v1.3.1
+   conflict        tools/motioncor2
+   -------------------------------------------------------------------
+   
+   $> ls -al /tem/el7/MotionCor2_v1.3.1
+   total 24840
+   drwxr-xr-x.  2 tem tem      182 Oct 27 00:34 .
+   drwxr-xr-x. 15 tem tem      653 Jan 15 17:51 ..
+   -rwxr-xr-x.  1 tem tem 10200208 Oct 23  2019 MotionCor2-UserManual-10-22-2019.pdf
+   -rwxr-xr-x.  1 tem tem  2712344 Jan 24  2020 MotionCor2_v1.3.1-Cuda101
+   -rwxr-xr-x.  1 tem tem  2696304 Jan 24  2020 MotionCor2_v1.3.1-Cuda102
+   **-rwxr-xr-x.  1 tem tem  2712312 Jan 24  2020 MotionCor2_v1.3.1-Cuda92**
