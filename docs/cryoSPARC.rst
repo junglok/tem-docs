@@ -1,6 +1,6 @@
-*********
-cryoSPARC
-*********
+****************
+cryoSPARC v3.0.1
+****************
 CryoSPARC is the state-of-the-art platform used globally for obtaining 3D structural information from single particle cryo-EM data. 
 The cryoSPARC platform enables automated, high quality and high-throughput structure discovery of proteins, viruses and molecular complexes 
 for research and drug discovery.
@@ -187,6 +187,7 @@ With the following command, you can start an SSH tunnel to export **CRYOSPARC_BA
 
    localhost$> ssh -N -f -L localhost:39500:tem-cs-el7.sdfarm.kr:<CRYOSPARC_BASE_PORT> -o Port=<ssh_port> <userid>@tem-cs-el7.sdfarm.kr
 
+   ## 39500 port on localhost : assume that the port number 39500 is available on your localhost. Otherwise, you can use another port available.
    ## -N : Do not execute a remote command. This is useful option for just forwarding ports.
    ## -f : Requests ssh to go to background just before command execution.
    ## -L [bind_address:]port:host:hostport
@@ -217,7 +218,7 @@ For Windows users
     :scale: 50 %
     :align: center
 
-Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http://localhost:39000. You should be presented with the cryoSPARC login page.
+Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http://localhost:39500. You should be presented with the cryoSPARC login page.
 
 
 * Using Putty
@@ -413,13 +414,14 @@ So, the maximum number of GPUs which can be used to parallelize within a job is 
 5. Binary locations of Gctf, MotionCor2
 ---------------------------------------
 
-The GPU environment of GSDC TEM farm is built on top of NVIDIA CUDA SDK (driver version 396.37 and CUDA library version 9.2).
+The GPU environment of GSDC TEM farm is built on top of NVIDIA CUDA SDK (driver version 460.27.04 and CUDA library version 9.2).
 Some 3rd-party applications with GPU acceleration, for example, Gctf, MotionCor2, which can be utilized within various number of Cryo-EM toolkit are provided, and
 you can find those binaries in the following locations:
 
 .. code-block:: bash
 
    ## Gctf
+
    $> module avail
    ------------------------------------------------ /tem/el7/Modules/apps ------------------------------------------------
    apps/cistem/1.0.0  apps/relion/cpu/3.0.7  apps/relion/cpu/3.1.0  apps/relion/gpu/3.0.7  apps/relion/gpu/3.1.0
@@ -437,7 +439,9 @@ you can find those binaries in the following locations:
    tools/ctffind/4.1.14  tools/motioncor2/1.3.1  tools/summovie/1.0.2
    tools/gctf/1.18_b2    tools/resmap/1.1.4      tools/unblur/1.0.2
 
+
    $> module show tools/gctf/1.18_b2
+
    -------------------------------------------------------------------
    /tem/el7/Modules/tools/tools/gctf/1.18_b2:
 
@@ -447,24 +451,28 @@ you can find those binaries in the following locations:
    conflict        tools/gctf
    -------------------------------------------------------------------
 
+
    $> ls -al /tem/el7/Gctf_v1.18_b2/bin
+
    total 63122
    drwxr-xr-x. 2 tem tem     462 Apr  9  2020 .
    drwxr-xr-x. 4 tem tem      42 Apr  9  2020 ..
    -rwxr-xr-x. 1 tem tem 3429036 Aug 22  2018 Gctf_v1.18_b2_sm60_cu8.0
    -rwxr-xr-x. 1 tem tem 3520460 Aug 22  2018 Gctf_v1.18_b2_sm60_cu9.0
-   **-rwxr-xr-x. 1 tem tem 3674669 Aug 22  2018 Gctf_v1.18_b2_sm60_cu9.2** (compatible)
+   -rwxr-xr-x. 1 tem tem 3674669 Aug 22  2018 Gctf_v1.18_b2_sm60_cu9.2     # (compatible)
    -rwxr-xr-x. 1 tem tem 3429036 Aug 22  2018 Gctf_v1.18_b2_sm61_cu8.0
    -rwxr-xr-x. 1 tem tem 3520460 Aug 22  2018 Gctf_v1.18_b2_sm61_cu9.0
-   **-rwxr-xr-x. 1 tem tem 3674669 Aug 22  2018 Gctf_v1.18_b2_sm61_cu9.2** (compatible)
+   -rwxr-xr-x. 1 tem tem 3674669 Aug 22  2018 Gctf_v1.18_b2_sm61_cu9.2     # (compatible)
    -rwxr-xr-x. 1 tem tem 3429036 Aug 22  2018 Gctf_v1.18_b2_sm62_cu8.0
    -rwxr-xr-x. 1 tem tem 6224329 Aug 22  2018 Gctf_v1.18_b2_sm62_cu9.0
-   **-rwxr-xr-x. 1 tem tem 6373822 Aug 22  2018 Gctf_v1.18_b2_sm62_cu9.2** (compatible)
+   -rwxr-xr-x. 1 tem tem 6373822 Aug 22  2018 Gctf_v1.18_b2_sm62_cu9.2     # (compatible)
    -rwxr-xr-x. 1 tem tem 3959148 Aug 22  2018 Gctf_v1.18_b2_sm70_cu9.0
    -rwxr-xr-x. 1 tem tem 4117037 Aug 22  2018 Gctf_v1.18_b2_sm70_cu9.2
 
    ## MotionCor2
+
    $> module show tools/motioncor2/1.3.1
+
    -------------------------------------------------------------------
    /tem/el7/Modules/tools/tools/motioncor2/1.3.1:
 
@@ -474,11 +482,13 @@ you can find those binaries in the following locations:
    conflict        tools/motioncor2
    -------------------------------------------------------------------
    
+
    $> ls -al /tem/el7/MotionCor2_v1.3.1
+
    total 24840
    drwxr-xr-x.  2 tem tem      182 Oct 27 00:34 .
    drwxr-xr-x. 15 tem tem      653 Jan 15 17:51 ..
    -rwxr-xr-x.  1 tem tem 10200208 Oct 23  2019 MotionCor2-UserManual-10-22-2019.pdf
    -rwxr-xr-x.  1 tem tem  2712344 Jan 24  2020 MotionCor2_v1.3.1-Cuda101
    -rwxr-xr-x.  1 tem tem  2696304 Jan 24  2020 MotionCor2_v1.3.1-Cuda102
-   **-rwxr-xr-x.  1 tem tem  2712312 Jan 24  2020 MotionCor2_v1.3.1-Cuda92**
+   -rwxr-xr-x.  1 tem tem  2712312 Jan 24  2020 MotionCor2_v1.3.1-Cuda92   # (compatible)
