@@ -2,8 +2,8 @@
 TEM farm basics
 ***************
 
-Accessing TEM service farm
-==========================
+Accessing TEM service farm (based on EL7)
+=========================================
 Before you use GSDC's service farm, you should send an application form to TEM service manager and get an user account to access the farm (please see `APPENDIX : Application Form & Materials <https://tem-docs.readthedocs.io/en/latest/app.html#appendix-application-form-materials-newi>`_ section). 
 If you already have valid user accounts, you can log into UI (user interface) nodes to access/use various kind of cluster resources and software environments (including data analysis tools, e.g., relion, cisTEM, eman, etc.).
 
@@ -12,7 +12,7 @@ For Linux/Mac users
 
 .. code-block:: bash
 
-  $> ssh -Y -o Port=<port> <userID>@tem-ui.sdfarm.kr
+  $> ssh -Y -o Port=<port> <userID>@tem-ui-el7.sdfarm.kr
 
 -Y (or -X) options : enable trusted X11 (or untrusted X11) forwarding
 
@@ -50,45 +50,56 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
 .. code-block:: bash
 
   $> module avail
-  ----------- /tem/home/tem/Modules/Modules/default/modulefiles ------------
-  apps/gcc/4.4.7/cistem/1.0.0     cuda/9.1
-  apps/gcc/4.4.7/relion/cpu/3.0.7 modules
-  apps/gcc/4.4.7/relion/gpu/3.0.7 mpi/gcc/openmpi/1.8.8
-  apps/gcc/4.4.7/relion/gpu/3.0.7p 
+  -------------------------------- /tem/el7/Modules/apps --------------------------------
+  apps/cistem/1.0.0      apps/relion/cpu/3.1.0  apps/relion/gpu/3.1.0
+  apps/relion/cpu/3.0.7  apps/relion/gpu/3.0.7
+
+  ---------------------------- /tem/el7/Modules/acceleration ----------------------------
+  cuda/9.2
+
+  -------------------------------- /tem/el7/Modules/mpi ---------------------------------
+  mpi/gcc/openmpi/4.0.3
+
+  ----------------------------- /tem/el7/Modules/virtualenv -----------------------------
+  conda/2020.11
+
+  ------------------------------- /tem/el7/Modules/tools --------------------------------
+  tools/ctffind/4.1.14  tools/motioncor2/1.3.1  tools/summovie/1.0.2
+  tools/gctf/1.18_b2    tools/resmap/1.1.4      tools/unblur/1.0.2 
 
 
 * **Show module details**
 
 .. code-block:: bash
 
-  $> module show apps/gcc/4.4.7/relion/gpu/3.0.7
+  $> module show apps/relion/gpu/3.0.7
   -------------------------------------------------------------------
-  /tem/home/tem/Modules/Modules/default/modulefiles/apps/gcc/4.4.7/relion/gpu/3.0.7:
+  /tem/el7/Modules/apps/apps/relion/gpu/3.0.7:
 
-  module-whatis    Setups `relion-3.0.7' environment variables
-  module           load mpi/gcc/openmpi/1.8.8
-  module           load cuda/9.1
-  setenv           relion_version 3.0.7
-  prepend-path     PATH /tem/home/tem/_Applications/relion-3.0.7/gpu/bin
-  prepend-path     LD_LIBRARY_PATH /tem/home/tem/_Applications/relion-3.0.7/gpu/lib
-  setenv           LANG en_US.UTF-8
-  setenv           RELION_QUEUE_NAME tem
-  setenv           RELION_QSUB_COMMAND qsub
-  setenv           RELION_QSUB_TEMPLATE /tem/home/tem/_Applications/relion-3.0.7/gpu/bin/qsub-relion3-gpu.bash
-  setenv           RELION_QSUB_EXTRA_COUNT 3
-  setenv           RELION_QSUB_EXTRA1 Number of Nodes
-  setenv           RELION_QSUB_EXTRA2 Number of processes per each node
-  setenv           RELION_QSUB_EXTRA3 Number of GPUs per node
-  setenv           RELION_QSUB_EXTRA1_DEFAULT 1
-  setenv           RELION_QSUB_EXTRA2_DEFAULT 3
-  setenv           RELION_QSUB_EXTRA3_DEFAULT 2
-  setenv           RELION_CTFFIND_EXECUTABLE /tem/home/tem/_Applications/ctffind-4.1.13/bin/ctffind
-  setenv           RELION_GCTF_EXECUTABLE /tem/home/tem/_Applications/Gctf_v1.18_b2/bin/Gctf_v1.18_b2_sm60_cu9.1
-  setenv           RELION_RESMAP_EXECUTABLE /tem/home/tem/_Applications/ResMap-1.1.4/ResMap-1.1.4-linux64
-  setenv           RELION_MOTIONCOR2_EXECUTABLE /tem/home/tem/_Applications/MotionCor2/MotionCor2_Cuda9.1_v1.0.5
-  setenv           RELION_UNBLUR_EXECUTABLE /tem/home/tem/_Applications/unblur_1.0.2/bin/unblur_openmp_7_17_15.exe
-  setenv           RELION_SUMMOVIE_EXECUTABLE /tem/home/tem/_Applications/summovie_1.0.2/bin/sum_movie_openmp_7_17_15.exe
-  conflict         apps/gcc/4.4.7/relion
+  module-whatis   {Setups relion 3.0.7 environment variables}
+  module          load mpi/gcc/openmpi/4.0.3
+  module          load cuda/9.2
+  setenv          relion_version 3.0.7
+  prepend-path    PATH /tem/el7/relion-3.0.7/gpu/bin
+  prepend-path    LD_LIBRARY_PATH /tem/el7/relion-3.0.7/gpu/lib
+  setenv          LANG en_US.UTF-8
+  setenv          RELION_QUEUE_USE yes
+  setenv          RELION_QUEUE_NAME gpuQ
+  setenv          RELION_QSUB_COMMAND qsub
+  setenv          RELION_QSUB_EXTRA_COUNT 3
+  setenv          RELION_QSUB_EXTRA1 {Number of Nodes}
+  setenv          RELION_QSUB_EXTRA2 {Number of processes per each node}
+  setenv          RELION_QSUB_EXTRA3 {Number of GPUs per node}
+  setenv          RELION_QSUB_EXTRA1_DEFAULT 1
+  setenv          RELION_QSUB_EXTRA2_DEFAULT 3
+  setenv          RELION_QSUB_EXTRA3_DEFAULT 2
+  setenv          RELION_CTFFIND_EXECUTABLE /tem/el7/ctffind-4.1.14/bin/ctffind
+  setenv          RELION_GCTF_EXECUTABLE /tem/el7/Gctf_v1.18_b2/bin/Gctf_v1.18_b2_sm60_cu9.2
+  setenv          RELION_RESMAP_EXECUTABLE /tem/el7/ResMap-1.1.4/ResMap-1.1.4-linux64
+  setenv          RELION_MOTIONCOR2_EXECUTABLE /tem/el7/MotionCor2_v1.3.1/MotionCor2_v1.3.1-Cuda92
+  setenv          RELION_UNBLUR_EXECUTABLE /tem/el7/unblur_1.0.2/bin/unblur_openmp_7_17_15.exe
+  setenv          RELION_SUMMOVIE_EXECUTABLE /tem/el7/summovie_1.0.2/bin/sum_movie_openmp_7_17_15.exe
+  conflict        apps/relion
   -------------------------------------------------------------------
 
 * **Loading modules**
@@ -98,17 +109,17 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   $> module load <module_path>
   or
   $> module add <module_path>
-  e.g., $> module load apps/gcc/4.4.7/relion/gpu/3.0.7
+  e.g., $> module load apps/relion/gpu/3.0.7
 
 
 * **Listing loaded modules**
 
 .. code-block:: bash
 
-  $> module load apps/gcc/4.4.7/relion/gpu/3.0.7
+  $> module load apps/relion/gpu/3.0.7
   $> module list
   Currently Loaded Modulefiles:
-  1) cuda/9.1                          2) mpi/gcc/openmpi/1.8.8             3) apps/gcc/4.4.7/relion/gpu/3.0.7
+  1) mpi/gcc/openmpi/4.0.3   2) cuda/9.2   3) apps/relion/gpu/3.0.7
 
 
 * **Unloading modules**
@@ -118,7 +129,7 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   $> module unload <module_path>
   or
   $> module rm <module_path>
-  e.g., $> module unload apps/gcc/4.4.7/relion/gpu/3.0.7
+  e.g., $> module unload apps/relion/gpu/3.0.7
 
 
 * **Unloading all the modules**
@@ -133,44 +144,86 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
 .. code-block:: bash
 
   $> module --help
-    Modules Release 3.2.10 2012-12-21 (Copyright GNU GPL v2 1991):
+  Modules Release 4.4.1 (2020-01-03)
+  Usage: module [options] [command] [args ...]
 
-    Usage: module [ switches ] [ subcommand ] [subcommand-args ]
+  Loading / Unloading commands:
+    add | load      modulefile [...]  Load modulefile(s)
+    rm | unload     modulefile [...]  Remove modulefile(s)
+    purge                             Unload all loaded modulefiles
+    reload | refresh                  Unload then load all loaded modulefiles
+    switch | swap   [mod1] mod2       Unload mod1 and load mod2
 
-    Switches:
-        -H|--help               this usage info
-        -V|--version            modules version & configuration options
-        -f|--force              force active dependency resolution
-        -t|--terse              terse    format avail and list format
-        -l|--long               long     format avail and list format
-        -h|--human              readable format avail and list format
-        -v|--verbose            enable  verbose messages
-        -s|--silent             disable verbose messages
-        -c|--create             create caches for avail and apropos
-        -i|--icase              case insensitive
-        -u|--userlvl <lvl>      set user level to (nov[ice],exp[ert],adv[anced])
-    Available SubCommands and Args:
-        + add|load              modulefile [modulefile ...]
-        + rm|unload             modulefile [modulefile ...]
-        + switch|swap           [modulefile1] modulefile2
-        + display|show          modulefile [modulefile ...]
-        + avail                 [modulefile [modulefile ...]]
-        + use [-a|--append]     dir [dir ...]
-        + unuse                 dir [dir ...]
-        + update
-        + refresh
-        + purge
-        + list
-        + clear
-        + help                  [modulefile [modulefile ...]]
-        + whatis                [modulefile [modulefile ...]]
-        + apropos|keyword       string
-        + initadd               modulefile [modulefile ...]
-        + initprepend           modulefile [modulefile ...]
-        + initrm                modulefile [modulefile ...]
-        + initswitch            modulefile1 modulefile2
-        + initlist
-        + initclear
+  Listing / Searching commands:
+    list            [-t|-l]           List loaded modules
+    avail   [-d|-L] [-t|-l] [-S|-C] [--indepth|--no-indepth] [mod ...]
+                                      List all or matching available modules
+    aliases                           List all module aliases
+    whatis          [modulefile ...]  Print whatis information of modulefile(s)
+    apropos | keyword | search  str   Search all name and whatis containing str
+    is-loaded       [modulefile ...]  Test if any of the modulefile(s) are loaded
+    is-avail        modulefile [...]  Is any of the modulefile(s) available
+    info-loaded     modulefile        Get full name of matching loaded module(s)
+
+  Collection of modules handling commands:
+    save            [collection|file] Save current module list to collection
+    restore         [collection|file] Restore module list from collection or file
+    saverm          [collection]      Remove saved collection
+    saveshow        [collection|file] Display information about collection
+    savelist        [-t|-l]           List all saved collections
+    is-saved        [collection ...]  Test if any of the collection(s) exists
+
+  Shell's initialization files handling commands:
+    initlist                          List all modules loaded from init file
+    initadd         modulefile [...]  Add modulefile to shell init file
+    initrm          modulefile [...]  Remove modulefile from shell init file
+    initprepend     modulefile [...]  Add to beginning of list in init file
+    initswitch      mod1 mod2         Switch mod1 with mod2 from init file
+    initclear                         Clear all modulefiles from init file
+
+  Environment direct handling commands:
+    prepend-path [-d c] var val [...] Prepend value to environment variable
+    append-path [-d c] var val [...]  Append value to environment variable
+    remove-path [-d c] var val [...]  Remove value from environment variable
+
+  Other commands:
+    help            [modulefile ...]  Print this or modulefile(s) help info
+    display | show  modulefile [...]  Display information about modulefile(s)
+    test            [modulefile ...]  Test modulefile(s)
+    use     [-a|-p] dir [...]         Add dir(s) to MODULEPATH variable
+    unuse           dir [...]         Remove dir(s) from MODULEPATH variable
+    is-used         [dir ...]         Is any of the dir(s) enabled in MODULEPATH
+    path            modulefile        Print modulefile path
+    paths           modulefile        Print path of matching available modules
+    clear           [-f]              Reset Modules-specific runtime information
+    source          scriptfile [...]  Execute scriptfile(s)
+    config [--dump-state|name [val]]  Display or set Modules configuration
+
+  Switches:
+    -t | --terse    Display output in terse format
+    -l | --long     Display output in long format
+    -d | --default  Only show default versions available
+    -L | --latest   Only show latest versions available
+    -S | --starts-with
+                    Search modules whose name begins with query string
+    -C | --contains Search modules whose name contains query string
+    -i | --icase    Case insensitive match
+    -a | --append   Append directory to MODULEPATH
+    -p | --prepend  Prepend directory to MODULEPATH
+    --auto          Enable automated module handling mode
+    --no-auto       Disable automated module handling mode
+    -f | --force    By-pass dependency consistency or confirmation dialog
+
+  Options:
+    -h | --help     This usage info
+    -V | --version  Module version
+    -D | --debug    Enable debug messages
+    -v | --verbose  Enable verbose messages
+    -s | --silent   Turn off error, warning and informational messages
+    --paginate      Pipe mesg output into a pager if stream attached to terminal
+    --no-pager      Do not pipe message output into a pager
+    --color[=WHEN]  Colorize the output; WHEN can be 'always' (default if
+                    omitted), 'auto' or 'never'
 
 
 
@@ -370,6 +423,9 @@ Use the qstat command to check the status of your jobs. You can see whether your
   $> qstat
   or
   $> qstat -a
+
+  ### qstat with -ns option lists all jobs with showing the assigned nodes for each job:
+  $> qstat -ns
 
   ### To list all the jobs belonging to a particular user:
   $> qstat -u tem_user
