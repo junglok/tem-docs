@@ -96,7 +96,7 @@ GSDC TEM 신규 데이터 분석 팜
 |          |             |                                                                    |                                        |
 |          |             | - https://cistem.org                                               |                                        |
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
-|          | CryoSPARC   | | CryoSPARC is the state-of-the-art platform used globally for     | | v2.14.2                              |
+|          | CryoSPARC   | | CryoSPARC is the state-of-the-art platform used globally for     | | v3.0.1                               |
 |          |             | | obtaining 3D structural information from single particle cryo-EM |                                        |
 |          |             | | data.                                                            |                                        |
 |          |             |                                                                    |                                        |
