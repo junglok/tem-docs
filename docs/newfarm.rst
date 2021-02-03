@@ -413,3 +413,49 @@ GSDC TEM 신규 데이터 분석 팜
      mom_manager_port = 15003
      gpus = 2
      gpu_status = gpu[1]=gpu_id=00000000:AF:00.0;gpu_pci_device_id=456659166;gpu_pci_location_id=00000000:AF:00.0;gpu_product_name=Tesla P40;gpu_memory_total=22919 MB;gpu_memory_used=0 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=30 C,gpu[0]=gpu_id=00000000:3B:00.0;gpu_pci_device_id=456659166;gpu_pci_location_id=00000000:3B:00.0;gpu_product_name=Tesla P40;gpu_memory_total=22919 MB;gpu_memory_used=0 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=27 C;gpu_display=Enabled,gpu_display=Enabled,driver_ver=460.32.03,timestamp=Wed Jan 27 11:03:08 2021
+
+
+7. 계산자원 활용 현황 및 모니터링 (CPU/GPU 노드) - fstat.bin
+====================================================
+
+.. code-block:: bash
+
+  $> which fstat.bin
+  /usr/bin/fstat.bin
+
+  $>fstat.bin
+  ------------------------------------------------------------------------------------------------------------------------
+  NODE                          QUEUE   STATUS(F/S/E)    [GPU] T/U/F    [CPU] T/U/F  USAGE RATIO
+  ------------------------------------------------------------------------------------------------------------------------
+  tem-gpu01-el7.sdfarm.kr        gpuQ          Shared     2/1/1 [#.]        28/2/26  [##..........................]          
+  tem-gpu02-el7.sdfarm.kr        gpuQ          Shared     2/2/0 [##]        28/4/24  [####........................]          
+  tem-gpu03-el7.sdfarm.kr        gpuQ            Free     2/0/2 [..]        28/0/28  [............................]          
+  tem-gpu04-el7.sdfarm.kr        gpuQ            Free     2/0/2 [..]        28/0/28  [............................]          
+  tem-gpu05-el7.sdfarm.kr        gpuQ            Free     2/0/2 [..]        28/0/28  [............................]          
+  tem-wn1001-el7.sdfarm.kr       cpuQ          Shared            n/a        36/28/8  [############################........]  
+  tem-wn1002-el7.sdfarm.kr       cpuQ          Shared            n/a        36/28/8  [############################........]  
+  tem-wn1003-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
+  tem-wn1004-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
+  tem-wn1005-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
+  tem-wn1006-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
+  tem-wn1007-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
+  tem-wn1008-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
+  tem-wn1009-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
+  tem-wn1010-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
+  tem-wn1011-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
+  tem-wn1012-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
+  ------------------------------------------------------------------------------------------------------------------------
+          7 running jobs
+          1 queued(waiting) jobs
+          Total 492 cores / Used 342 cores (utilization 69.51 percent)
+  ------------------------------------------------------------------------------------------------------------------------
+
+  * NODE  : CPU 또는 GPU 장치를 같은 서버 이름 
+  * QUEUE : 각 서버가 속한 큐 이름
+  * STATUS(F/S/E)
+    - F (Free) : 계산서버에 어떤 데이터 분석 작업도 할당되어 있지 않음
+    - S (Shared) : 계산서버에 CPU 또는 GPU 작업이 할당되어 실행중이나, 해당 서버의 모든 자원을 할당받은 상태는 아님
+    - E (Exclusive) : 계산서버에 작업들이 할당되어 실행중이고, 작업들이 모든 자원을 할당받아 busyg한 상태
+  * [GPU] T/U/F : GPU 계산서버에 설치된 GPU 카드 총 개수, 사용중인 개수(#), 유휴 카드 개수(.)
+  * [CPU] T/U/F : CPU 계산서버의 총 코어 개수, 사용중인 개수(#), 유휴 코어 개수(.)  
+
