@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to tem-docs's documentation! ( Last updated : 2021-01-19 )
+Welcome to tem-docs's documentation! ( Last updated : 2021-03-23 )
 ==================================================================
 
 .. toctree::

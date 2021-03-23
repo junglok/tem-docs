@@ -457,4 +457,39 @@ GSDC TEM 신규 데이터 분석 팜
     - S (Shared) : 계산서버에 CPU 또는 GPU 작업이 할당되어 실행중이나, 해당 서버의 모든 자원을 할당받은 상태는 아님
     - E (Exclusive) : 계산서버에 작업들이 할당되어 실행중이고, 작업들이 모든 자원을 할당받아 busy 한 상태
   * [GPU] T/U/F : GPU 계산서버에 설치된 GPU 카드 총 개수, 사용중인 개수(#), 유휴 카드 개수(.)
-  * [CPU] T/U/F : CPU 계산서버의 총 코어 개수, 사용중인 개수(#), 유휴 코어 개수(.) 
+  * [CPU] T/U/F : CPU 계산서버의 총 코어 개수, 사용중인 개수(#), 유휴 코어 개수(.)
+
+8. 분석용 스토리지 쿼터 정보 확인 - dynmotd
+====================================
+
+.. code-block:: bash
+  
+  $tem-ui-el7> which dynmotd
+  /usr/local/bin/dynmotd
+
+  $tem-ui-el7> dynmotd
+    ____ ____  ____   ____   _____ _____ __  __   _____
+  / ___/ ___||  _ \ / ___| |_   _| ____|  \/  | |  ___|_ _ _ __ _ __ ___
+  | |  _\___ \| | | | |       | | |  _| | |\/| | | |_ / _` | '__| '_ ` _ \
+  | |_| |___) | |_| | |___    | | | |___| |  | | |  _| (_| | |  | | | | | |
+  \____|____/|____/ \____|   |_| |_____|_|  |_| |_|  \__,_|_|  |_| |_| |_|
+
+  * Official GSDC TEM users guide : https://tem-docs.readthedocs.io
+  ==========================================================================
+  * Hostname..............: tem-ui-el7.sdfarm.kr
+  * OS Release............: Scientific Linux release 7.9 (Nitrogen)
+  * System uptime.........: 137 days 1 hours 30 minutes 39 seconds
+  * Users.................: Currently 6 user(s) logged on
+  * Processes.............: 831 running
+  * CPU usage.............: 0.00, 0.06, 0.07 (1, 5, 15 min)
+  * Memory (used/total)...: 12800 MB / 385381 MB
+  * Swap in use...........: 48 MB
+  --------------------------------------------------------------------------
+  * TEM disk (used/total).: 715 TB / 800 TB (90%)
+  * Current user..........: tem
+  * Home directory........: /tem/home/tem
+  * Disk Quota limit......: 20480 GB
+  * Disk usage............: 945 GB (4.6153 %)
+  * # of Files............: 1719528
+  ==========================================================================
+
