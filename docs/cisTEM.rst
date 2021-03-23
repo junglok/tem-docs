@@ -15,45 +15,54 @@ How to start cisTEM data analysis tool
 
   $> module avail
 
-  ----------------- /tem/home/tem/Modules/Modules/versions -----------------
-  3.2.10
+  ------------------------------------------- /tem/el7/Modules/apps -------------------------------------------
+  apps/cistem/1.0.0      apps/relion/cpu/3.1.0  apps/relion/gpu/3.1.0
+  apps/relion/cpu/3.0.7  apps/relion/gpu/3.0.7
 
-  ----------- /tem/home/tem/Modules/Modules/default/modulefiles ------------
-  apps/gcc/4.4.7/cistem/1.0.0     cuda/9.1
-  apps/gcc/4.4.7/relion/cpu/3.0.7 modules
-  apps/gcc/4.4.7/relion/gpu/3.0.7 mpi/gcc/openmpi/1.8.8
+  --------------------------------------- /tem/el7/Modules/acceleration ---------------------------------------
+  cuda/9.2
+
+  ------------------------------------------- /tem/el7/Modules/mpi --------------------------------------------
+  mpi/gcc/openmpi/4.0.3
+
+  ---------------------------------------- /tem/el7/Modules/virtualenv ----------------------------------------
+  conda/2020.11
+
+  ------------------------------------------ /tem/el7/Modules/tools -------------------------------------------
+  tools/ctffind/4.1.14  tools/motioncor2/1.3.1  tools/summovie/1.0.2
+  tools/gctf/1.18_b2    tools/resmap/1.1.4      tools/unblur/1.0.2
 
 
 2. Check the module details for cisTEM application
 
 .. code-block:: bash
 
-  $> module show apps/gcc/4.4.7/cistem/1.0.0 
+  $> module show apps/cistem/1.0.0 
 
   -------------------------------------------------------------------
-  /tem/home/tem/Modules/Modules/default/modulefiles/apps/gcc/4.4.7/cistem/1.0.0:
+  /tem/el7/Modules/apps/apps/cistem/1.0.0:
 
-  module-whatis    Setups `cistem-1.0.0' environment variables 
-  module           load mpi/gcc/openmpi/1.8.8 
-  prepend-path     PATH /tem/home/tem/_Applications/cistem-1.0.0-beta 
-  conflict         apps/gcc/4.4.7/cistem 
+  module-whatis   {Setups cistem 1.0.0 environment variables}
+  module          load mpi/gcc/openmpi/4.0.3
+  prepend-path    PATH /tem/el7/cistem-1.0.0-beta
+  conflict        apps/cistem
   -------------------------------------------------------------------
 
 3. Load the environment module for cisTEM  application which you want to execute. As the module specified is loaded, all the modules with dependency are also loaded (you can check these modules with “module list” command)
 
 .. code-block:: bash
 
-  $> module load apps/gcc/4.4.7/cistem/1.0.0 
+  $> module load apps/cistem/1.0.0 
   $> module list
   Currently Loaded Modulefiles:
-    1) mpi/gcc/openmpi/1.8.8         2) apps/gcc/4.4.7/cistem/1.0.0
+    1) mpi/gcc/openmpi/4.0.3   2) apps/cistem/1.0.0
 
 4. Check the cisTEM application binary path
 
 .. code-block:: bash
 
   $> which cisTEM
-  /tem/home/tem/_Applications/cistem-1.0.0-beta/cisTEM
+  /tem/el7/cistem-1.0.0-beta/cisTEM
 
 
 5. Execute the cisTEM application (we assume that X11 forwarding is enabled)
@@ -82,8 +91,8 @@ You can find a shell script available in following file paths.
 
 .. code-block:: bash
 
-  (cisTEM with job outputs and errors) /tem/home/tem/_Applications/cistem-1.0.0-beta/qsub-cisTEM-cpu.sh
-  (cisTEM without outputs and errors)  /tem/home/tem/_Applications/cistem-1.0.0-beta/qsub-cisTEM-cpu-noout.sh
+  /tem/el7/qsub-cisTEM-cpu-noout.sh             ## output, error 로그 파일을 생성하지 않는 cisTEM 작업 템플릿
+  /tem/el7/qsub-cisTEM-cpu.sh                   ## output, error 로그 파일을 생성하는 cisTEM 작업 템플릿
 
 
 For qsub-cisTEM-cpu.sh,
@@ -106,7 +115,7 @@ For qsub-cisTEM-cpu.sh,
   ${queue:+#PBS -l nodes=1:ppn=1:${queue}}
   ${queue:+#PBS -q ${queue}}
 
-  module load apps/gcc/4.4.7/cistem/1.0.0
+  module load apps/cistem/1.0.0
   ${@}
   EOF
 
@@ -132,7 +141,7 @@ For qsub-cisTEM-cpu-noout.sh,
   ${queue:+#PBS -l nodes=1:ppn=1:${queue}}
   ${queue:+#PBS -q ${queue}}
 
-  module load apps/gcc/4.4.7/cistem/1.0.0
+  module load apps/cistem/1.0.0
   ${@}
   EOF
 
@@ -142,12 +151,12 @@ Adding a new Run Profile
 
 In cisTEM settings, add a new "Run Profile" (called TORQUE here) with the following parameters :
 
-* Manager Command: /tem/home/tem/_Applications/cistem-1.0.0-beta/$command 
+* Manager Command: /tem/el7/cistem-1.0.0-beta/$command 
 * Gui Address: Automatic
 * Controller Address: Automatic
 * Command -> Edit:
 
-  * Command: /tem/home/tem/_Applications/cistem-1.0.0-beta/qsub-cisTEM-cpu.sh **-q cpuQ** $command
+  * Command: /tem/el7/qsub-cisTEM-cpu.sh **-q cpuQ** $command
   * No. Copies: 84
   * Delay (ms): 10
 
