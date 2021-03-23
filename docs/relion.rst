@@ -562,8 +562,9 @@ Motion Correction
   * (Running) Queue name : **cpuQ**
   * (Running) Resource Requirements : nodes=3:ppn=28  (e.g., we assume that the job is allocated to the 3 nodes which have all 28 cores available for each node) 
   * (Running) Standard submission script : 
-      /tem/el7/qsub-relion-3.0.7-cpu.bash           ## Relion 3.0.7 CPU MPI 작업 템플릿
-      /tem/el7/qsub-relion-3.1.0-cpu.bash           ## Relion 3.1.0 CPU MPI 작업 템플릿 
+  
+    * /tem/el7/qsub-relion-3.0.7-cpu.bash           ## Relion 3.0.7 CPU MPI 작업 템플릿
+    * /tem/el7/qsub-relion-3.1.0-cpu.bash           ## Relion 3.1.0 CPU MPI 작업 템플릿 
 
 .. image:: images/relion-motioncor1.png
     :scale: 50 %
@@ -582,8 +583,9 @@ Motion Correction
   * (Running) Queue name : **gpuQ**
   * (Running) Resource Requirements : nodes=1:ppn=3:gpus=2  (e.g., we assume that the job is allocated to 1 node which has 3 cpu cores and 2 GPU devices available)
   * (Running) Standard submission script : 
-      /tem/el7/qsub-relion-3.0.7-gpu.bash           ## Relion 3.0.7 GPU 가속 활용하는 MPI 작업 템플릿
-      /tem/el7/qsub-relion-3.1.0-gpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿  
+      
+    * /tem/el7/qsub-relion-3.0.7-gpu.bash           ## Relion 3.0.7 GPU 가속 활용하는 MPI 작업 템플릿
+    * /tem/el7/qsub-relion-3.1.0-gpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿  
 
 .. image:: images/motioncor2-1.png
     :scale: 50 %
@@ -607,8 +609,9 @@ CTF Estimation
   * (Running) Queue name : **cpuQ**
   * (Running) Resource Requirements : nodes=3:ppn=16  (e.g., we assume the use of 3 nodes, 16 cpu cores per each node)
   * (Running) Standard submission script :
-      /tem/el7/qsub-relion-3.0.7-cpu.bash           ## Relion 3.0.7 CPU MPI 작업 템플릿
-      /tem/el7/qsub-relion-3.1.0-cpu.bash           ## Relion 3.1.0 CPU MPI 작업 템플릿 
+      
+    * /tem/el7/qsub-relion-3.0.7-cpu.bash           ## Relion 3.0.7 CPU MPI 작업 템플릿
+    * /tem/el7/qsub-relion-3.1.0-cpu.bash           ## Relion 3.1.0 CPU MPI 작업 템플릿 
 
 .. image:: images/ctffind-1.png
     :scale: 50 %
@@ -629,8 +632,9 @@ CTF Estimation
   * (Running) Queue name : **gpuQ**
   * (Running) Resource Requirements : nodes=1:ppn=5:gpus=2
   * (Running) Standard submission script :
-      /tem/el7/qsub-relion-3.0.7-gpu.bash           ## Relion 3.0.7 GPU 가속 활용하는 MPI 작업 템플릿
-      /tem/el7/qsub-relion-3.1.0-gpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿
+      
+    * /tem/el7/qsub-relion-3.0.7-gpu.bash           ## Relion 3.0.7 GPU 가속 활용하는 MPI 작업 템플릿
+    * /tem/el7/qsub-relion-3.1.0-gpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿
 
 .. image:: images/gctf-1.png
     :scale: 50 %
@@ -652,8 +656,9 @@ CTF Estimation
   * (Running) Queue name : **cpuQ** 
   * (Running) Resource Requirements : nodes=4:ppn=28  (e.g., we assume the use of 4 nodes, 28 cpu cores per each node)
   * (Running) Standard submission script :
-      /tem/el7/qsub-relion-3.0.7-cpu.bash           ## Relion 3.0.7 GPU 가속 활용하는 MPI 작업 템플릿
-      /tem/el7/qsub-relion-3.1.0-cpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿
+      
+    * /tem/el7/qsub-relion-3.0.7-cpu.bash           ## Relion 3.0.7 GPU 가속 활용하는 MPI 작업 템플릿
+    * /tem/el7/qsub-relion-3.1.0-cpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿
 
 .. image:: images/2dclass-1.png
     :scale: 50 %
@@ -674,8 +679,9 @@ CTF Estimation
   * (Running) Queue name : **gpuQ** 
   * (Running) Resource Requirements : nodes=1:ppn=3:gpus=2
   * (Running) Standard submission script :
-      /tem/el7/qsub-relion-3.0.7-gpu.bash           ## Relion 3.0.7 GPU 가속 활용하는 MPI 작업 템플릿
-      /tem/el7/qsub-relion-3.1.0-gpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿
+      
+    * /tem/el7/qsub-relion-3.0.7-gpu.bash           ## Relion 3.0.7 GPU 가속 활용하는 MPI 작업 템플릿
+    * /tem/el7/qsub-relion-3.1.0-gpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿
 
 .. image:: images/2dclassgpu-1.png
     :scale: 50 %
