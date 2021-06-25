@@ -3,6 +3,7 @@ FAQs
 ****
 
 * `how to resolve the problems on (re)starting your own cryosparc instance`_
+* `how to repair cryosparc database corruption caused by duplicated mongod executions`_  
 
 .. _how to resolve the problems on (re)starting your own cryosparc instance:
 
@@ -44,10 +45,16 @@ Second, find your own cryosparc unix socket files on /tmp directory, and if exis
 
 .. code-block:: bash
 
+    userid@tem-cs-el7 $> cd /tmp
     (example) userid@tem-cs-el7 $> ls -al | grep <userid> | grep sock
    
     srwx------.  1 test02       test02          0 Jun 24 16:39 cryosparc-supervisor-627a9991e2f2f069094732dfd78d1696.sock
     srwx------.  1 test02       test02          0 Jun 24 16:39 mongodb-39031.sock
+
+    (example) userid@tem-cs-el7 $> rm cryosparc-supervisor-627a9991e2f2f069094732dfd78d1696.sock
+    (example) userid@tem-cs-el7 $> rm mongodb-39031.sock 
+
+
 
 Then, start your cryosparc instance.
 
@@ -87,5 +94,24 @@ Then, start your cryosparc instance.
     Startup can take several minutes. Point your browser to the address
     and refresh until you see the cryoSPARC web interface.
 
+
+ 
+.. _how to repair cryosparc database corruption caused by duplicated mongod executions:  
+
+With duplicated mongod executions, cryosparc database can be corrupted resulting in **"database: ERROR (spawn error)"** on (re)starting cryosparc instance. To address this abnormal case, you can try to repair the database with followings:
+
+First, **stop all the cryosparc processes and delete the unix socket files.** See `how to resolve the problems on (re)starting your own cryosparc instance`_  for more details.
+
+Second, try to repair the cryosparc database i.e., mongodb.
+
+.. code-block:: bash
+
+    userid@tem-cs-el7 $> cryosparcm env
+    userid@tem-cs-el7 $> cd .cryosparc
+    userid@tem-cs-el7 $> tar cvfz cryosparc_database.backup.tar.gz cryosparc_database
+    userid@tem-cs-el7 $> eval $(cryosparcm env) 
+    userid@tem-cs-el7 $> cd cryosparc_database
+    userid@tem-cs-el7 $> mongod --dbpath ./ --repair
+ 
  
   
