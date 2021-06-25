@@ -98,7 +98,11 @@ Then, start your cryosparc instance.
  
 .. _how to repair cryosparc database corruption caused by duplicated mongod executions:  
 
+How to repair cryosparc database corruption? 
+------------------------------------------------------------------------
+
 With duplicated mongod executions, cryosparc database can be corrupted resulting in **"database: ERROR (spawn error)"** on (re)starting cryosparc instance. To address this abnormal case, you can try to repair the database with followings:
+
 
 First, **stop all the cryosparc processes and delete the unix socket files.** See `how to resolve the problems on (re)starting your own cryosparc instance`_  for more details.
 
