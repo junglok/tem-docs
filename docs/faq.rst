@@ -126,7 +126,7 @@ How to upgrade (or downgrade) to the specific version of cryosparc softwares?
 ============================================================================
 
 The following update guides summarize the procedure for cryosparc's master and worker software updates. 
-For more details, please refer to **https://guide.cryosparc.com/setup-configuration-and-management/software-updates**.
+For more details, please refer to https://guide.cryosparc.com/setup-configuration-and-management/software-updates.
 
 1. Checking for updates
 -----------------------
