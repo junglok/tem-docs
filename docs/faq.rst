@@ -125,6 +125,9 @@ Second, try to repair the cryosparc database i.e., mongodb.
 How to upgrade (or downgrade) to the specfic version of cryosparc softwares? 
 ============================================================================
 
+The following update guides summarize the procedure for cryosparc's master and worker software updates. 
+For more details, please refer to **https://guide.cryosparc.com/setup-configuration-and-management/software-updates**.
+
 1. Checking for updates
 -----------------------
 
@@ -501,11 +504,19 @@ Or, you can update the master with a specific version.
     userid@tem-cs-el7 $> cryosparcm update --version=vXX.YY.ZZ
 
 
+
+After updating the master of your cryosparc instance, you should check the status of cryosparc daemons and stop them again in order to re-install the worker softwares.
+
+.. code-block:: bash
+
+    userid@tem-cs-el7 $> cryosparcm status
+    userid@tem-cs-el7 $> cryosparcm stop
+
 5. Cryosparc worker updates
 ---------------------------
 
 Since we adopt the clustered installation method for cryosparc instances, we shoud manually update the cryosparc worker. 
-But simply with cryosparc worker updates (guided from cryosparc official site), you might face up with the version mismatching problem of CUDA SDK runtime libraries (the root cause is unknwon now).
+But simply with cryosparc worker updates (guided from cryosparc official site), you might face up with the version mismatch problem of CUDA SDK runtime libraries (the root cause is unknwon now).
 So we decide to newly install all the cryosparc worker softwares to address this issues.
 
 If you successully update the cryosparc master softwares above, 
@@ -723,7 +734,7 @@ Then, re-install all the cryosparc worker softwares with the followings (note th
     ******************************************************************
 
 
-5. Running the newer cryosparc instance
+6. Running the newer cryosparc instance
 ---------------------------------------
 
 All the cryosparc master and worker updates has completed. So, you need to re-execute cryosparc instance daemons (assume userid's CRYOSPARC_BASE_PORT is 39030).
