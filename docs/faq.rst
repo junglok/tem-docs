@@ -49,8 +49,8 @@ Second, find your own cryosparc unix socket files on /tmp directory, and if exis
     userid@tem-cs-el7 $> cd /tmp
     (example) userid@tem-cs-el7 $> ls -al | grep <userid> | grep sock
    
-    srwx------.  1 test02       test02          0 Jun 24 16:39 cryosparc-supervisor-627a9991e2f2f069094732dfd78d1696.sock
-    srwx------.  1 test02       test02          0 Jun 24 16:39 mongodb-39031.sock
+    srwx------.  1 userid       userid          0 Jun 24 16:39 cryosparc-supervisor-627a9991e2f2f069094732dfd78d1696.sock
+    srwx------.  1 userid       userid          0 Jun 24 16:39 mongodb-39031.sock
 
     (example) userid@tem-cs-el7 $> rm cryosparc-supervisor-627a9991e2f2f069094732dfd78d1696.sock
     (example) userid@tem-cs-el7 $> rm mongodb-39031.sock 
@@ -232,8 +232,8 @@ Find your own cryosparc unix socket files on /tmp directory, and if exists, dele
     userid@tem-cs-el7 $> cd /tmp
     (example) userid@tem-cs-el7 $> ls -al | grep <userid> | grep sock
    
-    srwx------.  1 test02       test02          0 Jun 24 16:39 cryosparc-supervisor-627a9991e2f2f069094732dfd78d1696.sock
-    srwx------.  1 test02       test02          0 Jun 24 16:39 mongodb-39031.sock
+    srwx------.  1 userid       userid          0 Jun 24 16:39 cryosparc-supervisor-627a9991e2f2f069094732dfd78d1696.sock
+    srwx------.  1 userid       userid          0 Jun 24 16:39 mongodb-39031.sock
 
     (example) userid@tem-cs-el7 $> rm cryosparc-supervisor-627a9991e2f2f069094732dfd78d1696.sock
     (example) userid@tem-cs-el7 $> rm mongodb-39031.sock
@@ -347,7 +347,7 @@ To begin automatic master updates with the newest available version of cryoSPARC
 
     ## Package Plan ##
 
-      environment location: /tem/home/test02/.cryosparc/cryosparc2_master/deps/anaconda
+      environment location: /tem/home/userid/.cryosparc/cryosparc2_master/deps/anaconda
 
       added / updated specs:
         - _libgcc_mutex==0.1=main
@@ -526,8 +526,8 @@ you must find **cryosparc_worker.tar.gz** tar ball in **~/.cryosparc/cryosparc2_
 
     userid@tem-cs-el7 $> cd ~/.cryosparc/cryosparc2_master                  ## cd ~/.cryosparc/cryosparc_master if your master installation directory is "cryosparc_master"
     userid@tem-cs-el7 $> ls -al *.tar.gz
-    -rw-r-----. 1 test02 test02  823226956 Apr 20 15:42 cryosparc_master.tar.gz
-    -rw-r-----. 1 test02 test02 1895278500 Apr 20 15:56 cryosparc_worker.tar.gz
+    -rw-r-----. 1 userid userid  823226956 Apr 20 15:42 cryosparc_master.tar.gz
+    -rw-r-----. 1 userid userid 1895278500 Apr 20 15:56 cryosparc_worker.tar.gz
 
 
 First, modity the name of the previous worker directory to that with .orig postfix and copy/uncompress the worker tar ball to .cryosparc directory. 
