@@ -122,7 +122,7 @@ Second, try to repair the cryosparc database i.e., mongodb.
   
 .. _how to update cryosparc softwares:
 
-How to upgrade (or downgrade) to the specfic version of cryosparc softwares? 
+How to upgrade (or downgrade) to the specific version of cryosparc softwares? 
 ============================================================================
 
 The following update guides summarize the procedure for cryosparc's master and worker software updates. 
@@ -524,7 +524,7 @@ you must find **cryosparc_worker.tar.gz** tar ball in **~/.cryosparc/cryosparc2_
 
 .. code-block:: bash
 
-    userid@tem-cs-el7 $> cd ~/.cryosparc/cryosparc2_master                  ## cd .cryosparc/cryosparc_master if your master installation directory is "cryosparc_master"
+    userid@tem-cs-el7 $> cd ~/.cryosparc/cryosparc2_master                  ## cd ~/.cryosparc/cryosparc_master if your master installation directory is "cryosparc_master"
     userid@tem-cs-el7 $> ls -al *.tar.gz
     -rw-r-----. 1 test02 test02  823226956 Apr 20 15:42 cryosparc_master.tar.gz
     -rw-r-----. 1 test02 test02 1895278500 Apr 20 15:56 cryosparc_worker.tar.gz
