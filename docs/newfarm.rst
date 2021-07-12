@@ -85,7 +85,7 @@ GSDC TEM 신규 데이터 분석 팜
 |          |             | - https://www3.mrc-lmb.cam.ac.uk/relion/index.php                  |                                        |
 |          |             |                                                                    |                                        |
 |          |             |                                                                    | | v3.1.0                               |
-|          |             |                                                                    | | (apps/relion/cpu/3.1.7)              |
+|          |             |                                                                    | | (apps/relion/cpu/3.1.0)              |
 |          |             |                                                                    | | (apps/relion/gpu/3.1.0)              |
 |          |             |                                                                    |                                        |
 |          |             |                                                                    |                                        |
