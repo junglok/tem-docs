@@ -98,13 +98,17 @@ EL7 (Enterprise Linux 7) GSDC TEM Farm
 |          |             |                                                                    |                                        |
 |          |             | - https://cistem.org                                               |                                        |
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
-|          | CryoSPARC   | | CryoSPARC is the state-of-the-art platform used globally for     | | v3.0.1                               |
+|          |**CryoSPARC**| | CryoSPARC is the state-of-the-art platform used globally for     | | v3.0.1                               |
 |          |             | | obtaining 3D structural information from single particle cryo-EM | | v3.2.0                               |
 |          |             | | data.                                                            |                                        |
 |          |             |                                                                    |                                        |
 |          |             | - https://cryosparc.com                                            |                                        |
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
+|          |  **Topaz**  | | A pipeline for particle detection in cryoem images using         | | v0.2.4                               |
+|          |             | | convolutional neural networks trained from positive and unlabeled|                                        |
+|          |             | | data.                                                            |                                        |
 |          |             |                                                                    |                                        |
+|          |             | - https://cryosparc.com                                            |                                        |
 +----------+-------------+--------------------------------------------------------------------+----------------------------------------+
 
 
