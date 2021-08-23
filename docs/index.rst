@@ -18,6 +18,7 @@ Welcome to tem-docs's documentation! ( Last updated : 2021-07-12 )
    relion.rst
    cisTEM.rst
    cryoSPARC.rst
+   topaz.rst
    faq.rst
    app.rst
    contact.rst

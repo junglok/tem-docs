@@ -120,5 +120,5 @@ Data analysis tools
 |          |             | | convolutional neural networks trained from positive and unlabeled|                                        |
 |          |             | | data.                                                            |                                        |
 |          |             |                                                                    |                                        |
-|          |             | - https://cryosparc.com                                            |                                        |
+|          |             | - https://github.com/tbepler/topaz                                 |                                        |
 +----------+-------------+--------------------------------------------------------------------+----------------------------------------+
