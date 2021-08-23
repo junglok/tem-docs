@@ -165,8 +165,9 @@ Module paths for data analysis tools
   tools/unblur/1.0.2      
 
 
-  Job submission templates
---------------------------
+
+Job submission templates
+------------------------
 
 .. code-block:: bash
 
