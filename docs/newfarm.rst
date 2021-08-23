@@ -108,7 +108,7 @@ EL7 (Enterprise Linux 7) GSDC TEM Farm
 +----------+-------------+--------------------------------------------------------------------+----------------------------------------+
 
 
-4. Accessing EL7 GSDC TEM farm
+4. Accessing EL7 GSDC TEM Farm
 ==============================
 
 For Linux/Mac users
@@ -127,7 +127,7 @@ For Windows users
 기존에 사용하시던 MobaXTerm, Putty 등의 SSH 클라이언트 프로그램을 사용하는 것은 같습니다. 다만, 접속 로그인 노드는 tem-ui-el7.sdfarm.kr를 사용하셔야 합니다.
 
 
-5. Module paths and Job submission templates
+5. Module Paths and Job Submission Templates
 ============================================
 
 Module paths for data analysis tools
@@ -465,6 +465,7 @@ Checking all worker nodes status
     - E (Exclusive) : 계산서버에 작업들이 할당되어 실행중이고, 작업들이 모든 자원을 할당받아 busy 한 상태
   * [GPU] T/U/F : GPU 계산서버에 설치된 GPU 카드 총 개수, 사용중인 개수(#), 유휴 카드 개수(.)
   * [CPU] T/U/F : CPU 계산서버의 총 코어 개수, 사용중인 개수(#), 유휴 코어 개수(.)
+
 
 8. dynmotd : Checking storage quota limit and usage ratio
 =========================================================
