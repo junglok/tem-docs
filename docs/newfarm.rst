@@ -60,8 +60,8 @@ EL7 (Enterprise Linux 7) GSDC TEM Farm
 |              |                        | - Reference implementation for MPI standard                | | (mpi/gcc/openmpi/4.0.3)      |
 |              |                        | - https://www.open-mpi.org                                 |                                |
 |              +------------------------+------------------------------------------------------------+--------------------------------+
-|              | cuda                   | - Compute Unified Device Architecture(CUDA)                | 9.2 (cuda/9.2)                 |
-|              |                        | - NVIDIA CUDA Runtime & Toolkit                            | 11.2 (cuda/11.2)               |
+|              | cuda                   | - Compute Unified Device Architecture(CUDA)                | | 9.2 (cuda/9.2)               |
+|              |                        | - NVIDIA CUDA Runtime & Toolkit                            | | 11.2 (cuda/11.2)             |
 |              |                        | - https://developer.nvidia.com/cuda-toolkit                |                                |
 |              +------------------------+------------------------------------------------------------+--------------------------------+
 |              | Anaconda               | - Python based virtual environemnt                         | 2020.11 (conda/2020.11)        |
