@@ -46,6 +46,8 @@ Computing and storage resources
 |              |                                 | - GPU : NVIDIA  P40 * 2ea (each tem-gpu[04-05]-el has 2 P40 GPU devices)) |                 |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 | Storage      | Dell EMC Isilon NAS             | Network attached storage 800 TB                                                             |
+|              +---------------------------------+---------------------------------------------------------------------------+-----------------+
+|              | JBOD Archive                    | 500TB                                                                                       | 
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 | Total                                          | 612 CPU cores (physical), 10 GPGPUs, 800TB Storage                                          |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
@@ -70,7 +72,7 @@ Cluster management softwares
 |              |                        | - https://www.open-mpi.org                                 |                                |
 |              +------------------------+------------------------------------------------------------+--------------------------------+
 |              | cuda                   | - Compute Unified Device Architecture(CUDA)                | 9.2 (cuda/9.2)                 |
-|              |                        | - NVIDIA CUDA Runtime & Toolkit                            |                                |
+|              |                        | - NVIDIA CUDA Runtime & Toolkit                            | 11.2 (cuda/11.2)               |
 |              |                        | - https://developer.nvidia.com/cuda-toolkit                |                                |
 |              +------------------------+------------------------------------------------------------+--------------------------------+
 |              | Anaconda               | - Python based virtual environemnt                         | 2020.11 (conda/2020.11)        |
@@ -109,7 +111,7 @@ Data analysis tools
 |          |             | - https://cistem.org                                               |                                        |
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
 |          | CryoSPARC   | | CryoSPARC is the state-of-the-art platform used globally for     | | v3.0.1                               |
-|          |             | | obtaining 3D structural information from single particle cryo-EM |                                        |
+|          |             | | obtaining 3D structural information from single particle cryo-EM | | v3.2.0                               |
 |          |             | | data.                                                            |                                        |
 |          |             |                                                                    |                                        |
 |          |             | - https://cryosparc.com                                            |                                        |

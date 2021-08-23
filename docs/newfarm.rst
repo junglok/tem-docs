@@ -1,9 +1,9 @@
-************************
-GSDC TEM 신규 데이터 분석 팜
-************************
+**************************************
+EL7 (Enterprise Linux 7) GSDC TEM Farm
+**************************************
 
-1. EL7 신규 데이터 분석 팜 자원 현황
-=============================
+1. Computing and Storage Resources
+==================================
 
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 | Category     | Name                            | Specification                                                             | Resources size  |
@@ -35,12 +35,14 @@ GSDC TEM 신규 데이터 분석 팜
 |              |                                 | - GPU : NVIDIA  P40 * 2ea (each tem-gpu[04-05]-el has 2 P40 GPU devices)) |                 |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 | Storage      | Dell EMC Isilon NAS             | Network attached storage 800 TB                                                             |
+|              +---------------------------------+---------------------------------------------------------------------------+-----------------+
+|              | JBOD Archive                    | 500TB                                                                                       | 
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 | Total                                          | 612 CPU cores (physical), 10 GPGPUs, 800TB Storage                                          |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 
-2. 신규 분석 팜 관리 소프트웨어
-========================
+2. System Management Softwares
+==============================
 
 +--------------+------------------------+------------------------------------------------------------+--------------------------------+
 | Category     | Name                   | Description                                                | Version                        |
@@ -59,7 +61,7 @@ GSDC TEM 신규 데이터 분석 팜
 |              |                        | - https://www.open-mpi.org                                 |                                |
 |              +------------------------+------------------------------------------------------------+--------------------------------+
 |              | cuda                   | - Compute Unified Device Architecture(CUDA)                | 9.2 (cuda/9.2)                 |
-|              |                        | - NVIDIA CUDA Runtime & Toolkit                            |                                |
+|              |                        | - NVIDIA CUDA Runtime & Toolkit                            | 11.2 (cuda/11.2)               |
 |              |                        | - https://developer.nvidia.com/cuda-toolkit                |                                |
 |              +------------------------+------------------------------------------------------------+--------------------------------+
 |              | Anaconda               | - Python based virtual environemnt                         | 2020.11 (conda/2020.11)        |
@@ -69,8 +71,8 @@ GSDC TEM 신규 데이터 분석 팜
 +--------------+------------------------+------------------------------------------------------------+--------------------------------+
 
 
-3. 데이터 분석 도구
-===============
+3. Data Analysis Tools
+======================
 
 +----------+-------------+--------------------------------------------------------------------+----------------------------------------+
 | Category | Name        | Description                                                        | Version                                |
@@ -97,7 +99,7 @@ GSDC TEM 신규 데이터 분석 팜
 |          |             | - https://cistem.org                                               |                                        |
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
 |          | CryoSPARC   | | CryoSPARC is the state-of-the-art platform used globally for     | | v3.0.1                               |
-|          |             | | obtaining 3D structural information from single particle cryo-EM |                                        |
+|          |             | | obtaining 3D structural information from single particle cryo-EM | | v3.2.0                               |
 |          |             | | data.                                                            |                                        |
 |          |             |                                                                    |                                        |
 |          |             | - https://cryosparc.com                                            |                                        |
@@ -106,11 +108,11 @@ GSDC TEM 신규 데이터 분석 팜
 +----------+-------------+--------------------------------------------------------------------+----------------------------------------+
 
 
-4. EL7 신규 분석 팜 접속
-====================
+4. Accessing EL7 GSDC TEM farm
+==============================
 
-리눅스/맥 사용자
-------------
+For Linux/Mac users
+-------------------
 
 .. code-block:: bash
 
@@ -119,17 +121,17 @@ GSDC TEM 신규 데이터 분석 팜
 -Y (or -X) options : enable trusted X11 (or untrusted X11) forwarding
 
 
-윈도우즈 사용자
------------
+For Windows users
+-----------------
 
 기존에 사용하시던 MobaXTerm, Putty 등의 SSH 클라이언트 프로그램을 사용하는 것은 같습니다. 다만, 접속 로그인 노드는 tem-ui-el7.sdfarm.kr를 사용하셔야 합니다.
 
 
-5. 데이터 분석 도구 모듈 경로 및 작업 제출 템플릿
-======================================
+5. Module paths and Job submission templates
+============================================
 
-데이터 분석 도구들의 Module 경로
---------------------------
+Module paths for data analysis tools
+------------------------------------
 
 .. code-block:: bash
 
@@ -142,13 +144,17 @@ GSDC TEM 신규 데이터 분석 팜
   apps/relion/gpu/3.1.0  
 
   ---- /tem/el7/Modules/acceleration ----
-  cuda/9.2  
+  cuda/9.2
+  cuda/11.2  
 
   -------- /tem/el7/Modules/mpi ---------
   mpi/gcc/openmpi/4.0.3  
 
   ----- /tem/el7/Modules/virtualenv -----
-  conda/2020.11  
+  conda/2020.11
+  pyem/0.5  
+  topaz/cuda-9.2/0.2.4
+  topaz/cuda-11.0/0.2.4  
 
   ------- /tem/el7/Modules/tools --------
   tools/ctffind/4.1.14    
@@ -159,8 +165,8 @@ GSDC TEM 신규 데이터 분석 팜
   tools/unblur/1.0.2      
 
 
-데이터 분석 작업 PBS 작업 템플릿 경로
------------------------------
+  Job submission templates
+--------------------------
 
 .. code-block:: bash
 
@@ -172,8 +178,8 @@ GSDC TEM 신규 데이터 분석 팜
   /tem/el7/qsub-relion-3.1.0-gpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿
 
 
-6. EL7 신규 분석 팜 배치 큐 (Batch Queues) 
-======================================
+1. Batch Queues
+===============
 
 +--------------+-----------------+-----------------------------------------------------------------------+------------------------------------+
 | Category     | Queue Name      | Assigned Computing Resources                                          | Remarks                            |
@@ -188,8 +194,8 @@ GSDC TEM 신규 데이터 분석 팜
 +--------------+-----------------+-----------------------------------------------------------------------+------------------------------------+
 
 
-배치 큐 이름 및 상태 확인
--------------------
+Checking batch queue names and their status
+-------------------------------------------
 
 .. code-block:: bash
 
@@ -224,8 +230,8 @@ GSDC TEM 신규 데이터 분석 팜
 
 
 
-전체 계산자원 현황 확인
------------------
+Checking all worker nodes status
+--------------------------------
 
 .. code-block:: bash
 
@@ -415,8 +421,8 @@ GSDC TEM 신규 데이터 분석 팜
      gpu_status = gpu[1]=gpu_id=00000000:AF:00.0;gpu_pci_device_id=456659166;gpu_pci_location_id=00000000:AF:00.0;gpu_product_name=Tesla P40;gpu_memory_total=22919 MB;gpu_memory_used=0 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=30 C,gpu[0]=gpu_id=00000000:3B:00.0;gpu_pci_device_id=456659166;gpu_pci_location_id=00000000:3B:00.0;gpu_product_name=Tesla P40;gpu_memory_total=22919 MB;gpu_memory_used=0 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=27 C;gpu_display=Enabled,gpu_display=Enabled,driver_ver=460.32.03,timestamp=Wed Jan 27 11:03:08 2021
 
 
-7. 계산자원 활용 현황 및 모니터링 (CPU/GPU 노드) - fstat.bin
-====================================================
+7. Monitoring the usage of all the worker nodes (CPU/GPU nodes) - fstat.bin
+===========================================================================
 
 .. code-block:: bash
 
@@ -459,8 +465,8 @@ GSDC TEM 신규 데이터 분석 팜
   * [GPU] T/U/F : GPU 계산서버에 설치된 GPU 카드 총 개수, 사용중인 개수(#), 유휴 카드 개수(.)
   * [CPU] T/U/F : CPU 계산서버의 총 코어 개수, 사용중인 개수(#), 유휴 코어 개수(.)
 
-8. 분석용 스토리지 쿼터 정보 확인 - dynmotd
-====================================
+8. Checking users storage quota limit and usage ratio - dynmotd
+===============================================================
 
 .. code-block:: bash
   
