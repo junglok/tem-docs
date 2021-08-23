@@ -87,7 +87,36 @@ With above command, you can find that the path of topaz executable with CUDA 11.
 Using Topaz in CryoSPARC
 ========================
 
+If your CryoSPARC instance's version is v3.0.1, you should use the topaz executable **/tem/el7/conda3-2020.11/envs/topaz-v0.2.4-cuda9.2/bin/topaz** because the CryoSPARC is built upon CUDA 9.2 support.
+Otherwise if you use CryoSPARC v3.2.0+, the topaz executable is **/tem/el7/conda3-2020.11/envs/topaz-v0.2.4-cuda11.0/bin/topaz**.
+
+Please refer to https://guide.cryosparc.com/processing-data/all-job-types-in-cryosparc/deep-picking/topaz for executing topaz jobs in CryoSPARC.
+
 
 
 Using Topaz in Relion (v3.1+)
 =============================
+
+To run topaz jobs within relion data analysis tool, you **SHOULD USE Relion v3.1+ and Topaz v0.2.4+**. For your conveneince, we have cloned all the **relion_run_topaz** packages to GSDC TEM farm.
+
+Here is the location of **relion_run_topaz** packages: **/tem/el7/topaz/relion_run_topaz**
+
+
+.. code-block:: bash
+
+  $> pwd
+  /tem/el7/topaz/relion_run_topaz
+  [tem@tem-cs-el7 relion_run_topaz]$ tree .
+  .
+  ├── LICENSE
+  ├── README.md
+  ├── run_topaz_denoise.py
+  ├── run_topaz_pick.py
+  ├── run_topaz_train.py
+  └── run_topaz_train_denoise.py
+  
+  0 directories, 6 files
+
+
+For more details on running topaz jobs in relion (using external job type), please refer to https://github.com/tbepler/topaz/tree/master/relion_run_topaz.
+
