@@ -178,7 +178,7 @@ Module paths for data analysis tools
   /tem/el7/qsub-relion-3.1.0-gpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿
 
 
-1. Batch Queues
+6. Batch Queues
 ===============
 
 +--------------+-----------------+-----------------------------------------------------------------------+------------------------------------+
@@ -421,8 +421,8 @@ Checking all worker nodes status
      gpu_status = gpu[1]=gpu_id=00000000:AF:00.0;gpu_pci_device_id=456659166;gpu_pci_location_id=00000000:AF:00.0;gpu_product_name=Tesla P40;gpu_memory_total=22919 MB;gpu_memory_used=0 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=30 C,gpu[0]=gpu_id=00000000:3B:00.0;gpu_pci_device_id=456659166;gpu_pci_location_id=00000000:3B:00.0;gpu_product_name=Tesla P40;gpu_memory_total=22919 MB;gpu_memory_used=0 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=27 C;gpu_display=Enabled,gpu_display=Enabled,driver_ver=460.32.03,timestamp=Wed Jan 27 11:03:08 2021
 
 
-7. Monitoring the usage of all the worker nodes (CPU/GPU nodes) - fstat.bin
-===========================================================================
+7. fstat.bin : Monitoring the usage of all the worker nodes
+===========================================================
 
 .. code-block:: bash
 
@@ -465,8 +465,8 @@ Checking all worker nodes status
   * [GPU] T/U/F : GPU 계산서버에 설치된 GPU 카드 총 개수, 사용중인 개수(#), 유휴 카드 개수(.)
   * [CPU] T/U/F : CPU 계산서버의 총 코어 개수, 사용중인 개수(#), 유휴 코어 개수(.)
 
-8. Checking users storage quota limit and usage ratio - dynmotd
-===============================================================
+8. dynmotd : Checking storage quota limit and usage ratio
+=========================================================
 
 .. code-block:: bash
   

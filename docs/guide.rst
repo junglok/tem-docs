@@ -56,12 +56,16 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
 
   ---------------------------- /tem/el7/Modules/acceleration ----------------------------
   cuda/9.2
+  cuda/11.2
 
   -------------------------------- /tem/el7/Modules/mpi ---------------------------------
   mpi/gcc/openmpi/4.0.3
 
   ----------------------------- /tem/el7/Modules/virtualenv -----------------------------
   conda/2020.11
+  pyem/0.5  
+  topaz/cuda-9.2/0.2.4
+  topaz/cuda-11.0/0.2.4  
 
   ------------------------------- /tem/el7/Modules/tools --------------------------------
   tools/ctffind/4.1.14  tools/motioncor2/1.3.1  tools/summovie/1.0.2
