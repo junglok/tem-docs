@@ -2,8 +2,9 @@
 Change Logs
 ***********
 
+* 2021-08-23 : Topaz guide added.
 * 2021-07-12 : FAQ list updated.
-* 2021-03-23 : Relion, cisTEM usage guide updated for EL7-based TEM farm
+* 2021-03-23 : Relion, cisTEM usage guide updated for EL7-based TEM farm.
 * 2021-01-18 : CryoSPARC usage guide modified for v3.0.1.
 * 2021-01-13 : 신규 데이터 분석 팜 안내 자료 추가.
 * 2020-11-23 : 2020 SNU CryoEM Hands-On Workshop presentation material added (appendix).
