@@ -2,7 +2,7 @@
 Change Logs
 ***********
 
-* 2021-08-23 : Topaz guide added.
+* 2021-08-23 : Topaz and Topaz integration (with Relion, CryoSPARC) guides added.
 * 2021-07-12 : FAQ list updated.
 * 2021-03-23 : Relion, cisTEM usage guide updated for EL7-based TEM farm.
 * 2021-01-18 : CryoSPARC usage guide modified for v3.0.1.
