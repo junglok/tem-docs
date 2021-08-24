@@ -119,4 +119,3 @@ Here is the location of **relion_run_topaz** packages: **/tem/el7/topaz/relion_r
 
 Since Relion v3.1+ has built using CUDA 9.2 support, we have modified **topaz_path** with this executable **/tem/el7/conda3-2020.11/envs/topaz-v0.2.4-cuda9.2/bin/topaz** in all the above python scripts.
 For more details on running topaz jobs in relion (using external job type), please refer to https://github.com/tbepler/topaz/tree/master/relion_run_topaz.
-
