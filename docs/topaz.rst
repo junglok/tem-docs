@@ -124,16 +124,16 @@ Here is the location of **relion_run_topaz** packages:
 
 Since Relion v3.1+ has built using CUDA 9.2 support, we have modified **topaz_path** with this executable **/tem/el7/conda3-2020.11/envs/topaz-v0.2.4-cuda9.2/bin/topaz** in all the above python scripts.
 
-For an external job type in relion GUI, after providing python executable path, inputs and optional arguments, you can use the following job submission template.
+For an external job type in relion GUI, after providing python executable path, inputs and optional parameters, you can use the following job submission template.
 
 * **/tem/el7/qsub-relion-3.1.0-topaz.bash**
 
 .. image:: images/relion-topaz.png
-    :scale: 70 %
+    :scale: 50 %
     :align: center
 
 .. image:: images/relion-topaz2.png
-    :scale: 70 %
+    :scale: 50 %
     :align: center
 
 Note that both number of nodes and number of GPUs are set to 1 due to the lack of parallelism across multiple servers and GPUs in Topaz application. 
