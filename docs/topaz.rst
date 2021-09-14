@@ -99,7 +99,12 @@ Using Topaz in Relion (v3.1+)
 
 To run topaz jobs within relion data analysis tool, you **SHOULD USE Relion v3.1+ and Topaz v0.2.4+**. For your conveneince, we have cloned all the **relion_run_topaz** packages to GSDC TEM farm.
 
-Here is the location of **relion_run_topaz** packages: **/tem/el7/topaz/relion_run_topaz**
+Here is the location of **relion_run_topaz** packages: 
+
+* **/tem/el7/topaz/relion_run_topaz/run_topaz_denoise.py**
+* **/tem/el7/topaz/relion_run_topaz/run_topaz_pick.py**
+* **/tem/el7/topaz/relion_run_topaz/run_topaz_train.py**
+* **/tem/el7/topaz/relion_run_topaz/run_topaz_train_denoise.py**
 
 
 .. code-block:: bash
@@ -118,4 +123,18 @@ Here is the location of **relion_run_topaz** packages: **/tem/el7/topaz/relion_r
   0 directories, 6 files
 
 Since Relion v3.1+ has built using CUDA 9.2 support, we have modified **topaz_path** with this executable **/tem/el7/conda3-2020.11/envs/topaz-v0.2.4-cuda9.2/bin/topaz** in all the above python scripts.
+
+For an external job type in relion GUI, after providing python executable path, inputs and optional arguments, you can use the following job submission template.
+
+* **/tem/el7/qsub-relion-3.1.0-topaz.bash**
+
+.. image:: images/relion-topaz.png
+    :scale: 70 %
+    :align: center
+
+.. image:: images/relion-topaz2.png
+    :scale: 70 %
+    :align: center
+
+Note that both number of nodes and number of GPUs are set to 1 due to the lack of parallelism across multiple servers and GPUs in Topaz application. 
 For more details on running topaz jobs in relion (using external job type), please refer to https://github.com/tbepler/topaz/tree/master/relion_run_topaz.
