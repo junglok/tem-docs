@@ -104,11 +104,15 @@ EL7 (Enterprise Linux 7) GSDC TEM Farm
 |          |             |                                                                    |                                        |
 |          |             | - https://cryosparc.com                                            |                                        |
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
-|          |  **Topaz**  | | A pipeline for particle detection in cryoem images using         | | v0.2.4                               |
+|          | **Topaz**   | | A pipeline for particle detection in cryoem images using         | | v0.2.4                               |
 |          |             | | convolutional neural networks trained from positive and unlabeled|                                        |
 |          |             | | data.                                                            |                                        |
 |          |             |                                                                    |                                        |
 |          |             | - https://github.com/tbepler/topaz                                 |                                        |
+|          +-------------+--------------------------------------------------------------------+----------------------------------------+
+|          | **PyEM**    | | A collection of Python modules and command-line utilities for    | | v0.5                                 |
+|          |             | | electron microscopy of biological samples.                       | | (pyem/0.5)                           |
+|          |             | - https://github.com/asarnow/pyem                                  |                                        |
 +----------+-------------+--------------------------------------------------------------------+----------------------------------------+
 
 

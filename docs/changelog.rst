@@ -2,6 +2,7 @@
 Change Logs
 ***********
 
+* 2021-11-19 : PyEM module environment added.
 * 2021-08-23 : Topaz and Topaz integration (with Relion, CryoSPARC) guides added.
 * 2021-07-12 : FAQ list updated.
 * 2021-03-23 : Relion, cisTEM usage guide updated for EL7-based TEM farm.
