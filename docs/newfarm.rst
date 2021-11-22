@@ -9,7 +9,7 @@ EL7 (Enterprise Linux 7) GSDC TEM Farm
 | Category     | Name                            | Specification                                                             | Resources size  |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 | Login        | **tem-ui-el7.sdfarm.kr**        | - CPU : Intel(R) Xeon(R) Gold 6150 CPU @ 2.70GHz 18Core * 2 CPUs          | 72 cores (H/T)  |
-|              |                                 | - RAM : DDR-4 2,666MHz 16GB * 24EA (384GB)                                |                 |
+|              |                                 | - RAM : DDR4 2,666MHz 16GB * 24EA (384GB)                                 |                 |
 |              |                                 | - HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)                                  |                 |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 | Web-Login    | **tem-cs-el7.sdfarm.kr**        | - CPU : Intel(R) Xeon(R) CPU E5-2697v3 @ 2.60GHz 14Core * 2 CPUs          | 56 cores (H/T)  |
@@ -21,7 +21,7 @@ EL7 (Enterprise Linux 7) GSDC TEM Farm
 |              |                                 | - HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)                                  |                 |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 | Computing    | tem-wn[1001-1002]-el7.sdfarm.kr | - CPU : Intel(R) Xeon(R) Gold 6150 CPU @ 2.70GHz 18Core * 2 CPUs          | 380 cores       |
-| (workers)    |                                 | - RAM : DDR-4 2,666MHz 16GB * 24EA (384GB)                                |                 |
+| (workers)    |                                 | - RAM : DDR4 2,666MHz 16GB * 24EA (384GB)                                 |                 |
 |              |                                 | - HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)                                  |                 |
 |              +---------------------------------+---------------------------------------------------------------------------+                 |
 |              | tem-wn[1003-1013]-el7.sdfarm.kr | - CPU : Intel(R) Xeon(R) CPU E5-2697v3 @ 2.60GHz 14Core * 2 CPUs          |                 |
@@ -31,8 +31,8 @@ EL7 (Enterprise Linux 7) GSDC TEM Farm
 |              | tem-gpu[01-05]-el7.sdfarm.kr    | - CPU : Intel® Xeon® CPU E5-2690v4 @ 2.60GHz 14Core * 2 CPUs              | - 140 cores     |
 |              |                                 | - RAM : DDR4 16GB * 24 (384GB)                                            | - 10 GPGPUs     |
 |              |                                 | - SSD : 6G SATA SSD 800GB * 2EA (RAID-1)                                  |                 |
-|              |                                 | - GPU : NVIDIA P100 * 2ea (each tem-gpu[01-03]-el has 2 P100 GPU devices) |                 |
-|              |                                 | - GPU : NVIDIA  P40 * 2ea (each tem-gpu[04-05]-el has 2 P40 GPU devices)) |                 |
+|              |                                 | - GPU : NVIDIA P100 * 2ea (each tem-gpu[01-03]-el7 has 2 P100 GPU devices)|                 |
+|              |                                 | - GPU : NVIDIA  P40 * 2ea (each tem-gpu[04-05]-el7 has 2 P40 GPU devices))|                 |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 | Storage      | Dell EMC Isilon NAS             | Network attached storage 800 TB                                                             |
 |              +---------------------------------+---------------------------------------------------------------------------+-----------------+
@@ -105,8 +105,8 @@ EL7 (Enterprise Linux 7) GSDC TEM Farm
 |          |             | - https://cryosparc.com                                            |                                        |
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
 |          | **Topaz**   | | A pipeline for particle detection in cryoem images using         | | v0.2.4                               |
-|          |             | | convolutional neural networks trained from positive and unlabeled|                                        |
-|          |             | | data.                                                            |                                        |
+|          |             | | convolutional neural networks trained from positive and unlabeled| | (topaz/cuda-9.2/0.2.4)               |
+|          |             | | data.                                                            | | (topaz/cuda-11.0/0.2.4)              |
 |          |             |                                                                    |                                        |
 |          |             | - https://github.com/tbepler/topaz                                 |                                        |
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
