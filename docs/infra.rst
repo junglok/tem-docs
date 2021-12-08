@@ -14,7 +14,7 @@ Cryo-EM instrumentations are operated by KBSI. Cryo-EM facilities are directly c
 Computing and storage resources
 ===============================
 
-* `Hardware specification of TEM service farm`_
+* :ref:`Hardware specification of TEM service farm`
 
 Cluster management softwares
 ============================
