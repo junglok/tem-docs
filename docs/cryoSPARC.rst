@@ -48,8 +48,8 @@ After finishing installation, **/tem/home/<user>/.cryosparc** has following dire
 
 .. code-block:: bash
 
-  $> cd ~/.cryosparc
-  $> tree -L 1 ./
+  tem-cs-el7.sdfarm.kr $> cd ~/.cryosparc
+  tem-cs-el7.sdfarm.kr $> tree -L 1 ./
   .
   ├─ cluster_info.json              ## cluster(lane) information to register    
   ├─ cluster_script.sh              ## PBS script template to submit jobs to worker cluster(lane)    
@@ -68,7 +68,7 @@ Also, the configuration code-snippets implicitly add cryoSPARC instance's binary
 
 .. code-block:: bash
 
-   $> cat /tem/home/<user>/.bashrc
+   tem-cs-el7.sdfarm.kr $> cat /tem/home/<user>/.bashrc
    ...
    # User specific aliases and functions
    export PATH='/tem/home/<user>/.cryosparc/cryosparc2_master/bin':$PATH
@@ -84,7 +84,7 @@ Users should check and verify whether the master processes are working correctly
 
 .. code-block:: bash
 
-   $> cryosparcm env
+   tem-cs-el7.sdfarm.kr $> cryosparcm env
    
    export "CRYOSPARC_HTTP_PORT=39xxx"
    export "CRYOSPARC_MASTER_HOSTNAME=tem-cs-el7.sdfarm.kr"
@@ -134,7 +134,7 @@ You can find what kinds of environment variables have been set for the cryoSPARC
 
 .. code-block:: bash
 
-   $> cryosparcm status
+   tem-cs-el7.sdfarm.kr $> cryosparcm status
    ----------------------------------------------------------------------------
    CryoSPARC System master node installed at
    /tem/home/<userid>/.cryosparc/cryosparc2_master
@@ -185,7 +185,7 @@ With the following command, you can start an SSH tunnel to export **CRYOSPARC_BA
 
 .. code-block:: bash
 
-   localhost$> ssh -N -f -L localhost:39500:tem-cs-el7.sdfarm.kr:<CRYOSPARC_BASE_PORT> -o Port=<ssh_port> <userid>@tem-cs-el7.sdfarm.kr
+   localhost $> ssh -N -f -L localhost:39500:tem-cs-el7.sdfarm.kr:<CRYOSPARC_BASE_PORT> -o Port=<ssh_port> <userid>@tem-cs-el7.sdfarm.kr
 
    ## 39500 port on localhost : assume that the port number 39500 is available on your localhost. Otherwise, you can use another port available.
    ## -N : Do not execute a remote command. This is useful option for just forwarding ports.
@@ -293,7 +293,7 @@ Trouble shooting
 
 .. code-block:: bash
 
-   $> cryosparcm stop
+   tem-cs-el7.sdfarm.kr $> cryosparcm stop
 
    CryoSPARC is running.
    Stopping cryoSPARC
@@ -312,7 +312,7 @@ Stop the cryosparc instance if running. This will gracefully kill all the master
 
 .. code-block:: bash
 
-   $> cryosparcm start
+   tem-cs-el7.sdfarm.kr $> cryosparcm start
 
    Starting cryoSPARC System master process..
    CryoSPARC is not already running.
@@ -357,7 +357,7 @@ Users can reset the non-admin user's password to a new password with the followi
 
 .. code-block:: bash
 
-   $> cryosparcm resetpassword --email <email address> --password <newpassword>
+   tem-cs-el7.sdfarm.kr $> cryosparcm resetpassword --email <email address> --password <newpassword>
 
 
 3. Job (or Workflow) failed caused by **SSD caching**
@@ -388,7 +388,7 @@ but if you'd like to keep this option off across all jobs in a project, you can 
 
 .. code-block:: bash
 
-   $> cryosparcm cli "set_project_param_default('PX', 'compute_use_ssd', False)"
+   tem-cs-el7.sdfarm.kr $> cryosparcm cli "set_project_param_default('PX', 'compute_use_ssd', False)"
 
 where 'PX' is the Project ID you want to set the default value for (e.g., 'P1', 'P2', etc.)
 
@@ -396,7 +396,7 @@ You can undo this setting by running:
 
 .. code-block:: bash
    
-   $> cryosparcm cli "unset_project_param_default('PX', 'compute_use_ssd')"
+   tem-cs-el7.sdfarm.kr $> cryosparcm cli "unset_project_param_default('PX', 'compute_use_ssd')"
 
 4. Failed to launch! 190
 ------------------------
