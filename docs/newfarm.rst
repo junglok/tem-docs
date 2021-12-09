@@ -30,17 +30,26 @@ EL7 (Enterprise Linux 7) GSDC TEM Farm
 |              |                                 | - RAM : DDR4 8GB * 24 (192GB)                                             |                 |
 |              |                                 | - HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)                                  |                 |
 |              +---------------------------------+---------------------------------------------------------------------------+-----------------+
-|              | tem-gpu[01-05]-el7.sdfarm.kr    | - CPU : Intel® Xeon® CPU E5-2690v4 @ 2.60GHz 14Core * 2 CPUs              | - 140 cores     |
-|              |                                 | - RAM : DDR4 16GB * 24 (384GB)                                            | - 10 GPGPUs     |
+|              | tem-gpu[01-03]-el7.sdfarm.kr    | - CPU : Intel® Xeon® CPU E5-2690v4 @ 2.60GHz 14Core * 2 CPUs              | - 204 cores     |
+|              |                                 | - RAM : DDR4 16GB * 24 (384GB)                                            | - 14 GPGPUs     |
 |              |                                 | - SSD : 6G SATA SSD 800GB * 2EA (RAID-1)                                  |                 |
-|              |                                 | - GPU : NVIDIA P100 * 2ea (each tem-gpu[01-03]-el7 has 2 P100 GPU devices)|                 |
-|              |                                 | - GPU : NVIDIA  P40 * 2ea (each tem-gpu[04-05]-el7 has 2 P40 GPU devices))|                 |
+|              |                                 | - GPU : NVIDIA P100 16GB * 2EA                                            |                 |
+|              +---------------------------------+---------------------------------------------------------------------------+                 | 
+|              | tem-gpu[04-05]-el7.sdfarm.kr    | - CPU : Intel® Xeon® CPU E5-2690v4 @ 2.60GHz 14Core * 2 CPUs              |                 |
+|              |                                 | - RAM : DDR4 16GB * 16 (256GB)                                            |                 |
+|              |                                 | - SSD : 6G SATA SSD 800GB * 2EA (RAID-1)                                  |                 |
+|              |                                 | - GPU : NVIDIA P40 24GB * 2EA                                             |                 |
+|              +---------------------------------+---------------------------------------------------------------------------+                 | 
+|              | tem-gpu[06-07]-el7.sdfarm.kr    | - CPU : Intel® Xeon® Gold 6226R CPU @ 2.90GHz 16Core * 2 CPUs             |                 |
+|              |                                 | - RAM : DDR4 32GB * 12 (384GB)                                            |                 |
+|              |                                 | - HDD : 12G SAS HDD 1.6TB * 2EA (RAID-1)                                  |                 |
+|              |                                 | - GPU : NVIDIA A100 40GB * 2ea                                            |                 |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
-| Storage      | Dell EMC Isilon NAS             | Network attached storage 800 TB                                                             |
+| Storage      | Dell EMC Isilon NAS             | Network attached storage 300 TB                                                             |
 |              +---------------------------------+---------------------------------------------------------------------------+-----------------+
 |              | JBOD Archive                    | 500TB                                                                                       | 
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
-| Total                                          | 612 CPU cores (physical), 10 GPGPUs, 800TB Storage                                          |
+| Total                                          | 676 CPU cores (physical), 14 GPGPUs, 800TB Storage                                          |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 
 .. _Cluster management softwares:
@@ -201,10 +210,11 @@ Job submission templates
 | Shared       | **cpuQ**        | - tem-wn[1001-1002]-el7.sdfarm.kr (36 cores and 384GB memory per node)| - 380 Physical CPU cores           |
 |              |                 | - tem-wn[1003-1013]-el7.sdfarm.kr (28 cores and 192GB memory per node)|                                    |
 |              +-----------------+-----------------------------------------------------------------------+------------------------------------+
-|              | **gpuQ**        | - tem-gpu[01-03]-el7.sdfarm.kr (28 cores, 2 P100 GPUs and 384GB mem.) | - 140 Physical CPU cores           | 
-|              |                 | - tem-gpu04-el7.sdfarm.kr (28 cores, 2 P40 GPGPUs and 128GB memory)   | - 10 GPGPUs                        |
-|              |                 | - tem-gpu05-el7.sdfarm.kr (28 cores, 2 P40 GPGPUs and 256GB memory)   | - P100 has 16GB device memory      |
-|              |                 |                                                                       | - P40 has 24GB device memory       |
+|              | **gpuQ**        | - tem-gpu[01-03]-el7.sdfarm.kr (28 cores, 2 P100 GPUs and 384GB mem.) | - 204 Physical CPU cores           | 
+|              |                 | - tem-gpu[04-05]-el7.sdfarm.kr (28 cores, 2 P40 GPUs and 256GB mem.)  | - 14 GPUs                          |
+|              |                 | - tem-gpu[06-07]-el7.sdfarm.kr (32 cores, 2 A100 GPUs and 256GB mem.) | - P100 16GB device memory          |
+|              |                 |                                                                       | - P40 24GB device memory           |
+|              |                 |                                                                       | - A100 40GB device memory          |   
 +--------------+-----------------+-----------------------------------------------------------------------+------------------------------------+
 
 
@@ -434,6 +444,30 @@ Checking all worker nodes status
      gpus = 2
      gpu_status = gpu[1]=gpu_id=00000000:AF:00.0;gpu_pci_device_id=456659166;gpu_pci_location_id=00000000:AF:00.0;gpu_product_name=Tesla P40;gpu_memory_total=22919 MB;gpu_memory_used=0 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=30 C,gpu[0]=gpu_id=00000000:3B:00.0;gpu_pci_device_id=456659166;gpu_pci_location_id=00000000:3B:00.0;gpu_product_name=Tesla P40;gpu_memory_total=22919 MB;gpu_memory_used=0 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=27 C;gpu_display=Enabled,gpu_display=Enabled,driver_ver=460.32.03,timestamp=Wed Jan 27 11:03:08 2021
 
+  tem-gpu06-el7.sdfarm.kr
+     state = free
+     power_state = Running
+     np = 32
+     properties = gpuQ,gpuQA100
+     ntype = cluster
+     status = opsys=linux,uname=Linux tem-gpu06-el7.sdfarm.kr 3.10.0-1160.49.1.el7.x86_64 #1 SMP Tue Nov 23 21:51:54 CST 2021 x86_64,sessions=1853,nsessions=1,nusers=1,idletime=78369,totmem=402049028kb,availmem=396843552kb,physmem=395757576kb,ncpus=32,loadave=0.34,gres=,netload=2752372686,state=free,varattr= ,cpuclock=Fixed,macaddr=f4:03:43:e5:19:40,version=6.1.2,rectime=1639028497,jobs=
+     mom_service_port = 15002
+     mom_manager_port = 15003
+     gpus = 2
+     gpu_status = gpu[1]=gpu_id=00000000:D8:00.0;gpu_pci_device_id=552669406;gpu_pci_location_id=00000000:D8:00.0;gpu_product_name=NVIDIA A100-PCIE-40GB;gpu_memory_total=40536 MB;gpu_memory_used=0 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=30%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=72 C,gpu[0]=gpu_id=00000000:86:00.0;gpu_pci_device_id=552669406;gpu_pci_location_id=00000000:86:00.0;gpu_product_name=NVIDIA A100-PCIE-40GB;gpu_memory_total=40536 MB;gpu_memory_used=0 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=73 C;gpu_display=Enabled,gpu_display=Enabled,driver_ver=495.29.05,timestamp=Thu Dec  9 14:41:35 2021
+
+  tem-gpu07-el7.sdfarm.kr
+     state = free
+     power_state = Running
+     np = 32
+     properties = gpuQ,gpuQA100
+     ntype = cluster
+     status = opsys=linux,uname=Linux tem-gpu07-el7.sdfarm.kr 3.10.0-1160.49.1.el7.x86_64 #1 SMP Tue Nov 23 21:51:54 CST 2021 x86_64,sessions=1855 2925,nsessions=2,nusers=2,idletime=77023,totmem=402049028kb,availmem=396857460kb,physmem=395757576kb,ncpus=32,loadave=0.05,gres=,netload=2832872237,state=free,varattr= ,cpuclock=Fixed,macaddr=f4:03:43:e5:19:20,version=6.1.2,rectime=1639028495,jobs=
+     mom_service_port = 15002
+     mom_manager_port = 15003
+     gpus = 2
+     gpu_status = gpu[1]=gpu_id=00000000:D8:00.0;gpu_pci_device_id=552669406;gpu_pci_location_id=00000000:D8:00.0;gpu_product_name=NVIDIA A100-PCIE-40GB;gpu_memory_total=40536 MB;gpu_memory_used=0 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=31%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=74 C,gpu[0]=gpu_id=00000000:86:00.0;gpu_pci_device_id=552669406;gpu_pci_location_id=00000000:86:00.0;gpu_product_name=NVIDIA A100-PCIE-40GB;gpu_memory_total=40536 MB;gpu_memory_used=0 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=73 C;gpu_display=Enabled,gpu_display=Enabled,driver_ver=495.29.05,timestamp=Thu Dec  9 14:41:33 2021
+
 
 7. fstat.bin : Monitoring the usage of all the worker nodes
 ===========================================================
@@ -451,7 +485,9 @@ Checking all worker nodes status
   tem-gpu02-el7.sdfarm.kr        gpuQ          Shared     2/2/0 [##]        28/4/24  [####........................]          
   tem-gpu03-el7.sdfarm.kr        gpuQ            Free     2/0/2 [..]        28/0/28  [............................]          
   tem-gpu04-el7.sdfarm.kr        gpuQ            Free     2/0/2 [..]        28/0/28  [............................]          
-  tem-gpu05-el7.sdfarm.kr        gpuQ            Free     2/0/2 [..]        28/0/28  [............................]          
+  tem-gpu05-el7.sdfarm.kr        gpuQ            Free     2/0/2 [..]        28/0/28  [............................]
+  tem-gpu06-el7.sdfarm.kr        gpuQ            Free     2/0/2 [..]        32/0/32  [................................]
+  tem-gpu07-el7.sdfarm.kr        gpuQ            Free     2/0/2 [..]        32/0/32  [................................]          
   tem-wn1001-el7.sdfarm.kr       cpuQ          Shared            n/a        36/28/8  [############################........]  
   tem-wn1002-el7.sdfarm.kr       cpuQ          Shared            n/a        36/28/8  [############################........]  
   tem-wn1003-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
@@ -467,7 +503,7 @@ Checking all worker nodes status
   ------------------------------------------------------------------------------------------------------------------------
           7 running jobs
           1 queued(waiting) jobs
-          Total 492 cores / Used 342 cores (utilization 69.51 percent)
+          Total 584 cores / Used 342 cores (utilization 58.5 percent)
   ------------------------------------------------------------------------------------------------------------------------
 
   * NODE  : CPU 또는 GPU 장치를 가진 계산서버 이름 
