@@ -2,10 +2,10 @@
 EL7 (Enterprise Linux 7) GSDC TEM Farm
 **************************************
 
+.. _Hardware specification of TEM service farm:
+
 1. Computing and Storage Resources
 ==================================
-
-.. _Hardware specification of TEM service farm:
 
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 | Category     | Name                            | Specification                                                             | Resources size  |
