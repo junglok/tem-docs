@@ -1,61 +1,78 @@
-**************************************
-EL7 (Enterprise Linux 7) GSDC TEM Farm
-**************************************
+******************************
+GSDC Computing Cluster for TEM
+******************************
+
+.. _Service overview:
+
+1. Service overview
+===================
+
+GSDC (Global Science experimental Data hub Center) provides data computing services, i.e., large-scale Cryo-EM data transfer, archiving and/or processing to Cryo-EM operators/users.
+Cryo-EM facilities which are operated by government-funded research institutes or academies, can be directly connected to GSDC via KREONET with 10+ Gbps dedicated/shared network links. 
+GSDC also supports petabyes scale of high performance (and/or archiving) storages and CPU/GPU computing servers to aid Cryo-EM users' scientific discoveries. 
+Here is an example of GSDC's TEM infrastructre for Cryo-EM operators/users.
+
+* Overall architecture between KBSI's Cryo-EM facilities and GSDC's TEM computing cluster.
+
+.. image:: images/tem_service_farm.jpg
+    :scale: 75 %
+    :align: center
+
 
 .. _Hardware specification of TEM service farm:
 
-1. Computing and Storage Resources
+2. Computing and storage resources
 ==================================
 
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
-| Category     | Name                            | Specification                                                             | Resources size  |
+| Category     | Name (sdfarm.kr)                | Specification                                                             | Resources size  |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
-| Login        | **tem-ui-el7.sdfarm.kr**        | - CPU : Intel(R) Xeon(R) Gold 6150 CPU @ 2.70GHz 18Core * 2 CPUs          | 72 cores (H/T)  |
+| Login        | **tem-ui-el7**                  | - CPU : Intel(R) Xeon(R) Gold 6150 CPU @ 2.70GHz 18Core * 2 CPUs          | 72 cores (H/T)  |
 |              |                                 | - RAM : DDR4 2,666MHz 16GB * 24EA (384GB)                                 |                 |
 |              |                                 | - HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)                                  |                 |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
-| Web-Login    | **tem-cs-el7.sdfarm.kr**        | - CPU : Intel(R) Xeon(R) CPU E5-2697v3 @ 2.60GHz 14Core * 2 CPUs          | 56 cores (H/T)  |
+| Login        | **tem-cs-el7**                  | - CPU : Intel(R) Xeon(R) CPU E5-2697v3 @ 2.60GHz 14Core * 2 CPUs          | 56 cores (H/T)  |
 | (CryoSPARC)  |                                 | - RAM : DDR4 8GB * 24 (192GB)                                             |                 |
 |              |                                 | - HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)                                  |                 |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
-| Computing    | tem-ce-el7.sdfarm.kr            | - CPU : Intel(R) Xeon(R) CPU E5-2697v3 @ 2.60GHz 14Core * 2 CPUs          | 56 cores (H/T)  |
+| Master       | tem-ce-el7                      | - CPU : Intel(R) Xeon(R) CPU E5-2697v3 @ 2.60GHz 14Core * 2 CPUs          | 56 cores (H/T)  |
 | (master)     |                                 | - RAM : DDR4 8GB * 24 (192GB)                                             |                 |
 |              |                                 | - HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)                                  |                 |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
-| Computing    | tem-wn[1001-1002]-el7.sdfarm.kr | - CPU : Intel(R) Xeon(R) Gold 6150 CPU @ 2.70GHz 18Core * 2 CPUs          | 380 cores       |
-| (workers)    |                                 | - RAM : DDR4 2,666MHz 16GB * 24EA (384GB)                                 |                 |
+| Workers      | tem-wn[1001-1002]-el7           | - CPU : Intel(R) Xeon(R) Gold 6150 CPU @ 2.70GHz 18Core * 2 CPUs          | 380 cores       |
+|              |                                 | - RAM : DDR4 2,666MHz 16GB * 24EA (384GB)                                 |                 |
 |              |                                 | - HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)                                  |                 |
 |              +---------------------------------+---------------------------------------------------------------------------+                 |
-|              | tem-wn[1003-1013]-el7.sdfarm.kr | - CPU : Intel(R) Xeon(R) CPU E5-2697v3 @ 2.60GHz 14Core * 2 CPUs          |                 |
+|              | tem-wn[1003-1013]-el7           | - CPU : Intel(R) Xeon(R) CPU E5-2697v3 @ 2.60GHz 14Core * 2 CPUs          |                 |
 |              |                                 | - RAM : DDR4 8GB * 24 (192GB)                                             |                 |
 |              |                                 | - HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)                                  |                 |
 |              +---------------------------------+---------------------------------------------------------------------------+-----------------+
-|              | tem-gpu[01-03]-el7.sdfarm.kr    | - CPU : Intel® Xeon® CPU E5-2690v4 @ 2.60GHz 14Core * 2 CPUs              | - 204 cores     |
+|              | tem-gpu[01-03]-el7              | - CPU : Intel® Xeon® CPU E5-2690v4 @ 2.60GHz 14Core * 2 CPUs              | - 204 cores     |
 |              |                                 | - RAM : DDR4 16GB * 24 (384GB)                                            | - 14 GPGPUs     |
 |              |                                 | - SSD : 6G SATA SSD 800GB * 2EA (RAID-1)                                  |                 |
 |              |                                 | - GPU : NVIDIA P100 16GB * 2EA                                            |                 |
 |              +---------------------------------+---------------------------------------------------------------------------+                 | 
-|              | tem-gpu[04-05]-el7.sdfarm.kr    | - CPU : Intel® Xeon® CPU E5-2690v4 @ 2.60GHz 14Core * 2 CPUs              |                 |
+|              | tem-gpu[04-05]-el7              | - CPU : Intel® Xeon® CPU E5-2690v4 @ 2.60GHz 14Core * 2 CPUs              |                 |
 |              |                                 | - RAM : DDR4 16GB * 16 (256GB)                                            |                 |
 |              |                                 | - SSD : 6G SATA SSD 800GB * 2EA (RAID-1)                                  |                 |
 |              |                                 | - GPU : NVIDIA P40 24GB * 2EA                                             |                 |
 |              +---------------------------------+---------------------------------------------------------------------------+                 | 
-|              | tem-gpu[06-07]-el7.sdfarm.kr    | - CPU : Intel® Xeon® Gold 6226R CPU @ 2.90GHz 16Core * 2 CPUs             |                 |
+|              | tem-gpu[06-07]-el7              | - CPU : Intel® Xeon® Gold 6226R CPU @ 2.90GHz 16Core * 2 CPUs             |                 |
 |              |                                 | - RAM : DDR4 32GB * 12 (384GB)                                            |                 |
 |              |                                 | - HDD : 12G SAS HDD 1.6TB * 2EA (RAID-1)                                  |                 |
-|              |                                 | - GPU : NVIDIA A100 40GB * 2ea                                            |                 |
+|              |                                 | - GPU : NVIDIA A100 40GB * 2EA                                            |                 |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
-| Storage      | Dell EMC Isilon NAS             | Network attached storage 300 TB                                                             |
+| Storage      | NAS                             | Network attached storage 300 TB                                                             |
 |              +---------------------------------+---------------------------------------------------------------------------+-----------------+
-|              | JBOD Archive                    | 500TB                                                                                       | 
+|              | Archive                         | 500TB                                                                                       | 
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 | Total                                          | 676 CPU cores (physical), 14 GPGPUs, 800TB Storage                                          |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 
 .. _Cluster management softwares:
 
-2. Cluster Management Softwares
-==============================
+3. Cluster management softwares
+===============================
 
 +--------------+------------------------+------------------------------------------------------------+--------------------------------+
 | Category     | Name                   | Description                                                | Version                        |
@@ -71,7 +88,7 @@ EL7 (Enterprise Linux 7) GSDC TEM Farm
 |              +------------------------+------------------------------------------------------------+--------------------------------+
 |              | OpenMPI                | - Messaging Pass Interface(MPI)                            | | v4.0.3                       |
 |              |                        | - Reference implementation for MPI standard                | | (mpi/gcc/openmpi/4.0.3)      |
-|              |                        | - https://www.open-mpi.org                                 |                                |
+|              |                        | - https://www.open-mpi.org                                 | | (mpi/gcc/8.3.1/openmpi/4.0.3)|
 |              +------------------------+------------------------------------------------------------+--------------------------------+
 |              | cuda                   | - Compute Unified Device Architecture(CUDA)                | | 9.2 (cuda/9.2)               |
 |              |                        | - NVIDIA CUDA Runtime & Toolkit                            | | 11.2 (cuda/11.2)             |
@@ -85,7 +102,7 @@ EL7 (Enterprise Linux 7) GSDC TEM Farm
 
 .. _Data analysis tools:
 
-3. Data Analysis Tools
+4. Data analysis tools
 ======================
 
 +----------+-------------+--------------------------------------------------------------------+----------------------------------------+
@@ -127,29 +144,22 @@ EL7 (Enterprise Linux 7) GSDC TEM Farm
 |          | **PyEM**    | | A collection of Python modules and command-line utilities for    | | v0.5                                 |
 |          |             | | electron microscopy of biological samples.                       | | (pyem/0.5)                           |
 |          |             | - https://github.com/asarnow/pyem                                  |                                        |
+|          +-------------+--------------------------------------------------------------------+----------------------------------------+
+|          | **Rosetta** | | Software suite for computational modeling and analysis of protein| | v3.13                                |
+|          |             | | structures.                                                      | | (rosetta/openmpi-4.0.3/3.13)         |
+|          |             | - https://www.rosettacommons.org/software                          | | (rosetta/mpich-3.4.3/3.13)           |
 +----------+-------------+--------------------------------------------------------------------+----------------------------------------+
 
 
-4. Accessing EL7 GSDC TEM Farm
-==============================
+5. Requesting user accounts and accessing GSDC TEM computing cluster
+====================================================================
 
-For Linux/Mac users
--------------------
+:ref:`requesting accounts`
 
-.. code-block:: bash
-
-  $> ssh -Y -o Port=<port> <userID>@tem-ui-el7.sdfarm.kr
-
--Y (or -X) options : enable trusted X11 (or untrusted X11) forwarding
+Before proceed following, please read the documents :ref:`module details` and :ref:`batch details` to better understand module environment and batch job manager. 
 
 
-For Windows users
------------------
-
-기존에 사용하시던 MobaXTerm, Putty 등의 SSH 클라이언트 프로그램을 사용하는 것은 같습니다. 다만, 접속 로그인 노드는 tem-ui-el7.sdfarm.kr를 사용하셔야 합니다.
-
-
-5. Module Paths and Job Submission Templates
+6. Module paths and job submission templates
 ============================================
 
 Module paths for data analysis tools
@@ -201,7 +211,7 @@ Job submission templates
   /tem/el7/qsub-relion-3.1.0-gpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿
 
 
-6. Batch Queues
+7. Batch queues
 ===============
 
 +--------------+-----------------+-----------------------------------------------------------------------+------------------------------------+
@@ -469,7 +479,7 @@ Checking all worker nodes status
      gpu_status = gpu[1]=gpu_id=00000000:D8:00.0;gpu_pci_device_id=552669406;gpu_pci_location_id=00000000:D8:00.0;gpu_product_name=NVIDIA A100-PCIE-40GB;gpu_memory_total=40536 MB;gpu_memory_used=0 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=31%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=74 C,gpu[0]=gpu_id=00000000:86:00.0;gpu_pci_device_id=552669406;gpu_pci_location_id=00000000:86:00.0;gpu_product_name=NVIDIA A100-PCIE-40GB;gpu_memory_total=40536 MB;gpu_memory_used=0 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=73 C;gpu_display=Enabled,gpu_display=Enabled,driver_ver=495.29.05,timestamp=Thu Dec  9 14:41:33 2021
 
 
-7. fstat.bin : Monitoring the usage of all the worker nodes
+8. fstat.bin : Monitoring the usage of all the worker nodes
 ===========================================================
 
 .. code-block:: bash
@@ -516,7 +526,7 @@ Checking all worker nodes status
   * [CPU] T/U/F : CPU 계산서버의 총 코어 개수, 사용중인 개수(#), 유휴 코어 개수(.)
 
 
-8. dynmotd : Checking storage quota limit and usage ratio
+9. dynmotd : Checking storage quota limit and usage ratio
 =========================================================
 
 .. code-block:: bash

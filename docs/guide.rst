@@ -1,11 +1,15 @@
-***************
-TEM farm basics
-***************
+****************************
+TEM Computing Cluster Basics
+****************************
 
-Accessing TEM service farm (based on EL7)
-=========================================
-Before you use GSDC's service farm, you should send an application form to TEM service manager and get an user account to access the farm (please see `APPENDIX : Application Form & Materials <https://tem-docs.readthedocs.io/en/latest/app.html#appendix-application-form-materials-newi>`_ section). 
-If you already have valid user accounts, you can log into UI (user interface) nodes to access/use various kind of cluster resources and software environments (including data analysis tools, e.g., relion, cisTEM, eman, etc.).
+.. _requesting accounts:
+
+Requesting accounts and accessing TEM cluster
+=============================================
+Before you use GSDC's TEM cluster, you should send an application form to TEM service manager by e-mail and 
+get an user account to access the computing cluster (please see `APPENDIX : Application Form & Materials <https://tem-docs.readthedocs.io/en/latest/app.html#appendix-application-form-materials-newi>`_ section). 
+If you already have valid user accounts, 
+you can make a connection to UI (user interface) nodes to use various kind of cluster computing/storage resources and software environments (including data analysis tools, e.g., relion, cisTEM, CryoSPARC, etc.).
 
 For Linux/Mac users
 -------------------
@@ -40,6 +44,7 @@ For Windows users
     :align: center
 
 
+.. _module details:
 
 Understanding environment modules
 =================================
@@ -230,6 +235,8 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
                     omitted), 'auto' or 'never'
 
 
+
+.. _batch details:
 
 Job manager (Torque)
 ====================

@@ -12,7 +12,6 @@ Welcome to tem-docs's documentation! ( Last updated : 2021-11-19 )
 
    changelog.rst
    newfarm.rst
-   infra.rst
    guide.rst
    queue.rst
    relion.rst
