@@ -156,7 +156,7 @@ Here is an example of GSDC's TEM infrastructre for Cryo-EM operators/users.
 
 :ref:`requesting accounts`
 
-Before proceed following, please read the documents :ref:`module details` and :ref:`batch details` to better understand module environment and batch job manager. 
+Before proceed to next, please read the documents :ref:`module details` and :ref:`batch details` to better understand module environment and batch job manager. 
 
 
 6. Module paths and job submission templates
@@ -168,34 +168,40 @@ Module paths for data analysis tools
 .. code-block:: bash
 
   $> module avail
-  -------- /tem/el7/Modules/apps --------
-  apps/cistem/1.0.0      
-  apps/relion/cpu/3.0.7  
-  apps/relion/cpu/3.1.0  
-  apps/relion/gpu/3.0.7  
-  apps/relion/gpu/3.1.0  
+  -------- /tem/el7/Modules/apps ---------
+  apps/cistem/1.0.0
+  apps/relion/cpu/3.0.7
+  apps/relion/cpu/3.1.0
+  apps/relion/gpu/3.0.7
+  apps/relion/gpu/3.1.0
 
-  ---- /tem/el7/Modules/acceleration ----
-  cuda/9.2
-  cuda/11.2  
+  ---- /tem/el7/Modules/acceleration -----
+  cuda/9.2  cuda/11.2
 
-  -------- /tem/el7/Modules/mpi ---------
-  mpi/gcc/openmpi/4.0.3  
+  --------- /tem/el7/Modules/mpi ---------
+  mpi/gcc/8.3.1/mpich/3.4.3
+  mpi/gcc/8.3.1/openmpi/4.0.3
+  mpi/gcc/openmpi/4.0.3
 
-  ----- /tem/el7/Modules/virtualenv -----
-  conda/2020.11
-  pyem/0.5  
+  ----- /tem/el7/Modules/virtualenv ------
+  conda/2020.11  
+  pyem/0.5       
   topaz/cuda-9.2/0.2.4
-  topaz/cuda-11.0/0.2.4  
+  topaz/cuda-11.0/0.2.4
 
-  ------- /tem/el7/Modules/tools --------
-  tools/ctffind/4.1.14    
-  tools/gctf/1.18_b2      
-  tools/motioncor2/1.3.1  
-  tools/resmap/1.1.4      
-  tools/summovie/1.0.2    
-  tools/unblur/1.0.2      
+  -------- /tem/el7/Modules/tools --------
+  tools/ctffind/4.1.14
+  tools/gctf/1.18_b2
+  tools/motioncor2/1.3.1
+  tools/resmap/1.1.4
+  tools/summovie/1.0.2
+  tools/unblur/1.0.2
 
+  ----- /tem/el7/Modules/experiment ------
+  devel/python/3.7
+  PyRosetta/4
+  rosetta/mpich-3.4.3/3.13
+  rosetta/openmpi-4.0.3/3.13
 
 
 Job submission templates
@@ -209,6 +215,7 @@ Job submission templates
   /tem/el7/qsub-relion-3.1.0-cpu.bash           ## Relion 3.1.0 CPU MPI 작업 템플릿
   /tem/el7/qsub-relion-3.0.7-gpu.bash           ## Relion 3.0.7 GPU 가속 활용하는 MPI 작업 템플릿
   /tem/el7/qsub-relion-3.1.0-gpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿
+  /tem/el7/qsub-relion-3.1.0-topaz.bash         ## Relion 3.1.0 에서 external job 으로 topaz 소프트웨어를 사용하는 작업 템플릿
 
 
 7. Batch queues
