@@ -135,7 +135,7 @@ Log into the tem-cs-el7.sdfarm.kr server where the cryosparc master is installed
 
 .. code-block:: bash
 
-    userid@tem-cs-el7 $> cryosparcm updates --check
+    userid@tem-cs-el7 $> cryosparcm update --check
     CryoSPARC current version v3.0.1
             update starting on Wed Mar 18 12:09:52 EDT 2021
 
@@ -148,7 +148,7 @@ Also, you can use this command **cryosparcm update --list** to get a full list o
 
 .. code-block:: bash
 
-    userid@tem-cs-el7 $> cryosparcm updates --check
+    userid@tem-cs-el7 $> cryosparcm update --check
     CryoSPARC current version v3.0.1
             update starting on Wed Mar 18 12:09:52 EDT 2021
 
@@ -520,7 +520,7 @@ But simply with cryosparc worker updates (guided from cryosparc official site), 
 So we decide to newly install all the cryosparc worker softwares to address this issues.
 
 If you successully update the cryosparc master softwares above, 
-you must find **cryosparc_worker.tar.gz** tar ball in **~/.cryosparc/cryosparc2_master** (or **~/.cryosparc/cryosparc_master**) directory.
+you must find **cryosparc_worker.tar.gz** tar ball in **~/.cryosparc/cryosparc_master** (or **~/.cryosparc/cryosparc2_master**) directory.
 
 .. code-block:: bash
 
@@ -530,19 +530,9 @@ you must find **cryosparc_worker.tar.gz** tar ball in **~/.cryosparc/cryosparc2_
     -rw-r-----. 1 userid userid 1895278500 Apr 20 15:56 cryosparc_worker.tar.gz
 
 
-First, modity the name of the previous worker directory to that with .orig postfix and copy/uncompress the worker tar ball to .cryosparc directory. 
-If your master installation directory is "cryosparc2_master", use the following commands.
+First, modity the name of the previous worker directory to that with .orig postfix and copy/uncompress the worker tar ball to .cryosparc directory.
 
-.. code-block:: bash
 
-    userid@tem-cs-el7 $> cd ~/.cryosparc
-    userid@tem-cs-el7 $> mv cryosparc2_worker cryosparc2_worker.orig
-    userid@tem-cs-el7 $> cp ~/.cryosparc/cryosparc2_master/cryosparc_worker.tar.gz ~/.cryosparc
-    userid@tem-cs-el7 $> tar xvfz cryosparc_worker.tar.gz
-    userid@tem-cs-el7 $> mv cryosparc_worker cryosparc2_worker     
-    
-    
-    
 If your master installation directory is "cryosparc_master", use these commands.
 
 .. code-block:: bash
@@ -552,19 +542,30 @@ If your master installation directory is "cryosparc_master", use these commands.
     userid@tem-cs-el7 $> cp ~/.cryosparc/cryosparc_master/cryosparc_worker.tar.gz ~/.cryosparc
     userid@tem-cs-el7 $> tar xvfz cryosparc_worker.tar.gz
 
+ 
+If your master installation directory is "cryosparc2_master", use the following commands.
 
+.. code-block:: bash
+
+    userid@tem-cs-el7 $> cd ~/.cryosparc
+    userid@tem-cs-el7 $> mv cryosparc2_worker cryosparc2_worker.orig
+    userid@tem-cs-el7 $> cp ~/.cryosparc/cryosparc2_master/cryosparc_worker.tar.gz ~/.cryosparc
+    userid@tem-cs-el7 $> tar xvfz cryosparc_worker.tar.gz
+    userid@tem-cs-el7 $> mv cryosparc_worker cryosparc2_worker     
+ 
 Then, re-install all the cryosparc worker softwares with the followings (note that cryosparc version 3.2.0+ requires CUDA SDK 11.x+):
 
 .. code-block:: bash
 
-    userid@tem-cs-el7 $> cd ~/.cryosparc/cryosparc2_worker          ## or cd ~/.cryosparc/cryosparc_worker if the cryosparc worker directory is "cryosparc_worker"
+    ## cd ~/.cryosparc/cryosparc2_worker if the cryosparc worker directory is "cryosparc2_worker"
+    userid@tem-cs-el7 $> cd ~/.cryosparc/cryosparc_worker          
     userid@tem-cs-el7 $> eval $(cryosparcm env)
     userid@tem-cs-el7 $> ./install.sh --license $CRYOSPARC_LICENSE_ID --cudapath /usr/local/cuda-11.2
     ******* CRYOSPARC SYSTEM: WORKER INSTALLER ***********************
 
     Installation Settings:
        License ID              : xxxxxxxxxxxx
-       Root Directory          : /tem/home/userid/.cryosparc/cryosparc2_worker
+       Root Directory          : /tem/home/userid/.cryosparc/cryosparc_worker
        Standalone Installation : false
        Version                 : v3.2.0
 
@@ -592,14 +593,14 @@ Then, re-install all the cryosparc worker softwares with the followings (note th
       ------------------------------------------------------------------------
       Installing anaconda python...
       ------------------------------------------------------------------------
-    PREFIX=/tem/home/userid/.cryosparc/cryosparc2_worker/deps/anaconda
+    PREFIX=/tem/home/userid/.cryosparc/cryosparc_worker/deps/anaconda
     Unpacking payload ...
     
     Solving environment: done
 
     ## Package Plan ##
 
-      environment location: /tem/home/userid/.cryosparc/cryosparc2_worker/deps/anaconda
+      environment location: /tem/home/userid/.cryosparc/cryosparc_worker/deps/anaconda
 
       added / updated specs:
         - _libgcc_mutex==0.1=main
