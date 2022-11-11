@@ -15,22 +15,41 @@ How to start cisTEM data analysis tool
 
   $> module avail
 
-  ------------------------------------------- /tem/el7/Modules/apps -------------------------------------------
-  apps/cistem/1.0.0      apps/relion/cpu/3.1.0  apps/relion/gpu/3.1.0
-  apps/relion/cpu/3.0.7  apps/relion/gpu/3.0.7
+  -------- /tem/el7/Modules/apps --------
+  apps/cistem/1.0.0
+  apps/relion/cpu/3.0.7
+  apps/relion/cpu/3.1.0
+  apps/relion/cpu/4.0.0
+  apps/relion/gpu/3.0.7
+  apps/relion/gpu/3.1.0
 
-  --------------------------------------- /tem/el7/Modules/acceleration ---------------------------------------
-  cuda/9.2
+  ---- /tem/el7/Modules/acceleration ----
+  cuda/9.2  cuda/11.2
 
-  ------------------------------------------- /tem/el7/Modules/mpi --------------------------------------------
+  -------- /tem/el7/Modules/mpi ---------
+  mpi/gcc/4.8.5/openmpi/4.0.3
+  mpi/gcc/8.3.1/mpich/3.4.3
+  mpi/gcc/8.3.1/openmpi/4.0.3
   mpi/gcc/openmpi/4.0.3
 
-  ---------------------------------------- /tem/el7/Modules/virtualenv ----------------------------------------
-  conda/2020.11
+  ----- /tem/el7/Modules/virtualenv -----
+  conda/2020.11  topaz/cuda-9.2/0.2.4
+  pyem/0.5       topaz/cuda-11.0/0.2.4
 
-  ------------------------------------------ /tem/el7/Modules/tools -------------------------------------------
-  tools/ctffind/4.1.14  tools/motioncor2/1.3.1  tools/summovie/1.0.2
-  tools/gctf/1.18_b2    tools/resmap/1.1.4      tools/unblur/1.0.2
+  ------- /tem/el7/Modules/tools --------
+  tools/aspera-cli/3.9.6
+  tools/ctffind/4.1.14
+  tools/gctf/1.18_b2
+  tools/motioncor2/1.3.1
+  tools/resmap/1.1.4
+  tools/summovie/1.0.2
+  tools/unblur/1.0.2
+
+  ----- /tem/el7/Modules/experiment -----
+  PyRosetta/4
+  python/3.7
+  rosetta/mpich-3.4.3/3.13
+  rosetta/openmpi-4.0.3/3.13
 
 
 2. Check the module details for cisTEM application

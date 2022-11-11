@@ -55,28 +55,30 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
 .. code-block:: bash
 
   $> module avail
-  -------- /tem/el7/Modules/apps ---------
+  -------- /tem/el7/Modules/apps --------
   apps/cistem/1.0.0
   apps/relion/cpu/3.0.7
   apps/relion/cpu/3.1.0
+  apps/relion/cpu/4.0.0
   apps/relion/gpu/3.0.7
   apps/relion/gpu/3.1.0
+  apps/relion/gpu/4.0.0
 
-  ---- /tem/el7/Modules/acceleration -----
+  ---- /tem/el7/Modules/acceleration ----
   cuda/9.2  cuda/11.2
 
-  --------- /tem/el7/Modules/mpi ---------
+  -------- /tem/el7/Modules/mpi ---------
+  mpi/gcc/4.8.5/openmpi/4.0.3
   mpi/gcc/8.3.1/mpich/3.4.3
   mpi/gcc/8.3.1/openmpi/4.0.3
   mpi/gcc/openmpi/4.0.3
 
-  ----- /tem/el7/Modules/virtualenv ------
-  conda/2020.11  
-  pyem/0.5       
-  topaz/cuda-9.2/0.2.4
-  topaz/cuda-11.0/0.2.4
+  ----- /tem/el7/Modules/virtualenv -----
+  conda/2020.11  topaz/cuda-9.2/0.2.4
+  pyem/0.5       topaz/cuda-11.0/0.2.4
 
-  -------- /tem/el7/Modules/tools --------
+  ------- /tem/el7/Modules/tools --------
+  tools/aspera-cli/3.9.6
   tools/ctffind/4.1.14
   tools/gctf/1.18_b2
   tools/motioncor2/1.3.1
@@ -84,9 +86,9 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   tools/summovie/1.0.2
   tools/unblur/1.0.2
 
-  ----- /tem/el7/Modules/experiment ------
-  devel/python/3.7
+  ----- /tem/el7/Modules/experiment -----
   PyRosetta/4
+  python/3.7
   rosetta/mpich-3.4.3/3.13
   rosetta/openmpi-4.0.3/3.13
 
@@ -95,16 +97,17 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
 
 .. code-block:: bash
 
-  $> module show apps/relion/gpu/3.0.7
-  -------------------------------------------------------------------
-  /tem/el7/Modules/apps/apps/relion/gpu/3.0.7:
+  $> module show apps/relion/gpu/4.0.0
 
-  module-whatis   {Setups relion 3.0.7 environment variables}
+  -------------------------------------------------------------------
+  /tem/el7/Modules/apps/apps/relion/gpu/4.0.0:
+
+  module-whatis   {Setups relion 4.0.0 environment variables}
   module          load mpi/gcc/openmpi/4.0.3
-  module          load cuda/9.2
-  setenv          relion_version 3.0.7
-  prepend-path    PATH /tem/el7/relion-3.0.7/gpu/bin
-  prepend-path    LD_LIBRARY_PATH /tem/el7/relion-3.0.7/gpu/lib
+  module          load cuda/11.2
+  setenv          relion_version 4.0.0
+  prepend-path    PATH /tem/el7/relion-4.0.0/gpu/bin
+  prepend-path    LD_LIBRARY_PATH /tem/el7/relion-4.0.0/gpu/lib
   setenv          LANG en_US.UTF-8
   setenv          RELION_QUEUE_USE yes
   setenv          RELION_QUEUE_NAME gpuQ
@@ -132,17 +135,17 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   $> module load <module_path>
   or
   $> module add <module_path>
-  e.g., $> module load apps/relion/gpu/3.0.7
+  e.g., $> module load apps/relion/gpu/4.0.0
 
 
 * **Listing loaded modules**
 
 .. code-block:: bash
 
-  $> module load apps/relion/gpu/3.0.7
+  $> module load apps/relion/gpu/4.0.0
   $> module list
   Currently Loaded Modulefiles:
-  1) mpi/gcc/openmpi/4.0.3   2) cuda/9.2   3) apps/relion/gpu/3.0.7
+  1) mpi/gcc/openmpi/4.0.3   2) cuda/11.2   3) apps/relion/gpu/4.0.0
 
 
 * **Unloading modules**
@@ -152,7 +155,7 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   $> module unload <module_path>
   or
   $> module rm <module_path>
-  e.g., $> module unload apps/relion/gpu/3.0.7
+  e.g., $> module unload apps/relion/gpu/4.0.0
 
 
 * **Unloading all the modules**
@@ -393,7 +396,7 @@ Here is an example of an MPI job that uses 4 nodes with 4 cores each, running on
   #PBS -l nodes=4:ppn=4
   #PBS -q batch 
 
-  module load mpi/gcc/openmpi/1.8.8
+  module load mpi/gcc/openmpi/4.0.3
   cd $PBS_O_WORKDIR
   mpirun -machinefile $PBS_NODEFILE ./a.out
 
@@ -410,7 +413,7 @@ This example is a hybrid MPI/OpenMP job. It runs one MPI process per node with 2
   #PBS -l nodes=4:ppn=28
   #PBS -q batch 
 
-  module load mpi/gcc/openmpi/1.8.8
+  module load mpi/gcc/openmpi/4.0.3
   export OMP_NUM_THREADS=28
   cd $PBS_O_WORKDIR
   mpirun --bynode -machinefile $PBS_NODEFILE ./a.out

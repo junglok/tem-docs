@@ -2,6 +2,8 @@
 Change Logs
 ***********
 
+* 2022-11-11 : Relion version 4.0.0 support added.
+* 2022-11-10 : IBM aspera client tool (EMPIAR data transfer tool) added.
 * 2021-11-19 : PyEM module environment added.
 * 2021-08-23 : Topaz and Topaz integration (with Relion, CryoSPARC) guides added.
 * 2021-07-12 : FAQ list updated.

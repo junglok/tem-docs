@@ -21,26 +21,42 @@ You can find out each version of topaz executables with the following commands:
 
   $> module avail
 
-  ------------------------------------------- /tem/el7/Modules/apps -------------------------------------------
-  apps/cistem/1.0.0      apps/relion/cpu/3.1.0  apps/relion/gpu/3.1.0
-  apps/relion/cpu/3.0.7  apps/relion/gpu/3.0.7
+  -------- /tem/el7/Modules/apps --------
+  apps/cistem/1.0.0
+  apps/relion/cpu/3.0.7
+  apps/relion/cpu/3.1.0
+  apps/relion/cpu/4.0.0
+  apps/relion/gpu/3.0.7
+  apps/relion/gpu/3.1.0
+  apps/relion/gpu/4.0.0
 
-  --------------------------------------- /tem/el7/Modules/acceleration ---------------------------------------
-  cuda/9.2
-  cuda/11.2
+  ---- /tem/el7/Modules/acceleration ----
+  cuda/9.2  cuda/11.2
 
-  ------------------------------------------- /tem/el7/Modules/mpi --------------------------------------------
+  -------- /tem/el7/Modules/mpi ---------
+  mpi/gcc/4.8.5/openmpi/4.0.3
+  mpi/gcc/8.3.1/mpich/3.4.3
+  mpi/gcc/8.3.1/openmpi/4.0.3
   mpi/gcc/openmpi/4.0.3
 
-  ---------------------------------------- /tem/el7/Modules/virtualenv ----------------------------------------
-  conda/2020.11
-  pyem/0.5  
-  topaz/cuda-9.2/0.2.4
-  topaz/cuda-11.0/0.2.4  
+  ----- /tem/el7/Modules/virtualenv -----
+  conda/2020.11  topaz/cuda-9.2/0.2.4
+  pyem/0.5       topaz/cuda-11.0/0.2.4
 
-  ------------------------------------------ /tem/el7/Modules/tools -------------------------------------------
-  tools/ctffind/4.1.14  tools/motioncor2/1.3.1  tools/summovie/1.0.2
-  tools/gctf/1.18_b2    tools/resmap/1.1.4      tools/unblur/1.0.2
+  ------- /tem/el7/Modules/tools --------
+  tools/aspera-cli/3.9.6
+  tools/ctffind/4.1.14
+  tools/gctf/1.18_b2
+  tools/motioncor2/1.3.1
+  tools/resmap/1.1.4
+  tools/summovie/1.0.2
+  tools/unblur/1.0.2
+
+  ----- /tem/el7/Modules/experiment -----
+  PyRosetta/4
+  python/3.7
+  rosetta/mpich-3.4.3/3.13
+  rosetta/openmpi-4.0.3/3.13
 
 
 Topaz binary executable with CUDA 9.2
@@ -94,10 +110,10 @@ Please refer to https://guide.cryosparc.com/processing-data/all-job-types-in-cry
 
 
 
-Using Topaz in Relion (v3.1+)
+Using Topaz in Relion (v3.1.0 above)
 =============================
 
-To run topaz jobs within relion data analysis tool, you **SHOULD USE Relion v3.1+ and Topaz v0.2.4+**. For your conveneince, we have cloned all the **relion_run_topaz** packages to GSDC TEM farm.
+To run topaz jobs within relion data analysis tool, you **SHOULD USE Relion v3.1 above and Topaz v0.2.4 above**. For your conveneince, we have cloned all the **relion_run_topaz** packages to GSDC TEM farm.
 
 Here is the location of **relion_run_topaz** packages: 
 
@@ -124,9 +140,10 @@ Here is the location of **relion_run_topaz** packages:
 
 Since Relion v3.1+ has built using CUDA 9.2 support, we have modified **topaz_path** with this executable **/tem/el7/conda3-2020.11/envs/topaz-v0.2.4-cuda9.2/bin/topaz** in all the above python scripts.
 
-For an external job type in relion GUI, after providing python executable path, inputs and optional parameters, you can use the following job submission template.
+For an external job type in relion GUI, after providing python executable path, inputs and optional parameters, you can use one of the following job submission templates.
 
 * **/tem/el7/qsub-relion-3.1.0-topaz.bash**
+* **/tem/el7/qsub-relion-4.0.0-topaz.bash**
 
 .. image:: images/relion-topaz.png
     :scale: 50 %

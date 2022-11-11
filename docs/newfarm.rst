@@ -110,16 +110,17 @@ Here is an example of GSDC's TEM infrastructre for Cryo-EM operators/users.
 |          |             |                                                                    | (module path)                          |
 +----------+-------------+--------------------------------------------------------------------+----------------------------------------+
 | Tools    | **Relion**  | | A stand-alone computer program that employs an empirical Bayesian|                                        |
-|          |             | | approach to refinement of (multiple) 3D reconstructions or 2D    |                                        |
-|          |             | | class averages in electron cryo-microscopy (cryo-EM).            |                                        |
-|          |             |                                                                    | | v3.0.7                               |
-|          |             |                                                                    | | (apps/relion/cpu/3.0.7)              |
+|          |             | | approach to refinement of (multiple) 3D reconstructions or 2D    | | v3.0.7                               |
+|          |             | | class averages in electron cryo-microscopy (cryo-EM).            | | (apps/relion/cpu/3.0.7)              |
 |          |             |                                                                    | | (apps/relion/gpu/3.0.7)              |
-|          |             | - https://www3.mrc-lmb.cam.ac.uk/relion/index.php                  |                                        |
 |          |             |                                                                    |                                        |
 |          |             |                                                                    | | v3.1.0                               |
-|          |             |                                                                    | | (apps/relion/cpu/3.1.0)              |
+|          |             | - https://www3.mrc-lmb.cam.ac.uk/relion/index.php                  | | (apps/relion/cpu/3.1.0)              |
 |          |             |                                                                    | | (apps/relion/gpu/3.1.0)              |
+|          |             |                                                                    |                                        |
+|          |             |                                                                    | | v4.0.0                               |
+|          |             |                                                                    | | (apps/relion/cpu/4.0.0)              |
+|          |             |                                                                    | | (apps/relion/gpu/4.0.0)              |
 |          |             |                                                                    |                                        |
 |          |             |                                                                    |                                        |
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
@@ -172,8 +173,10 @@ Module paths for data analysis tools
   apps/cistem/1.0.0
   apps/relion/cpu/3.0.7
   apps/relion/cpu/3.1.0
+  apps/relion/cpu/4.0.0
   apps/relion/gpu/3.0.7
   apps/relion/gpu/3.1.0
+  apps/relion/gpu/4.0.0
 
   ---- /tem/el7/Modules/acceleration -----
   cuda/9.2  cuda/11.2
@@ -190,6 +193,7 @@ Module paths for data analysis tools
   topaz/cuda-11.0/0.2.4
 
   -------- /tem/el7/Modules/tools --------
+  tools/aspera-cli/3.9.6
   tools/ctffind/4.1.14
   tools/gctf/1.18_b2
   tools/motioncor2/1.3.1
@@ -212,10 +216,15 @@ Job submission templates
   /tem/el7/qsub-cisTEM-cpu-noout.sh             ## output, error 로그 파일을 생성하지 않는 cisTEM 작업 템플릿
   /tem/el7/qsub-cisTEM-cpu.sh                   ## output, error 로그 파일을 생성하는 cisTEM 작업 템플릿
   /tem/el7/qsub-relion-3.0.7-cpu.bash           ## Relion 3.0.7 CPU MPI 작업 템플릿
-  /tem/el7/qsub-relion-3.1.0-cpu.bash           ## Relion 3.1.0 CPU MPI 작업 템플릿
   /tem/el7/qsub-relion-3.0.7-gpu.bash           ## Relion 3.0.7 GPU 가속 활용하는 MPI 작업 템플릿
+
+  /tem/el7/qsub-relion-3.1.0-cpu.bash           ## Relion 3.1.0 CPU MPI 작업 템플릿
   /tem/el7/qsub-relion-3.1.0-gpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿
   /tem/el7/qsub-relion-3.1.0-topaz.bash         ## Relion 3.1.0 에서 external job 으로 topaz 소프트웨어를 사용하는 작업 템플릿
+
+  /tem/el7/qsub-relion-4.0.0-cpu.bash           ## Relion 4.0.0 CPU MPI 작업 템플릿
+  /tem/el7/qsub-relion-4.0.0-gpu.bash           ## Relion 4.0.0 GPU 가속 활용하는 MPI 작업 템플릿
+  /tem/el7/qsub-relion-4.0.0-topaz.bash         ## Relion 4.0.0 에서 external job 으로 topaz 소프트웨어를 사용하는 작업 템플릿
 
 
 7. Batch queues
