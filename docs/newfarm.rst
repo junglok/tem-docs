@@ -132,7 +132,7 @@ Here is GSDC's TEM infrastructre for Cryo-EM operators/users.
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
 |          |**CryoSPARC**| | CryoSPARC is the state-of-the-art platform used globally for     | | v3.0.1                               |
 |          |             | | obtaining 3D structural information from single particle cryo-EM | | v3.2.0                               |
-|          |             | | data.                                                            |                                        |
+|          |             | | data.                                                            | | v4.0.0                               |
 |          |             |                                                                    |                                        |
 |          |             | - https://cryosparc.com                                            |                                        |
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
