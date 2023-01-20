@@ -15,7 +15,7 @@ Here is GSDC's TEM infrastructre for Cryo-EM operators/users.
 * Overall architecture between KBSI's and SNU's Cryo-EM facilities and GSDC's TEM computing cluster.
 
 .. image:: images/tem_service_farm.png
-    :scale: 75 %
+    :scale: 60 %
     :align: center
 
 
