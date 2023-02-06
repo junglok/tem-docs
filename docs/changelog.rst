@@ -2,6 +2,7 @@
 Change Logs
 ***********
 
+* 2023-02-06 : CryoSPARC updated for the scratch directory per each research group.
 * 2022-11-11 : Relion version 4.0.0 support added.
 * 2022-11-10 : IBM aspera client tool (EMPIAR data transfer tool) added.
 * 2021-11-19 : PyEM module environment added.
