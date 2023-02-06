@@ -30,14 +30,14 @@ You should check all the cryosparc related processes (i.e., supervisord, mongod,
     Shut down
 
     (example) userid@tem-cs-el7 $>  ps aux | grep <userid> | grep cryosparc
-    userid    2449  0.0  0.0 152792 17480 ?        Ss   Jun24   0:18 python /tem/home/userid/.cryosparc/cryosparc2_master/deps/anaconda/envs/cryosparc_master_env/bin/supervisord -c /tem/home/userid/.cryosparc/cryosparc2_master/supervisord.conf
-    userid    2472  1.2  0.0 1429268 57412 ?       Sl   Jun24  13:19 mongod --dbpath /tem/home/userid/.cryosparc/cryosparc_database --port 39031 --oplogSize 64 --replSet meteor --nojournal --wiredTigerCacheSizeGB 4
+    userid    2449  0.0  0.0 152792 17480 ?        Ss   Jun24   0:18 python /tem/scratch/<GroupID>/.cryosparc/cryosparc_master/deps/anaconda/envs/cryosparc_master_env/bin/supervisord -c /tem/scratch/<GroupID>/.cryosparc/cryosparc_master/supervisord.conf
+    userid    2472  1.2  0.0 1429268 57412 ?       Sl   Jun24  13:19 mongod --dbpath /tem/scratch/<GroupID>/.cryosparc/cryosparc_database --port 39031 --oplogSize 64 --replSet meteor --nojournal --wiredTigerCacheSizeGB 4
     userid    2900  0.2  0.0 860572 83028 ?        Sl   Jun24   2:23 python -c import cryosparc_command.command_core as serv; serv.start(port=39032)
     userid    4332  0.1  0.1 854192 236396 ?       Sl   Jun24   1:53 python -c import cryosparc_command.command_vis as serv; serv.start(port=39033)
     userid    4378  0.4  0.0 1190536 196316 ?      Sl   Jun24   4:59 python -c import cryosparc_command.command_rtp as serv; serv.start(port=39035)
-    userid    5586  0.1  0.0 1331136 116972 ?      Sl   Jun24   1:17 /tem/home/userid/.cryosparc/cryosparc2_master/cryosparc_webapp/nodejs/bin/node ./bundle/main.js
-    userid    5625  0.1  0.0 1049868 97640 ?       Sl   Jun24   1:22 /tem/home/userid/.cryosparc/cryosparc2_master/cryosparc_app/nodejs/bin/node ./bundle/main.js
-    userid    5690  0.2  0.0 1326136 81432 ?       Sl   Jun24   2:12 /tem/home/userid/.cryosparc/cryosparc2_master/cryosparc_liveapp/nodejs/bin/node ./bundle/main.js
+    userid    5586  0.1  0.0 1331136 116972 ?      Sl   Jun24   1:17 /tem/scratch/<GroupID>/.cryosparc/cryosparc_master/cryosparc_webapp/nodejs/bin/node ./bundle/main.js
+    userid    5625  0.1  0.0 1049868 97640 ?       Sl   Jun24   1:22 /tem/scratch/<GroupID>/.cryosparc/cryosparc_master/cryosparc_app/nodejs/bin/node ./bundle/main.js
+    userid    5690  0.2  0.0 1326136 81432 ?       Sl   Jun24   2:12 /tem/scratch/<GroupID>/.cryosparc/cryosparc_master/cryosparc_liveapp/nodejs/bin/node ./bundle/main.js
 
     (example) userid@tem-cs-el7 $> kill -9 2449 2472 2900 4332 4378 5586 5625 5690
 
