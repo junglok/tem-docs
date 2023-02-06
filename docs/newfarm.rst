@@ -528,12 +528,19 @@ Checking all worker nodes status
   tem-wn1009-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
   tem-wn1010-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
   tem-wn1011-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
-  tem-wn1012-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
+  tem-wn1012-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]
+  tem-wn1013-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
   ------------------------------------------------------------------------------------------------------------------------
           7 running jobs
           1 queued(waiting) jobs
           Total 584 cores / Used 342 cores (utilization 58.5 percent)
   ------------------------------------------------------------------------------------------------------------------------
+  (f) Enter f to display farm (nodes) status.
+  (j) Enter j to display jobs.
+  (g) Enter g to display GPUs status.
+  (q) Quit.
+
+  Select? (f/j/g/q) __
 
   * NODE  : CPU 또는 GPU 장치를 가진 계산서버 이름 
   * QUEUE : 각 서버가 속한 큐 이름
@@ -546,7 +553,7 @@ Checking all worker nodes status
 
 
 9. dynmotd and dynmotd.orig : Checking storage quota limit and usage ratio
-=========================================================
+==========================================================================
 
 .. code-block:: bash
 
