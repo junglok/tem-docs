@@ -580,16 +580,16 @@ Checking all worker nodes status
   * Memory (used/total)...: 13445 MB / 386699 MB
   * Swap in use...........: 0 MB
   --------------------------------------------------------------------------
-  * TEM Storage (used/total).......: 383 TB / 5836.8 TB (7%)
+  * TEM Storage (used/total).......: 383 TB / 5,836.8 TB (7%)
   * Current User...................: <UserID>
   * User Home Directory............: /tem/home/<UserID>
     ** Disk Quota Limit............: 0k
-    ** Disk Usage..................: 250.8T
-    ** Number of Files.............: 21785501
+    ** Disk Usage..................: 250.8 TB
+    ** Number of Files.............: 21,785,501
   * Group Scratch Directory........: /tem/scratch/<GroupDir>
-    ** Disk Quota Limit............: 40T
-    ** Disk Usage..................: 13.01G
-    ** Number of Files.............: 269991
+    ** Disk Quota Limit............: 40 TB
+    ** Disk Usage..................: 13.01 GB
+    ** Number of Files.............: 269,991
 
   ==========================================================================
 
@@ -615,14 +615,14 @@ Checking all worker nodes status
   * Users.................: Currently 5 user(s) logged on
   * Processes.............: 918 running
   * CPU usage.............: 0.26, 1.45, 1.54 (1, 5, 15 min)
-  * Memory (used/total)...: 13441 MB / 386699 MB
+  * Memory (used/total)...: 1,3441 MB / 386,699 MB
   * Swap in use...........: 0 MB
   --------------------------------------------------------------------------
   * TEM disk (used/total).: 327 TB / 800 TB (41%)
   * Current user..........: tem
   * Home directory........: /tem/home/tem
-  * Disk Quota limit......: 20480 GB
-  * Disk usage............: 1148 GB (5.6082 %)
+  * Disk Quota limit......: 20,480 GB
+  * Disk usage............: 1,148 GB (5.6082 %)
   * # of Files............: 2166857
   ==========================================================================
 
