@@ -30,14 +30,14 @@ You should check all the cryosparc related processes (i.e., supervisord, mongod,
     Shut down
 
     (example) userid@tem-cs-el7 $>  ps aux | grep <userid> | grep cryosparc
-    userid    2449  0.0  0.0 152792 17480 ?        Ss   Jun24   0:18 python /tem/scratch/<GroupID>/.cryosparc/cryosparc_master/deps/anaconda/envs/cryosparc_master_env/bin/supervisord -c /tem/scratch/<GroupID>/.cryosparc/cryosparc_master/supervisord.conf
-    userid    2472  1.2  0.0 1429268 57412 ?       Sl   Jun24  13:19 mongod --dbpath /tem/scratch/<GroupID>/.cryosparc/cryosparc_database --port 39031 --oplogSize 64 --replSet meteor --nojournal --wiredTigerCacheSizeGB 4
+    userid    2449  0.0  0.0 152792 17480 ?        Ss   Jun24   0:18 python /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/deps/anaconda/envs/cryosparc_master_env/bin/supervisord -c /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/supervisord.conf
+    userid    2472  1.2  0.0 1429268 57412 ?       Sl   Jun24  13:19 mongod --dbpath /tem/scratch/<GroupDir>/.cryosparc/cryosparc_database --port 39031 --oplogSize 64 --replSet meteor --nojournal --wiredTigerCacheSizeGB 4
     userid    2900  0.2  0.0 860572 83028 ?        Sl   Jun24   2:23 python -c import cryosparc_command.command_core as serv; serv.start(port=39032)
     userid    4332  0.1  0.1 854192 236396 ?       Sl   Jun24   1:53 python -c import cryosparc_command.command_vis as serv; serv.start(port=39033)
     userid    4378  0.4  0.0 1190536 196316 ?      Sl   Jun24   4:59 python -c import cryosparc_command.command_rtp as serv; serv.start(port=39035)
-    userid    5586  0.1  0.0 1331136 116972 ?      Sl   Jun24   1:17 /tem/scratch/<GroupID>/.cryosparc/cryosparc_master/cryosparc_webapp/nodejs/bin/node ./bundle/main.js
-    userid    5625  0.1  0.0 1049868 97640 ?       Sl   Jun24   1:22 /tem/scratch/<GroupID>/.cryosparc/cryosparc_master/cryosparc_app/nodejs/bin/node ./bundle/main.js
-    userid    5690  0.2  0.0 1326136 81432 ?       Sl   Jun24   2:12 /tem/scratch/<GroupID>/.cryosparc/cryosparc_master/cryosparc_liveapp/nodejs/bin/node ./bundle/main.js
+    userid    5586  0.1  0.0 1331136 116972 ?      Sl   Jun24   1:17 /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/cryosparc_webapp/nodejs/bin/node ./bundle/main.js
+    userid    5625  0.1  0.0 1049868 97640 ?       Sl   Jun24   1:22 /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/cryosparc_app/nodejs/bin/node ./bundle/main.js
+    userid    5690  0.2  0.0 1326136 81432 ?       Sl   Jun24   2:12 /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/cryosparc_liveapp/nodejs/bin/node ./bundle/main.js
 
     (example) userid@tem-cs-el7 $> kill -9 2449 2472 2900 4332 4378 5586 5625 5690
 
@@ -112,7 +112,7 @@ Second, try to repair the cryosparc database i.e., mongodb.
 .. code-block:: bash
 
     userid@tem-cs-el7 $> cryosparcm env
-    userid@tem-cs-el7 $> cd /tem/scratch/<groupID>/.cryosparc
+    userid@tem-cs-el7 $> cd /tem/scratch/<GroupDir>/.cryosparc
     userid@tem-cs-el7 $> tar cvfz cryosparc_database.backup.tar.gz cryosparc_database
     userid@tem-cs-el7 $> eval $(cryosparcm env) 
     userid@tem-cs-el7 $> cd cryosparc_database
@@ -249,7 +249,7 @@ We also highly recommend making a backup of your database as described below.
 
     userid@tem-cs-el7 $> cryosparcm backup
 
-    Backing up to /tem/scratch/<GroupID>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive
+    Backing up to /tem/scratch/<GroupDir>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive
 
     CryoSPARC is not already running.
 
@@ -258,16 +258,16 @@ We also highly recommend making a backup of your database as described below.
 
     Executing mongodump.
 
-    2021-04-20T15:00:42.606+0900    writing admin.system.version to archive '/tem/scratch/<GroupID>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+    2021-04-20T15:00:42.606+0900    writing admin.system.version to archive '/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
     2021-04-20T15:00:42.608+0900    done dumping admin.system.version (1 document)
-    2021-04-20T15:00:42.609+0900    writing meteor.events to archive '/tem/scratch/<GroupID>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
-    2021-04-20T15:00:42.617+0900    writing meteor.fs.files to archive '/tem/scratch/<GroupID>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
-    2021-04-20T15:00:42.617+0900    writing meteor.notifications to archive '/tem/scratch/<GroupID>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
-    2021-04-20T15:00:42.618+0900    writing meteor.fs.chunks to archive '/tem/scratch/<GroupID>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+    2021-04-20T15:00:42.609+0900    writing meteor.events to archive '/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+    2021-04-20T15:00:42.617+0900    writing meteor.fs.files to archive '/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+    2021-04-20T15:00:42.617+0900    writing meteor.notifications to archive '/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+    2021-04-20T15:00:42.618+0900    writing meteor.fs.chunks to archive '/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
     2021-04-20T15:00:42.661+0900    done dumping meteor.notifications (315 documents)
-    2021-04-20T15:00:42.661+0900    writing meteor.jobs to archive '/tem/scratch/<GroupID>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+    2021-04-20T15:00:42.661+0900    writing meteor.jobs to archive '/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
     2021-04-20T15:00:42.692+0900    done dumping meteor.fs.files (8386 documents)
-    2021-04-20T15:00:42.692+0900    writing meteor.cache_files to archive '/tem/scratch/<GroupID>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+    2021-04-20T15:00:42.692+0900    writing meteor.cache_files to archive '/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
     2021-04-20T15:00:42.693+0900    done dumping meteor.jobs (166 documents)
 
     ... (omit)
@@ -340,14 +340,14 @@ To begin automatic master updates with the newest available version of cryoSPARC
 
       Installing anaconda python...
       ------------------------------------------------------------------------
-    PREFIX=/tem/scratch/<GroupID>/.cryosparc/cryosparc_master/deps/anaconda
+    PREFIX=/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/deps/anaconda
     Unpacking payload ...
     
     Solving environment: done
 
     ## Package Plan ##
 
-      environment location: /tem/scratch/<GroupID>/.cryosparc/cryosparc_master/deps/anaconda
+      environment location: /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/deps/anaconda
 
       added / updated specs:
         - _libgcc_mutex==0.1=main
@@ -537,9 +537,9 @@ If your master installation directory is "cryosparc_master", use these commands.
 
 .. code-block:: bash
 
-    userid@tem-cs-el7 $> cd /tem/scratch/<GroupID>/.cryosparc
+    userid@tem-cs-el7 $> cd /tem/scratch/<GroupDir>/.cryosparc
     userid@tem-cs-el7 $> mv cryosparc_worker cryosparc_worker.orig
-    userid@tem-cs-el7 $> cp /tem/scratch/<GroupID>/.cryosparc/cryosparc_master/cryosparc_worker.tar.gz /tem/scratch/<GroupID>/.cryosparc
+    userid@tem-cs-el7 $> cp /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/cryosparc_worker.tar.gz /tem/scratch/<GroupDir>/.cryosparc
     userid@tem-cs-el7 $> tar xvfz cryosparc_worker.tar.gz
 
  
@@ -547,14 +547,14 @@ Then, re-install all the cryosparc worker softwares with the followings (note th
 
 .. code-block:: bash
 
-    userid@tem-cs-el7 $> cd /tem/scratch/<GroupID>/.cryosparc/cryosparc_worker          
+    userid@tem-cs-el7 $> cd /tem/scratch/<GroupDir>/.cryosparc/cryosparc_worker          
     userid@tem-cs-el7 $> eval $(cryosparcm env)
     userid@tem-cs-el7 $> ./install.sh --license $CRYOSPARC_LICENSE_ID --cudapath /usr/local/cuda-11.2
     ******* CRYOSPARC SYSTEM: WORKER INSTALLER ***********************
 
     Installation Settings:
        License ID              : xxxxxxxxxxxx
-       Root Directory          : /tem/scratch/<GroupID>/.cryosparc/cryosparc_worker
+       Root Directory          : /tem/scratch/<GroupDir>/.cryosparc/cryosparc_worker
        Standalone Installation : false
        Version                 : v4.1.0
 
@@ -582,14 +582,14 @@ Then, re-install all the cryosparc worker softwares with the followings (note th
       ------------------------------------------------------------------------
       Installing anaconda python...
       ------------------------------------------------------------------------
-    PREFIX=/tem/scratch/<GroupID>/.cryosparc/cryosparc_worker/deps/anaconda
+    PREFIX=/tem/scratch/<GroupDir>/.cryosparc/cryosparc_worker/deps/anaconda
     Unpacking payload ...
     
     Solving environment: done
 
     ## Package Plan ##
 
-      environment location: /tem/scratch/<GroupID>/.cryosparc/cryosparc_worker/deps/anaconda
+      environment location: /tem/scratch/<GroupDir>/.cryosparc/cryosparc_worker/deps/anaconda
 
       added / updated specs:
         - _libgcc_mutex==0.1=main

@@ -161,7 +161,7 @@ You can find what kinds of environment variables have been set for the cryoSPARC
    global config variables:
    export CRYOSPARC_LICENSE_ID="<license_key>"
    export CRYOSPARC_MASTER_HOSTNAME="tem-cs-el7.sdfarm.kr"
-   export CRYOSPARC_DB_PATH="/tem/scratch/<GroupID>/.cryosparc/cryosparc_database"
+   export CRYOSPARC_DB_PATH="/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database"
    export CRYOSPARC_BASE_PORT=39xxx
    export CRYOSPARC_DB_CONNECTION_TIMEOUT_MS=20000
    export CRYOSPARC_INSECURE=true
