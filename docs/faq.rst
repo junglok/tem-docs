@@ -112,7 +112,7 @@ Second, try to repair the cryosparc database i.e., mongodb.
 .. code-block:: bash
 
     userid@tem-cs-el7 $> cryosparcm env
-    userid@tem-cs-el7 $> cd .cryosparc
+    userid@tem-cs-el7 $> cd /tem/scratch/<groupID>/.cryosparc
     userid@tem-cs-el7 $> tar cvfz cryosparc_database.backup.tar.gz cryosparc_database
     userid@tem-cs-el7 $> eval $(cryosparcm env) 
     userid@tem-cs-el7 $> cd cryosparc_database
@@ -136,11 +136,11 @@ Log into the tem-cs-el7.sdfarm.kr server where the cryosparc master is installed
 .. code-block:: bash
 
     userid@tem-cs-el7 $> cryosparcm update --check
-    CryoSPARC current version v3.0.1
+    CryoSPARC current version v4.0.0
             update starting on Wed Mar 18 12:09:52 EDT 2021
 
-    current version v3.0.1
-        new version v3.2.0
+    current version v4.0.0
+        new version v4.1.0
 
     Update available!
 
@@ -149,7 +149,7 @@ Also, you can use this command **cryosparcm update --list** to get a full list o
 .. code-block:: bash
 
     userid@tem-cs-el7 $> cryosparcm update --check
-    CryoSPARC current version v3.0.1
+    CryoSPARC current version v4.0.0
             update starting on Wed Mar 18 12:09:52 EDT 2021
 
     Available versions:
@@ -249,7 +249,7 @@ We also highly recommend making a backup of your database as described below.
 
     userid@tem-cs-el7 $> cryosparcm backup
 
-    Backing up to /tem/home/userid/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive
+    Backing up to /tem/scratch/<GroupID>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive
 
     CryoSPARC is not already running.
 
@@ -258,16 +258,16 @@ We also highly recommend making a backup of your database as described below.
 
     Executing mongodump.
 
-    2021-04-20T15:00:42.606+0900    writing admin.system.version to archive '/tem/home/userid/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+    2021-04-20T15:00:42.606+0900    writing admin.system.version to archive '/tem/scratch/<GroupID>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
     2021-04-20T15:00:42.608+0900    done dumping admin.system.version (1 document)
-    2021-04-20T15:00:42.609+0900    writing meteor.events to archive '/tem/home/userid/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
-    2021-04-20T15:00:42.617+0900    writing meteor.fs.files to archive '/tem/home/userid/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
-    2021-04-20T15:00:42.617+0900    writing meteor.notifications to archive '/tem/home/userid/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
-    2021-04-20T15:00:42.618+0900    writing meteor.fs.chunks to archive '/tem/home/userid/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+    2021-04-20T15:00:42.609+0900    writing meteor.events to archive '/tem/scratch/<GroupID>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+    2021-04-20T15:00:42.617+0900    writing meteor.fs.files to archive '/tem/scratch/<GroupID>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+    2021-04-20T15:00:42.617+0900    writing meteor.notifications to archive '/tem/scratch/<GroupID>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+    2021-04-20T15:00:42.618+0900    writing meteor.fs.chunks to archive '/tem/scratch/<GroupID>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
     2021-04-20T15:00:42.661+0900    done dumping meteor.notifications (315 documents)
-    2021-04-20T15:00:42.661+0900    writing meteor.jobs to archive '/tem/home/userid/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+    2021-04-20T15:00:42.661+0900    writing meteor.jobs to archive '/tem/scratch/<GroupID>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
     2021-04-20T15:00:42.692+0900    done dumping meteor.fs.files (8386 documents)
-    2021-04-20T15:00:42.692+0900    writing meteor.cache_files to archive '/tem/home/userid/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+    2021-04-20T15:00:42.692+0900    writing meteor.cache_files to archive '/tem/scratch/<GroupID>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
     2021-04-20T15:00:42.693+0900    done dumping meteor.jobs (166 documents)
 
     ... (omit)
@@ -300,13 +300,13 @@ To begin automatic master updates with the newest available version of cryoSPARC
 
     userid@tem-cs-el7 $> cryosparcm update
 
-    CryoSPARC current version v3.0.1
+    CryoSPARC current version v4.0.0
               update starting on Tue Apr 20 15:36:12 KST 2021
 
     No version specified - updating to latest version.
 
     =============================
-    Updating to version v3.2.0.
+    Updating to version v4.1.0.
     =============================
     CryoSPARC is not already running.
     If you would like to restart, use cryosparcm restart
@@ -340,14 +340,14 @@ To begin automatic master updates with the newest available version of cryoSPARC
 
       Installing anaconda python...
       ------------------------------------------------------------------------
-    PREFIX=/tem/home/userid/.cryosparc/cryosparc2_master/deps/anaconda
+    PREFIX=/tem/scratch/<GroupID>/.cryosparc/cryosparc_master/deps/anaconda
     Unpacking payload ...
     
     Solving environment: done
 
     ## Package Plan ##
 
-      environment location: /tem/home/userid/.cryosparc/cryosparc2_master/deps/anaconda
+      environment location: /tem/scratch/<GroupID>/.cryosparc/cryosparc_master/deps/anaconda
 
       added / updated specs:
         - _libgcc_mutex==0.1=main
@@ -448,7 +448,7 @@ To begin automatic master updates with the newest available version of cryoSPARC
       Completed dependency check.
 
     ===================================================
-    Successfully updated master to version v3.2.0.
+    Successfully updated master to version v4.1.0.
     ---
     Starting cryoSPARC System master process..
     CryoSPARC is not already running.
@@ -520,11 +520,11 @@ But simply with cryosparc worker updates (guided from cryosparc official site), 
 So we decide to newly install all the cryosparc worker softwares to address this issues.
 
 If you successully update the cryosparc master softwares above, 
-you must find **cryosparc_worker.tar.gz** tar ball in **~/.cryosparc/cryosparc_master** (or **~/.cryosparc/cryosparc2_master**) directory.
+you must find **cryosparc_worker.tar.gz** tar ball in **~/.cryosparc/cryosparc_master** directory.
 
 .. code-block:: bash
 
-    userid@tem-cs-el7 $> cd ~/.cryosparc/cryosparc2_master                  ## cd ~/.cryosparc/cryosparc_master if your master installation directory is "cryosparc_master"
+    userid@tem-cs-el7 $> cd ~/.cryosparc/cryosparc_master                  
     userid@tem-cs-el7 $> ls -al *.tar.gz
     -rw-r-----. 1 userid userid  823226956 Apr 20 15:42 cryosparc_master.tar.gz
     -rw-r-----. 1 userid userid 1895278500 Apr 20 15:56 cryosparc_worker.tar.gz
@@ -537,37 +537,26 @@ If your master installation directory is "cryosparc_master", use these commands.
 
 .. code-block:: bash
 
-    userid@tem-cs-el7 $> cd ~/.cryosparc
+    userid@tem-cs-el7 $> cd /tem/scratch/<GroupID>/.cryosparc
     userid@tem-cs-el7 $> mv cryosparc_worker cryosparc_worker.orig
-    userid@tem-cs-el7 $> cp ~/.cryosparc/cryosparc_master/cryosparc_worker.tar.gz ~/.cryosparc
+    userid@tem-cs-el7 $> cp /tem/scratch/<GroupID>/.cryosparc/cryosparc_master/cryosparc_worker.tar.gz /tem/scratch/<GroupID>/.cryosparc
     userid@tem-cs-el7 $> tar xvfz cryosparc_worker.tar.gz
 
- 
-If your master installation directory is "cryosparc2_master", use the following commands.
-
-.. code-block:: bash
-
-    userid@tem-cs-el7 $> cd ~/.cryosparc
-    userid@tem-cs-el7 $> mv cryosparc2_worker cryosparc2_worker.orig
-    userid@tem-cs-el7 $> cp ~/.cryosparc/cryosparc2_master/cryosparc_worker.tar.gz ~/.cryosparc
-    userid@tem-cs-el7 $> tar xvfz cryosparc_worker.tar.gz
-    userid@tem-cs-el7 $> mv cryosparc_worker cryosparc2_worker     
  
 Then, re-install all the cryosparc worker softwares with the followings (note that cryosparc version 3.2.0+ requires CUDA SDK 11.x+):
 
 .. code-block:: bash
 
-    ## cd ~/.cryosparc/cryosparc2_worker if the cryosparc worker directory is "cryosparc2_worker"
-    userid@tem-cs-el7 $> cd ~/.cryosparc/cryosparc_worker          
+    userid@tem-cs-el7 $> cd /tem/scratch/<GroupID>/.cryosparc/cryosparc_worker          
     userid@tem-cs-el7 $> eval $(cryosparcm env)
     userid@tem-cs-el7 $> ./install.sh --license $CRYOSPARC_LICENSE_ID --cudapath /usr/local/cuda-11.2
     ******* CRYOSPARC SYSTEM: WORKER INSTALLER ***********************
 
     Installation Settings:
        License ID              : xxxxxxxxxxxx
-       Root Directory          : /tem/home/userid/.cryosparc/cryosparc_worker
+       Root Directory          : /tem/scratch/<GroupID>/.cryosparc/cryosparc_worker
        Standalone Installation : false
-       Version                 : v3.2.0
+       Version                 : v4.1.0
 
     ******************************************************************
 
@@ -593,14 +582,14 @@ Then, re-install all the cryosparc worker softwares with the followings (note th
       ------------------------------------------------------------------------
       Installing anaconda python...
       ------------------------------------------------------------------------
-    PREFIX=/tem/home/userid/.cryosparc/cryosparc_worker/deps/anaconda
+    PREFIX=/tem/scratch/<GroupID>/.cryosparc/cryosparc_worker/deps/anaconda
     Unpacking payload ...
     
     Solving environment: done
 
     ## Package Plan ##
 
-      environment location: /tem/home/userid/.cryosparc/cryosparc_worker/deps/anaconda
+      environment location: /tem/scratch/<GroupID>/.cryosparc/cryosparc_worker/deps/anaconda
 
       added / updated specs:
         - _libgcc_mutex==0.1=main
