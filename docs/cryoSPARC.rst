@@ -9,7 +9,7 @@ for research and drug discovery.
   cryoSPARC offical site : https://cryosparc.com
 
 .. note::
-  At the time of writing this document (Jan. 2021), unforturnatelly, cryoSPARC v2.x or v3.x does not provide the method of installing **a single cryoSPARC instance**
+  At the time of writing this document (Jan. 2021), unforturnatelly, cryoSPARC v2.x, v3.x or v4.x does not provide the method of installing **a single cryoSPARC instance**
   (consisting of web applcation, command core, and database) **for use by a number of users with the complete isolation and security of their project data**.
   This problem might be resolved with later versions of cryoSPARC after CryoSPARC re-designs the product with the concept of "Hub" (as mentioned in cryoSPARC forum 
   https://discuss.cryosparc.com/t/use-linux-user-accounts/3480).
@@ -21,7 +21,7 @@ for research and drug discovery.
 Prerequisites
 =============
 
-Now, cryoSPARC is available free of charge for academic use. For a completely isolated cryoSPARC instance, user must have their own non-commercial license key for cryoSPARC v3.
+Now, cryoSPARC is available free of charge for academic use. For a completely isolated cryoSPARC instance, user must have their own non-commercial license key for cryoSPARC v4.
 **Please visit the CryoSPARC official site, request a license key and inform the valid key to GSDC TEM service administrator by e-mail.**  
 
 Getting a cryoSPARC instance 
@@ -44,7 +44,7 @@ Master, worker and database sub-packages will be installed during configuration 
 A setup procedure includes registering both cluster(lane or worker nodes) instance and webapp's admin/normal users account. 
 The whole setup will take about 10 minutes. 
 
-After finishing installation, **/tem/home/<user>/.cryosparc** has following directories/files structure:
+After finishing installation, **/tem/scratch/<GroupDir>/.cryosparc** has following directories/files structure:
 
 .. code-block:: bash
 
@@ -52,16 +52,17 @@ After finishing installation, **/tem/home/<user>/.cryosparc** has following dire
   tem-cs-el7.sdfarm.kr $> tree -L 1 ./
   .
   ├─ cluster_info.json              ## cluster(lane) information to register    
-  ├─ cluster_script.sh              ## PBS script template to submit jobs to worker cluster(lane)    
-  ├─ cryosparc2_master              ## cryosparc_master package install path
-  ├─ cryosparc2_master.tar.gz
-  ├─ cryosparc2_worker              ## cryosparc_worker package install path
-  ├─ cryosparc2_worker.tar.gz
+  ├─ cluster_script.sh              ## PBS script template to submit jobs to worker cluster(lane)
+  ├─ cryosparc2_worker              ## dummy directory    
+  ├─ cryosparc_master               ## cryosparc_master package install path
+  ├─ cryosparc_master.tar.gz
+  ├─ cryosparc_worker               ## cryosparc_worker package install path
+  ├─ cryosparc_worker.tar.gz
   └─ cryosparc_database             ## cryosparc_database package install path
 
 
 .. warning::
-  **!! CAUTION !!** **DO NOT** delete or modify cryoSPARC instance base directory, **/tem/home/<user>/.cryosparc**. The cryoSPARC base directory contains database. If this directory is deleted,
+  **!! CAUTION !!** **DO NOT** delete or modify cryoSPARC instance base directory, **/tem/scratch/<GroupDir>/.cryosparc**. The cryoSPARC base directory contains database. If this directory is deleted,
   all the project, job and workflow information will be corrupted and lost.
 
 Also, the configuration code-snippets implicitly add cryoSPARC instance's binary path to PATH environment variable.
@@ -71,7 +72,7 @@ Also, the configuration code-snippets implicitly add cryoSPARC instance's binary
    tem-cs-el7.sdfarm.kr $> cat /tem/home/<user>/.bashrc
    ...
    # User specific aliases and functions
-   export PATH='/tem/home/<user>/.cryosparc/cryosparc2_master/bin':$PATH
+   export PATH='/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/bin':$PATH
 
 
 2. (User) Verifying installation
@@ -94,33 +95,33 @@ Users should check and verify whether the master processes are working correctly
    export "CRYOSPARC_FORCE_USER=false"
    export "CRYOSPARC_INSECURE=true"
    export "CRYOSPARC_DEVELOP=false"
-   export "CRYOSPARC_DB_PATH=/tem/home/<userid>/.cryosparc/cryosparc_database"
+   export "CRYOSPARC_DB_PATH=/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database"
    export "CRYOSPARC_HTTP_RTP_PORT=39xxx"
    export "CRYOSPARC_LICENSE_ID=<license_key>"
    export "CRYOSPARC_HOSTNAME_CHECK=tem-cs-el7.sdfarm.kr"
    export "CRYOSPARC_MONGO_PORT=39xxx"
    export "CRYOSPARC_MONGO_CACHE_GB=4"
    export "CRYOSPARC_HEARTBEAT_SECONDS=60"
-   export "CRYOSPARC_ROOT_DIR=/tem/home/<userid>/.cryosparc/cryosparc2_master"
+   export "CRYOSPARC_ROOT_DIR=/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master"
    export "CRYOSPARC_HTTP_RTP_LEGACY_PORT=39xxx"
    export "CRYOSPARC_COMMAND_CORE_PORT=39xxx"
    export "CRYOSPARC_BASE_PORT=39000"
-   export "CRYOSPARC_PATH=/tem/home/<userid>/.cryosparc/cryosparc2_master/deps/external/mongodb/bin:/tem/home/<userid>/.cryosparc/cryosparc2_master/bin"
+   export "CRYOSPARC_PATH=/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/deps/external/mongodb/bin:/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/bin"
    export "CRYOSPARC_LIVE_ENABLED=true"
    export "CRYOSPARC_COMMAND_RTP_PORT=39xxx"
    export "CRYOSPARC_SUPERVISOR_SOCK_FILE=/tmp/cryosparc-supervisor-627a9991e2f2f069094732dfd78d1696.sock"
-   export "CRYOSPARC_LD_LIBRARY_PATH=/tem/home/<userid>/.cryosparc/cryosparc2_master/cryosparc_compute/blobio"
+   export "CRYOSPARC_LD_LIBRARY_PATH=/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/cryosparc_compute/blobio"
    export "CRYOSPARC_FORCE_HOSTNAME=false"
-   export "PATH=/tem/home/<userid>.cryosparc/cryosparc2_master/deps/external/mongodb/bin:/tem/home/<userid>/.cryosparc/cryosparc2_master/bin:/tem/home/<userid>/.cryosparc/cryosparc2_master/deps/anaconda/envs/cryosparc_master_env/bin:/tem/home/<userid>/.cryosparc/cryosparc2_master/deps/anaconda/condabin:/tem/home/<userid>/.cryosparc/cryosparc2_master/bin:/usr/local/torquex/bin:/usr/local/torquex/sbin:/usr/local/torquex/bin:/usr/local/torquex/sbin:/tem/el7/Modules/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/tem/home/<userid>/bin"
-   export "LD_LIBRARY_PATH=/tem/home/<userid>/.cryosparc/cryosparc2_master/cryosparc_compute/blobio:"
+   export "PATH=/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/deps/external/mongodb/bin:/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/bin:/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/deps/anaconda/envs/cryosparc_master_env/bin:/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/deps/anaconda/condabin:/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/bin:/usr/local/torquex/bin:/usr/local/torquex/sbin:/usr/local/torquex/bin:/usr/local/torquex/sbin:/tem/el7/Modules/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/tem/home/<userid>/bin"
+   export "LD_LIBRARY_PATH=/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/cryosparc_compute/blobio:"
    export "LD_PRELOAD="
-   export "PYTHONPATH=/tem/home/<userid>/.cryosparc/cryosparc2_master"
+   export "PYTHONPATH=/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master"
    export "PYTHONNOUSERSITE=true"
    export "CONDA_SHLVL=1"
    export "CONDA_PROMPT_MODIFIER=(cryosparc_master_env)"
-   export "CONDA_EXE=/tem/home/<userid>/.cryosparc/cryosparc2_master/deps/anaconda/bin/conda"
-   export "CONDA_PREFIX=/tem/home/<userid>/.cryosparc/cryosparc2_master/deps/anaconda/envs/cryosparc_master_env"
-   export "CONDA_PYTHON_EXE=/tem/home/<userid>/.cryosparc/cryosparc2_master/deps/anaconda/bin/python"
+   export "CONDA_EXE=/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/deps/anaconda/bin/conda"
+   export "CONDA_PREFIX=/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/deps/anaconda/envs/cryosparc_master_env"
+   export "CONDA_PYTHON_EXE=/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/deps/anaconda/bin/python"
    export "CONDA_DEFAULT_ENV=cryosparc_master_env"
 
 You can find what kinds of environment variables have been set for the cryoSPARC instance. 
@@ -137,34 +138,38 @@ You can find what kinds of environment variables have been set for the cryoSPARC
    tem-cs-el7.sdfarm.kr $> cryosparcm status
    ----------------------------------------------------------------------------
    CryoSPARC System master node installed at
-   /tem/home/<userid>/.cryosparc/cryosparc2_master
-   Current cryoSPARC version: v3.0.1
+   /tem/scratch/<GroudID>/.cryosparc/cryosparc_master
+   Current cryoSPARC version: v4.0.0
    ----------------------------------------------------------------------------
 
-   cryosparcm process status:
+   CryoSPARC process status:
 
-   app                              RUNNING   pid 21581, uptime 2 days, 22:58:58
-   app_dev                          STOPPED   Not started
-   command_core                     RUNNING   pid 21505, uptime 2 days, 22:59:15
-   command_rtp                      RUNNING   pid 21532, uptime 2 days, 22:59:08
-   command_vis                      RUNNING   pid 21527, uptime 2 days, 22:59:09
-   database                         RUNNING   pid 21428, uptime 2 days, 22:59:19
-   liveapp                          RUNNING   pid 21603, uptime 2 days, 22:58:55
-   liveapp_dev                      STOPPED   Not started
-   watchdog_dev                     STOPPED   Not started
-   webapp                           RUNNING   pid 21564, uptime 2 days, 22:58:59
-   webapp_dev                       STOPPED   Not started
+   app                              RUNNING   pid 14307, uptime 0:00:09
+   app_api                          RUNNING   pid 14317, uptime 0:00:08
+   app_api_dev                      STOPPED   Not started
+   app_legacy                       STOPPED   Not started
+   app_legacy_dev                   STOPPED   Not started
+   command_core                     RUNNING   pid 14153, uptime 0:00:40
+   command_rtp                      RUNNING   pid 14247, uptime 0:00:26
+   command_vis                      RUNNING   pid 14240, uptime 0:00:27
+   database                         RUNNING   pid 14035, uptime 0:00:44
 
+   ----------------------------------------------------------------------------
+   License is valid
    ----------------------------------------------------------------------------
 
    global config variables:
-
    export CRYOSPARC_LICENSE_ID="<license_key>"
    export CRYOSPARC_MASTER_HOSTNAME="tem-cs-el7.sdfarm.kr"
-   export CRYOSPARC_DB_PATH="/tem/home/<userid>/.cryosparc/cryosparc_database"
-   export CRYOSPARC_BASE_PORT=39000
-   export CRYOSPARC_DEVELOP=false
+   export CRYOSPARC_DB_PATH="/tem/scratch/<GroupID>/.cryosparc/cryosparc_database"
+   export CRYOSPARC_BASE_PORT=39xxx
+   export CRYOSPARC_DB_CONNECTION_TIMEOUT_MS=20000
    export CRYOSPARC_INSECURE=true
+   export CRYOSPARC_DB_ENABLE_AUTH=true
+   export CRYOSPARC_CLUSTER_JOB_MONITOR_INTERVAL=10
+   export CRYOSPARC_CLUSTER_JOB_MONITOR_MAX_RETRIES=1000000
+   export CRYOSPARC_PROJECT_DIR_PREFIX='CS-'
+   export CRYOSPARC_DEVELOP=false
    export CRYOSPARC_CLICK_WRAP=true
 
 
@@ -316,35 +321,32 @@ Stop the cryosparc instance if running. This will gracefully kill all the master
 
    Starting cryoSPARC System master process..
    CryoSPARC is not already running.
+   configuring database
+      configuration complete
    database: started
+      database configuration is OK.
    command_core: started
-   command_core connection succeeded
-
+      command_core connection succeeded
+      command_core startup successful
    command_vis: started
    command_rtp: started
-   command_rtp connection succeeded
-
-   webapp: started
+      command_rtp connection succeeded
+      command_rtp startup successful
    app: started
-   liveapp: started
+   app_api: started
    -----------------------------------------------------
 
    CryoSPARC master started.
-   From this machine, access cryoSPARC at
-      http://localhost:<CRYOSPARC_BASE_PORT>
-   and access cryoSPARC Live at
-      http://localhost:<CRYOSPARC_BASE_PORT+6>
-   please note the legacy cryoSPARC Live application is running at
-      http://localhost:<CRYOSPARC_BASE_PORT+7>
+   From this machine, access cryoSPARC and cryoSPARC Live at
+      http://localhost:39xxx
 
-   From other machines on the network, access cryoSPARC at
-      http://tem-cs-el7.sdfarm.kr:<CRYOSPARC_BASE_PORT>
-   and access cryoSPARC Live at
-      http://tem-cs-el7.sdfarm.kr:<CRYOSPARC_BASE_PORT+6>
+   From other machines on the network, access cryoSPARC and cryoSPARC Live at
+      http://tem-cs-el7.sdfarm.kr:39xxx
 
 
    Startup can take several minutes. Point your browser to the address
    and refresh until you see the cryoSPARC web interface.
+
 
 Start the cryosparc instance if stopped. This will cause the database, command, webapp etc processes to start up. 
 Once these processes are started, they are run in the background, so the current shell can be closed and the web UI will continue to run, as will jobs that are spawned.
