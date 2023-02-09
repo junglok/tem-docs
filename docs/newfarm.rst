@@ -552,7 +552,7 @@ Checking all worker nodes status
   * [CPU] T/U/F : CPU 계산서버의 총 코어 개수, 사용중인 개수(#), 유휴 코어 개수(.)
 
 
-9. dynmotd and dynmotd.orig : Checking storage quota limit and usage ratio
+9. dynmotd : Checking storage quota limit and usage ratio
 ==========================================================================
 
 .. code-block:: bash
@@ -591,38 +591,5 @@ Checking all worker nodes status
     ** Disk Usage..................: 13.01 GB
     ** Number of Files.............: 269,991
 
-  ==========================================================================
-
-.. code-block:: bash
-
-  ## dynmotd.orig tool is available on tem-ui-el7.sdfarm.kr, tem-cs-el7.sdfarm.kr and tem-dtn-el7.sdfarm.kr nodes
-
-  $> which dynmotd.orig
-  /usr/local/bin/dynmotd.orig
-
-  $> dynmotd.orig
-    ____ ____  ____   ____   _____ _____ __  __   _____                    
-  / ___/ ___||  _ \ / ___| |_   _| ____|  \/  | |  ___|_ _ _ __ _ __ ___  
-  | |  _\___ \| | | | |       | | |  _| | |\/| | | |_ / _` | '__| '_ ` _ \ 
-  | |_| |___) | |_| | |___    | | | |___| |  | | |  _| (_| | |  | | | | | |
-  \____|____/|____/ \____|   |_| |_____|_|  |_| |_|  \__,_|_|  |_| |_| |_|
-                                                                          
-  * Official GSDC TEM users guide : https://tem-docs.readthedocs.io
-  ==========================================================================
-  * Hostname..............: tem-ui-el7.sdfarm.kr
-  * OS Release............: Scientific Linux release 7.9 (Nitrogen)
-  * System uptime.........: 5 days 1 hours 59 minutes 57 seconds
-  * Users.................: Currently 5 user(s) logged on
-  * Processes.............: 918 running
-  * CPU usage.............: 0.26, 1.45, 1.54 (1, 5, 15 min)
-  * Memory (used/total)...: 1,3441 MB / 386,699 MB
-  * Swap in use...........: 0 MB
-  --------------------------------------------------------------------------
-  * TEM disk (used/total).: 327 TB / 800 TB (41%)
-  * Current user..........: tem
-  * Home directory........: /tem/home/tem
-  * Disk Quota limit......: 20,480 GB
-  * Disk usage............: 1,148 GB (5.6082 %)
-  * # of Files............: 2166857
   ==========================================================================
 
