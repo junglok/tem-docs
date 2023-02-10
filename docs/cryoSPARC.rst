@@ -13,8 +13,8 @@ for research and drug discovery.
   (consisting of web applcation, command core, and database) **for use by a number of users with the complete isolation and security of their project data**.
   This problem might be resolved with later versions of cryoSPARC after CryoSPARC re-designs the product with the concept of "Hub" (as mentioned in cryoSPARC forum 
   https://discuss.cryosparc.com/t/use-linux-user-accounts/3480).
-  In the meanwhile, thus, we had to decide that each user must setup **a completely isolated cryoSPARC instance independently within thier own home directories** 
-  (/tem/home/<userhome>).
+  In the meanwhile, thus, we had to decide that each group must setup **a completely isolated cryoSPARC instance independently within thier own home directories** 
+  (/tem/scratch/<GroupDir>).
   This method relies on the UNIX system for security and is more tedious to manage but provides stronger access restrictions for users own dataset.
   For users convenience, we are ready to install and setup a cryoSPARC instance with **administrative automation codes on behalf of users**.  
 
@@ -40,7 +40,7 @@ along with a browser based user interface and command line tools. CryoSPARC is c
 -------------------------------------------------
 
 On behalf of users, administrator can execute ansible configuration automation code-snippets to install and setup a cryoSPARC instance, using a given valid license key.
-Master, worker and database sub-packages will be installed during configuration automation, which are located in **/tem/home/<user>/.cryosparc** after finishing setup.
+Master, worker and database sub-packages will be installed during configuration automation, which are located in **/tem/scratch/<GroupDir>/.cryosparc** after finishing setup.
 A setup procedure includes registering both cluster(lane or worker nodes) instance and webapp's admin/normal users account. 
 The whole setup will take about 10 minutes. 
 
@@ -69,7 +69,7 @@ Also, the configuration code-snippets implicitly add cryoSPARC instance's binary
 
 .. code-block:: bash
 
-   tem-cs-el7.sdfarm.kr $> cat /tem/home/<user>/.bashrc
+   tem-cs-el7.sdfarm.kr $> cat /tem/home/<UserID>/.bashrc
    ...
    # User specific aliases and functions
    export PATH='/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/bin':$PATH
