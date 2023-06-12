@@ -2,29 +2,25 @@
 
 ALLDOCS = $(basename $(wildcard *.tex))
 ALLPDF = $(addsuffix .pdf,$(ALLDOCS))
-ALLDVI = $(addsuffix .dvi,$(ALLDOCS))
-ALLXDV =
+ALLDVI =
+ALLXDV = $(addsuffix .xdv,$(ALLDOCS))
 ALLPS  = $(addsuffix .ps,$(ALLDOCS))
-ALLIMGS = $(wildcard *.png *.gif *.jpg *.jpeg)
 
 # Prefix for archive names
 ARCHIVEPREFIX =
 # Additional LaTeX options (passed via variables in latexmkrc/latexmkjarc file)
-export LATEXOPTS =
+export LATEXOPTS ?=
 # Additional latexmk options
-LATEXMKOPTS =
+# with latexmk version 4.52b or higher set LATEXMKOPTS to -xelatex either here
+# or on command line for faster builds.
+LATEXMKOPTS ?=
+export XINDYOPTS = -L english -C utf8  -M sphinx.xdy
 # format: pdf or dvi (used only by archive targets)
 FMT = pdf
 
 LATEX = latexmk -dvi
 PDFLATEX = latexmk -pdf -dvi- -ps-
 
-
-%.png %.gif %.jpg %.jpeg: FORCE_MAKE
-	extractbb '$@'
-
-%.dvi: %.tex FORCE_MAKE
-	$(LATEX) $(LATEXMKOPTS) '$<'
 
 %.ps: %.dvi
 	dvips '$<'

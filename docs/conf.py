@@ -20,13 +20,13 @@
 # -- Project information -----------------------------------------------------
 
 project = u'tem-docs'
-copyright = u'2019, GSDC'
-author = u'GSDC'
+copyright = u'2023, Global Science experimental Datahub Center (GSDC)'
+author = u'Global Science experimental Datahub Center (GSDC)'
 
 # The short X.Y version
 version = u''
 # The full version, including alpha/beta/rc tags
-release = u'1.0'
+release = u'2.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -134,7 +134,35 @@ htmlhelp_basename = 'tem-docsdoc'
 
 # -- Options for LaTeX output ------------------------------------------------
 
+latex_engine = 'xelatex'
 latex_elements = {
+    # The paper size ('letterpaper' or 'a4paper').
+    'papersize': 'a4paper',
+    # The font size ('10pt', '11pt' or '12pt').
+    'pointsize': '10pt',
+    # Additional stuff for the LaTeX preamble.
+    'preamble': '',
+    # Latex figure (float) alignment
+    'figure_align': 'htbp',
+    # kotex config
+    'figure_align': 'htbp',
+    'fontpkg': r'''
+\usepackage{kotex}
+
+% 영문 폰트 설정
+\setmainfont[Mapping=tex-text]{나눔고딕}
+\setsansfont[Mapping=tex-text]{나눔명조}
+\setmonofont{D2Coding}
+
+% 한글 폰트 설정
+\setmainhangulfont[Mapping=tex-text]{나눔고딕}
+\setsanshangulfont[Mapping=tex-text]{나눔명조}
+\setmonohangulfont{D2Coding}
+
+''',
+}
+
+#latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     #
     # 'papersize': 'letterpaper',
@@ -150,13 +178,13 @@ latex_elements = {
     # Latex figure (float) alignment
     #
     # 'figure_align': 'htbp',
-}
+#}
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'tem-docs.tex', u'대형연구장비 초극저온전자현미경 데이터 분석을 위한 컴퓨팅 팜 구축 및 활용 보고서',
+    (master_doc, 'tem-docs.tex', u'초극저온전자현미경(Cryo-EM) 데이터 분석을 위한 분석 클러스터 및 소프트웨어 도구 활용 보고서',
      u'국가슈퍼컴퓨팅본부 대용량데이터허브센터', 'manual'),
 ]
 
@@ -214,4 +242,4 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 todo_include_todos = True
 
 def setup(app):
-  app.add_stylesheet('my_theme.css')
+  app.add_css_file('my_theme.css')

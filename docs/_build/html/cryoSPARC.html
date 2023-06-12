@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CryoSPARC &mdash; tem-docs 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/my_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Topaz" href="topaz.html" />
+    <link rel="prev" title="cisTEM" href="cisTEM.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            tem-docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="newfarm.html">GSDC Computing Cluster for TEM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="newfarm.html#service-overview">1. Service overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newfarm.html#computing-and-storage-resources">2. Computing and storage resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newfarm.html#cluster-management-softwares">3. Cluster management softwares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newfarm.html#data-analysis-tools">4. Data analysis tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newfarm.html#requesting-user-accounts-and-accessing-gsdc-tem-computing-cluster">5. Requesting user accounts and accessing GSDC TEM computing cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newfarm.html#module-paths-and-job-submission-templates">6. Module paths and job submission templates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="newfarm.html#module-paths-for-data-analysis-tools">Module paths for data analysis tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="newfarm.html#job-submission-templates">Job submission templates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="newfarm.html#batch-queues">7. Batch queues</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="newfarm.html#checking-batch-queue-names-and-their-status">Checking batch queue names and their status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="newfarm.html#checking-all-worker-nodes-status">Checking all worker nodes status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="newfarm.html#fstat-bin-monitoring-the-usage-of-all-the-worker-nodes">8. fstat.bin : Monitoring the usage of all the worker nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newfarm.html#dynmotd-checking-storage-quota-limit-and-usage-ratio">9. dynmotd : Checking storage quota limit and usage ratio</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html">TEM Computing Cluster Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#requesting-accounts-and-accessing-tem-cluster">Requesting accounts and accessing TEM cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#for-linux-mac-users">For Linux/Mac users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#for-windows-users">For Windows users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#understanding-environment-modules">Understanding environment modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#job-manager-torque">Job manager (Torque)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#resources-manager-and-job-scheduler">Resources manager and job scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#directives-in-torque-job-scripts">Directives in Torque job scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#resource-limits"><strong>Resource limits</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#job-name"><strong>Job name</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#queue-name"><strong>Queue name</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#job-log-files"><strong>Job log files</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#torque-job-script-examples">Torque job script examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#simple-sequential-job"><strong>Simple sequential job</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#serial-job-with-openmp-multithreading"><strong>Serial job with OpenMP multithreading</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#simple-mpi-parallel-job"><strong>Simple MPI parallel job</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#parallel-job-with-mpi-and-openmp"><strong>Parallel job with MPI and OpenMP</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#job-submission">Job submission</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#monitoring-and-managing-your-jobs">Monitoring and managing your jobs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#status-of-queued-jobs"><strong>Status of queued jobs</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#managing-your-jobs"><strong>Managing your jobs</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="queue.html">Batch Queues</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="queue.html#batch-queue-list">Batch queue list</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="relion.html">Relion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="relion.html#executing-relion-gui-tools">Executing Relion GUI tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#how-to-start-relion-data-analysis-tool">How to start Relion data analysis tool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="relion.html#pbs-strings-used-in-relion">PBS Strings used in Relion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="relion.html#running-data-analysis-jobs-using-cpu-cores">Running data analysis jobs using CPU cores</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#module-path">Module path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#environment-variables">Environment variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#standard-job-submission-script-for-relion-4-0-0-cpu-use">Standard job submission script (for relion 4.0.0 CPU use)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="relion.html#running-data-analysis-jobs-using-gpgpus">Running data analysis jobs using GPGPUs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#id1">Environment variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#standard-job-submission-script-for-relion-4-0-0-gpgpu-use">Standard job submission script (for relion 4.0.0 GPGPU use)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#specifying-which-gpgpus-to-use">Specifying which GPGPUs to use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="relion.html#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#motion-correction">Motion Correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#ctf-estimation">CTF Estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#d-classification">2D Classification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cisTEM.html">cisTEM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cisTEM.html#executing-cistem">Executing cisTEM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cisTEM.html#how-to-start-cistem-data-analysis-tool">How to start cisTEM data analysis tool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cisTEM.html#run-profiles-for-job-submission">Run profiles for job submission</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cisTEM.html#profile-templates">Profile templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cisTEM.html#adding-a-new-run-profile">Adding a new Run Profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cisTEM.html#examples-of-running-cistem-jobs">Examples of running cisTEM jobs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cisTEM.html#importing-movies-and-images">Importing Movies and images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cisTEM.html#movie-alignment">Movie Alignment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CryoSPARC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-a-cryosparc-instance">Getting a cryoSPARC instance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#admin-install-and-setup-a-cryosparc-instance">1. (Admin) Install and setup a cryoSPARC instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-verifying-installation">2. (User) Verifying installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#launching-cryosparc-instance">Launching CryoSPARC instance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#for-linux-mac-users">For Linux/Mac users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-windows-users">For Windows users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exploring-cryosparc-web-apps">Exploring CryoSPARC web apps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cryosparc-login">CryoSPARC login</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cryosparc-dashboard">CryoSPARC dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cryosparc-project">CryoSPARC project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cryosparc-cluster-lane">CryoSPARC cluster(lane)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tutorial-on-processing-t20s">Tutorial on processing T20S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trouble-shooting">Trouble shooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-stop-or-start-the-cryosparc-instance">1. How to stop or start the cryoSPARC instance?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-reset-the-password-of-non-admin-user">2. How to reset the password of non-admin user?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#job-or-workflow-failed-caused-by-ssd-caching">3. Job (or Workflow) failed caused by <strong>SSD caching</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#failed-to-launch-190">4. Failed to launch! 190</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#binary-locations-of-gctf-motioncor2">5. Binary locations of Gctf, MotionCor2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="topaz.html">Topaz</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="topaz.html#topaz-executables">Topaz Executables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="topaz.html#topaz-binary-executable-with-cuda-9-2">Topaz binary executable with CUDA 9.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topaz.html#topaz-binary-executable-with-cuda-11-2">Topaz binary executable with CUDA 11.2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="topaz.html#using-topaz-in-cryosparc">Using Topaz in CryoSPARC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topaz.html#using-topaz-in-relion-v3-1-0-above">Using Topaz in Relion (v3.1.0 above)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-to-resolve-the-problems-on-re-starting-your-own-cryosparc-instance">How to resolve the problems on (re)starting your own cryosparc instance?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-to-repair-cryosparc-database-corruption">How to repair cryosparc database corruption?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-to-upgrade-or-downgrade-to-the-specific-version-of-cryosparc-softwares">How to upgrade (or downgrade) to the specific version of cryosparc softwares?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#checking-for-updates">1. Checking for updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#before-you-update-complete-or-kill-running-jobs">2. Before you update: complete or kill running jobs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#back-up-cryosparc-databases">3. Back-up cryosparc databases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#cryosparc-master-updates">4. Cryosparc master updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#cryosparc-worker-updates">5. Cryosparc worker updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#running-the-newer-cryosparc-instance">6. Running the newer cryosparc instance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.html">APPENDIX : Application Form &amp; Materials </a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.html#gsdc-tem-application-form">GSDC TEM Application Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#tutorial">Tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contacts</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tem-docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CryoSPARC</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cryoSPARC.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cryosparc">
+<h1>CryoSPARC<a class="headerlink" href="#cryosparc" title="Permalink to this heading"></a></h1>
+<p>CryoSPARC is the state-of-the-art platform used globally for obtaining 3D structural information from single particle cryo-EM data.
+The cryoSPARC platform enables automated, high quality and high-throughput structure discovery of proteins, viruses and molecular complexes
+for research and drug discovery.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>cryoSPARC offical site : <a class="reference external" href="https://cryosparc.com">https://cryosparc.com</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At the time of writing this document (Jan. 2021), unforturnatelly, cryoSPARC v2.x, v3.x or v4.x does not provide the method of installing <strong>a single cryoSPARC instance</strong>
+(consisting of web applcation, command core, and database) <strong>for use by a number of users with the complete isolation and security of their project data</strong>.
+This problem might be resolved with later versions of cryoSPARC after CryoSPARC re-designs the product with the concept of “Hub” (as mentioned in cryoSPARC forum
+<a class="reference external" href="https://discuss.cryosparc.com/t/use-linux-user-accounts/3480">https://discuss.cryosparc.com/t/use-linux-user-accounts/3480</a>).
+In the meanwhile, thus, we had to decide that each group must setup <strong>a completely isolated cryoSPARC instance independently within thier own home directories</strong>
+(/tem/scratch/&lt;GroupDir&gt;).
+This method relies on the UNIX system for security and is more tedious to manage but provides stronger access restrictions for users own dataset.
+For users convenience, we are ready to install and setup a cryoSPARC instance with <strong>administrative automation codes on behalf of users</strong>.</p>
+</div>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<p>Now, cryoSPARC is available free of charge for academic use. For a completely isolated cryoSPARC instance, user must have their own non-commercial license key for cryoSPARC v4.
+<strong>Please visit the CryoSPARC official site, request a license key and inform the valid key to GSDC TEM service administrator by e-mail.</strong></p>
+</section>
+<section id="getting-a-cryosparc-instance">
+<h2>Getting a cryoSPARC instance<a class="headerlink" href="#getting-a-cryosparc-instance" title="Permalink to this heading"></a></h2>
+<p>CryoSPARC is a backend and frontend software system that provides data processing and image analysis capabilities for single particle cryo-EM,
+along with a browser based user interface and command line tools. CryoSPARC is composed of three major components : cryosparc_master, cryospace_database and cryosparc_worker.</p>
+<ul class="simple">
+<li><p><strong>cryosparc_master</strong> : Master processes (webapps, command_core, databases, etc.) run together on one node (for our case, tem-cs-el7.sdfarm.kr login node). These processes host HTML5 based web applications, spawn or submit jobs to a cluster scheduler (for example, to PBS-based batch system)</p></li>
+<li><p><strong>cryosparc_worker</strong> : Worker process can be spawned on any available worker nodes, and do data processing and image analysis tasks which are pre-defined within cryoSPRAC software packages.</p></li>
+<li><p><strong>cryosparc_database</strong> : CryoSPARC database is built on top of mongoDB, managing the metadata of users workflows, projects, jobs, backend clusters or workers as well as users.</p></li>
+</ul>
+<section id="admin-install-and-setup-a-cryosparc-instance">
+<h3>1. (Admin) Install and setup a cryoSPARC instance<a class="headerlink" href="#admin-install-and-setup-a-cryosparc-instance" title="Permalink to this heading"></a></h3>
+<p>On behalf of users, administrator can execute ansible configuration automation code-snippets to install and setup a cryoSPARC instance, using a given valid license key.
+Master, worker and database sub-packages will be installed during configuration automation, which are located in <strong>/tem/scratch/&lt;GroupDir&gt;/.cryosparc</strong> after finishing setup.
+A setup procedure includes registering both cluster(lane or worker nodes) instance and webapp’s admin/normal users account.
+The whole setup will take about 10 minutes.</p>
+<p>After finishing installation, <strong>/tem/scratch/&lt;GroupDir&gt;/.cryosparc</strong> has following directories/files structure:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tem-cs-el7.sdfarm.kr<span class="w"> </span>$&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/.cryosparc
+tem-cs-el7.sdfarm.kr<span class="w"> </span>$&gt;<span class="w"> </span>tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span><span class="w"> </span>./
+.
+├─<span class="w"> </span>cluster_info.json<span class="w">              </span><span class="c1">## cluster(lane) information to register</span>
+├─<span class="w"> </span>cluster_script.sh<span class="w">              </span><span class="c1">## PBS script template to submit jobs to worker cluster(lane)</span>
+├─<span class="w"> </span>cryosparc2_worker<span class="w">              </span><span class="c1">## dummy directory</span>
+├─<span class="w"> </span>cryosparc_master<span class="w">               </span><span class="c1">## cryosparc_master package install path</span>
+├─<span class="w"> </span>cryosparc_master.tar.gz
+├─<span class="w"> </span>cryosparc_worker<span class="w">               </span><span class="c1">## cryosparc_worker package install path</span>
+├─<span class="w"> </span>cryosparc_worker.tar.gz
+└─<span class="w"> </span>cryosparc_database<span class="w">             </span><span class="c1">## cryosparc_database package install path</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>!! CAUTION !!</strong> <strong>DO NOT</strong> delete or modify cryoSPARC instance base directory, <strong>/tem/scratch/&lt;GroupDir&gt;/.cryosparc</strong>. The cryoSPARC base directory contains database. If this directory is deleted,
+all the project, job and workflow information will be corrupted and lost.</p>
+</div>
+<p>Also, the configuration code-snippets implicitly add cryoSPARC instance’s binary path to PATH environment variable.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tem-cs-el7.sdfarm.kr<span class="w"> </span>$&gt;<span class="w"> </span>cat<span class="w"> </span>/tem/home/&lt;UserID&gt;/.bashrc
+...
+<span class="c1"># User specific aliases and functions</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s1">&#39;/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_master/bin&#39;</span>:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+</section>
+<section id="user-verifying-installation">
+<h3>2. (User) Verifying installation<a class="headerlink" href="#user-verifying-installation" title="Permalink to this heading"></a></h3>
+<p>By default, master processes (webapp, command_core, database, etc.) are automatilly started during configuration automation.
+Users should check and verify whether the master processes are working correctly on tem-cs-el7.sdfarm.kr login node or not.</p>
+<ul class="simple">
+<li><p><strong>Checking environment variables for cryoSPARC instance</strong></p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tem-cs-el7.sdfarm.kr<span class="w"> </span>$&gt;<span class="w"> </span>cryosparcm<span class="w"> </span>env
+
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_HTTP_PORT=39xxx&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_MASTER_HOSTNAME=tem-cs-el7.sdfarm.kr&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_CLICK_WRAP=true&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_COMMAND_VIS_PORT=39xxx&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_CONDA_ENV=cryosparc_master_env&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_FORCE_USER=false&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_INSECURE=true&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_DEVELOP=false&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_DB_PATH=/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_database&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_HTTP_RTP_PORT=39xxx&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_LICENSE_ID=&lt;license_key&gt;&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_HOSTNAME_CHECK=tem-cs-el7.sdfarm.kr&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_MONGO_PORT=39xxx&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_MONGO_CACHE_GB=4&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_HEARTBEAT_SECONDS=60&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_ROOT_DIR=/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_master&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_HTTP_RTP_LEGACY_PORT=39xxx&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_COMMAND_CORE_PORT=39xxx&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_BASE_PORT=39000&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_PATH=/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_master/deps/external/mongodb/bin:/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_master/bin&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_LIVE_ENABLED=true&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_COMMAND_RTP_PORT=39xxx&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_SUPERVISOR_SOCK_FILE=/tmp/cryosparc-supervisor-627a9991e2f2f069094732dfd78d1696.sock&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_LD_LIBRARY_PATH=/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_master/cryosparc_compute/blobio&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CRYOSPARC_FORCE_HOSTNAME=false&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;PATH=/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_master/deps/external/mongodb/bin:/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_master/bin:/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_master/deps/anaconda/envs/cryosparc_master_env/bin:/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_master/deps/anaconda/condabin:/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_master/bin:/usr/local/torquex/bin:/usr/local/torquex/sbin:/usr/local/torquex/bin:/usr/local/torquex/sbin:/tem/el7/Modules/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/tem/home/&lt;userid&gt;/bin&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;LD_LIBRARY_PATH=/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_master/cryosparc_compute/blobio:&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;LD_PRELOAD=&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;PYTHONPATH=/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_master&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;PYTHONNOUSERSITE=true&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CONDA_SHLVL=1&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CONDA_PROMPT_MODIFIER=(cryosparc_master_env)&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CONDA_EXE=/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_master/deps/anaconda/bin/conda&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CONDA_PREFIX=/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_master/deps/anaconda/envs/cryosparc_master_env&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CONDA_PYTHON_EXE=/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_master/deps/anaconda/bin/python&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="s2">&quot;CONDA_DEFAULT_ENV=cryosparc_master_env&quot;</span>
+</pre></div>
+</div>
+<p>You can find what kinds of environment variables have been set for the cryoSPARC instance.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Especially, user should check <strong>CRYOSPARC_BASE_PORT</strong> (above, for example, 39000), which is <strong>the listening port of cryoSPARC web application</strong>.
+Later, this port number is used to make SSH tunneling between client and tem-cs-el7.sdfarm.kr login node.
+<strong>Via the tunneled connection over SSH, users can access the web UI of cryoSPARC instance.</strong></p>
+</div>
+<ul class="simple">
+<li><p><strong>Checking the status of cryoSPARC instance</strong></p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tem-cs-el7.sdfarm.kr<span class="w"> </span>$&gt;<span class="w"> </span>cryosparcm<span class="w"> </span>status
+----------------------------------------------------------------------------
+CryoSPARC<span class="w"> </span>System<span class="w"> </span>master<span class="w"> </span>node<span class="w"> </span>installed<span class="w"> </span>at
+/tem/scratch/&lt;GroudID&gt;/.cryosparc/cryosparc_master
+Current<span class="w"> </span>cryoSPARC<span class="w"> </span>version:<span class="w"> </span>v4.0.0
+----------------------------------------------------------------------------
+
+CryoSPARC<span class="w"> </span>process<span class="w"> </span>status:
+
+app<span class="w">                              </span>RUNNING<span class="w">   </span>pid<span class="w"> </span><span class="m">14307</span>,<span class="w"> </span>uptime<span class="w"> </span><span class="m">0</span>:00:09
+app_api<span class="w">                          </span>RUNNING<span class="w">   </span>pid<span class="w"> </span><span class="m">14317</span>,<span class="w"> </span>uptime<span class="w"> </span><span class="m">0</span>:00:08
+app_api_dev<span class="w">                      </span>STOPPED<span class="w">   </span>Not<span class="w"> </span>started
+app_legacy<span class="w">                       </span>STOPPED<span class="w">   </span>Not<span class="w"> </span>started
+app_legacy_dev<span class="w">                   </span>STOPPED<span class="w">   </span>Not<span class="w"> </span>started
+command_core<span class="w">                     </span>RUNNING<span class="w">   </span>pid<span class="w"> </span><span class="m">14153</span>,<span class="w"> </span>uptime<span class="w"> </span><span class="m">0</span>:00:40
+command_rtp<span class="w">                      </span>RUNNING<span class="w">   </span>pid<span class="w"> </span><span class="m">14247</span>,<span class="w"> </span>uptime<span class="w"> </span><span class="m">0</span>:00:26
+command_vis<span class="w">                      </span>RUNNING<span class="w">   </span>pid<span class="w"> </span><span class="m">14240</span>,<span class="w"> </span>uptime<span class="w"> </span><span class="m">0</span>:00:27
+database<span class="w">                         </span>RUNNING<span class="w">   </span>pid<span class="w"> </span><span class="m">14035</span>,<span class="w"> </span>uptime<span class="w"> </span><span class="m">0</span>:00:44
+
+----------------------------------------------------------------------------
+License<span class="w"> </span>is<span class="w"> </span>valid
+----------------------------------------------------------------------------
+
+global<span class="w"> </span>config<span class="w"> </span>variables:
+<span class="nb">export</span><span class="w"> </span><span class="nv">CRYOSPARC_LICENSE_ID</span><span class="o">=</span><span class="s2">&quot;&lt;license_key&gt;&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CRYOSPARC_MASTER_HOSTNAME</span><span class="o">=</span><span class="s2">&quot;tem-cs-el7.sdfarm.kr&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CRYOSPARC_DB_PATH</span><span class="o">=</span><span class="s2">&quot;/tem/scratch/&lt;GroupDir&gt;/.cryosparc/cryosparc_database&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CRYOSPARC_BASE_PORT</span><span class="o">=</span>39xxx
+<span class="nb">export</span><span class="w"> </span><span class="nv">CRYOSPARC_DB_CONNECTION_TIMEOUT_MS</span><span class="o">=</span><span class="m">20000</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CRYOSPARC_INSECURE</span><span class="o">=</span><span class="nb">true</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CRYOSPARC_DB_ENABLE_AUTH</span><span class="o">=</span><span class="nb">true</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CRYOSPARC_CLUSTER_JOB_MONITOR_INTERVAL</span><span class="o">=</span><span class="m">10</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CRYOSPARC_CLUSTER_JOB_MONITOR_MAX_RETRIES</span><span class="o">=</span><span class="m">1000000</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CRYOSPARC_PROJECT_DIR_PREFIX</span><span class="o">=</span><span class="s1">&#39;CS-&#39;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CRYOSPARC_DEVELOP</span><span class="o">=</span><span class="nb">false</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CRYOSPARC_CLICK_WRAP</span><span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="launching-cryosparc-instance">
+<h2>Launching CryoSPARC instance<a class="headerlink" href="#launching-cryosparc-instance" title="Permalink to this heading"></a></h2>
+<p>We assume that user’s network setup looks like (most commonly used scenario):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">                </span>internet
+<span class="o">[</span><span class="w"> </span>localhost<span class="w"> </span><span class="o">]==============[</span><span class="w"> </span>firewall<span class="w"> </span><span class="p">|</span><span class="w"> </span>tem-cs-el7.sdfarm.kr<span class="w"> </span><span class="o">]</span>
+</pre></div>
+</div>
+<section id="for-linux-mac-users">
+<h3>For Linux/Mac users<a class="headerlink" href="#for-linux-mac-users" title="Permalink to this heading"></a></h3>
+<p>With the following command, you can start an SSH tunnel to export <strong>CRYOSPARC_BASE_PORT</strong> from tem-cs-el7.sdfarm.kr to your local client machine.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>localhost<span class="w"> </span>$&gt;<span class="w"> </span>ssh<span class="w"> </span>-N<span class="w"> </span>-f<span class="w"> </span>-L<span class="w"> </span>localhost:39500:tem-cs-el7.sdfarm.kr:&lt;CRYOSPARC_BASE_PORT&gt;<span class="w"> </span>-o<span class="w"> </span><span class="nv">Port</span><span class="o">=</span>&lt;ssh_port&gt;<span class="w"> </span>&lt;userid&gt;@tem-cs-el7.sdfarm.kr
+
+<span class="c1">## 39500 port on localhost : assume that the port number 39500 is available on your localhost. Otherwise, you can use another port available.</span>
+<span class="c1">## -N : Do not execute a remote command. This is useful option for just forwarding ports.</span>
+<span class="c1">## -f : Requests ssh to go to background just before command execution.</span>
+<span class="c1">## -L [bind_address:]port:host:hostport</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You should execute this ‘ssh’ command on <strong>YOUR LOCAL PC/WORKSTATION</strong> to make a tunnel between
+your local machine and tem-cs-el7.sdfarm.kr (localhost:39500 &lt;–&gt; tem-cs-el7.sdfarm.kr:&lt;CRYOSPARC_BASE_PORT&gt;) over secure channel.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can close the terminal window (because ‘ssh’ will be run in the background) after running the above command. The tunnel will stay open.</p>
+</div>
+<p>Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to <a class="reference external" href="http://localhost:39500">http://localhost:39500</a>. You should be presented with the cryoSPARC login page.</p>
+</section>
+<section id="for-windows-users">
+<h3>For Windows users<a class="headerlink" href="#for-windows-users" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Using MobaXterm</p>
+<ul>
+<li><p>Open ‘MobaXterm’ application.</p></li>
+<li><p>‘MobaXterm’ -&gt; ‘Tools’ -&gt; ‘MobaSSHTunnel (port forwarding)’ : Open MobaSSHTunnel dialog box.</p></li>
+<li><p>‘New SSH tunnel’ : Set a forwarded port binding option and save the setting.</p></li>
+<li><p>Give the name to the saved port forwarding settings, and start the tunnel connection.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You must use <strong>CRYOSPARC_BASE_PORT</strong> for the ‘Remote server’ port section.</p>
+</div>
+<a class="reference internal image-reference" href="_images/mobaxterm-tunnel1-el7.JPG"><img alt="_images/mobaxterm-tunnel1-el7.JPG" class="align-center" src="_images/mobaxterm-tunnel1-el7.JPG" style="width: 856.5px; height: 580.0px;" /></a>
+<p>Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to <a class="reference external" href="http://localhost:39500">http://localhost:39500</a>. You should be presented with the cryoSPARC login page.</p>
+<ul class="simple">
+<li><p>Using Putty</p>
+<ul>
+<li><p>Open ‘PuTTy Configuration’ dialog box.</p></li>
+<li><p>‘PuTTy Configuration’ -&gt; ‘Session’ : Load a SSH session to connect tem-cs-el7.sdfarm.kr login node with the known &lt;ssh_port&gt;.</p></li>
+<li><p>‘PuTTy Configuration’ -&gt; ‘Connection’ -&gt; ‘SSH’ -&gt; ‘Tunnels’ : Set a forwarded port binding option and add the entry.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You must use <strong>tem-cs-el7.sdfarm.kr:CRYOSPARC_BASE_PORT</strong> for the ‘Destination’ field.</p>
+</div>
+<a class="reference internal image-reference" href="_images/putty-tunnel.JPG"><img alt="_images/putty-tunnel.JPG" class="align-center" src="_images/putty-tunnel.JPG" style="width: 1086.6px; height: 509.4px;" /></a>
+<p>Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to <a class="reference external" href="http://localhost:39500">http://localhost:39500</a>. You should be presented with the cryoSPARC login page.</p>
+</section>
+</section>
+<section id="exploring-cryosparc-web-apps">
+<h2>Exploring CryoSPARC web apps<a class="headerlink" href="#exploring-cryosparc-web-apps" title="Permalink to this heading"></a></h2>
+<section id="cryosparc-login">
+<h3>CryoSPARC login<a class="headerlink" href="#cryosparc-login" title="Permalink to this heading"></a></h3>
+<p>E-mail and password information will be notified to users as the installation and setup is finished.
+Given e-mail and password, users can login to cryoSPARC web interfaces.</p>
+<a class="reference internal image-reference" href="_images/cryosparc-login.png"><img alt="_images/cryosparc-login.png" class="align-center" src="_images/cryosparc-login.png" style="width: 1054.0px; height: 656.0px;" /></a>
+</section>
+<section id="cryosparc-dashboard">
+<h3>CryoSPARC dashboard<a class="headerlink" href="#cryosparc-dashboard" title="Permalink to this heading"></a></h3>
+<a class="reference internal image-reference" href="_images/cryosparc-dashboard.png"><img alt="_images/cryosparc-dashboard.png" class="align-center" src="_images/cryosparc-dashboard.png" style="width: 1192.5px; height: 686.7px;" /></a>
+</section>
+<section id="cryosparc-project">
+<h3>CryoSPARC project<a class="headerlink" href="#cryosparc-project" title="Permalink to this heading"></a></h3>
+<a class="reference internal image-reference" href="_images/cryosparc-project.png"><img alt="_images/cryosparc-project.png" class="align-center" src="_images/cryosparc-project.png" style="width: 1220.4px; height: 687.6px;" /></a>
+</section>
+<section id="cryosparc-cluster-lane">
+<h3>CryoSPARC cluster(lane)<a class="headerlink" href="#cryosparc-cluster-lane" title="Permalink to this heading"></a></h3>
+<a class="reference internal image-reference" href="_images/cryosparc-cluster.png"><img alt="_images/cryosparc-cluster.png" class="align-center" src="_images/cryosparc-cluster.png" style="width: 1220.4px; height: 688.5px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For details on user interface and usages of cryoSPARC, refer to cryoSPARC’s official document.
+<a class="reference external" href="https://cryosparc.com/docs/reference/general">https://cryosparc.com/docs/reference/general</a></p>
+</div>
+</section>
+</section>
+<section id="tutorial-on-processing-t20s">
+<h2>Tutorial on processing T20S<a class="headerlink" href="#tutorial-on-processing-t20s" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Please refer to CryoSPARC’s webpage for the tutorial on processing T20S : <a class="reference external" href="https://cryosparc.com/docs/tutorials/t20s">https://cryosparc.com/docs/tutorials/t20s</a></p></li>
+</ul>
+</section>
+<section id="trouble-shooting">
+<h2>Trouble shooting<a class="headerlink" href="#trouble-shooting" title="Permalink to this heading"></a></h2>
+<section id="how-to-stop-or-start-the-cryosparc-instance">
+<h3>1. How to stop or start the cryoSPARC instance?<a class="headerlink" href="#how-to-stop-or-start-the-cryosparc-instance" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Stop the running cryoSPRAC instance</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tem-cs-el7.sdfarm.kr<span class="w"> </span>$&gt;<span class="w"> </span>cryosparcm<span class="w"> </span>stop
+
+CryoSPARC<span class="w"> </span>is<span class="w"> </span>running.
+Stopping<span class="w"> </span>cryoSPARC
+app:<span class="w"> </span>stopped
+command_core:<span class="w"> </span>stopped
+command_rtp:<span class="w"> </span>stopped
+command_vis:<span class="w"> </span>stopped
+liveapp:<span class="w"> </span>stopped
+webapp:<span class="w"> </span>stopped
+database:<span class="w"> </span>stopped
+Shut<span class="w"> </span>down
+</pre></div>
+</div>
+<p>Stop the cryosparc instance if running. This will gracefully kill all the master processes, and will cause any running jobs (potentially on other nodes) to fail.</p>
+<ul class="simple">
+<li><p>Start the cryoSPARC instance</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tem-cs-el7.sdfarm.kr<span class="w"> </span>$&gt;<span class="w"> </span>cryosparcm<span class="w"> </span>start
+
+Starting<span class="w"> </span>cryoSPARC<span class="w"> </span>System<span class="w"> </span>master<span class="w"> </span>process..
+CryoSPARC<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>already<span class="w"> </span>running.
+configuring<span class="w"> </span>database
+<span class="w">   </span>configuration<span class="w"> </span><span class="nb">complete</span>
+database:<span class="w"> </span>started
+<span class="w">   </span>database<span class="w"> </span>configuration<span class="w"> </span>is<span class="w"> </span>OK.
+command_core:<span class="w"> </span>started
+<span class="w">   </span>command_core<span class="w"> </span>connection<span class="w"> </span>succeeded
+<span class="w">   </span>command_core<span class="w"> </span>startup<span class="w"> </span>successful
+command_vis:<span class="w"> </span>started
+command_rtp:<span class="w"> </span>started
+<span class="w">   </span>command_rtp<span class="w"> </span>connection<span class="w"> </span>succeeded
+<span class="w">   </span>command_rtp<span class="w"> </span>startup<span class="w"> </span>successful
+app:<span class="w"> </span>started
+app_api:<span class="w"> </span>started
+-----------------------------------------------------
+
+CryoSPARC<span class="w"> </span>master<span class="w"> </span>started.
+From<span class="w"> </span>this<span class="w"> </span>machine,<span class="w"> </span>access<span class="w"> </span>cryoSPARC<span class="w"> </span>and<span class="w"> </span>cryoSPARC<span class="w"> </span>Live<span class="w"> </span>at
+<span class="w">   </span>http://localhost:39xxx
+
+From<span class="w"> </span>other<span class="w"> </span>machines<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>network,<span class="w"> </span>access<span class="w"> </span>cryoSPARC<span class="w"> </span>and<span class="w"> </span>cryoSPARC<span class="w"> </span>Live<span class="w"> </span>at
+<span class="w">   </span>http://tem-cs-el7.sdfarm.kr:39xxx
+
+
+Startup<span class="w"> </span>can<span class="w"> </span>take<span class="w"> </span>several<span class="w"> </span>minutes.<span class="w"> </span>Point<span class="w"> </span>your<span class="w"> </span>browser<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>address
+and<span class="w"> </span>refresh<span class="w"> </span><span class="k">until</span><span class="w"> </span>you<span class="w"> </span>see<span class="w"> </span>the<span class="w"> </span>cryoSPARC<span class="w"> </span>web<span class="w"> </span>interface.
+</pre></div>
+</div>
+<p>Start the cryosparc instance if stopped. This will cause the database, command, webapp etc processes to start up.
+Once these processes are started, they are run in the background, so the current shell can be closed and the web UI will continue to run, as will jobs that are spawned.</p>
+</section>
+<section id="how-to-reset-the-password-of-non-admin-user">
+<h3>2. How to reset the password of non-admin user?<a class="headerlink" href="#how-to-reset-the-password-of-non-admin-user" title="Permalink to this heading"></a></h3>
+<p>Users can reset the non-admin user’s password to a new password with the following command-line execution:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tem-cs-el7.sdfarm.kr<span class="w"> </span>$&gt;<span class="w"> </span>cryosparcm<span class="w"> </span>resetpassword<span class="w"> </span>--email<span class="w"> </span>&lt;email<span class="w"> </span>address&gt;<span class="w"> </span>--password<span class="w"> </span>&lt;newpassword&gt;
+</pre></div>
+</div>
+</section>
+<section id="job-or-workflow-failed-caused-by-ssd-caching">
+<h3>3. Job (or Workflow) failed caused by <strong>SSD caching</strong><a class="headerlink" href="#job-or-workflow-failed-caused-by-ssd-caching" title="Permalink to this heading"></a></h3>
+<p>Job failure log looks like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>CPU:<span class="w"> </span><span class="m">166</span>.4<span class="w"> </span>MB<span class="o">]</span><span class="w">  </span>Traceback<span class="w"> </span><span class="o">(</span>most<span class="w"> </span>recent<span class="w"> </span>call<span class="w"> </span>last<span class="o">)</span>:
+File<span class="w"> </span><span class="s2">&quot;cryosparc2_worker/cryosparc2_compute/run.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">82</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>cryosparc2_compute.run.main
+File<span class="w"> </span><span class="s2">&quot;cryosparc2_worker/cryosparc2_compute/jobs/class2D/run.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">64</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>cryosparc2_compute.jobs.class2D.run.run_class_2D
+File<span class="w"> </span><span class="s2">&quot;cryosparc2_compute/particles.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">61</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>read_blobs
+<span class="w">   </span><span class="nv">u_blob_paths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cache.download_and_return_cache_paths<span class="o">(</span>u_rel_paths<span class="o">)</span>
+File<span class="w"> </span><span class="s2">&quot;cryosparc2_compute/jobs/cache.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">129</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>download_and_return_cache_paths
+<span class="w">   </span><span class="nv">other_instance_ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>get_other_instance_ids<span class="o">(</span>instance_id,<span class="w"> </span>ssd_cache_path<span class="o">)</span>
+File<span class="w"> </span><span class="s2">&quot;cryosparc2_compute/jobs/cache.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">250</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>get_other_instance_ids
+<span class="w">   </span><span class="nv">all_instance_ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>p<span class="w"> </span><span class="k">for</span><span class="w"> </span>p<span class="w"> </span><span class="k">in</span><span class="w"> </span>os.listdir<span class="o">(</span>ssd_cache_path<span class="o">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span>os.path.isdir<span class="o">(</span>os.path.join<span class="o">(</span>ssd_cache_path,<span class="w"> </span>p<span class="o">))</span><span class="w"> </span>and<span class="w"> </span>p.startswith<span class="o">(</span><span class="s1">&#39;instance_&#39;</span><span class="o">)]</span>
+OSError:<span class="w"> </span><span class="o">[</span>Errno<span class="w"> </span><span class="m">2</span><span class="o">]</span><span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory:<span class="w"> </span><span class="s1">&#39;&#39;</span>
+</pre></div>
+</div>
+<p>During cryoSPARC configuration, we did not provide an option to support any <strong>SSD caching</strong> due to the lack of SSD (or NVMe SSD) drives on the worker nodes.
+However, by default, cryoSPARC seems to have ‘SSD caching’ enabled on its Web user interface. When you are running jobs that process particles (for example: Ab-Initio, Homogeneous Refinement, 2D Classification, 3D Variability),
+you will find a parameter at the bottom of the job builder under “Compute Settings” called <strong>Cache particle images on SSD</strong>.
+Turn this option off to load raw data from their original location instead.</p>
+<p>Also, you can set a default parameter value of each project. By default, the Cache particle images on SSD parameter is always on for every job you build,
+but if you’d like to keep this option off across all jobs in a project, you can set a project-level default by running the following command in a shell on the UI node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tem-cs-el7.sdfarm.kr<span class="w"> </span>$&gt;<span class="w"> </span>cryosparcm<span class="w"> </span>cli<span class="w"> </span><span class="s2">&quot;set_project_param_default(&#39;PX&#39;, &#39;compute_use_ssd&#39;, False)&quot;</span>
+</pre></div>
+</div>
+<p>where ‘PX’ is the Project ID you want to set the default value for (e.g., ‘P1’, ‘P2’, etc.)</p>
+<p>You can undo this setting by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tem-cs-el7.sdfarm.kr<span class="w"> </span>$&gt;<span class="w"> </span>cryosparcm<span class="w"> </span>cli<span class="w"> </span><span class="s2">&quot;unset_project_param_default(&#39;PX&#39;, &#39;compute_use_ssd&#39;)&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="failed-to-launch-190">
+<h3>4. Failed to launch! 190<a class="headerlink" href="#failed-to-launch-190" title="Permalink to this heading"></a></h3>
+<p>As you submit a cryoSPARC job to TEM-FARM cluster, you can encounter an error such as <strong>“Failed to launch! 190”</strong>.
+If you face with this error, you should check <strong>Number of GPUs to parallelize</strong> option under “Compute Setttings” of job builder first.
+Unlike relion, it seems that all the cryoSPARC jobs can not distribute their worker processes onto multiple worker nodes
+(that is, all the cryoSPARC job is executed on a single CPU or GPU node).
+So, the maximum number of GPUs which can be used to parallelize within a job is 2 (because there are 2 P100 or P40 GPUs on each GPU node in GSDC TEM FARM).</p>
+<a class="reference internal image-reference" href="_images/cryosparc-maxgpus.png"><img alt="_images/cryosparc-maxgpus.png" class="align-center" src="_images/cryosparc-maxgpus.png" style="width: 410.40000000000003px; height: 317.7px;" /></a>
+</section>
+<section id="binary-locations-of-gctf-motioncor2">
+<h3>5. Binary locations of Gctf, MotionCor2<a class="headerlink" href="#binary-locations-of-gctf-motioncor2" title="Permalink to this heading"></a></h3>
+<p>The GPU environment of GSDC TEM farm is built on top of NVIDIA CUDA SDK (driver version 460.27.04 and CUDA library version 9.2).
+Some 3rd-party applications with GPU acceleration, for example, Gctf, MotionCor2, which can be utilized within various number of Cryo-EM toolkit are provided, and
+you can find those binaries in the following locations:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Gctf</span>
+
+$&gt;<span class="w"> </span>module<span class="w"> </span>avail
+------------------------------------------------<span class="w"> </span>/tem/el7/Modules/apps<span class="w"> </span>------------------------------------------------
+apps/cistem/1.0.0<span class="w">  </span>apps/relion/cpu/3.0.7<span class="w">  </span>apps/relion/cpu/3.1.0<span class="w">  </span>apps/relion/gpu/3.0.7<span class="w">  </span>apps/relion/gpu/3.1.0
+
+--------------------------------------------<span class="w"> </span>/tem/el7/Modules/acceleration<span class="w"> </span>--------------------------------------------
+cuda/9.2
+
+------------------------------------------------<span class="w"> </span>/tem/el7/Modules/mpi<span class="w"> </span>-------------------------------------------------
+mpi/gcc/openmpi/4.0.3
+
+---------------------------------------------<span class="w"> </span>/tem/el7/Modules/virtualenv<span class="w"> </span>---------------------------------------------
+conda/2020.11
+
+-----------------------------------------------<span class="w"> </span>/tem/el7/Modules/tools<span class="w"> </span>------------------------------------------------
+tools/ctffind/4.1.14<span class="w">  </span>tools/motioncor2/1.3.1<span class="w">  </span>tools/summovie/1.0.2
+tools/gctf/1.18_b2<span class="w">    </span>tools/resmap/1.1.4<span class="w">      </span>tools/unblur/1.0.2
+
+
+$&gt;<span class="w"> </span>module<span class="w"> </span>show<span class="w"> </span>tools/gctf/1.18_b2
+
+-------------------------------------------------------------------
+/tem/el7/Modules/tools/tools/gctf/1.18_b2:
+
+module-whatis<span class="w">   </span><span class="o">{</span>Setup<span class="w"> </span>gctf<span class="w"> </span>v1.18_b2<span class="o">}</span>
+module<span class="w">          </span>load<span class="w"> </span>cuda/9.2
+prepend-path<span class="w">    </span>PATH<span class="w"> </span>/tem/el7/Gctf_v1.18_b2/bin
+conflict<span class="w">        </span>tools/gctf
+-------------------------------------------------------------------
+
+
+$&gt;<span class="w"> </span>ls<span class="w"> </span>-al<span class="w"> </span>/tem/el7/Gctf_v1.18_b2/bin
+
+total<span class="w"> </span><span class="m">63122</span>
+drwxr-xr-x.<span class="w"> </span><span class="m">2</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w">     </span><span class="m">462</span><span class="w"> </span>Apr<span class="w">  </span><span class="m">9</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>.
+drwxr-xr-x.<span class="w"> </span><span class="m">4</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w">      </span><span class="m">42</span><span class="w"> </span>Apr<span class="w">  </span><span class="m">9</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>..
+-rwxr-xr-x.<span class="w"> </span><span class="m">1</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w"> </span><span class="m">3429036</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">22</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Gctf_v1.18_b2_sm60_cu8.0
+-rwxr-xr-x.<span class="w"> </span><span class="m">1</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w"> </span><span class="m">3520460</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">22</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Gctf_v1.18_b2_sm60_cu9.0
+-rwxr-xr-x.<span class="w"> </span><span class="m">1</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w"> </span><span class="m">3674669</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">22</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Gctf_v1.18_b2_sm60_cu9.2<span class="w">     </span><span class="c1"># (compatible)</span>
+-rwxr-xr-x.<span class="w"> </span><span class="m">1</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w"> </span><span class="m">3429036</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">22</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Gctf_v1.18_b2_sm61_cu8.0
+-rwxr-xr-x.<span class="w"> </span><span class="m">1</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w"> </span><span class="m">3520460</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">22</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Gctf_v1.18_b2_sm61_cu9.0
+-rwxr-xr-x.<span class="w"> </span><span class="m">1</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w"> </span><span class="m">3674669</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">22</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Gctf_v1.18_b2_sm61_cu9.2<span class="w">     </span><span class="c1"># (compatible)</span>
+-rwxr-xr-x.<span class="w"> </span><span class="m">1</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w"> </span><span class="m">3429036</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">22</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Gctf_v1.18_b2_sm62_cu8.0
+-rwxr-xr-x.<span class="w"> </span><span class="m">1</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w"> </span><span class="m">6224329</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">22</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Gctf_v1.18_b2_sm62_cu9.0
+-rwxr-xr-x.<span class="w"> </span><span class="m">1</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w"> </span><span class="m">6373822</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">22</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Gctf_v1.18_b2_sm62_cu9.2<span class="w">     </span><span class="c1"># (compatible)</span>
+-rwxr-xr-x.<span class="w"> </span><span class="m">1</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w"> </span><span class="m">3959148</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">22</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Gctf_v1.18_b2_sm70_cu9.0
+-rwxr-xr-x.<span class="w"> </span><span class="m">1</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w"> </span><span class="m">4117037</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">22</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Gctf_v1.18_b2_sm70_cu9.2
+
+<span class="c1">## MotionCor2</span>
+
+$&gt;<span class="w"> </span>module<span class="w"> </span>show<span class="w"> </span>tools/motioncor2/1.3.1
+
+-------------------------------------------------------------------
+/tem/el7/Modules/tools/tools/motioncor2/1.3.1:
+
+module-whatis<span class="w">   </span><span class="o">{</span>Setup<span class="w"> </span>motioncor2<span class="w"> </span><span class="m">1</span>.3.1<span class="o">}</span>
+module<span class="w">          </span>load<span class="w"> </span>cuda/9.2
+prepend-path<span class="w">    </span>PATH<span class="w"> </span>/tem/el7/MotionCor2_v1.3.1
+conflict<span class="w">        </span>tools/motioncor2
+-------------------------------------------------------------------
+
+
+$&gt;<span class="w"> </span>ls<span class="w"> </span>-al<span class="w"> </span>/tem/el7/MotionCor2_v1.3.1
+
+total<span class="w"> </span><span class="m">24840</span>
+drwxr-xr-x.<span class="w">  </span><span class="m">2</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w">      </span><span class="m">182</span><span class="w"> </span>Oct<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">00</span>:34<span class="w"> </span>.
+drwxr-xr-x.<span class="w"> </span><span class="m">15</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w">      </span><span class="m">653</span><span class="w"> </span>Jan<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">17</span>:51<span class="w"> </span>..
+-rwxr-xr-x.<span class="w">  </span><span class="m">1</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w"> </span><span class="m">10200208</span><span class="w"> </span>Oct<span class="w"> </span><span class="m">23</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>MotionCor2-UserManual-10-22-2019.pdf
+-rwxr-xr-x.<span class="w">  </span><span class="m">1</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w">  </span><span class="m">2712344</span><span class="w"> </span>Jan<span class="w"> </span><span class="m">24</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>MotionCor2_v1.3.1-Cuda101
+-rwxr-xr-x.<span class="w">  </span><span class="m">1</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w">  </span><span class="m">2696304</span><span class="w"> </span>Jan<span class="w"> </span><span class="m">24</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>MotionCor2_v1.3.1-Cuda102
+-rwxr-xr-x.<span class="w">  </span><span class="m">1</span><span class="w"> </span>tem<span class="w"> </span>tem<span class="w">  </span><span class="m">2712312</span><span class="w"> </span>Jan<span class="w"> </span><span class="m">24</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>MotionCor2_v1.3.1-Cuda92<span class="w">   </span><span class="c1"># (compatible)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cisTEM.html" class="btn btn-neutral float-left" title="cisTEM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="topaz.html" class="btn btn-neutral float-right" title="Topaz" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, GSDC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,56 +1,104 @@
-\babel@toc {english}{}
-\contentsline {chapter}{\numberline {1}TEM infrastructure overview}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Computing and storage resources}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Cluster management softwares}{3}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Data analysis tools}{4}{section.1.3}%
-\contentsline {chapter}{\numberline {2}TEM farm basics}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Accessing TEM service farm}{5}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}For Linux/Mac users}{5}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}For Windows users}{5}{subsection.2.1.2}%
-\contentsline {section}{\numberline {2.2}Understanding environment modules}{6}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Job manager (Torque)}{8}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Resources manager and job scheduler}{8}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Directives in Torque job scripts}{9}{subsection.2.3.2}%
-\contentsline {subsubsection}{\sphinxstylestrong {Resource limits}}{9}{subsubsection*.3}%
-\contentsline {subsubsection}{\sphinxstylestrong {Job name}}{9}{subsubsection*.4}%
-\contentsline {subsubsection}{\sphinxstylestrong {Queue name}}{10}{subsubsection*.5}%
-\contentsline {subsubsection}{\sphinxstylestrong {Job log files}}{10}{subsubsection*.6}%
-\contentsline {subsection}{\numberline {2.3.3}Torque job script examples}{10}{subsection.2.3.3}%
-\contentsline {subsubsection}{\sphinxstylestrong {Simple sequential job}}{10}{subsubsection*.7}%
-\contentsline {subsubsection}{\sphinxstylestrong {Serial job with OpenMP multithreading}}{10}{subsubsection*.8}%
-\contentsline {subsubsection}{\sphinxstylestrong {Simple MPI parallel job}}{10}{subsubsection*.9}%
-\contentsline {subsubsection}{\sphinxstylestrong {Parallel job with MPI and OpenMP}}{11}{subsubsection*.10}%
-\contentsline {subsection}{\numberline {2.3.4}Job submission}{11}{subsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.3.5}Monitoring and managing your jobs}{11}{subsection.2.3.5}%
-\contentsline {subsubsection}{\sphinxstylestrong {Status of queued jobs}}{11}{subsubsection*.11}%
-\contentsline {subsubsection}{\sphinxstylestrong {Managing your jobs}}{12}{subsubsection*.12}%
-\contentsline {chapter}{\numberline {3}Batch Queues}{13}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Batch queue list}{13}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Time schedule for queue assignment}{15}{section.3.2}%
-\contentsline {chapter}{\numberline {4}Relion}{17}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Executing Relion GUI tools}{17}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}How to start Relion data analysis tool}{17}{subsection.4.1.1}%
-\contentsline {section}{\numberline {4.2}PBS Strings used in Relion}{20}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Using CPU cluster (apps/gcc/4.4.7/relion/cpu/3.0.7)}{21}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}RELION\_QSUB\_TEMPLATE variable}{21}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Job script template (for CPU use)}{22}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Using GPGPU cluster (apps/gcc/4.4.7/relion/gpu/3.0.7)}{23}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}RELION\_QSUB\_TEMPLATE variable}{23}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Job script template (for GPGPU use)}{24}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Specifying which GPUs to use}{26}{subsection.4.4.3}%
-\contentsline {section}{\numberline {4.5}Executing CPU/GPU jobs in Relion}{27}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Module path}{27}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Job script template}{29}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Examples}{30}{subsection.4.5.3}%
-\contentsline {subsubsection}{Motion Correction}{30}{subsubsection*.13}%
-\contentsline {subsubsection}{CTF Estimation}{34}{subsubsection*.14}%
-\contentsline {subsubsection}{2D Classification}{38}{subsubsection*.15}%
-\contentsline {chapter}{\numberline {5}cisTEM}{43}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Executing cisTEM}{43}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}How to start cisTEM data analysis tool}{43}{subsection.5.1.1}%
-\contentsline {section}{\numberline {5.2}Run profiles for job submission}{45}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Profile templates}{45}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Adding a new Run Profile}{46}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}Exampels of running cisTEM jobs}{46}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Importing Movies and images}{47}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Movie Alignment}{47}{subsection.5.3.2}%
+\selectlanguage *{english}
+\contentsline {chapter}{\numberline {1}Change Logs}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}GSDC Computing Cluster for TEM}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}1. Service overview}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}2. Computing and storage resources}{5}{section.2.2}%
+\contentsline {section}{\numberline {2.3}3. Cluster management softwares}{6}{section.2.3}%
+\contentsline {section}{\numberline {2.4}4. Data analysis tools}{8}{section.2.4}%
+\contentsline {section}{\numberline {2.5}5. Requesting user accounts and accessing GSDC TEM computing cluster}{9}{section.2.5}%
+\contentsline {section}{\numberline {2.6}6. Module paths and job submission templates}{9}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Module paths for data analysis tools}{9}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Job submission templates}{10}{subsection.2.6.2}%
+\contentsline {section}{\numberline {2.7}7. Batch queues}{11}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Checking batch queue names and their status}{11}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Checking all worker nodes status}{12}{subsection.2.7.2}%
+\contentsline {section}{\numberline {2.8}8. fstat.bin : Monitoring the usage of all the worker nodes}{18}{section.2.8}%
+\contentsline {section}{\numberline {2.9}9. dynmotd : Checking storage quota limit and usage ratio}{19}{section.2.9}%
+\contentsline {chapter}{\numberline {3}TEM Computing Cluster Basics}{21}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Requesting accounts and accessing TEM cluster}{21}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}For Linux/Mac users}{21}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}For Windows users}{21}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Understanding environment modules}{23}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Job manager (Torque)}{26}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Resources manager and job scheduler}{26}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Directives in Torque job scripts}{26}{subsection.3.3.2}%
+\contentsline {subsubsection}{\sphinxstylestrong {Resource limits}}{26}{subsubsection*.3}%
+\contentsline {subsubsection}{\sphinxstylestrong {Job name}}{27}{subsubsection*.4}%
+\contentsline {subsubsection}{\sphinxstylestrong {Queue name}}{27}{subsubsection*.5}%
+\contentsline {subsubsection}{\sphinxstylestrong {Job log files}}{27}{subsubsection*.6}%
+\contentsline {subsection}{\numberline {3.3.3}Torque job script examples}{28}{subsection.3.3.3}%
+\contentsline {subsubsection}{\sphinxstylestrong {Simple sequential job}}{28}{subsubsection*.7}%
+\contentsline {subsubsection}{\sphinxstylestrong {Serial job with OpenMP multithreading}}{28}{subsubsection*.8}%
+\contentsline {subsubsection}{\sphinxstylestrong {Simple MPI parallel job}}{28}{subsubsection*.9}%
+\contentsline {subsubsection}{\sphinxstylestrong {Parallel job with MPI and OpenMP}}{28}{subsubsection*.10}%
+\contentsline {subsection}{\numberline {3.3.4}Job submission}{29}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Monitoring and managing your jobs}{29}{subsection.3.3.5}%
+\contentsline {subsubsection}{\sphinxstylestrong {Status of queued jobs}}{29}{subsubsection*.11}%
+\contentsline {subsubsection}{\sphinxstylestrong {Managing your jobs}}{29}{subsubsection*.12}%
+\contentsline {chapter}{\numberline {4}Batch Queues}{31}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Batch queue list}{31}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Relion}{33}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Executing Relion GUI tools}{33}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}How to start Relion data analysis tool}{33}{subsection.5.1.1}%
+\contentsline {section}{\numberline {5.2}PBS Strings used in Relion}{36}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Running data analysis jobs using CPU cores}{37}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Module path}{37}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Environment variables}{37}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Standard job submission script (for relion 4.0.0 CPU use)}{38}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}Running data analysis jobs using GPGPUs}{39}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Environment variables}{39}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Standard job submission script (for relion 4.0.0 GPGPU use)}{40}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Specifying which GPGPUs to use}{42}{subsection.5.4.3}%
+\contentsline {section}{\numberline {5.5}Examples}{43}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Motion Correction}{43}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}CTF Estimation}{47}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}2D Classification}{51}{subsection.5.5.3}%
+\contentsline {chapter}{\numberline {6}cisTEM}{57}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Executing cisTEM}{57}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}How to start cisTEM data analysis tool}{57}{subsection.6.1.1}%
+\contentsline {section}{\numberline {6.2}Run profiles for job submission}{59}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Profile templates}{59}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Adding a new Run Profile}{60}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}Examples of running cisTEM jobs}{61}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Importing Movies and images}{61}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Movie Alignment}{62}{subsection.6.3.2}%
+\contentsline {chapter}{\numberline {7}CryoSPARC}{65}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Prerequisites}{65}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Getting a cryoSPARC instance}{65}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}1. (Admin) Install and setup a cryoSPARC instance}{66}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}2. (User) Verifying installation}{66}{subsection.7.2.2}%
+\contentsline {section}{\numberline {7.3}Launching CryoSPARC instance}{68}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}For Linux/Mac users}{68}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}For Windows users}{69}{subsection.7.3.2}%
+\contentsline {section}{\numberline {7.4}Exploring CryoSPARC web apps}{70}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}CryoSPARC login}{70}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}CryoSPARC dashboard}{71}{subsection.7.4.2}%
+\contentsline {subsection}{\numberline {7.4.3}CryoSPARC project}{71}{subsection.7.4.3}%
+\contentsline {subsection}{\numberline {7.4.4}CryoSPARC cluster(lane)}{72}{subsection.7.4.4}%
+\contentsline {section}{\numberline {7.5}Tutorial on processing T20S}{72}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Trouble shooting}{72}{section.7.6}%
+\contentsline {subsection}{\numberline {7.6.1}1. How to stop or start the cryoSPARC instance?}{72}{subsection.7.6.1}%
+\contentsline {subsection}{\numberline {7.6.2}2. How to reset the password of non\sphinxhyphen {}admin user?}{73}{subsection.7.6.2}%
+\contentsline {subsection}{\numberline {7.6.3}3. Job (or Workflow) failed caused by \sphinxstylestrong {SSD caching}}{73}{subsection.7.6.3}%
+\contentsline {subsection}{\numberline {7.6.4}4. Failed to launch! 190}{74}{subsection.7.6.4}%
+\contentsline {subsection}{\numberline {7.6.5}5. Binary locations of Gctf, MotionCor2}{74}{subsection.7.6.5}%
+\contentsline {chapter}{\numberline {8}Topaz}{77}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Topaz Executables}{77}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Topaz binary executable with CUDA 9.2}{78}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Topaz binary executable with CUDA 11.2}{78}{subsection.8.1.2}%
+\contentsline {section}{\numberline {8.2}Using Topaz in CryoSPARC}{78}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Using Topaz in Relion (v3.1.0 above)}{79}{section.8.3}%
+\contentsline {chapter}{\numberline {9}FAQs}{81}{chapter.9}%
+\contentsline {section}{\numberline {9.1}How to resolve the problems on (re)starting your own cryosparc instance?}{81}{section.9.1}%
+\contentsline {section}{\numberline {9.2}How to repair cryosparc database corruption?}{83}{section.9.2}%
+\contentsline {section}{\numberline {9.3}How to upgrade (or downgrade) to the specific version of cryosparc softwares?}{83}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}1. Checking for updates}{83}{subsection.9.3.1}%
+\contentsline {subsection}{\numberline {9.3.2}2. Before you update: complete or kill running jobs}{84}{subsection.9.3.2}%
+\contentsline {subsection}{\numberline {9.3.3}3. Back\sphinxhyphen {}up cryosparc databases}{85}{subsection.9.3.3}%
+\contentsline {subsection}{\numberline {9.3.4}4. Cryosparc master updates}{86}{subsection.9.3.4}%
+\contentsline {subsection}{\numberline {9.3.5}5. Cryosparc worker updates}{90}{subsection.9.3.5}%
+\contentsline {subsection}{\numberline {9.3.6}6. Running the newer cryosparc instance}{93}{subsection.9.3.6}%
+\contentsline {chapter}{\numberline {10}APPENDIX : Application Form \& Materials}{95}{chapter.10}%
+\contentsline {section}{\numberline {10.1}GSDC TEM Application Form}{95}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Tutorial}{95}{section.10.2}%
+\contentsline {chapter}{\numberline {11}Contacts}{97}{chapter.11}%

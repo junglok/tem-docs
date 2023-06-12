@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GSDC Computing Cluster for TEM &mdash; tem-docs 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/my_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="TEM Computing Cluster Basics" href="guide.html" />
+    <link rel="prev" title="Change Logs" href="changelog.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            tem-docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Logs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">GSDC Computing Cluster for TEM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#service-overview">1. Service overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#computing-and-storage-resources">2. Computing and storage resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cluster-management-softwares">3. Cluster management softwares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-analysis-tools">4. Data analysis tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requesting-user-accounts-and-accessing-gsdc-tem-computing-cluster">5. Requesting user accounts and accessing GSDC TEM computing cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-paths-and-job-submission-templates">6. Module paths and job submission templates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-paths-for-data-analysis-tools">Module paths for data analysis tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#job-submission-templates">Job submission templates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#batch-queues">7. Batch queues</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#checking-batch-queue-names-and-their-status">Checking batch queue names and their status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-all-worker-nodes-status">Checking all worker nodes status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fstat-bin-monitoring-the-usage-of-all-the-worker-nodes">8. fstat.bin : Monitoring the usage of all the worker nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dynmotd-checking-storage-quota-limit-and-usage-ratio">9. dynmotd : Checking storage quota limit and usage ratio</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html">TEM Computing Cluster Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#requesting-accounts-and-accessing-tem-cluster">Requesting accounts and accessing TEM cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#for-linux-mac-users">For Linux/Mac users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#for-windows-users">For Windows users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#understanding-environment-modules">Understanding environment modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#job-manager-torque">Job manager (Torque)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#resources-manager-and-job-scheduler">Resources manager and job scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#directives-in-torque-job-scripts">Directives in Torque job scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#resource-limits"><strong>Resource limits</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#job-name"><strong>Job name</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#queue-name"><strong>Queue name</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#job-log-files"><strong>Job log files</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#torque-job-script-examples">Torque job script examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#simple-sequential-job"><strong>Simple sequential job</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#serial-job-with-openmp-multithreading"><strong>Serial job with OpenMP multithreading</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#simple-mpi-parallel-job"><strong>Simple MPI parallel job</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#parallel-job-with-mpi-and-openmp"><strong>Parallel job with MPI and OpenMP</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#job-submission">Job submission</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#monitoring-and-managing-your-jobs">Monitoring and managing your jobs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#status-of-queued-jobs"><strong>Status of queued jobs</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#managing-your-jobs"><strong>Managing your jobs</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="queue.html">Batch Queues</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="queue.html#batch-queue-list">Batch queue list</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="relion.html">Relion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="relion.html#executing-relion-gui-tools">Executing Relion GUI tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#how-to-start-relion-data-analysis-tool">How to start Relion data analysis tool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="relion.html#pbs-strings-used-in-relion">PBS Strings used in Relion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="relion.html#running-data-analysis-jobs-using-cpu-cores">Running data analysis jobs using CPU cores</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#module-path">Module path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#environment-variables">Environment variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#standard-job-submission-script-for-relion-4-0-0-cpu-use">Standard job submission script (for relion 4.0.0 CPU use)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="relion.html#running-data-analysis-jobs-using-gpgpus">Running data analysis jobs using GPGPUs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#id1">Environment variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#standard-job-submission-script-for-relion-4-0-0-gpgpu-use">Standard job submission script (for relion 4.0.0 GPGPU use)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#specifying-which-gpgpus-to-use">Specifying which GPGPUs to use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="relion.html#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#motion-correction">Motion Correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#ctf-estimation">CTF Estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="relion.html#d-classification">2D Classification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cisTEM.html">cisTEM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cisTEM.html#executing-cistem">Executing cisTEM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cisTEM.html#how-to-start-cistem-data-analysis-tool">How to start cisTEM data analysis tool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cisTEM.html#run-profiles-for-job-submission">Run profiles for job submission</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cisTEM.html#profile-templates">Profile templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cisTEM.html#adding-a-new-run-profile">Adding a new Run Profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cisTEM.html#examples-of-running-cistem-jobs">Examples of running cisTEM jobs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cisTEM.html#importing-movies-and-images">Importing Movies and images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cisTEM.html#movie-alignment">Movie Alignment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cryoSPARC.html">CryoSPARC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cryoSPARC.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryoSPARC.html#getting-a-cryosparc-instance">Getting a cryoSPARC instance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cryoSPARC.html#admin-install-and-setup-a-cryosparc-instance">1. (Admin) Install and setup a cryoSPARC instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cryoSPARC.html#user-verifying-installation">2. (User) Verifying installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cryoSPARC.html#launching-cryosparc-instance">Launching CryoSPARC instance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cryoSPARC.html#for-linux-mac-users">For Linux/Mac users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cryoSPARC.html#for-windows-users">For Windows users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cryoSPARC.html#exploring-cryosparc-web-apps">Exploring CryoSPARC web apps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cryoSPARC.html#cryosparc-login">CryoSPARC login</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cryoSPARC.html#cryosparc-dashboard">CryoSPARC dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cryoSPARC.html#cryosparc-project">CryoSPARC project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cryoSPARC.html#cryosparc-cluster-lane">CryoSPARC cluster(lane)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cryoSPARC.html#tutorial-on-processing-t20s">Tutorial on processing T20S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cryoSPARC.html#trouble-shooting">Trouble shooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cryoSPARC.html#how-to-stop-or-start-the-cryosparc-instance">1. How to stop or start the cryoSPARC instance?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cryoSPARC.html#how-to-reset-the-password-of-non-admin-user">2. How to reset the password of non-admin user?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cryoSPARC.html#job-or-workflow-failed-caused-by-ssd-caching">3. Job (or Workflow) failed caused by <strong>SSD caching</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="cryoSPARC.html#failed-to-launch-190">4. Failed to launch! 190</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cryoSPARC.html#binary-locations-of-gctf-motioncor2">5. Binary locations of Gctf, MotionCor2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="topaz.html">Topaz</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="topaz.html#topaz-executables">Topaz Executables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="topaz.html#topaz-binary-executable-with-cuda-9-2">Topaz binary executable with CUDA 9.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topaz.html#topaz-binary-executable-with-cuda-11-2">Topaz binary executable with CUDA 11.2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="topaz.html#using-topaz-in-cryosparc">Using Topaz in CryoSPARC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topaz.html#using-topaz-in-relion-v3-1-0-above">Using Topaz in Relion (v3.1.0 above)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-to-resolve-the-problems-on-re-starting-your-own-cryosparc-instance">How to resolve the problems on (re)starting your own cryosparc instance?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-to-repair-cryosparc-database-corruption">How to repair cryosparc database corruption?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-to-upgrade-or-downgrade-to-the-specific-version-of-cryosparc-softwares">How to upgrade (or downgrade) to the specific version of cryosparc softwares?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#checking-for-updates">1. Checking for updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#before-you-update-complete-or-kill-running-jobs">2. Before you update: complete or kill running jobs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#back-up-cryosparc-databases">3. Back-up cryosparc databases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#cryosparc-master-updates">4. Cryosparc master updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#cryosparc-worker-updates">5. Cryosparc worker updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#running-the-newer-cryosparc-instance">6. Running the newer cryosparc instance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.html">APPENDIX : Application Form &amp; Materials </a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.html#gsdc-tem-application-form">GSDC TEM Application Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#tutorial">Tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contacts</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tem-docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">GSDC Computing Cluster for TEM</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/newfarm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gsdc-computing-cluster-for-tem">
+<h1>GSDC Computing Cluster for TEM<a class="headerlink" href="#gsdc-computing-cluster-for-tem" title="Permalink to this heading"></a></h1>
+<section id="service-overview">
+<span id="id1"></span><h2>1. Service overview<a class="headerlink" href="#service-overview" title="Permalink to this heading"></a></h2>
+<p>GSDC (Global Science experimental Data hub Center) provides data computing services, i.e., large-scale Cryo-EM data transfer, archiving and/or processing to Cryo-EM operators/users.
+Cryo-EM facilities which are operated by government-funded research institutes or academies, can be directly connected to GSDC via KREONET with 10+ Gbps dedicated/shared network links.
+GSDC also supports petabyes scale of high performance (and/or archiving) storages and CPU/GPU computing servers to help Cryo-EM users’ scientific discoveries.
+Here is GSDC’s computing and storage infrastructres for Cryo-EM operators/users.</p>
+<ul class="simple">
+<li><p>Overall architecture between KBSI’s and SNU’s Cryo-EM facilities and GSDC’s TEM computing cluster.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/tem_service_farm.png"><img alt="_images/tem_service_farm.png" class="align-center" src="_images/tem_service_farm.png" style="width: 991.8000000000001px; height: 753.3000000000001px;" /></a>
+</section>
+<section id="computing-and-storage-resources">
+<span id="hardware-specification-of-tem-service-farm"></span><h2>2. Computing and storage resources<a class="headerlink" href="#computing-and-storage-resources" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Category</p></td>
+<td><p>Name (sdfarm.kr)</p></td>
+<td><p>Specification</p></td>
+<td><p>Resources size</p></td>
+</tr>
+<tr class="row-even"><td><p>Login</p></td>
+<td><p><strong>tem-ui-el7</strong></p></td>
+<td><ul class="simple">
+<li><p>CPU : Intel(R) Xeon(R) Gold 6150 CPU &#64; 2.70GHz 18Core * 2 CPUs</p></li>
+<li><p>RAM : DDR4 2,666MHz 16GB * 24EA (384GB)</p></li>
+<li><p>HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)</p></li>
+</ul>
+</td>
+<td><p>72 cores (H/T)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Login
+(CryoSPARC)</p></td>
+<td><p><strong>tem-cs-el7</strong></p></td>
+<td><ul class="simple">
+<li><p>CPU : Intel(R) Xeon(R) CPU E5-2697v3 &#64; 2.60GHz 14Core * 2 CPUs</p></li>
+<li><p>RAM : DDR4 8GB * 24 (192GB)</p></li>
+<li><p>HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)</p></li>
+</ul>
+</td>
+<td><p>56 cores (H/T)</p></td>
+</tr>
+<tr class="row-even"><td><p>Master</p></td>
+<td><p>tem-ce-el7</p></td>
+<td><ul class="simple">
+<li><p>CPU : Intel(R) Xeon(R) CPU E5-2697v3 &#64; 2.60GHz 14Core * 2 CPUs</p></li>
+<li><p>RAM : DDR4 8GB * 24 (192GB)</p></li>
+<li><p>HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)</p></li>
+</ul>
+</td>
+<td><p>56 cores (H/T)</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><p>Workers</p></td>
+<td><p>tem-wn[1001-1002]-el7</p></td>
+<td><ul class="simple">
+<li><p>CPU : Intel(R) Xeon(R) Gold 6150 CPU &#64; 2.70GHz 18Core * 2 CPUs</p></li>
+<li><p>RAM : DDR4 2,666MHz 16GB * 24EA (384GB)</p></li>
+<li><p>HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)</p></li>
+</ul>
+</td>
+<td rowspan="2"><p>380 cores</p></td>
+</tr>
+<tr class="row-even"><td><p>tem-wn[1003-1013]-el7</p></td>
+<td><ul class="simple">
+<li><p>CPU : Intel(R) Xeon(R) CPU E5-2697v3 &#64; 2.60GHz 14Core * 2 CPUs</p></li>
+<li><p>RAM : DDR4 8GB * 24 (192GB)</p></li>
+<li><p>HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>tem-gpu[01-03]-el7</p></td>
+<td><ul class="simple">
+<li><p>CPU : Intel® Xeon® CPU E5-2690v4 &#64; 2.60GHz 14Core * 2 CPUs</p></li>
+<li><p>RAM : DDR4 16GB * 24 (384GB)</p></li>
+<li><p>SSD : 6G SATA SSD 800GB * 2EA (RAID-1)</p></li>
+<li><p>GPU : NVIDIA P100 16GB * 2EA</p></li>
+</ul>
+</td>
+<td rowspan="3"><ul class="simple">
+<li><p>204 cores</p></li>
+<li><p>14 GPGPUs</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>tem-gpu[04-05]-el7</p></td>
+<td><ul class="simple">
+<li><p>CPU : Intel® Xeon® CPU E5-2690v4 &#64; 2.60GHz 14Core * 2 CPUs</p></li>
+<li><p>RAM : DDR4 16GB * 16 (256GB)</p></li>
+<li><p>SSD : 6G SATA SSD 800GB * 2EA (RAID-1)</p></li>
+<li><p>GPU : NVIDIA P40 24GB * 2EA</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>tem-gpu[06-07]-el7</p></td>
+<td><ul class="simple">
+<li><p>CPU : Intel® Xeon® Gold 6226R CPU &#64; 2.90GHz 16Core * 2 CPUs</p></li>
+<li><p>RAM : DDR4 32GB * 12 (384GB)</p></li>
+<li><p>HDD : 12G SAS HDD 1.6TB * 2EA (RAID-1)</p></li>
+<li><p>GPU : NVIDIA A100 40GB * 2EA</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>Storage</p></td>
+<td><p>User home directory (Home)</p></td>
+<td colspan="2"><p>100GB per each user account (/tem/home)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Data analysis (Scratch)</p></td>
+<td colspan="2"><p>40TB per each research group (/tem/scratch)</p></td>
+</tr>
+<tr class="row-even"><td><p>Archive</p></td>
+<td colspan="2"><p>500TB per each Cryo-EM site (/tem/archive)</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>Total</p></td>
+<td colspan="2"><p>676 CPU cores (physical), 14 GPGPUs, 800TB Storage</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cluster-management-softwares">
+<span id="id2"></span><h2>3. Cluster management softwares<a class="headerlink" href="#cluster-management-softwares" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Category</p></td>
+<td><p>Name</p></td>
+<td><p>Description</p></td>
+<td><p>Version
+(module path)</p></td>
+</tr>
+<tr class="row-even"><td><p>OS</p></td>
+<td><p>Scientific Linux</p></td>
+<td><p>Operating system</p></td>
+<td><p>7.9</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="6"><p>System
+M/W</p></td>
+<td><p>Environment module</p></td>
+<td><ul class="simple">
+<li><p>Module environment</p></li>
+<li><p><a class="reference external" href="https://modules.readthedocs.io/en/latest">https://modules.readthedocs.io/en/latest</a></p></li>
+</ul>
+</td>
+<td><p>v4.4.1</p></td>
+</tr>
+<tr class="row-even"><td><p>OpenPBS(torque)</p></td>
+<td><ul class="simple">
+<li><p>Cluster resources management</p></li>
+<li><p><a class="reference external" href="http://www.adaptivecomputing.com/products/torque">http://www.adaptivecomputing.com/products/torque</a></p></li>
+</ul>
+</td>
+<td><p>v6.1.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>OpenMPI</p></td>
+<td><ul class="simple">
+<li><p>Messaging Pass Interface(MPI)</p></li>
+<li><p>Reference implementation for MPI standard</p></li>
+<li><p><a class="reference external" href="https://www.open-mpi.org">https://www.open-mpi.org</a></p></li>
+</ul>
+</td>
+<td><div class="line-block">
+<div class="line">v4.0.3</div>
+<div class="line">(mpi/gcc/openmpi/4.0.3)</div>
+<div class="line">(mpi/gcc/8.3.1/openmpi/4.0.3)</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>cuda</p></td>
+<td><ul class="simple">
+<li><p>Compute Unified Device Architecture(CUDA)</p></li>
+<li><p>NVIDIA CUDA Runtime &amp; Toolkit</p></li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/cuda-toolkit">https://developer.nvidia.com/cuda-toolkit</a></p></li>
+</ul>
+</td>
+<td><div class="line-block">
+<div class="line">9.2 (cuda/9.2)</div>
+<div class="line">11.2 (cuda/11.2)</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Anaconda</p></td>
+<td><ul class="simple">
+<li><p>Python based virtual environemnt</p></li>
+<li><p><a class="reference external" href="https://www.anaconda.com/">https://www.anaconda.com/</a></p></li>
+</ul>
+</td>
+<td><p>2020.11 (conda/2020.11)</p></td>
+</tr>
+<tr class="row-even"><td><p>Python</p></td>
+<td><ul class="simple">
+<li><p>Python runtime</p></li>
+</ul>
+</td>
+<td><p>v2.7.5</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-analysis-tools">
+<span id="id3"></span><h2>4. Data analysis tools<a class="headerlink" href="#data-analysis-tools" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Category</p></td>
+<td><p>Name</p></td>
+<td><p>Description</p></td>
+<td><p>Version
+(module path)</p></td>
+</tr>
+<tr class="row-even"><td rowspan="6"><p>Tools</p></td>
+<td><p><strong>Relion</strong></p></td>
+<td><div class="line-block">
+<div class="line">A stand-alone computer program that employs an empirical Bayesian</div>
+<div class="line">approach to refinement of (multiple) 3D reconstructions or 2D</div>
+<div class="line">class averages in electron cryo-microscopy (cryo-EM).</div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www3.mrc-lmb.cam.ac.uk/relion/index.php">https://www3.mrc-lmb.cam.ac.uk/relion/index.php</a></p></li>
+</ul>
+</td>
+<td><div class="line-block">
+<div class="line">v3.0.7</div>
+<div class="line">(apps/relion/cpu/3.0.7)</div>
+<div class="line">(apps/relion/gpu/3.0.7)</div>
+</div>
+<div class="line-block">
+<div class="line">v3.1.0</div>
+<div class="line">(apps/relion/cpu/3.1.0)</div>
+<div class="line">(apps/relion/gpu/3.1.0)</div>
+</div>
+<div class="line-block">
+<div class="line">v4.0.0</div>
+<div class="line">(apps/relion/cpu/4.0.0)</div>
+<div class="line">(apps/relion/gpu/4.0.0)</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>cisTEM</strong></p></td>
+<td><div class="line-block">
+<div class="line">User-friendly software to process cryo-EM images of</div>
+<div class="line">macromolecular complexes and obtain high-resolution 3D</div>
+<div class="line">reconstructions.</div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cistem.org">https://cistem.org</a></p></li>
+</ul>
+</td>
+<td><div class="line-block">
+<div class="line">v1.0.0</div>
+<div class="line">(apps/cistem/1.0.0)</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>CryoSPARC</strong></p></td>
+<td><div class="line-block">
+<div class="line">CryoSPARC is the state-of-the-art platform used globally for</div>
+<div class="line">obtaining 3D structural information from single particle cryo-EM</div>
+<div class="line">data.</div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cryosparc.com">https://cryosparc.com</a></p></li>
+</ul>
+</td>
+<td><div class="line-block">
+<div class="line">v3.0.1</div>
+<div class="line">v3.2.0</div>
+<div class="line">v4.0.0</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Topaz</strong></p></td>
+<td><div class="line-block">
+<div class="line">A pipeline for particle detection in cryoem images using</div>
+<div class="line">convolutional neural networks trained from positive and unlabeled</div>
+<div class="line">data.</div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tbepler/topaz">https://github.com/tbepler/topaz</a></p></li>
+</ul>
+</td>
+<td><div class="line-block">
+<div class="line">v0.2.4</div>
+<div class="line">(topaz/cuda-9.2/0.2.4)</div>
+<div class="line">(topaz/cuda-11.0/0.2.4)</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>PyEM</strong></p></td>
+<td><div class="line-block">
+<div class="line">A collection of Python modules and command-line utilities for</div>
+<div class="line">electron microscopy of biological samples.</div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/asarnow/pyem">https://github.com/asarnow/pyem</a></p></li>
+</ul>
+</td>
+<td><div class="line-block">
+<div class="line">v0.5</div>
+<div class="line">(pyem/0.5)</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Rosetta</strong></p></td>
+<td><div class="line-block">
+<div class="line">Software suite for computational modeling and analysis of protein</div>
+<div class="line">structures.</div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.rosettacommons.org/software">https://www.rosettacommons.org/software</a></p></li>
+</ul>
+</td>
+<td><div class="line-block">
+<div class="line">v3.13</div>
+<div class="line">(rosetta/openmpi-4.0.3/3.13)</div>
+<div class="line">(rosetta/mpich-3.4.3/3.13)</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="requesting-user-accounts-and-accessing-gsdc-tem-computing-cluster">
+<h2>5. Requesting user accounts and accessing GSDC TEM computing cluster<a class="headerlink" href="#requesting-user-accounts-and-accessing-gsdc-tem-computing-cluster" title="Permalink to this heading"></a></h2>
+<p><a class="reference internal" href="guide.html#requesting-accounts"><span class="std std-ref">Requesting accounts and accessing TEM cluster</span></a></p>
+<p>Before proceed to next, please read the documents <a class="reference internal" href="guide.html#module-details"><span class="std std-ref">Understanding environment modules</span></a> and <a class="reference internal" href="guide.html#batch-details"><span class="std std-ref">Job manager (Torque)</span></a> to better understand module environment and batch job manager.</p>
+</section>
+<section id="module-paths-and-job-submission-templates">
+<h2>6. Module paths and job submission templates<a class="headerlink" href="#module-paths-and-job-submission-templates" title="Permalink to this heading"></a></h2>
+<section id="module-paths-for-data-analysis-tools">
+<h3>Module paths for data analysis tools<a class="headerlink" href="#module-paths-for-data-analysis-tools" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>module<span class="w"> </span>avail
+--------<span class="w"> </span>/tem/el7/Modules/apps<span class="w"> </span>---------
+apps/cistem/1.0.0
+apps/relion/cpu/3.0.7
+apps/relion/cpu/3.1.0
+apps/relion/cpu/4.0.0
+apps/relion/gpu/3.0.7
+apps/relion/gpu/3.1.0
+apps/relion/gpu/4.0.0
+
+----<span class="w"> </span>/tem/el7/Modules/acceleration<span class="w"> </span>-----
+cuda/9.2<span class="w">  </span>cuda/11.2
+
+---------<span class="w"> </span>/tem/el7/Modules/mpi<span class="w"> </span>---------
+mpi/gcc/8.3.1/mpich/3.4.3
+mpi/gcc/8.3.1/openmpi/4.0.3
+mpi/gcc/openmpi/4.0.3
+
+-----<span class="w"> </span>/tem/el7/Modules/virtualenv<span class="w"> </span>------
+conda/2020.11
+pyem/0.5
+topaz/cuda-9.2/0.2.4
+topaz/cuda-11.0/0.2.4
+
+--------<span class="w"> </span>/tem/el7/Modules/tools<span class="w"> </span>--------
+tools/aspera-cli/3.9.6
+tools/ctffind/4.1.14
+tools/gctf/1.18_b2
+tools/motioncor2/1.3.1
+tools/resmap/1.1.4
+tools/summovie/1.0.2
+tools/unblur/1.0.2
+
+-----<span class="w"> </span>/tem/el7/Modules/experiment<span class="w"> </span>------
+devel/python/3.7
+PyRosetta/4
+rosetta/mpich-3.4.3/3.13
+rosetta/openmpi-4.0.3/3.13
+</pre></div>
+</div>
+</section>
+<section id="job-submission-templates">
+<h3>Job submission templates<a class="headerlink" href="#job-submission-templates" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/tem/el7/qsub-cisTEM-cpu-noout.sh<span class="w">             </span><span class="c1">## output, error 로그 파일을 생성하지 않는 cisTEM 작업 템플릿</span>
+/tem/el7/qsub-cisTEM-cpu.sh<span class="w">                   </span><span class="c1">## output, error 로그 파일을 생성하는 cisTEM 작업 템플릿</span>
+/tem/el7/qsub-relion-3.0.7-cpu.bash<span class="w">           </span><span class="c1">## Relion 3.0.7 CPU MPI 작업 템플릿</span>
+/tem/el7/qsub-relion-3.0.7-gpu.bash<span class="w">           </span><span class="c1">## Relion 3.0.7 GPU 가속 활용하는 MPI 작업 템플릿</span>
+
+/tem/el7/qsub-relion-3.1.0-cpu.bash<span class="w">           </span><span class="c1">## Relion 3.1.0 CPU MPI 작업 템플릿</span>
+/tem/el7/qsub-relion-3.1.0-gpu.bash<span class="w">           </span><span class="c1">## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿</span>
+/tem/el7/qsub-relion-3.1.0-topaz.bash<span class="w">         </span><span class="c1">## Relion 3.1.0 에서 external job 으로 topaz 소프트웨어를 사용하는 작업 템플릿</span>
+
+/tem/el7/qsub-relion-4.0.0-cpu.bash<span class="w">           </span><span class="c1">## Relion 4.0.0 CPU MPI 작업 템플릿</span>
+/tem/el7/qsub-relion-4.0.0-gpu.bash<span class="w">           </span><span class="c1">## Relion 4.0.0 GPU 가속 활용하는 MPI 작업 템플릿</span>
+/tem/el7/qsub-relion-4.0.0-topaz.bash<span class="w">         </span><span class="c1">## Relion 4.0.0 에서 external job 으로 topaz 소프트웨어를 사용하는 작업 템플릿</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="batch-queues">
+<h2>7. Batch queues<a class="headerlink" href="#batch-queues" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Category</p></td>
+<td><p>Queue Name</p></td>
+<td><p>Assigned Computing Resources</p></td>
+<td><p>Remarks</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>Shared</p></td>
+<td><p><strong>cpuQ</strong></p></td>
+<td><ul class="simple">
+<li><p>tem-wn[1001-1002]-el7.sdfarm.kr (36 cores and 384GB memory per node)</p></li>
+<li><p>tem-wn[1003-1013]-el7.sdfarm.kr (28 cores and 192GB memory per node)</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>380 Physical CPU cores</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>gpuQ</strong></p></td>
+<td><ul class="simple">
+<li><p>tem-gpu[01-03]-el7.sdfarm.kr (28 cores, 2 P100 GPUs and 384GB mem.)</p></li>
+<li><p>tem-gpu[04-05]-el7.sdfarm.kr (28 cores, 2 P40 GPUs and 256GB mem.)</p></li>
+<li><p>tem-gpu[06-07]-el7.sdfarm.kr (32 cores, 2 A100 GPUs and 256GB mem.)</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>204 Physical CPU cores</p></li>
+<li><p>14 GPUs</p></li>
+<li><p>P100 16GB device memory</p></li>
+<li><p>P40 24GB device memory</p></li>
+<li><p>A100 40GB device memory</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<section id="checking-batch-queue-names-and-their-status">
+<h3>Checking batch queue names and their status<a class="headerlink" href="#checking-batch-queue-names-and-their-status" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>qstat<span class="w"> </span>-Qf
+Queue:<span class="w"> </span>cpuQ
+<span class="w">  </span><span class="nv">queue_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Execution
+<span class="w">  </span><span class="nv">total_jobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="w">  </span><span class="nv">state_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Transit:0<span class="w"> </span>Queued:0<span class="w"> </span>Held:0<span class="w"> </span>Waiting:0<span class="w"> </span>Running:0<span class="w"> </span>Exiting:0<span class="w"> </span>Complete:0
+<span class="w">  </span>resources_default.neednodes<span class="w"> </span><span class="o">=</span><span class="w"> </span>cpuQ
+<span class="w">  </span>resources_default.nodes<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="nv">acl_group_enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+<span class="w">  </span><span class="nv">acl_groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>tem_users
+<span class="w">  </span><span class="nv">acl_group_sloppy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+<span class="w">  </span><span class="nv">mtime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1610553300</span>
+<span class="w">  </span>resources_assigned.nodect<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="w">  </span><span class="nv">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+<span class="w">  </span><span class="nv">started</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+
+Queue:<span class="w"> </span>gpuQ
+<span class="w">  </span><span class="nv">queue_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Execution
+<span class="w">  </span><span class="nv">total_jobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="w">  </span><span class="nv">state_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Transit:0<span class="w"> </span>Queued:0<span class="w"> </span>Held:0<span class="w"> </span>Waiting:0<span class="w"> </span>Running:0<span class="w"> </span>Exiting:0<span class="w"> </span>Complete:0
+<span class="w">  </span>resources_default.neednodes<span class="w"> </span><span class="o">=</span><span class="w"> </span>gpuQ
+<span class="w">  </span>resources_default.nodes<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="nv">acl_group_enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+<span class="w">  </span><span class="nv">acl_groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>tem_users
+<span class="w">  </span><span class="nv">acl_group_sloppy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+<span class="w">  </span><span class="nv">mtime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1610553300</span>
+<span class="w">  </span>resources_assigned.nodect<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="w">  </span><span class="nv">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+<span class="w">  </span><span class="nv">started</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+</pre></div>
+</div>
+</section>
+<section id="checking-all-worker-nodes-status">
+<h3>Checking all worker nodes status<a class="headerlink" href="#checking-all-worker-nodes-status" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>pbsnodes<span class="w"> </span>-a
+tem-wn1001-el7.sdfarm.kr
+<span class="w">  </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>free
+<span class="w">  </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">  </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span>
+<span class="w">  </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cpuQ
+<span class="w">  </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">  </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-wn1001-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.6.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Nov 10 08:19:23 CST 2020 x86_64,sessions=2125,nsessions=1,nusers=1,idletime=3189604,totmem=400927652kb,availmem=386021536kb,physmem=394636200kb,ncpus=36,loadave=0.02,gres=,netload=368024574355580,state=free,varattr= ,cpuclock=Fixed,macaddr=34:80:0d:46:cc:88,version=6.1.2,rectime=1610587316,jobs=</span>
+<span class="w">  </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">  </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+
+tem-wn1002-el7.sdfarm.kr
+<span class="w">  </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>free
+<span class="w">  </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">  </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span>
+<span class="w">  </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cpuQ
+<span class="w">  </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">  </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-wn1002-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.2.2.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Mon Oct 19 10:20:12 CDT 2020 x86_64,sessions=1980,nsessions=1,nusers=1,idletime=3189585,totmem=400927812kb,availmem=386052592kb,physmem=394636360kb,ncpus=36,loadave=0.00,gres=,netload=467274352677137,state=free,varattr= ,cpuclock=Fixed,macaddr=f4:e9:d4:67:a5:0c,version=6.1.2,rectime=1610587321,jobs=</span>
+<span class="w">  </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">  </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+
+tem-wn1003-el7.sdfarm.kr
+<span class="w">  </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>free
+<span class="w">  </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">  </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">28</span>
+<span class="w">  </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cpuQ
+<span class="w">  </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">  </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-wn1003-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.11.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Dec 15 08:51:23 CST 2020 x86_64,sessions=16988 30464,nsessions=2,nusers=2,idletime=77442,totmem=204113112kb,availmem=197470212kb,physmem=197821660kb,ncpus=28,loadave=0.00,gres=,netload=7771760205,state=free,varattr= ,cpuclock=Fixed,macaddr=24:6e:96:01:df:d0,version=6.1.2,rectime=1610587306,jobs=</span>
+<span class="w">  </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">  </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+
+tem-wn1004-el7.sdfarm.kr
+<span class="w">  </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>free
+<span class="w">  </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">  </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">28</span>
+<span class="w">  </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cpuQ
+<span class="w">  </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">  </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-wn1004-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.11.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Dec 15 08:51:23 CST 2020 x86_64,sessions=21911,nsessions=1,nusers=1,idletime=84377,totmem=204113112kb,availmem=197460724kb,physmem=197821660kb,ncpus=28,loadave=0.19,gres=,netload=9209594231,state=free,varattr= ,cpuclock=Fixed,macaddr=24:6e:96:01:df:c0,version=6.1.2,rectime=1610587297,jobs=</span>
+<span class="w">  </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">  </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+
+tem-wn1005-el7.sdfarm.kr
+<span class="w">  </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>free
+<span class="w">  </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">  </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">28</span>
+<span class="w">  </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cpuQ
+<span class="w">  </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">  </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-wn1005-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.11.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Dec 15 08:51:23 CST 2020 x86_64,sessions=2032,nsessions=1,nusers=1,idletime=84135,totmem=204113112kb,availmem=197566008kb,physmem=197821660kb,ncpus=28,loadave=0.00,gres=,netload=9652090409,state=free,varattr= ,cpuclock=Fixed,macaddr=24:6e:96:02:de:b0,version=6.1.2,rectime=1610587295,jobs=</span>
+<span class="w">  </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">  </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+
+tem-wn1006-el7.sdfarm.kr
+<span class="w">  </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>free
+<span class="w">  </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">  </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">28</span>
+<span class="w">  </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cpuQ
+<span class="w">  </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">  </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-wn1006-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.11.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Dec 15 08:51:23 CST 2020 x86_64,sessions=22262,nsessions=1,nusers=1,idletime=84367,totmem=204113112kb,availmem=197470252kb,physmem=197821660kb,ncpus=28,loadave=0.00,gres=,netload=9653528113,state=free,varattr= ,cpuclock=Fixed,macaddr=24:6e:96:01:e1:70,version=6.1.2,rectime=1610587303,jobs=</span>
+<span class="w">  </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">  </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+
+tem-wn1007-el7.sdfarm.kr
+<span class="w">  </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>free
+<span class="w">  </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">  </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">28</span>
+<span class="w">  </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cpuQ
+<span class="w">  </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">  </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-wn1007-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.11.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Dec 15 08:51:23 CST 2020 x86_64,sessions=15172,nsessions=1,nusers=1,idletime=84349,totmem=204113112kb,availmem=197490356kb,physmem=197821660kb,ncpus=28,loadave=0.08,gres=,netload=7246363991,state=free,varattr= ,cpuclock=Fixed,macaddr=24:6e:96:02:e3:80,version=6.1.2,rectime=1610587301,jobs=</span>
+<span class="w">  </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">  </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+
+tem-wn1008-el7.sdfarm.kr
+<span class="w">  </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>free
+<span class="w">  </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">  </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">28</span>
+<span class="w">  </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cpuQ
+<span class="w">  </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">  </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-wn1008-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.11.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Dec 15 08:51:23 CST 2020 x86_64,sessions=22147,nsessions=1,nusers=1,idletime=84323,totmem=204113112kb,availmem=197470664kb,physmem=197821660kb,ncpus=28,loadave=0.00,gres=,netload=6170249241,state=free,varattr= ,cpuclock=Fixed,macaddr=24:6e:96:02:df:50,version=6.1.2,rectime=1610587299,jobs=</span>
+<span class="w">  </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">  </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+
+tem-wn1009-el7.sdfarm.kr
+<span class="w">   </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>job-exclusive
+<span class="w">   </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">   </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">28</span>
+<span class="w">   </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cpuQ
+<span class="w">   </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">   </span><span class="nb">jobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>-13/307.tem-ce-el7.sdfarm.kr,14-27/308.tem-ce-el7.sdfarm.kr
+<span class="w">   </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-wn1009-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.11.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Dec 15 08:51:23 CST 2020 x86_64,sessions=1637 21403 21462,nsessions=3,nusers=2,idletime=124523,totmem=204113112kb,availmem=82190600kb,physmem=197821660kb,ncpus=28,loadave=28.02,gres=,netload=5715573075825,state=free,varattr= ,cpuclock=Fixed,macaddr=ec:f4:bb:e9:cd:28,version=6.1.2,rectime=1611712971,jobs=307.tem-ce-el7.sdfarm.kr 308.tem-ce-el7.sdfarm.kr</span>
+<span class="w">   </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">   </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+
+tem-wn1010-el7.sdfarm.kr
+<span class="w">   </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>job-exclusive
+<span class="w">   </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">   </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">28</span>
+<span class="w">   </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cpuQ
+<span class="w">   </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">   </span><span class="nb">jobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>-13/307.tem-ce-el7.sdfarm.kr,14-27/308.tem-ce-el7.sdfarm.kr
+<span class="w">   </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-wn1010-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.11.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Dec 15 08:51:23 CST 2020 x86_64,sessions=10683 10742 21656,nsessions=3,nusers=2,idletime=125228,totmem=204113112kb,availmem=82076700kb,physmem=197821660kb,ncpus=28,loadave=28.41,gres=,netload=10000812494662,state=free,varattr= ,cpuclock=Fixed,macaddr=ec:f4:bb:e9:c8:e0,version=6.1.2,rectime=1611712972,jobs=307.tem-ce-el7.sdfarm.kr 308.tem-ce-el7.sdfarm.kr</span>
+<span class="w">   </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">   </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+
+tem-wn1011-el7.sdfarm.kr
+<span class="w">   </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>job-exclusive
+<span class="w">   </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">   </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">28</span>
+<span class="w">   </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cpuQ
+<span class="w">   </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">   </span><span class="nb">jobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>-13/307.tem-ce-el7.sdfarm.kr,14-27/308.tem-ce-el7.sdfarm.kr
+<span class="w">   </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-wn1011-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.11.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Dec 15 08:51:23 CST 2020 x86_64,sessions=10368 10428 21655,nsessions=3,nusers=2,idletime=128086,totmem=204113112kb,availmem=81587604kb,physmem=197821660kb,ncpus=28,loadave=28.16,gres=,netload=5807235665327,state=free,varattr= ,cpuclock=Fixed,macaddr=ec:f4:bb:e9:bf:28,version=6.1.2,rectime=1611712972,jobs=307.tem-ce-el7.sdfarm.kr 308.tem-ce-el7.sdfarm.kr</span>
+<span class="w">   </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">   </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+
+tem-wn1012-el7.sdfarm.kr
+<span class="w">   </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>job-exclusive
+<span class="w">   </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">   </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">28</span>
+<span class="w">   </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cpuQ
+<span class="w">   </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">   </span><span class="nb">jobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>-13/307.tem-ce-el7.sdfarm.kr,14-27/308.tem-ce-el7.sdfarm.kr
+<span class="w">   </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-wn1012-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.11.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Dec 15 08:51:23 CST 2020 x86_64,sessions=10379 10475 21655,nsessions=3,nusers=2,idletime=127792,totmem=204113112kb,availmem=84717576kb,physmem=197821660kb,ncpus=28,loadave=28.27,gres=,netload=10075699597211,state=free,varattr= ,cpuclock=Fixed,macaddr=24:6e:96:02:de:d0,version=6.1.2,rectime=1611712971,jobs=307.tem-ce-el7.sdfarm.kr 308.tem-ce-el7.sdfarm.kr</span>
+<span class="w">   </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">   </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+
+tem-gpu01-el7.sdfarm.kr
+<span class="w">  </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>free
+<span class="w">  </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">  </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">28</span>
+<span class="w">  </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gpuQ
+<span class="w">  </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">  </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-gpu01-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.11.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Dec 15 08:51:23 CST 2020 x86_64,sessions=1823 4268,nsessions=2,nusers=2,idletime=36086,totmem=402281596kb,availmem=390304804kb,physmem=395990144kb,ncpus=28,loadave=0.05,gres=,netload=2091843090,state=free,varattr= ,cpuclock=Fixed,macaddr=24:6e:96:77:a0:80,version=6.1.2,rectime=1610587294,jobs=</span>
+<span class="w">  </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">  </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+<span class="w">  </span><span class="nv">gpus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<span class="w">  </span><span class="nv">gpu_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gpu<span class="o">[</span><span class="m">1</span><span class="o">]=</span><span class="nv">gpu_id</span><span class="o">=</span><span class="m">00000000</span>:82:00.0<span class="p">;</span><span class="nv">gpu_pci_device_id</span><span class="o">=</span><span class="m">368578782</span><span class="p">;</span><span class="nv">gpu_pci_location_id</span><span class="o">=</span><span class="m">00000000</span>:82:00.0<span class="p">;</span><span class="nv">gpu_product_name</span><span class="o">=</span>Tesla<span class="w"> </span>P100-PCIE-16GB<span class="p">;</span><span class="nv">gpu_memory_total</span><span class="o">=</span><span class="m">16280</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_memory_used</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_mode</span><span class="o">=</span>Default<span class="p">;</span><span class="nv">gpu_state</span><span class="o">=</span>Unallocated<span class="p">;</span><span class="nv">gpu_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_memory_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_ecc_mode</span><span class="o">=</span>Enabled<span class="p">;</span><span class="nv">gpu_single_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_double_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_temperature</span><span class="o">=</span><span class="m">28</span><span class="w"> </span>C,gpu<span class="o">[</span><span class="m">0</span><span class="o">]=</span><span class="nv">gpu_id</span><span class="o">=</span><span class="m">00000000</span>:03:00.0<span class="p">;</span><span class="nv">gpu_pci_device_id</span><span class="o">=</span><span class="m">368578782</span><span class="p">;</span><span class="nv">gpu_pci_location_id</span><span class="o">=</span><span class="m">00000000</span>:03:00.0<span class="p">;</span><span class="nv">gpu_product_name</span><span class="o">=</span>Tesla<span class="w"> </span>P100-PCIE-16GB<span class="p">;</span><span class="nv">gpu_memory_total</span><span class="o">=</span><span class="m">16280</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_memory_used</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_mode</span><span class="o">=</span>Default<span class="p">;</span><span class="nv">gpu_state</span><span class="o">=</span>Unallocated<span class="p">;</span><span class="nv">gpu_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_memory_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_ecc_mode</span><span class="o">=</span>Enabled<span class="p">;</span><span class="nv">gpu_single_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_double_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_temperature</span><span class="o">=</span><span class="m">29</span><span class="w"> </span>C<span class="p">;</span><span class="nv">gpu_display</span><span class="o">=</span>Enabled,gpu_display<span class="o">=</span>Enabled,driver_ver<span class="o">=</span><span class="m">460</span>.27.04,timestamp<span class="o">=</span>Thu<span class="w"> </span>Jan<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">10</span>:21:33<span class="w"> </span><span class="m">2021</span>
+
+tem-gpu02-el7.sdfarm.kr
+<span class="w">  </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>free
+<span class="w">  </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">  </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">28</span>
+<span class="w">  </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gpuQ
+<span class="w">  </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">  </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-gpu02-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.11.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Dec 15 08:51:23 CST 2020 x86_64,sessions=2142,nsessions=1,nusers=1,idletime=35378,totmem=402277340kb,availmem=390086436kb,physmem=395985888kb,ncpus=56,loadave=0.09,gres=,netload=2464164051,state=free,varattr= ,cpuclock=Fixed,macaddr=24:6e:96:77:9b:30,version=6.1.2,rectime=1610587314,jobs=</span>
+<span class="w">  </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">  </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+<span class="w">  </span><span class="nv">gpus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<span class="w">  </span><span class="nv">gpu_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gpu<span class="o">[</span><span class="m">1</span><span class="o">]=</span><span class="nv">gpu_id</span><span class="o">=</span><span class="m">00000000</span>:82:00.0<span class="p">;</span><span class="nv">gpu_pci_device_id</span><span class="o">=</span><span class="m">368578782</span><span class="p">;</span><span class="nv">gpu_pci_location_id</span><span class="o">=</span><span class="m">00000000</span>:82:00.0<span class="p">;</span><span class="nv">gpu_product_name</span><span class="o">=</span>Tesla<span class="w"> </span>P100-PCIE-16GB<span class="p">;</span><span class="nv">gpu_memory_total</span><span class="o">=</span><span class="m">16280</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_memory_used</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_mode</span><span class="o">=</span>Default<span class="p">;</span><span class="nv">gpu_state</span><span class="o">=</span>Unallocated<span class="p">;</span><span class="nv">gpu_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_memory_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_ecc_mode</span><span class="o">=</span>Enabled<span class="p">;</span><span class="nv">gpu_single_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_double_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_temperature</span><span class="o">=</span><span class="m">27</span><span class="w"> </span>C,gpu<span class="o">[</span><span class="m">0</span><span class="o">]=</span><span class="nv">gpu_id</span><span class="o">=</span><span class="m">00000000</span>:03:00.0<span class="p">;</span><span class="nv">gpu_pci_device_id</span><span class="o">=</span><span class="m">368578782</span><span class="p">;</span><span class="nv">gpu_pci_location_id</span><span class="o">=</span><span class="m">00000000</span>:03:00.0<span class="p">;</span><span class="nv">gpu_product_name</span><span class="o">=</span>Tesla<span class="w"> </span>P100-PCIE-16GB<span class="p">;</span><span class="nv">gpu_memory_total</span><span class="o">=</span><span class="m">16280</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_memory_used</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_mode</span><span class="o">=</span>Default<span class="p">;</span><span class="nv">gpu_state</span><span class="o">=</span>Unallocated<span class="p">;</span><span class="nv">gpu_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_memory_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_ecc_mode</span><span class="o">=</span>Enabled<span class="p">;</span><span class="nv">gpu_single_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_double_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_temperature</span><span class="o">=</span><span class="m">33</span><span class="w"> </span>C<span class="p">;</span><span class="nv">gpu_display</span><span class="o">=</span>Enabled,gpu_display<span class="o">=</span>Enabled,driver_ver<span class="o">=</span><span class="m">460</span>.27.04,timestamp<span class="o">=</span>Thu<span class="w"> </span>Jan<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">10</span>:21:52<span class="w"> </span><span class="m">2021</span>
+
+tem-gpu03-el7.sdfarm.kr
+<span class="w">  </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>free
+<span class="w">  </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">  </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">28</span>
+<span class="w">  </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gpuQ
+<span class="w">  </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">  </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-gpu03-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.11.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Dec 15 08:51:23 CST 2020 x86_64,sessions=1816,nsessions=1,nusers=1,idletime=34739,totmem=402281596kb,availmem=390290980kb,physmem=395990144kb,ncpus=28,loadave=0.10,gres=,netload=1338950655,state=free,varattr= ,cpuclock=Fixed,macaddr=24:6e:96:77:9b:10,version=6.1.2,rectime=1610587315,jobs=</span>
+<span class="w">  </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">  </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+<span class="w">  </span><span class="nv">gpus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<span class="w">  </span><span class="nv">gpu_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gpu<span class="o">[</span><span class="m">1</span><span class="o">]=</span><span class="nv">gpu_id</span><span class="o">=</span><span class="m">00000000</span>:82:00.0<span class="p">;</span><span class="nv">gpu_pci_device_id</span><span class="o">=</span><span class="m">368578782</span><span class="p">;</span><span class="nv">gpu_pci_location_id</span><span class="o">=</span><span class="m">00000000</span>:82:00.0<span class="p">;</span><span class="nv">gpu_product_name</span><span class="o">=</span>Tesla<span class="w"> </span>P100-PCIE-16GB<span class="p">;</span><span class="nv">gpu_memory_total</span><span class="o">=</span><span class="m">16280</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_memory_used</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_mode</span><span class="o">=</span>Default<span class="p">;</span><span class="nv">gpu_state</span><span class="o">=</span>Unallocated<span class="p">;</span><span class="nv">gpu_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_memory_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_ecc_mode</span><span class="o">=</span>Enabled<span class="p">;</span><span class="nv">gpu_single_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_double_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_temperature</span><span class="o">=</span><span class="m">29</span><span class="w"> </span>C,gpu<span class="o">[</span><span class="m">0</span><span class="o">]=</span><span class="nv">gpu_id</span><span class="o">=</span><span class="m">00000000</span>:03:00.0<span class="p">;</span><span class="nv">gpu_pci_device_id</span><span class="o">=</span><span class="m">368578782</span><span class="p">;</span><span class="nv">gpu_pci_location_id</span><span class="o">=</span><span class="m">00000000</span>:03:00.0<span class="p">;</span><span class="nv">gpu_product_name</span><span class="o">=</span>Tesla<span class="w"> </span>P100-PCIE-16GB<span class="p">;</span><span class="nv">gpu_memory_total</span><span class="o">=</span><span class="m">16280</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_memory_used</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_mode</span><span class="o">=</span>Default<span class="p">;</span><span class="nv">gpu_state</span><span class="o">=</span>Unallocated<span class="p">;</span><span class="nv">gpu_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_memory_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_ecc_mode</span><span class="o">=</span>Enabled<span class="p">;</span><span class="nv">gpu_single_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_double_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_temperature</span><span class="o">=</span><span class="m">28</span><span class="w"> </span>C<span class="p">;</span><span class="nv">gpu_display</span><span class="o">=</span>Enabled,gpu_display<span class="o">=</span>Enabled,driver_ver<span class="o">=</span><span class="m">460</span>.27.04,timestamp<span class="o">=</span>Thu<span class="w"> </span>Jan<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">10</span>:21:53<span class="w"> </span><span class="m">2021</span>
+
+tem-gpu04-el7.sdfarm.kr
+<span class="w">   </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>free
+<span class="w">   </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">   </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">28</span>
+<span class="w">   </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gpuQ
+<span class="w">   </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">   </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-gpu04-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.11.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Dec 15 08:51:23 CST 2020 x86_64,sessions=2041,nsessions=1,nusers=1,idletime=63469,totmem=137732192kb,availmem=132548340kb,physmem=131440740kb,ncpus=48,loadave=0.10,gres=,netload=790032261080,state=free,varattr= ,cpuclock=Fixed,macaddr=e4:43:4b:07:8c:f0,version=6.1.2,rectime=1611712958,jobs=</span>
+<span class="w">   </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">   </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+<span class="w">   </span><span class="nv">gpus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<span class="w">   </span><span class="nv">gpu_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gpu<span class="o">[</span><span class="m">1</span><span class="o">]=</span><span class="nv">gpu_id</span><span class="o">=</span><span class="m">00000000</span>:AF:00.0<span class="p">;</span><span class="nv">gpu_pci_device_id</span><span class="o">=</span><span class="m">456659166</span><span class="p">;</span><span class="nv">gpu_pci_location_id</span><span class="o">=</span><span class="m">00000000</span>:AF:00.0<span class="p">;</span><span class="nv">gpu_product_name</span><span class="o">=</span>Tesla<span class="w"> </span>P40<span class="p">;</span><span class="nv">gpu_memory_total</span><span class="o">=</span><span class="m">22919</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_memory_used</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_mode</span><span class="o">=</span>Default<span class="p">;</span><span class="nv">gpu_state</span><span class="o">=</span>Unallocated<span class="p">;</span><span class="nv">gpu_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_memory_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_ecc_mode</span><span class="o">=</span>Enabled<span class="p">;</span><span class="nv">gpu_single_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_double_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_temperature</span><span class="o">=</span><span class="m">28</span><span class="w"> </span>C,gpu<span class="o">[</span><span class="m">0</span><span class="o">]=</span><span class="nv">gpu_id</span><span class="o">=</span><span class="m">00000000</span>:3B:00.0<span class="p">;</span><span class="nv">gpu_pci_device_id</span><span class="o">=</span><span class="m">456659166</span><span class="p">;</span><span class="nv">gpu_pci_location_id</span><span class="o">=</span><span class="m">00000000</span>:3B:00.0<span class="p">;</span><span class="nv">gpu_product_name</span><span class="o">=</span>Tesla<span class="w"> </span>P40<span class="p">;</span><span class="nv">gpu_memory_total</span><span class="o">=</span><span class="m">22919</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_memory_used</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_mode</span><span class="o">=</span>Default<span class="p">;</span><span class="nv">gpu_state</span><span class="o">=</span>Unallocated<span class="p">;</span><span class="nv">gpu_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_memory_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_ecc_mode</span><span class="o">=</span>Enabled<span class="p">;</span><span class="nv">gpu_single_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_double_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_temperature</span><span class="o">=</span><span class="m">25</span><span class="w"> </span>C<span class="p">;</span><span class="nv">gpu_display</span><span class="o">=</span>Enabled,gpu_display<span class="o">=</span>Enabled,driver_ver<span class="o">=</span><span class="m">460</span>.32.03,timestamp<span class="o">=</span>Wed<span class="w"> </span>Jan<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">11</span>:02:37<span class="w"> </span><span class="m">2021</span>
+
+tem-gpu05-el7.sdfarm.kr
+<span class="w">   </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>free
+<span class="w">   </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">   </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">28</span>
+<span class="w">   </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gpuQ
+<span class="w">   </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">   </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-gpu05-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.11.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Dec 15 08:51:23 CST 2020 x86_64,sessions=2352,nsessions=1,nusers=1,idletime=63492,totmem=269906392kb,availmem=261305348kb,physmem=263614940kb,ncpus=72,loadave=0.13,gres=,netload=808539072,state=free,varattr= ,cpuclock=Fixed,macaddr=e4:43:4b:03:78:38,version=6.1.2,rectime=1611712989,jobs=</span>
+<span class="w">   </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">   </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+<span class="w">   </span><span class="nv">gpus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<span class="w">   </span><span class="nv">gpu_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gpu<span class="o">[</span><span class="m">1</span><span class="o">]=</span><span class="nv">gpu_id</span><span class="o">=</span><span class="m">00000000</span>:AF:00.0<span class="p">;</span><span class="nv">gpu_pci_device_id</span><span class="o">=</span><span class="m">456659166</span><span class="p">;</span><span class="nv">gpu_pci_location_id</span><span class="o">=</span><span class="m">00000000</span>:AF:00.0<span class="p">;</span><span class="nv">gpu_product_name</span><span class="o">=</span>Tesla<span class="w"> </span>P40<span class="p">;</span><span class="nv">gpu_memory_total</span><span class="o">=</span><span class="m">22919</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_memory_used</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_mode</span><span class="o">=</span>Default<span class="p">;</span><span class="nv">gpu_state</span><span class="o">=</span>Unallocated<span class="p">;</span><span class="nv">gpu_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_memory_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_ecc_mode</span><span class="o">=</span>Enabled<span class="p">;</span><span class="nv">gpu_single_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_double_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_temperature</span><span class="o">=</span><span class="m">30</span><span class="w"> </span>C,gpu<span class="o">[</span><span class="m">0</span><span class="o">]=</span><span class="nv">gpu_id</span><span class="o">=</span><span class="m">00000000</span>:3B:00.0<span class="p">;</span><span class="nv">gpu_pci_device_id</span><span class="o">=</span><span class="m">456659166</span><span class="p">;</span><span class="nv">gpu_pci_location_id</span><span class="o">=</span><span class="m">00000000</span>:3B:00.0<span class="p">;</span><span class="nv">gpu_product_name</span><span class="o">=</span>Tesla<span class="w"> </span>P40<span class="p">;</span><span class="nv">gpu_memory_total</span><span class="o">=</span><span class="m">22919</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_memory_used</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_mode</span><span class="o">=</span>Default<span class="p">;</span><span class="nv">gpu_state</span><span class="o">=</span>Unallocated<span class="p">;</span><span class="nv">gpu_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_memory_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_ecc_mode</span><span class="o">=</span>Enabled<span class="p">;</span><span class="nv">gpu_single_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_double_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_temperature</span><span class="o">=</span><span class="m">27</span><span class="w"> </span>C<span class="p">;</span><span class="nv">gpu_display</span><span class="o">=</span>Enabled,gpu_display<span class="o">=</span>Enabled,driver_ver<span class="o">=</span><span class="m">460</span>.32.03,timestamp<span class="o">=</span>Wed<span class="w"> </span>Jan<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">11</span>:03:08<span class="w"> </span><span class="m">2021</span>
+
+tem-gpu06-el7.sdfarm.kr
+<span class="w">   </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>free
+<span class="w">   </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">   </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">32</span>
+<span class="w">   </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gpuQ,gpuQA100
+<span class="w">   </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">   </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-gpu06-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.49.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Nov 23 21:51:54 CST 2021 x86_64,sessions=1853,nsessions=1,nusers=1,idletime=78369,totmem=402049028kb,availmem=396843552kb,physmem=395757576kb,ncpus=32,loadave=0.34,gres=,netload=2752372686,state=free,varattr= ,cpuclock=Fixed,macaddr=f4:03:43:e5:19:40,version=6.1.2,rectime=1639028497,jobs=</span>
+<span class="w">   </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">   </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+<span class="w">   </span><span class="nv">gpus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<span class="w">   </span><span class="nv">gpu_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gpu<span class="o">[</span><span class="m">1</span><span class="o">]=</span><span class="nv">gpu_id</span><span class="o">=</span><span class="m">00000000</span>:D8:00.0<span class="p">;</span><span class="nv">gpu_pci_device_id</span><span class="o">=</span><span class="m">552669406</span><span class="p">;</span><span class="nv">gpu_pci_location_id</span><span class="o">=</span><span class="m">00000000</span>:D8:00.0<span class="p">;</span><span class="nv">gpu_product_name</span><span class="o">=</span>NVIDIA<span class="w"> </span>A100-PCIE-40GB<span class="p">;</span><span class="nv">gpu_memory_total</span><span class="o">=</span><span class="m">40536</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_memory_used</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_mode</span><span class="o">=</span>Default<span class="p">;</span><span class="nv">gpu_state</span><span class="o">=</span>Unallocated<span class="p">;</span><span class="nv">gpu_utilization</span><span class="o">=</span><span class="m">30</span>%<span class="p">;</span><span class="nv">gpu_memory_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_ecc_mode</span><span class="o">=</span>Enabled<span class="p">;</span><span class="nv">gpu_single_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_double_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_temperature</span><span class="o">=</span><span class="m">72</span><span class="w"> </span>C,gpu<span class="o">[</span><span class="m">0</span><span class="o">]=</span><span class="nv">gpu_id</span><span class="o">=</span><span class="m">00000000</span>:86:00.0<span class="p">;</span><span class="nv">gpu_pci_device_id</span><span class="o">=</span><span class="m">552669406</span><span class="p">;</span><span class="nv">gpu_pci_location_id</span><span class="o">=</span><span class="m">00000000</span>:86:00.0<span class="p">;</span><span class="nv">gpu_product_name</span><span class="o">=</span>NVIDIA<span class="w"> </span>A100-PCIE-40GB<span class="p">;</span><span class="nv">gpu_memory_total</span><span class="o">=</span><span class="m">40536</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_memory_used</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_mode</span><span class="o">=</span>Default<span class="p">;</span><span class="nv">gpu_state</span><span class="o">=</span>Unallocated<span class="p">;</span><span class="nv">gpu_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_memory_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_ecc_mode</span><span class="o">=</span>Enabled<span class="p">;</span><span class="nv">gpu_single_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_double_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_temperature</span><span class="o">=</span><span class="m">73</span><span class="w"> </span>C<span class="p">;</span><span class="nv">gpu_display</span><span class="o">=</span>Enabled,gpu_display<span class="o">=</span>Enabled,driver_ver<span class="o">=</span><span class="m">495</span>.29.05,timestamp<span class="o">=</span>Thu<span class="w"> </span>Dec<span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">14</span>:41:35<span class="w"> </span><span class="m">2021</span>
+
+tem-gpu07-el7.sdfarm.kr
+<span class="w">   </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>free
+<span class="w">   </span><span class="nv">power_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Running
+<span class="w">   </span><span class="nv">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">32</span>
+<span class="w">   </span><span class="nv">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gpuQ,gpuQA100
+<span class="w">   </span><span class="nv">ntype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cluster
+<span class="w">   </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">opsys</span><span class="o">=</span>linux,uname<span class="o">=</span>Linux<span class="w"> </span>tem-gpu07-el7.sdfarm.kr<span class="w"> </span><span class="m">3</span>.10.0-1160.49.1.el7.x86_64<span class="w"> </span><span class="c1">#1 SMP Tue Nov 23 21:51:54 CST 2021 x86_64,sessions=1855 2925,nsessions=2,nusers=2,idletime=77023,totmem=402049028kb,availmem=396857460kb,physmem=395757576kb,ncpus=32,loadave=0.05,gres=,netload=2832872237,state=free,varattr= ,cpuclock=Fixed,macaddr=f4:03:43:e5:19:20,version=6.1.2,rectime=1639028495,jobs=</span>
+<span class="w">   </span><span class="nv">mom_service_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15002</span>
+<span class="w">   </span><span class="nv">mom_manager_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15003</span>
+<span class="w">   </span><span class="nv">gpus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<span class="w">   </span><span class="nv">gpu_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gpu<span class="o">[</span><span class="m">1</span><span class="o">]=</span><span class="nv">gpu_id</span><span class="o">=</span><span class="m">00000000</span>:D8:00.0<span class="p">;</span><span class="nv">gpu_pci_device_id</span><span class="o">=</span><span class="m">552669406</span><span class="p">;</span><span class="nv">gpu_pci_location_id</span><span class="o">=</span><span class="m">00000000</span>:D8:00.0<span class="p">;</span><span class="nv">gpu_product_name</span><span class="o">=</span>NVIDIA<span class="w"> </span>A100-PCIE-40GB<span class="p">;</span><span class="nv">gpu_memory_total</span><span class="o">=</span><span class="m">40536</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_memory_used</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_mode</span><span class="o">=</span>Default<span class="p">;</span><span class="nv">gpu_state</span><span class="o">=</span>Unallocated<span class="p">;</span><span class="nv">gpu_utilization</span><span class="o">=</span><span class="m">31</span>%<span class="p">;</span><span class="nv">gpu_memory_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_ecc_mode</span><span class="o">=</span>Enabled<span class="p">;</span><span class="nv">gpu_single_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_double_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_temperature</span><span class="o">=</span><span class="m">74</span><span class="w"> </span>C,gpu<span class="o">[</span><span class="m">0</span><span class="o">]=</span><span class="nv">gpu_id</span><span class="o">=</span><span class="m">00000000</span>:86:00.0<span class="p">;</span><span class="nv">gpu_pci_device_id</span><span class="o">=</span><span class="m">552669406</span><span class="p">;</span><span class="nv">gpu_pci_location_id</span><span class="o">=</span><span class="m">00000000</span>:86:00.0<span class="p">;</span><span class="nv">gpu_product_name</span><span class="o">=</span>NVIDIA<span class="w"> </span>A100-PCIE-40GB<span class="p">;</span><span class="nv">gpu_memory_total</span><span class="o">=</span><span class="m">40536</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_memory_used</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>MB<span class="p">;</span><span class="nv">gpu_mode</span><span class="o">=</span>Default<span class="p">;</span><span class="nv">gpu_state</span><span class="o">=</span>Unallocated<span class="p">;</span><span class="nv">gpu_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_memory_utilization</span><span class="o">=</span><span class="m">0</span>%<span class="p">;</span><span class="nv">gpu_ecc_mode</span><span class="o">=</span>Enabled<span class="p">;</span><span class="nv">gpu_single_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_double_bit_ecc_errors</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="nv">gpu_temperature</span><span class="o">=</span><span class="m">73</span><span class="w"> </span>C<span class="p">;</span><span class="nv">gpu_display</span><span class="o">=</span>Enabled,gpu_display<span class="o">=</span>Enabled,driver_ver<span class="o">=</span><span class="m">495</span>.29.05,timestamp<span class="o">=</span>Thu<span class="w"> </span>Dec<span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">14</span>:41:33<span class="w"> </span><span class="m">2021</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="fstat-bin-monitoring-the-usage-of-all-the-worker-nodes">
+<h2>8. fstat.bin : Monitoring the usage of all the worker nodes<a class="headerlink" href="#fstat-bin-monitoring-the-usage-of-all-the-worker-nodes" title="Permalink to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## fstat.bin tool is available on tem-ui-el7.sdfarm.kr and tem-cs-el7.sdfarm.kr login nodes</span>
+$&gt;<span class="w"> </span>which<span class="w"> </span>fstat.bin
+/usr/bin/fstat.bin
+
+$&gt;<span class="w"> </span>fstat.bin
+------------------------------------------------------------------------------------------------------------------------
+NODE<span class="w">                          </span>QUEUE<span class="w">   </span>STATUS<span class="o">(</span>F/S/E<span class="o">)</span><span class="w">    </span><span class="o">[</span>GPU<span class="o">]</span><span class="w"> </span>T/U/F<span class="w">    </span><span class="o">[</span>CPU<span class="o">]</span><span class="w"> </span>T/U/F<span class="w">  </span>USAGE<span class="w"> </span>RATIO
+------------------------------------------------------------------------------------------------------------------------
+tem-gpu01-el7.sdfarm.kr<span class="w">        </span>gpuQ<span class="w">          </span>Shared<span class="w">     </span><span class="m">2</span>/1/1<span class="w"> </span><span class="o">[</span><span class="c1">#.]        28/2/26  [##..........................]</span>
+tem-gpu02-el7.sdfarm.kr<span class="w">        </span>gpuQ<span class="w">          </span>Shared<span class="w">     </span><span class="m">2</span>/2/0<span class="w"> </span><span class="o">[</span><span class="c1">##]        28/4/24  [####........................]</span>
+tem-gpu03-el7.sdfarm.kr<span class="w">        </span>gpuQ<span class="w">            </span>Free<span class="w">     </span><span class="m">2</span>/0/2<span class="w"> </span><span class="o">[</span>..<span class="o">]</span><span class="w">        </span><span class="m">28</span>/0/28<span class="w">  </span><span class="o">[</span>............................<span class="o">]</span>
+tem-gpu04-el7.sdfarm.kr<span class="w">        </span>gpuQ<span class="w">            </span>Free<span class="w">     </span><span class="m">2</span>/0/2<span class="w"> </span><span class="o">[</span>..<span class="o">]</span><span class="w">        </span><span class="m">28</span>/0/28<span class="w">  </span><span class="o">[</span>............................<span class="o">]</span>
+tem-gpu05-el7.sdfarm.kr<span class="w">        </span>gpuQ<span class="w">            </span>Free<span class="w">     </span><span class="m">2</span>/0/2<span class="w"> </span><span class="o">[</span>..<span class="o">]</span><span class="w">        </span><span class="m">28</span>/0/28<span class="w">  </span><span class="o">[</span>............................<span class="o">]</span>
+tem-gpu06-el7.sdfarm.kr<span class="w">        </span>gpuQ<span class="w">            </span>Free<span class="w">     </span><span class="m">2</span>/0/2<span class="w"> </span><span class="o">[</span>..<span class="o">]</span><span class="w">        </span><span class="m">32</span>/0/32<span class="w">  </span><span class="o">[</span>................................<span class="o">]</span>
+tem-gpu07-el7.sdfarm.kr<span class="w">        </span>gpuQ<span class="w">            </span>Free<span class="w">     </span><span class="m">2</span>/0/2<span class="w"> </span><span class="o">[</span>..<span class="o">]</span><span class="w">        </span><span class="m">32</span>/0/32<span class="w">  </span><span class="o">[</span>................................<span class="o">]</span>
+tem-wn1001-el7.sdfarm.kr<span class="w">       </span>cpuQ<span class="w">          </span>Shared<span class="w">            </span>n/a<span class="w">        </span><span class="m">36</span>/28/8<span class="w">  </span><span class="o">[</span><span class="c1">############################........]</span>
+tem-wn1002-el7.sdfarm.kr<span class="w">       </span>cpuQ<span class="w">          </span>Shared<span class="w">            </span>n/a<span class="w">        </span><span class="m">36</span>/28/8<span class="w">  </span><span class="o">[</span><span class="c1">############################........]</span>
+tem-wn1003-el7.sdfarm.kr<span class="w">       </span>cpuQ<span class="w">       </span>Exclusive<span class="w">            </span>n/a<span class="w">        </span><span class="m">28</span>/28/0<span class="w">  </span><span class="o">[</span><span class="c1">############################]</span>
+tem-wn1004-el7.sdfarm.kr<span class="w">       </span>cpuQ<span class="w">       </span>Exclusive<span class="w">            </span>n/a<span class="w">        </span><span class="m">28</span>/28/0<span class="w">  </span><span class="o">[</span><span class="c1">############################]</span>
+tem-wn1005-el7.sdfarm.kr<span class="w">       </span>cpuQ<span class="w">       </span>Exclusive<span class="w">            </span>n/a<span class="w">        </span><span class="m">28</span>/28/0<span class="w">  </span><span class="o">[</span><span class="c1">############################]</span>
+tem-wn1006-el7.sdfarm.kr<span class="w">       </span>cpuQ<span class="w">       </span>Exclusive<span class="w">            </span>n/a<span class="w">        </span><span class="m">28</span>/28/0<span class="w">  </span><span class="o">[</span><span class="c1">############################]</span>
+tem-wn1007-el7.sdfarm.kr<span class="w">       </span>cpuQ<span class="w">       </span>Exclusive<span class="w">            </span>n/a<span class="w">        </span><span class="m">28</span>/28/0<span class="w">  </span><span class="o">[</span><span class="c1">############################]</span>
+tem-wn1008-el7.sdfarm.kr<span class="w">       </span>cpuQ<span class="w">       </span>Exclusive<span class="w">            </span>n/a<span class="w">        </span><span class="m">28</span>/28/0<span class="w">  </span><span class="o">[</span><span class="c1">############################]</span>
+tem-wn1009-el7.sdfarm.kr<span class="w">       </span>cpuQ<span class="w">       </span>Exclusive<span class="w">            </span>n/a<span class="w">        </span><span class="m">28</span>/28/0<span class="w">  </span><span class="o">[</span><span class="c1">############################]</span>
+tem-wn1010-el7.sdfarm.kr<span class="w">       </span>cpuQ<span class="w">       </span>Exclusive<span class="w">            </span>n/a<span class="w">        </span><span class="m">28</span>/28/0<span class="w">  </span><span class="o">[</span><span class="c1">############################]</span>
+tem-wn1011-el7.sdfarm.kr<span class="w">       </span>cpuQ<span class="w">       </span>Exclusive<span class="w">            </span>n/a<span class="w">        </span><span class="m">28</span>/28/0<span class="w">  </span><span class="o">[</span><span class="c1">############################]</span>
+tem-wn1012-el7.sdfarm.kr<span class="w">       </span>cpuQ<span class="w">       </span>Exclusive<span class="w">            </span>n/a<span class="w">        </span><span class="m">28</span>/28/0<span class="w">  </span><span class="o">[</span><span class="c1">############################]</span>
+tem-wn1013-el7.sdfarm.kr<span class="w">       </span>cpuQ<span class="w">       </span>Exclusive<span class="w">            </span>n/a<span class="w">        </span><span class="m">28</span>/28/0<span class="w">  </span><span class="o">[</span><span class="c1">############################]</span>
+------------------------------------------------------------------------------------------------------------------------
+<span class="w">        </span><span class="m">7</span><span class="w"> </span>running<span class="w"> </span><span class="nb">jobs</span>
+<span class="w">        </span><span class="m">1</span><span class="w"> </span>queued<span class="o">(</span>waiting<span class="o">)</span><span class="w"> </span><span class="nb">jobs</span>
+<span class="w">        </span>Total<span class="w"> </span><span class="m">584</span><span class="w"> </span>cores<span class="w"> </span>/<span class="w"> </span>Used<span class="w"> </span><span class="m">342</span><span class="w"> </span>cores<span class="w"> </span><span class="o">(</span>utilization<span class="w"> </span><span class="m">58</span>.5<span class="w"> </span>percent<span class="o">)</span>
+------------------------------------------------------------------------------------------------------------------------
+<span class="o">(</span>f<span class="o">)</span><span class="w"> </span>Enter<span class="w"> </span>f<span class="w"> </span>to<span class="w"> </span>display<span class="w"> </span>farm<span class="w"> </span><span class="o">(</span>nodes<span class="o">)</span><span class="w"> </span>status.
+<span class="o">(</span>j<span class="o">)</span><span class="w"> </span>Enter<span class="w"> </span>j<span class="w"> </span>to<span class="w"> </span>display<span class="w"> </span>jobs.
+<span class="o">(</span>g<span class="o">)</span><span class="w"> </span>Enter<span class="w"> </span>g<span class="w"> </span>to<span class="w"> </span>display<span class="w"> </span>GPUs<span class="w"> </span>status.
+<span class="o">(</span>q<span class="o">)</span><span class="w"> </span>Quit.
+
+Select?<span class="w"> </span><span class="o">(</span>f/j/g/q<span class="o">)</span><span class="w"> </span>__
+
+*<span class="w"> </span>NODE<span class="w">  </span>:<span class="w"> </span>CPU<span class="w"> </span>또는<span class="w"> </span>GPU<span class="w"> </span>장치를<span class="w"> </span>가진<span class="w"> </span>계산서버<span class="w"> </span>이름
+*<span class="w"> </span>QUEUE<span class="w"> </span>:<span class="w"> </span>각<span class="w"> </span>서버가<span class="w"> </span>속한<span class="w"> </span>큐<span class="w"> </span>이름
+*<span class="w"> </span>STATUS<span class="o">(</span>F/S/E<span class="o">)</span>
+<span class="w">  </span>-<span class="w"> </span>F<span class="w"> </span><span class="o">(</span>Free<span class="o">)</span><span class="w"> </span>:<span class="w"> </span>계산서버에<span class="w"> </span>어떤<span class="w"> </span>데이터<span class="w"> </span>분석<span class="w"> </span>작업도<span class="w"> </span>할당되어<span class="w"> </span>있지<span class="w"> </span>않음
+<span class="w">  </span>-<span class="w"> </span>S<span class="w"> </span><span class="o">(</span>Shared<span class="o">)</span><span class="w"> </span>:<span class="w"> </span>계산서버에<span class="w"> </span>CPU<span class="w"> </span>또는<span class="w"> </span>GPU<span class="w"> </span>작업이<span class="w"> </span>할당되어<span class="w"> </span>실행중이나,<span class="w"> </span>해당<span class="w"> </span>서버의<span class="w"> </span>모든<span class="w"> </span>자원을<span class="w"> </span>할당받은<span class="w"> </span>상태는<span class="w"> </span>아님
+<span class="w">  </span>-<span class="w"> </span>E<span class="w"> </span><span class="o">(</span>Exclusive<span class="o">)</span><span class="w"> </span>:<span class="w"> </span>계산서버에<span class="w"> </span>작업들이<span class="w"> </span>할당되어<span class="w"> </span>실행중이고,<span class="w"> </span>작업들이<span class="w"> </span>모든<span class="w"> </span>자원을<span class="w"> </span>할당받아<span class="w"> </span>busy<span class="w"> </span>한<span class="w"> </span>상태
+*<span class="w"> </span><span class="o">[</span>GPU<span class="o">]</span><span class="w"> </span>T/U/F<span class="w"> </span>:<span class="w"> </span>GPU<span class="w"> </span>계산서버에<span class="w"> </span>설치된<span class="w"> </span>GPU<span class="w"> </span>카드<span class="w"> </span>총<span class="w"> </span>개수,<span class="w"> </span>사용중인<span class="w"> </span>개수<span class="o">(</span><span class="c1">#), 유휴 카드 개수(.)</span>
+*<span class="w"> </span><span class="o">[</span>CPU<span class="o">]</span><span class="w"> </span>T/U/F<span class="w"> </span>:<span class="w"> </span>CPU<span class="w"> </span>계산서버의<span class="w"> </span>총<span class="w"> </span>코어<span class="w"> </span>개수,<span class="w"> </span>사용중인<span class="w"> </span>개수<span class="o">(</span><span class="c1">#), 유휴 코어 개수(.)</span>
+</pre></div>
+</div>
+</section>
+<section id="dynmotd-checking-storage-quota-limit-and-usage-ratio">
+<h2>9. dynmotd : Checking storage quota limit and usage ratio<a class="headerlink" href="#dynmotd-checking-storage-quota-limit-and-usage-ratio" title="Permalink to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## dynmotd tool is available on tem-ui-el7.sdfarm.kr, tem-cs-el7.sdfarm.kr and tem-dtn-el7.sdfarm.kr nodes</span>
+
+$&gt;<span class="w"> </span>which<span class="w"> </span>dynmotd
+/usr/local/bin/dynmotd
+
+$&gt;<span class="w"> </span>dynmotd
+<span class="w">  </span>____<span class="w"> </span>____<span class="w">  </span>____<span class="w">   </span>____<span class="w">   </span>_____<span class="w"> </span>_____<span class="w"> </span>__<span class="w">  </span>__<span class="w">   </span>_____
+/<span class="w"> </span>___/<span class="w"> </span>___<span class="o">||</span><span class="w">  </span>_<span class="w"> </span><span class="se">\ </span>/<span class="w"> </span>___<span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="w">   </span>_<span class="p">|</span><span class="w"> </span>____<span class="p">|</span><span class="w">  </span><span class="se">\/</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span>___<span class="p">|</span>_<span class="w"> </span>_<span class="w"> </span>_<span class="w"> </span>__<span class="w"> </span>_<span class="w"> </span>__<span class="w"> </span>___
+<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span>_<span class="se">\_</span>__<span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">       </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="se">\/</span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="w"> </span>/<span class="w"> </span>_<span class="sb">`</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="s1">&#39;__| &#39;</span>_<span class="w"> </span><span class="sb">`</span><span class="w"> </span>_<span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span>___<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>___<span class="w">    </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>___<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span>_<span class="p">|</span><span class="w"> </span><span class="o">(</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>
+<span class="se">\_</span>___<span class="p">|</span>____/<span class="p">|</span>____/<span class="w"> </span><span class="se">\_</span>___<span class="p">|</span><span class="w">   </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span>_____<span class="p">|</span>_<span class="p">|</span><span class="w">  </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w">  </span><span class="se">\_</span>_,_<span class="p">|</span>_<span class="p">|</span><span class="w">  </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span>
+
+*<span class="w"> </span>Official<span class="w"> </span>GSDC<span class="w"> </span>TEM<span class="w"> </span>users<span class="w"> </span>guide<span class="w"> </span>:<span class="w"> </span>https://tem-docs.readthedocs.io
+<span class="o">==========================================================================</span>
+*<span class="w"> </span>Hostname..............:<span class="w"> </span>tem-ui-el7.sdfarm.kr
+*<span class="w"> </span>OS<span class="w"> </span>Release............:<span class="w"> </span>Scientific<span class="w"> </span>Linux<span class="w"> </span>release<span class="w"> </span><span class="m">7</span>.9<span class="w"> </span><span class="o">(</span>Nitrogen<span class="o">)</span>
+*<span class="w"> </span>System<span class="w"> </span>uptime.........:<span class="w"> </span><span class="m">5</span><span class="w"> </span>days<span class="w"> </span><span class="m">2</span><span class="w"> </span>hours<span class="w"> </span><span class="m">2</span><span class="w"> </span>minutes<span class="w"> </span><span class="m">39</span><span class="w"> </span>seconds
+*<span class="w"> </span>Users.................:<span class="w"> </span>Currently<span class="w"> </span><span class="m">5</span><span class="w"> </span>user<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>logged<span class="w"> </span>on
+*<span class="w"> </span>Processes.............:<span class="w"> </span><span class="m">920</span><span class="w"> </span>running
+*<span class="w"> </span>CPU<span class="w"> </span>usage.............:<span class="w"> </span><span class="m">0</span>.07,<span class="w"> </span><span class="m">0</span>.85,<span class="w"> </span><span class="m">1</span>.30<span class="w"> </span><span class="o">(</span><span class="m">1</span>,<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="m">15</span><span class="w"> </span>min<span class="o">)</span>
+*<span class="w"> </span>Memory<span class="w"> </span><span class="o">(</span>used/total<span class="o">)</span>...:<span class="w"> </span><span class="m">13445</span><span class="w"> </span>MB<span class="w"> </span>/<span class="w"> </span><span class="m">386699</span><span class="w"> </span>MB
+*<span class="w"> </span>Swap<span class="w"> </span><span class="k">in</span><span class="w"> </span>use...........:<span class="w"> </span><span class="m">0</span><span class="w"> </span>MB
+--------------------------------------------------------------------------
+*<span class="w"> </span>TEM<span class="w"> </span>Storage<span class="w"> </span><span class="o">(</span>used/total<span class="o">)</span>.......:<span class="w"> </span><span class="m">383</span><span class="w"> </span>TB<span class="w"> </span>/<span class="w"> </span><span class="m">5</span>,836.8<span class="w"> </span>TB<span class="w"> </span><span class="o">(</span><span class="m">7</span>%<span class="o">)</span>
+*<span class="w"> </span>Current<span class="w"> </span>User...................:<span class="w"> </span>&lt;UserID&gt;
+*<span class="w"> </span>User<span class="w"> </span>Home<span class="w"> </span>Directory............:<span class="w"> </span>/tem/home/&lt;UserID&gt;
+<span class="w">  </span>**<span class="w"> </span>Disk<span class="w"> </span>Quota<span class="w"> </span>Limit............:<span class="w"> </span>0k
+<span class="w">  </span>**<span class="w"> </span>Disk<span class="w"> </span>Usage..................:<span class="w"> </span><span class="m">250</span>.8<span class="w"> </span>TB
+<span class="w">  </span>**<span class="w"> </span>Number<span class="w"> </span>of<span class="w"> </span>Files.............:<span class="w"> </span><span class="m">21</span>,785,501
+*<span class="w"> </span>Group<span class="w"> </span>Scratch<span class="w"> </span>Directory........:<span class="w"> </span>/tem/scratch/&lt;GroupDir&gt;
+<span class="w">  </span>**<span class="w"> </span>Disk<span class="w"> </span>Quota<span class="w"> </span>Limit............:<span class="w"> </span><span class="m">40</span><span class="w"> </span>TB
+<span class="w">  </span>**<span class="w"> </span>Disk<span class="w"> </span>Usage..................:<span class="w"> </span><span class="m">13</span>.01<span class="w"> </span>GB
+<span class="w">  </span>**<span class="w"> </span>Number<span class="w"> </span>of<span class="w"> </span>Files.............:<span class="w"> </span><span class="m">269</span>,991
+
+<span class="o">==========================================================================</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="changelog.html" class="btn btn-neutral float-left" title="Change Logs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="guide.html" class="btn btn-neutral float-right" title="TEM Computing Cluster Basics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, GSDC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
