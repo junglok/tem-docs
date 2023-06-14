@@ -18,6 +18,7 @@ Welcome to tem-docs's documentation! ( Last updates : 2023-02-06 )
    cisTEM.rst
    cryoSPARC.rst
    topaz.rst
+   pyem.rst
    faq.rst
    app.rst
    contact.rst

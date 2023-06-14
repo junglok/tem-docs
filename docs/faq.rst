@@ -1,6 +1,6 @@
-****
-FAQs
-****
+**************************
+Frequently Asked Questions
+**************************
 
 * `how to resolve the problems on (re)starting your own cryosparc instance`_
 * `how to repair cryosparc database corruption caused by duplicated mongod executions`_
