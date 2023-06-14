@@ -2,7 +2,11 @@
 Change Logs
 ***********
 
-* 2023-02-06 : CryoSPARC updated for the scratch directory per each research group.
+* 2023-06-30 : This document version 2.0 released.
+* 2023-05-31 : Stared to support Pusan National University (PNU) Cryo-EM Center.
+* 2023-05-09 : CryoSPARC updated for the scratch directory per each research group.
+* 2023-02-06 : Data migration from old storages (NAS and JBOD) to new high performance storage (based on lustre file system) completed.
+* 2022-12-01 : Stared to support Seoul National University (SNU) Cryo-EM Center.
 * 2022-11-11 : Relion version 4.0.0 support added.
 * 2022-11-10 : IBM aspera client tool (EMPIAR data transfer tool) added.
 * 2021-11-19 : PyEM module environment added.
@@ -10,10 +14,11 @@ Change Logs
 * 2021-07-12 : FAQ list updated.
 * 2021-03-23 : Relion, cisTEM usage guide updated for EL7-based TEM farm.
 * 2021-01-18 : CryoSPARC usage guide modified for v3.0.1.
-* 2021-01-13 : 신규 데이터 분석 팜 안내 자료 추가.
+* 2021-01-13 : Information about newly created analysis cluster (based on RHEL7.x) added.
 * 2020-11-23 : 2020 SNU CryoEM Hands-On Workshop presentation material added (appendix).
 * 2020-03-30 : CryoSPARC trouble shooting updated (Gctf, MotionCor2 locations added).
 * 2020-03-25 : CryoSPARC usage guide added.
+* 2020-01-22 : This document version 1.0 released.
 * 2020-02-24 : Appendix: Application form and materials added.
 * 2020-02-21 : Dedicated queues list removed. Shared queues (cpuQ, gpuQ) and their abstract descriptions added.
 * 2019-11-01 : Examples of running cisTEM jobs are added.

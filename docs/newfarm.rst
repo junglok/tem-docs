@@ -1,6 +1,6 @@
-******************************
-GSDC Computing Cluster for TEM
-******************************
+**************************************************
+GSDC Computing Cluster for TEM Users and Operators
+**************************************************
 
 .. _Service overview:
 
@@ -12,7 +12,8 @@ Cryo-EM facilities which are operated by government-funded research institutes o
 GSDC also supports petabyes scale of high performance (and/or archiving) storages and CPU/GPU computing servers to help Cryo-EM users' scientific discoveries. 
 Here is GSDC's computing and storage infrastructres for Cryo-EM operators/users.
 
-* Overall architecture between KBSI's and SNU's Cryo-EM facilities and GSDC's TEM computing cluster.
+
+Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan National University)'s Cryo-EM facilities and GSDC TEM computing cluster.
 
 .. image:: images/tem_service_farm.png
     :scale: 45 %
@@ -24,9 +25,15 @@ Here is GSDC's computing and storage infrastructres for Cryo-EM operators/users.
 2. Computing and storage resources
 ==================================
 
+.. tabularcolumns:: |\Y{0.1}|\Y{0.2}|\Y{0.6}|\Y{0.1}|
+
+.. table:: My Table
+   :widths: auto
+   :class: longtable
+
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 | Category     | Name (sdfarm.kr)                | Specification                                                             | Resources size  |
-+--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
++==============+=================================+===========================================================================+=================+
 | Login        | **tem-ui-el7**                  | - CPU : Intel(R) Xeon(R) Gold 6150 CPU @ 2.70GHz 18Core * 2 CPUs          | 72 cores (H/T)  |
 |              |                                 | - RAM : DDR4 2,666MHz 16GB * 24EA (384GB)                                 |                 |
 |              |                                 | - HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)                                  |                 |
@@ -76,10 +83,16 @@ Here is GSDC's computing and storage infrastructres for Cryo-EM operators/users.
 3. Cluster management softwares
 ===============================
 
+.. tabularcolumns:: |\Y{0.1}|\Y{0.2}|\Y{0.4}|\Y{0.3}|
+
+.. table:: My Table
+   :widths: auto
+   :class: longtable
+
 +--------------+------------------------+------------------------------------------------------------+--------------------------------+
 | Category     | Name                   | Description                                                | Version                        |
-|              |                        |                                                            | (module path)                  |
-+--------------+------------------------+------------------------------------------------------------+--------------------------------+
+|              |                        |                                                            | | (module path)                |
++==============+========================+============================================================+================================+
 | OS           | Scientific Linux       | Operating system                                           | 7.9                            |
 +--------------+------------------------+------------------------------------------------------------+--------------------------------+
 | System       | Environment module     | - Module environment                                       | v4.4.1                         |
@@ -107,10 +120,16 @@ Here is GSDC's computing and storage infrastructres for Cryo-EM operators/users.
 4. Data analysis tools
 ======================
 
+.. tabularcolumns:: |\Y{0.15}|\Y{0.15}|\Y{0.4}|\Y{0.3}|
+
+.. table:: My Table
+   :widths: auto
+   :class: longtable
+
 +----------+-------------+--------------------------------------------------------------------+----------------------------------------+
 | Category | Name        | Description                                                        | Version                                |
 |          |             |                                                                    | (module path)                          |
-+----------+-------------+--------------------------------------------------------------------+----------------------------------------+
++==========+=============+====================================================================+========================================+
 | Tools    | **Relion**  | | A stand-alone computer program that employs an empirical Bayesian|                                        |
 |          |             | | approach to refinement of (multiple) 3D reconstructions or 2D    | | v3.0.7                               |
 |          |             | | class averages in electron cryo-microscopy (cryo-EM).            | | (apps/relion/cpu/3.0.7)              |
@@ -215,26 +234,41 @@ Job submission templates
 
 .. code-block:: bash
 
-  /tem/el7/qsub-cisTEM-cpu-noout.sh             ## output, error 로그 파일을 생성하지 않는 cisTEM 작업 템플릿
-  /tem/el7/qsub-cisTEM-cpu.sh                   ## output, error 로그 파일을 생성하는 cisTEM 작업 템플릿
-  /tem/el7/qsub-relion-3.0.7-cpu.bash           ## Relion 3.0.7 CPU MPI 작업 템플릿
-  /tem/el7/qsub-relion-3.0.7-gpu.bash           ## Relion 3.0.7 GPU 가속 활용하는 MPI 작업 템플릿
+  ## output, error 로그 파일을 생성하지 않는 cisTEM 작업 템플릿
+  /tem/el7/qsub-cisTEM-cpu-noout.sh             
+  ## output, error 로그 파일을 생성하는 cisTEM 작업 템플릿
+  /tem/el7/qsub-cisTEM-cpu.sh
+  ## Relion 3.0.7 CPU MPI 작업 템플릿                   
+  /tem/el7/qsub-relion-3.0.7-cpu.bash
+  ## Relion 3.0.7 GPU 가속 활용하는 MPI 작업 템플릿           
+  /tem/el7/qsub-relion-3.0.7-gpu.bash           
 
-  /tem/el7/qsub-relion-3.1.0-cpu.bash           ## Relion 3.1.0 CPU MPI 작업 템플릿
-  /tem/el7/qsub-relion-3.1.0-gpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿
-  /tem/el7/qsub-relion-3.1.0-topaz.bash         ## Relion 3.1.0 에서 external job 으로 topaz 소프트웨어를 사용하는 작업 템플릿
+  ## Relion 3.1.0 CPU MPI 작업 템플릿
+  /tem/el7/qsub-relion-3.1.0-cpu.bash
+  ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿           
+  /tem/el7/qsub-relion-3.1.0-gpu.bash
+  ## Relion 3.1.0 에서 external job 으로 topaz 소프트웨어를 사용하는 작업 템플릿           
+  /tem/el7/qsub-relion-3.1.0-topaz.bash         
 
-  /tem/el7/qsub-relion-4.0.0-cpu.bash           ## Relion 4.0.0 CPU MPI 작업 템플릿
-  /tem/el7/qsub-relion-4.0.0-gpu.bash           ## Relion 4.0.0 GPU 가속 활용하는 MPI 작업 템플릿
-  /tem/el7/qsub-relion-4.0.0-topaz.bash         ## Relion 4.0.0 에서 external job 으로 topaz 소프트웨어를 사용하는 작업 템플릿
+  ## Relion 4.0.0 CPU MPI 작업 템플릿
+  /tem/el7/qsub-relion-4.0.0-cpu.bash
+  ## Relion 4.0.0 GPU 가속 활용하는 MPI 작업 템플릿           
+  /tem/el7/qsub-relion-4.0.0-gpu.bash
+  ## Relion 4.0.0 에서 external job 으로 topaz 소프트웨어를 사용하는 작업 템플릿           
+  /tem/el7/qsub-relion-4.0.0-topaz.bash         
 
 
 7. Batch queues
 ===============
 
+.. tabularcolumns:: |\Y{0.1}|\Y{0.1}|\Y{0.5}|\Y{0.3}|
+.. table:: My Table
+   :widths: auto
+   :class: longtable
+
 +--------------+-----------------+-----------------------------------------------------------------------+------------------------------------+
 | Category     | Queue Name      | Assigned Computing Resources                                          | Remarks                            |
-+--------------+-----------------+-----------------------------------------------------------------------+------------------------------------+
++==============+=================+=======================================================================+====================================+
 | Shared       | **cpuQ**        | - tem-wn[1001-1002]-el7.sdfarm.kr (36 cores and 384GB memory per node)| - 380 Physical CPU cores           |
 |              |                 | - tem-wn[1003-1013]-el7.sdfarm.kr (28 cores and 192GB memory per node)|                                    |
 |              +-----------------+-----------------------------------------------------------------------+------------------------------------+

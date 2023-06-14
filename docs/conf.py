@@ -139,9 +139,9 @@ latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     'papersize': 'a4paper',
     # The font size ('10pt', '11pt' or '12pt').
-    'pointsize': '10pt',
+    'pointsize': '11pt',
     # Additional stuff for the LaTeX preamble.
-    'preamble': '',
+    'preamble': r"""\protected\def\sphinxtablecontinued#1{}""",
     # Latex figure (float) alignment
     'figure_align': 'htbp',
     # kotex config
@@ -150,14 +150,14 @@ latex_elements = {
 \usepackage{kotex}
 
 % 영문 폰트 설정
-\setmainfont[Mapping=tex-text]{나눔고딕}
-\setsansfont[Mapping=tex-text]{나눔명조}
-\setmonofont{D2Coding}
+\setmainfont[Mapping=tex-text]{Times New Roman}
+\setsansfont[Mapping=tex-text]{Times New Roman}
+\setmonofont{Times New Roman}
 
 % 한글 폰트 설정
 \setmainhangulfont[Mapping=tex-text]{나눔고딕}
 \setsanshangulfont[Mapping=tex-text]{나눔명조}
-\setmonohangulfont{D2Coding}
+\setmonohangulfont{나눔고딕}
 
 ''',
 }
