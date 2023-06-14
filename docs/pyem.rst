@@ -4,7 +4,8 @@
 UCSF PyEM
 *********
 
-UCSF pyem is a collection of Python modules and command-line utilities for electron microscopy of biological samples.
+UCSF pyem is a suite of Python programs for data analysis in electron microscopy of biological samples. 
+Key features include symmetry expansion, multi-body refinement, partial signal subtraction, metadata queries, and interoperability with other cryo-EM image processing suites.
 
 * Official **PyEM** site : https://github.com/asarnow/pyem
 
@@ -71,12 +72,19 @@ To use pyem utilities (or .py programs), you shoud load pyem module environment 
   Loading requirement: conda/2020.11
   (pyem) $>
 
+.. code-block:: bash
+
   (pyem) $> module list
   Currently Loaded Modulefiles:
     1) conda/2020.11   2) pyem/0.5
+  
+.. code-block:: bash
   (pyem) $> echo $PATH 
   echo $PATH
-  /tem/el7/conda3-2020.11/envs/pyem/bin:/tem/el7/conda3-2020.11/bin:/tem/el7/conda3-2020.11/condabin:/usr/local/torquex/bin:/usr/local/torquex/sbin:/usr/local/torquex/bin:/usr/local/torquex/sbin:/tem/el7/Modules/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+  /tem/el7/conda3-2020.11/envs/pyem/bin:/tem/el7/conda3-2020.11/bin:/tem/el7/conda3-2020.11/condabin:
+  /usr/local/torquex/bin:/usr/local/torquex/sbin:/usr/local/torquex/bin:/usr/local/torquex/sbin:/tem/el7/Modules/bin:
+  /usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+
 
 All the pyem programs (i.e., pyem python files) can be found in the absolute directory path of **/tem/el7/conda3-2020.11/envs/pyem/bin**. 
 You can now run the pyem programs (all .py files in the above directory path) using their absolute paths or using just the name of program.
@@ -84,27 +92,63 @@ You can now run the pyem programs (all .py files in the above directory path) us
 .. code-block:: bash
 
   (pyem) $>ls -al /tem/el7/conda3-2020.11/envs/pyem/bin/*.py
-  lrwxrwxrwx. 1 tem tem 49 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/angdist.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/angdist.py
-  lrwxrwxrwx. 1 tem tem 46 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/cfsc.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/cfsc.py
-  lrwxrwxrwx. 1 tem tem 53 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/csparc2star.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/csparc2star.py
-  lrwxrwxrwx. 1 tem tem 50 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/ctf2star.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/ctf2star.py
-  lrwxrwxrwx. 1 tem tem 48 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/emcalc.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/emcalc.py
-  lrwxrwxrwx. 1 tem tem 45 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/map.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/map.py
-  lrwxrwxrwx. 1 tem tem 46 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/mask.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/mask.py
-  lrwxrwxrwx. 1 tem tem 50 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/par2star.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/par2star.py
-  lrwxrwxrwx. 1 tem tem 46 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/pose.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/pose.py
-  lrwxrwxrwx. 1 tem tem 64 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/projection_subtraction.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/projection_subtraction.py
-  lrwxrwxrwx. 1 tem tem 49 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/project.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/project.py
-  lrwxrwxrwx. 1 tem tem 50 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/recenter.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/recenter.py
-  lrwxrwxrwx. 1 tem tem 53 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/reconstruct.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/reconstruct.py
-  lrwxrwxrwx. 1 tem tem 47 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/setup.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/setup.py
-  lrwxrwxrwx. 1 tem tem 46 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/sort.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/sort.py
-  lrwxrwxrwx. 1 tem tem 47 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/stack.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/stack.py
-  lrwxrwxrwx. 1 tem tem 51 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/star2bild.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/star2bild.py
-  lrwxrwxrwx. 1 tem tem 46 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/star.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/star.py
-  lrwxrwxrwx. 1 tem tem 54 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/subparticles.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/subparticles.py
-  lrwxrwxrwx. 1 tem tem 48 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/subset.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/subset.py
-  lrwxrwxrwx. 1 tem tem 48 Mar 31  2021 /tem/el7/conda3-2020.11/envs/pyem/bin/varmap.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/varmap.py
-  
+  lrwxrwxrwx. 1 tem tem 49 Mar 31  2021 angdist.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/angdist.py
+  lrwxrwxrwx. 1 tem tem 46 Mar 31  2021 cfsc.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/cfsc.py
+  lrwxrwxrwx. 1 tem tem 53 Mar 31  2021 csparc2star.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/csparc2star.py
+  lrwxrwxrwx. 1 tem tem 50 Mar 31  2021 ctf2star.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/ctf2star.py
+  lrwxrwxrwx. 1 tem tem 48 Mar 31  2021 emcalc.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/emcalc.py
+  lrwxrwxrwx. 1 tem tem 45 Mar 31  2021 map.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/map.py
+  lrwxrwxrwx. 1 tem tem 46 Mar 31  2021 mask.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/mask.py
+  lrwxrwxrwx. 1 tem tem 50 Mar 31  2021 par2star.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/par2star.py
+  lrwxrwxrwx. 1 tem tem 46 Mar 31  2021 pose.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/pose.py
+  lrwxrwxrwx. 1 tem tem 64 Mar 31  2021 projection_subtraction.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/projection_subtraction.py
+  lrwxrwxrwx. 1 tem tem 49 Mar 31  2021 project.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/project.py
+  lrwxrwxrwx. 1 tem tem 50 Mar 31  2021 recenter.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/recenter.py
+  lrwxrwxrwx. 1 tem tem 53 Mar 31  2021 reconstruct.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/reconstruct.py
+  lrwxrwxrwx. 1 tem tem 47 Mar 31  2021 setup.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/setup.py
+  lrwxrwxrwx. 1 tem tem 46 Mar 31  2021 sort.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/sort.py
+  lrwxrwxrwx. 1 tem tem 47 Mar 31  2021 stack.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/stack.py
+  lrwxrwxrwx. 1 tem tem 51 Mar 31  2021 star2bild.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/star2bild.py
+  lrwxrwxrwx. 1 tem tem 46 Mar 31  2021 star.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/star.py
+  lrwxrwxrwx. 1 tem tem 54 Mar 31  2021 subparticles.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/subparticles.py
+  lrwxrwxrwx. 1 tem tem 48 Mar 31  2021 subset.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/subset.py
+  lrwxrwxrwx. 1 tem tem 48 Mar 31  2021 varmap.py -> /tem/el7/conda3-2020.11/envs/pyem/pyem/varmap.py
+
+.. code-block:: bash
+
   (pyem) $> which csparc2star.py
   /tem/el7/conda3-2020.11/envs/pyem/bin/csparc2star.py
+
+
+.. code-block:: bash
+
+  (pyem) $> csparc2star.py --help
+  usage: csparc2star.py [-h] [--boxsize BOXSIZE] [--class CLS] [--minphic MINPHIC] [--stack-path STACK_PATH] [--micrograph-path MICROGRAPH_PATH] [--copy-micrograph-coordinates COPY_MICROGRAPH_COORDINATES] [--swapxy]
+                        [--invertx] [--inverty] [--cached] [--transform TRANSFORM] [--relion2] [--loglevel LOGLEVEL]
+                        [input [input ...]] output
+
+  positional arguments:
+    input                 Cryosparc metadata .csv (v0.6.5) or .cs (v2+) files
+    output                Output .star file
+
+  optional arguments:
+    -h, --help            show this help message and exit
+    --boxsize BOXSIZE     Cryosparc refinement box size (if different from particles)
+    --class CLS           Keep this class in output, may be passed multiple times
+    --minphic MINPHIC     Minimum posterior probability for class assignment
+    --stack-path STACK_PATH
+                          Path to single particle stack
+    --micrograph-path MICROGRAPH_PATH
+                          Replacement path for micrographs
+    --copy-micrograph-coordinates COPY_MICROGRAPH_COORDINATES
+                          Source for micrograph paths and particle coordinates (file or quoted glob)
+    --swapxy              Swap X and Y axes when converting particle coordinates from normalized to absolute
+    --invertx             Invert particle coordinate X axis
+    --inverty             Invert particle coordinate Y axis
+    --cached              Keep paths from the Cryosparc 2+ cache when merging coordinates
+    --transform TRANSFORM
+                          Apply rotation matrix or 3x4 rotation plus translation matrix to particles (Numpy format)
+    --relion2, -r2        Relion 2 compatible outputs
+    --loglevel LOGLEVEL, -l LOGLEVEL
+                          Logging level and debug output
+  (pyem) $>
