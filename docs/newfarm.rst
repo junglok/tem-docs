@@ -16,7 +16,7 @@ Here is GSDC's computing and storage infrastructres for Cryo-EM operators/users.
 Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan National University)'s Cryo-EM facilities and GSDC TEM computing cluster.
 
 .. image:: images/tem_service_farm.png
-    :scale: 45 %
+    :scale: 70 %
     :align: center
 
 
