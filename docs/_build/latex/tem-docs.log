@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.9.14)  12 JUN 2023 18:06
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.9.14)  14 JUN 2023 16:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2800,6 +2800,8 @@ Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=la
 n;language=dflt;!
 Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
 n;language=dflt;!
+Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
+n;language=dflt;!
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2812,14 +2814,57 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [82]
 Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
 n;language=dflt;!
+Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
+n;language=dflt;!
 
-Underfull \hbox (badness 10000) in paragraph at lines 4062--4065
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 26.82286pt, for example:
+(fancyhdr)                \setlength{\headheight}{26.82286pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
+
+[83]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 26.82286pt, for example:
+(fancyhdr)                \setlength{\headheight}{26.82286pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
+
+[84
+
+]
+Chapter 10.
+Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
+n;language=dflt;!
+[85]
+Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
+n;language=dflt;!
+Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
+n;language=dflt;!
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 26.82286pt, for example:
+(fancyhdr)                \setlength{\headheight}{26.82286pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
+
+[86]
+Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
+n;language=dflt;!
+
+Underfull \hbox (badness 10000) in paragraph at lines 4212--4215
 \TU/TimesNewRoman(0)/m/n/10.95 The following update guides summarize the proced
 ure for cryosparc[] s master and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4062--4065
+Underfull \hbox (badness 10000) in paragraph at lines 4212--4215
 \TU/TimesNewRoman(0)/m/n/10.95 worker software updates. For more details, pleas
 e refer to [][]$[][][][][] [] [] [] [][][][][] [] [][][][][][][][][] [] [][][] 
 []
@@ -2837,77 +2882,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
 
-[83]
-Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
-n;language=dflt;!
-
-Overfull \vbox (1.72876pt too high) detected at line 4162
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 26.82286pt, for example:
-(fancyhdr)                \setlength{\headheight}{26.82286pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
-
-[84]
-Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
-n;language=dflt;!
-Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
-n;language=dflt;!
-
-Overfull \vbox (1.12875pt too high) detected at line 4220
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 26.82286pt, for example:
-(fancyhdr)                \setlength{\headheight}{26.82286pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
-
-[85]
-Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
-n;language=dflt;!
-Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
-n;language=dflt;!
-
-Overfull \vbox (1.12875pt too high) detected at line 4435
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 26.82286pt, for example:
-(fancyhdr)                \setlength{\headheight}{26.82286pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
-
-[86]
-Underfull \vbox (badness 10000) detected at line 4435
- []
-
-
-Overfull \vbox (2.24896pt too high) detected at line 4435
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 26.82286pt, for example:
-(fancyhdr)                \setlength{\headheight}{26.82286pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
-
 [87]
-Underfull \vbox (badness 10000) detected at line 4435
- []
+Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
+n;language=dflt;!
 
-
-Overfull \vbox (2.24896pt too high) detected at line 4435
+Overfull \vbox (1.72876pt too high) detected at line 4312
  []
 
 
@@ -2919,11 +2898,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
 
 [88]
-Underfull \vbox (badness 10000) detected at line 4435
- []
+Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
+n;language=dflt;!
+Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
+n;language=dflt;!
 
-
-Overfull \vbox (2.24896pt too high) detected at line 4435
+Overfull \vbox (1.12875pt too high) detected at line 4370
  []
 
 
@@ -2939,12 +2919,9 @@ Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=la
 n;language=dflt;!
 Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
 n;language=dflt;!
-Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
-n;language=dflt;!
-Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
-n;language=dflt;!
-Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
-n;language=dflt;!
+
+Overfull \vbox (1.12875pt too high) detected at line 4585
+ []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2955,11 +2932,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
 
 [90]
-Underfull \vbox (badness 10000) detected at line 4663
+Underfull \vbox (badness 10000) detected at line 4585
  []
 
 
-Overfull \vbox (2.24896pt too high) detected at line 4663
+Overfull \vbox (2.24896pt too high) detected at line 4585
  []
 
 
@@ -2971,11 +2948,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
 
 [91]
-Underfull \vbox (badness 10000) detected at line 4663
+Underfull \vbox (badness 10000) detected at line 4585
  []
 
 
-Overfull \vbox (2.24896pt too high) detected at line 4663
+Overfull \vbox (2.24896pt too high) detected at line 4585
  []
 
 
@@ -2987,11 +2964,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
 
 [92]
-Underfull \vbox (badness 10000) detected at line 4663
+Underfull \vbox (badness 10000) detected at line 4585
  []
 
 
-Overfull \vbox (2.24896pt too high) detected at line 4663
+Overfull \vbox (2.24896pt too high) detected at line 4585
  []
 
 
@@ -3005,6 +2982,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [93]
 Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
 n;language=dflt;!
+Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
+n;language=dflt;!
+Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
+n;language=dflt;!
+Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
+n;language=dflt;!
+Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
+n;language=dflt;!
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3015,10 +3000,70 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
 
 [94]
-Chapter 10.
+Underfull \vbox (badness 10000) detected at line 4813
+ []
+
+
+Overfull \vbox (2.24896pt too high) detected at line 4813
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 26.82286pt, for example:
+(fancyhdr)                \setlength{\headheight}{26.82286pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
+
+[95]
+Underfull \vbox (badness 10000) detected at line 4813
+ []
+
+
+Overfull \vbox (2.24896pt too high) detected at line 4813
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 26.82286pt, for example:
+(fancyhdr)                \setlength{\headheight}{26.82286pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
+
+[96]
+Underfull \vbox (badness 10000) detected at line 4813
+ []
+
+
+Overfull \vbox (2.24896pt too high) detected at line 4813
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 26.82286pt, for example:
+(fancyhdr)                \setlength{\headheight}{26.82286pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
+
+[97]
+Missing character: There is no ␣ (U+2423) in font Times New Roman/OT:script=lat
+n;language=dflt;!
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 26.82286pt, for example:
+(fancyhdr)                \setlength{\headheight}{26.82286pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
+
+[98]
+Chapter 11.
 File: NEW-24.PNG Graphic file (type bmp)
 <NEW-24.PNG>
-[95
+[99
 
 ]
 
@@ -3029,10 +3074,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-14.82286pt}.
 
-[96
+[100
 
 ]
-Chapter 11.
+Chapter 12.
 (./tem-docs.ind)
 The property list \polyglossia@langsetup contains the pairs (without outer
 braces):
@@ -3068,7 +3113,7 @@ braces):
 >  {english/babelname}  =>  {american}
 >  {english/localnumeral}  =>  {polyglossia@C@localnumeral}
 >  {english/Localnumeral}  =>  {polyglossia@C@localnumeral}.
- [97] (./tem-docs.aux
+ [101] (./tem-docs.aux
 LaTeX Info: Redefining \rmfamily on input line 19.
 LaTeX Info: Redefining \sffamily on input line 19.
 LaTeX Info: Redefining \ttfamily on input line 19.
@@ -3077,15 +3122,15 @@ LaTeX Info: Redefining \ttfamily on input line 19.
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `tem-docs.out' has not changed.
-(rerunfilecheck)             Checksum: 1F7D2853505E8325B57CEC8D70785CEC;21536.
+(rerunfilecheck)             Checksum: 37C49594CAED1F02DDAE633C0E319376;21979.
  ) 
 Here is how much of TeX's memory you used:
- 21062 strings out of 476533
- 377084 string characters out of 5818000
- 1143701 words of memory out of 5000000
- 40972 multiletter control sequences out of 15000+600000
+ 21068 strings out of 476533
+ 377190 string characters out of 5818000
+ 1143952 words of memory out of 5000000
+ 40978 multiletter control sequences out of 15000+600000
  413094 words of font info for 127 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  73i,13n,81p,2824b,2585s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tem-docs.pdf (103 pages).
+Output written on tem-docs.pdf (107 pages).

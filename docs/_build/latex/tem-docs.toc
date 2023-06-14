@@ -88,17 +88,20 @@
 \contentsline {subsection}{\numberline {8.1.2}Topaz binary executable with CUDA 11.2}{78}{subsection.8.1.2}%
 \contentsline {section}{\numberline {8.2}Using Topaz in CryoSPARC}{78}{section.8.2}%
 \contentsline {section}{\numberline {8.3}Using Topaz in Relion (v3.1.0 above)}{79}{section.8.3}%
-\contentsline {chapter}{\numberline {9}FAQs}{81}{chapter.9}%
-\contentsline {section}{\numberline {9.1}How to resolve the problems on (re)starting your own cryosparc instance?}{81}{section.9.1}%
-\contentsline {section}{\numberline {9.2}How to repair cryosparc database corruption?}{83}{section.9.2}%
-\contentsline {section}{\numberline {9.3}How to upgrade (or downgrade) to the specific version of cryosparc softwares?}{83}{section.9.3}%
-\contentsline {subsection}{\numberline {9.3.1}1. Checking for updates}{83}{subsection.9.3.1}%
-\contentsline {subsection}{\numberline {9.3.2}2. Before you update: complete or kill running jobs}{84}{subsection.9.3.2}%
-\contentsline {subsection}{\numberline {9.3.3}3. Back\sphinxhyphen {}up cryosparc databases}{85}{subsection.9.3.3}%
-\contentsline {subsection}{\numberline {9.3.4}4. Cryosparc master updates}{86}{subsection.9.3.4}%
-\contentsline {subsection}{\numberline {9.3.5}5. Cryosparc worker updates}{90}{subsection.9.3.5}%
-\contentsline {subsection}{\numberline {9.3.6}6. Running the newer cryosparc instance}{94}{subsection.9.3.6}%
-\contentsline {chapter}{\numberline {10}APPENDIX : Application Form \& Materials}{95}{chapter.10}%
-\contentsline {section}{\numberline {10.1}GSDC TEM Application Form}{95}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Tutorial}{95}{section.10.2}%
-\contentsline {chapter}{\numberline {11}Contacts}{97}{chapter.11}%
+\contentsline {chapter}{\numberline {9}UCSF PyEM}{81}{chapter.9}%
+\contentsline {section}{\numberline {9.1}PyEM}{81}{section.9.1}%
+\contentsline {section}{\numberline {9.2}PyEM Executables}{82}{section.9.2}%
+\contentsline {chapter}{\numberline {10}Frequently Asked Questions}{85}{chapter.10}%
+\contentsline {section}{\numberline {10.1}How to resolve the problems on (re)starting your own cryosparc instance?}{85}{section.10.1}%
+\contentsline {section}{\numberline {10.2}How to repair cryosparc database corruption?}{87}{section.10.2}%
+\contentsline {section}{\numberline {10.3}How to upgrade (or downgrade) to the specific version of cryosparc softwares?}{87}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}1. Checking for updates}{87}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}2. Before you update: complete or kill running jobs}{88}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.3.3}3. Back\sphinxhyphen {}up cryosparc databases}{89}{subsection.10.3.3}%
+\contentsline {subsection}{\numberline {10.3.4}4. Cryosparc master updates}{90}{subsection.10.3.4}%
+\contentsline {subsection}{\numberline {10.3.5}5. Cryosparc worker updates}{94}{subsection.10.3.5}%
+\contentsline {subsection}{\numberline {10.3.6}6. Running the newer cryosparc instance}{98}{subsection.10.3.6}%
+\contentsline {chapter}{\numberline {11}APPENDIX : Application Form \& Materials}{99}{chapter.11}%
+\contentsline {section}{\numberline {11.1}GSDC TEM Application Form}{99}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Tutorial}{99}{section.11.2}%
+\contentsline {chapter}{\numberline {12}Contacts}{101}{chapter.12}%

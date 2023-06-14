@@ -68,7 +68,7 @@
 \protected\def\sphinxtablecontinued#1{}
 
 \title{초극저온전자현미경(Cryo-EM) 데이터 분석을 위한 분석 클러스터 및 소프트웨어 도구 활용 보고서}
-\date{Jun 12, 2023}
+\date{Jun 14, 2023}
 \release{2.0}
 \author{국가슈퍼컴퓨팅본부 대용량데이터허브센터}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -196,7 +196,7 @@ Here is GSDC’s computing and storage infrastructres for Cryo\sphinxhyphen{}EM 
 \sphinxAtStartPar
 Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan National University)’s Cryo\sphinxhyphen{}EM facilities and GSDC TEM computing cluster.
 
-\noindent{\hspace*{\fill}\sphinxincludegraphics[scale=0.45]{{tem_service_farm}.png}\hspace*{\fill}}
+\noindent{\hspace*{\fill}\sphinxincludegraphics[scale=0.7]{{tem_service_farm}.png}\hspace*{\fill}}
 
 
 \section{2. Computing and storage resources}
@@ -450,7 +450,7 @@ Data analysis (Scratch)
 &\sphinxstartmulticolumn{2}%
 \begin{varwidth}[t]{\sphinxcolwidth{2}{4}}
 \sphinxAtStartPar
-40TB per each research group (/tem/scratch)
+80TB per each research group (/tem/scratch)
 \par
 \vskip-\baselineskip\vbox{\hbox{\strut}}\end{varwidth}%
 \sphinxstopmulticolumn
@@ -3932,8 +3932,158 @@ For more details on running topaz jobs in relion (using external job type), plea
 \sphinxstepscope
 
 
-\chapter{FAQs}
-\label{\detokenize{faq:faqs}}\label{\detokenize{faq::doc}}\begin{itemize}
+\chapter{UCSF PyEM}
+\label{\detokenize{pyem:ucsf-pyem}}\label{\detokenize{pyem:pyem}}\label{\detokenize{pyem::doc}}
+\sphinxAtStartPar
+UCSF pyem is a suite of Python programs for data analysis in electron microscopy of biological samples.
+Key features include symmetry expansion, multi\sphinxhyphen{}body refinement, partial signal subtraction, metadata queries, and interoperability with other cryo\sphinxhyphen{}EM image processing suites.
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Official \sphinxstylestrong{PyEM} site : \sphinxurl{https://github.com/asarnow/pyem}
+
+\end{itemize}
+
+
+\section{PyEM}
+\label{\detokenize{pyem:id1}}
+\sphinxAtStartPar
+Basically, pyem a collection of Python modules and command\sphinxhyphen{}line utilities for electron microscopy. Here, we have distributed PyEM into a seperate conda environment,
+where each pyem python utility (or program) is built with the dependencies of python runtime, numpy, scipy, matplotlib, seaborn, numba, pandas and natsort.
+You can find out each version of pyem modules environment with the following commands:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZdl{}\PYGZgt{}\PYG{+w}{ }module\PYG{+w}{ }avail
+
+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }/tem/el7/Modules/apps\PYG{+w}{ }\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
+apps/cistem/1.0.0
+apps/relion/cpu/3.0.7
+apps/relion/cpu/3.1.0
+apps/relion/cpu/4.0.0
+apps/relion/gpu/3.0.7
+apps/relion/gpu/3.1.0
+apps/relion/gpu/4.0.0
+
+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }/tem/el7/Modules/acceleration\PYG{+w}{ }\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
+cuda/9.2\PYG{+w}{  }cuda/11.2
+
+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }/tem/el7/Modules/mpi\PYG{+w}{ }\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
+mpi/gcc/4.8.5/openmpi/4.0.3
+mpi/gcc/8.3.1/mpich/3.4.3
+mpi/gcc/8.3.1/openmpi/4.0.3
+mpi/gcc/openmpi/4.0.3
+
+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }/tem/el7/Modules/virtualenv\PYG{+w}{ }\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
+conda/2020.11\PYG{+w}{  }topaz/cuda\PYGZhy{}9.2/0.2.4
+**pyem/0.5**\PYG{+w}{   }topaz/cuda\PYGZhy{}11.0/0.2.4
+
+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }/tem/el7/Modules/tools\PYG{+w}{ }\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
+tools/aspera\PYGZhy{}cli/3.9.6
+tools/ctffind/4.1.14
+tools/gctf/1.18\PYGZus{}b2
+tools/motioncor2/1.3.1
+tools/resmap/1.1.4
+tools/summovie/1.0.2
+tools/unblur/1.0.2
+
+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }/tem/el7/Modules/experiment\PYG{+w}{ }\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
+PyRosetta/4
+python/3.7
+rosetta/mpich\PYGZhy{}3.4.3/3.13
+rosetta/openmpi\PYGZhy{}4.0.3/3.13
+\end{sphinxVerbatim}
+
+
+\section{PyEM Executables}
+\label{\detokenize{pyem:pyem-executables}}
+\sphinxAtStartPar
+To use pyem utilities (or .py programs), you shoud load pyem module environment with the following command:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZdl{}\PYGZgt{}\PYG{+w}{ }module\PYG{+w}{ }load\PYG{+w}{ }pyem/0.5
+Loading\PYG{+w}{ }pyem/0.5
+Loading\PYG{+w}{ }requirement:\PYG{+w}{ }conda/2020.11
+\PYG{o}{(}pyem\PYG{o}{)}\PYG{+w}{ }\PYGZdl{}\PYGZgt{}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{o}{(}pyem\PYG{o}{)}\PYG{+w}{ }\PYGZdl{}\PYGZgt{}\PYG{+w}{ }module\PYG{+w}{ }list
+Currently\PYG{+w}{ }Loaded\PYG{+w}{ }Modulefiles:
+\PYG{+w}{  }\PYG{l+m}{1}\PYG{o}{)}\PYG{+w}{ }conda/2020.11\PYG{+w}{   }\PYG{l+m}{2}\PYG{o}{)}\PYG{+w}{ }pyem/0.5
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+All the pyem programs (i.e., pyem python files) can be found in the absolute directory path of \sphinxstylestrong{/tem/el7/conda3\sphinxhyphen{}2020.11/envs/pyem/bin}.
+You can now run the pyem programs (all .py files in the above directory path) using their absolute paths or using just the name of program.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{o}{(}pyem\PYG{o}{)}\PYG{+w}{ }\PYGZdl{}\PYGZgt{}ls\PYG{+w}{ }\PYGZhy{}al\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/bin/*.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{49}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }angdist.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/angdist.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{46}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }cfsc.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/cfsc.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{53}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }csparc2star.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/csparc2star.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{50}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }ctf2star.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/ctf2star.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{48}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }emcalc.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/emcalc.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{45}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }map.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/map.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{46}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }mask.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/mask.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{50}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }par2star.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/par2star.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{46}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }pose.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/pose.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{64}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }projection\PYGZus{}subtraction.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/projection\PYGZus{}subtraction.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{49}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }project.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/project.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{50}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }recenter.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/recenter.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{53}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }reconstruct.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/reconstruct.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{47}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }setup.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/setup.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{46}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }sort.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/sort.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{47}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }stack.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/stack.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{51}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }star2bild.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/star2bild.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{46}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }star.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/star.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{54}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }subparticles.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/subparticles.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{48}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }subset.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/subset.py
+lrwxrwxrwx.\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }tem\PYG{+w}{ }tem\PYG{+w}{ }\PYG{l+m}{48}\PYG{+w}{ }Mar\PYG{+w}{ }\PYG{l+m}{31}\PYG{+w}{  }\PYG{l+m}{2021}\PYG{+w}{ }varmap.py\PYG{+w}{ }\PYGZhy{}\PYGZgt{}\PYG{+w}{ }/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/pyem/varmap.py
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{o}{(}pyem\PYG{o}{)}\PYG{+w}{ }\PYGZdl{}\PYGZgt{}\PYG{+w}{ }which\PYG{+w}{ }csparc2star.py
+/tem/el7/conda3\PYGZhy{}2020.11/envs/pyem/bin/csparc2star.py
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{o}{(}pyem\PYG{o}{)}\PYG{+w}{ }\PYGZdl{}\PYGZgt{}\PYG{+w}{ }csparc2star.py\PYG{+w}{ }\PYGZhy{}\PYGZhy{}help
+usage:\PYG{+w}{ }csparc2star.py\PYG{+w}{ }\PYG{o}{[}\PYGZhy{}h\PYG{o}{]}\PYG{+w}{ }\PYG{o}{[}\PYGZhy{}\PYGZhy{}boxsize\PYG{+w}{ }BOXSIZE\PYG{o}{]}\PYG{+w}{ }\PYG{o}{[}\PYGZhy{}\PYGZhy{}class\PYG{+w}{ }CLS\PYG{o}{]}\PYG{+w}{ }\PYG{o}{[}\PYGZhy{}\PYGZhy{}minphic\PYG{+w}{ }MINPHIC\PYG{o}{]}\PYG{+w}{ }\PYG{o}{[}\PYGZhy{}\PYGZhy{}stack\PYGZhy{}path\PYG{+w}{ }STACK\PYGZus{}PATH\PYG{o}{]}\PYG{+w}{ }\PYG{o}{[}\PYGZhy{}\PYGZhy{}micrograph\PYGZhy{}path\PYG{+w}{ }MICROGRAPH\PYGZus{}PATH\PYG{o}{]}\PYG{+w}{ }\PYG{o}{[}\PYGZhy{}\PYGZhy{}copy\PYGZhy{}micrograph\PYGZhy{}coordinates\PYG{+w}{ }COPY\PYGZus{}MICROGRAPH\PYGZus{}COORDINATES\PYG{o}{]}\PYG{+w}{ }\PYG{o}{[}\PYGZhy{}\PYGZhy{}swapxy\PYG{o}{]}
+\PYG{+w}{                      }\PYG{o}{[}\PYGZhy{}\PYGZhy{}invertx\PYG{o}{]}\PYG{+w}{ }\PYG{o}{[}\PYGZhy{}\PYGZhy{}inverty\PYG{o}{]}\PYG{+w}{ }\PYG{o}{[}\PYGZhy{}\PYGZhy{}cached\PYG{o}{]}\PYG{+w}{ }\PYG{o}{[}\PYGZhy{}\PYGZhy{}transform\PYG{+w}{ }TRANSFORM\PYG{o}{]}\PYG{+w}{ }\PYG{o}{[}\PYGZhy{}\PYGZhy{}relion2\PYG{o}{]}\PYG{+w}{ }\PYG{o}{[}\PYGZhy{}\PYGZhy{}loglevel\PYG{+w}{ }LOGLEVEL\PYG{o}{]}
+\PYG{+w}{                      }\PYG{o}{[}input\PYG{+w}{ }\PYG{o}{[}input\PYG{+w}{ }...\PYG{o}{]}\PYG{o}{]}\PYG{+w}{ }output
+
+positional\PYG{+w}{ }arguments:
+\PYG{+w}{  }input\PYG{+w}{                 }Cryosparc\PYG{+w}{ }metadata\PYG{+w}{ }.csv\PYG{+w}{ }\PYG{o}{(}v0.6.5\PYG{o}{)}\PYG{+w}{ }or\PYG{+w}{ }.cs\PYG{+w}{ }\PYG{o}{(}v2+\PYG{o}{)}\PYG{+w}{ }files
+\PYG{+w}{  }output\PYG{+w}{                }Output\PYG{+w}{ }.star\PYG{+w}{ }file
+
+optional\PYG{+w}{ }arguments:
+\PYG{+w}{  }\PYGZhy{}h,\PYG{+w}{ }\PYGZhy{}\PYGZhy{}help\PYG{+w}{            }show\PYG{+w}{ }this\PYG{+w}{ }\PYG{n+nb}{help}\PYG{+w}{ }message\PYG{+w}{ }and\PYG{+w}{ }\PYG{n+nb}{exit}
+\PYG{+w}{  }\PYGZhy{}\PYGZhy{}boxsize\PYG{+w}{ }BOXSIZE\PYG{+w}{     }Cryosparc\PYG{+w}{ }refinement\PYG{+w}{ }box\PYG{+w}{ }size\PYG{+w}{ }\PYG{o}{(}\PYG{k}{if}\PYG{+w}{ }different\PYG{+w}{ }from\PYG{+w}{ }particles\PYG{o}{)}
+\PYG{+w}{  }\PYGZhy{}\PYGZhy{}class\PYG{+w}{ }CLS\PYG{+w}{           }Keep\PYG{+w}{ }this\PYG{+w}{ }class\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }output,\PYG{+w}{ }may\PYG{+w}{ }be\PYG{+w}{ }passed\PYG{+w}{ }multiple\PYG{+w}{ }\PYG{n+nb}{times}
+\PYG{+w}{  }\PYGZhy{}\PYGZhy{}minphic\PYG{+w}{ }MINPHIC\PYG{+w}{     }Minimum\PYG{+w}{ }posterior\PYG{+w}{ }probability\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }class\PYG{+w}{ }assignment
+\PYG{+w}{  }\PYGZhy{}\PYGZhy{}stack\PYGZhy{}path\PYG{+w}{ }STACK\PYGZus{}PATH
+\PYG{+w}{                        }Path\PYG{+w}{ }to\PYG{+w}{ }single\PYG{+w}{ }particle\PYG{+w}{ }stack
+\PYG{+w}{  }\PYGZhy{}\PYGZhy{}micrograph\PYGZhy{}path\PYG{+w}{ }MICROGRAPH\PYGZus{}PATH
+\PYG{+w}{                        }Replacement\PYG{+w}{ }path\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }micrographs
+\PYG{+w}{  }\PYGZhy{}\PYGZhy{}copy\PYGZhy{}micrograph\PYGZhy{}coordinates\PYG{+w}{ }COPY\PYGZus{}MICROGRAPH\PYGZus{}COORDINATES
+\PYG{+w}{                        }Source\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }micrograph\PYG{+w}{ }paths\PYG{+w}{ }and\PYG{+w}{ }particle\PYG{+w}{ }coordinates\PYG{+w}{ }\PYG{o}{(}file\PYG{+w}{ }or\PYG{+w}{ }quoted\PYG{+w}{ }glob\PYG{o}{)}
+\PYG{+w}{  }\PYGZhy{}\PYGZhy{}swapxy\PYG{+w}{              }Swap\PYG{+w}{ }X\PYG{+w}{ }and\PYG{+w}{ }Y\PYG{+w}{ }axes\PYG{+w}{ }when\PYG{+w}{ }converting\PYG{+w}{ }particle\PYG{+w}{ }coordinates\PYG{+w}{ }from\PYG{+w}{ }normalized\PYG{+w}{ }to\PYG{+w}{ }absolute
+\PYG{+w}{  }\PYGZhy{}\PYGZhy{}invertx\PYG{+w}{             }Invert\PYG{+w}{ }particle\PYG{+w}{ }coordinate\PYG{+w}{ }X\PYG{+w}{ }axis
+\PYG{+w}{  }\PYGZhy{}\PYGZhy{}inverty\PYG{+w}{             }Invert\PYG{+w}{ }particle\PYG{+w}{ }coordinate\PYG{+w}{ }Y\PYG{+w}{ }axis
+\PYG{+w}{  }\PYGZhy{}\PYGZhy{}cached\PYG{+w}{              }Keep\PYG{+w}{ }paths\PYG{+w}{ }from\PYG{+w}{ }the\PYG{+w}{ }Cryosparc\PYG{+w}{ }\PYG{l+m}{2}+\PYG{+w}{ }cache\PYG{+w}{ }when\PYG{+w}{ }merging\PYG{+w}{ }coordinates
+\PYG{+w}{  }\PYGZhy{}\PYGZhy{}transform\PYG{+w}{ }TRANSFORM
+\PYG{+w}{                        }Apply\PYG{+w}{ }rotation\PYG{+w}{ }matrix\PYG{+w}{ }or\PYG{+w}{ }3x4\PYG{+w}{ }rotation\PYG{+w}{ }plus\PYG{+w}{ }translation\PYG{+w}{ }matrix\PYG{+w}{ }to\PYG{+w}{ }particles\PYG{+w}{ }\PYG{o}{(}Numpy\PYG{+w}{ }format\PYG{o}{)}
+\PYG{+w}{  }\PYGZhy{}\PYGZhy{}relion2,\PYG{+w}{ }\PYGZhy{}r2\PYG{+w}{        }Relion\PYG{+w}{ }\PYG{l+m}{2}\PYG{+w}{ }compatible\PYG{+w}{ }outputs
+\PYG{+w}{  }\PYGZhy{}\PYGZhy{}loglevel\PYG{+w}{ }LOGLEVEL,\PYG{+w}{ }\PYGZhy{}l\PYG{+w}{ }LOGLEVEL
+\PYG{+w}{                        }Logging\PYG{+w}{ }level\PYG{+w}{ }and\PYG{+w}{ }debug\PYG{+w}{ }output
+\PYG{o}{(}pyem\PYG{o}{)}\PYG{+w}{ }\PYGZdl{}\PYGZgt{}
+\end{sphinxVerbatim}
+
+\sphinxstepscope
+
+
+\chapter{Frequently Asked Questions}
+\label{\detokenize{faq:frequently-asked-questions}}\label{\detokenize{faq::doc}}\begin{itemize}
 \item {} 
 \sphinxAtStartPar
 {\hyperref[\detokenize{faq:how-to-resolve-the-problems-on-re-starting-your-own-cryosparc-instance}]{\sphinxcrossref{how to resolve the problems on (re)starting your own cryosparc instance}}}
@@ -4745,10 +4895,6 @@ If you want to get user account to access TEM farm, please download this Applica
 \sphinxAtStartPar
 If you have any questions on using TEM service farm, please do not hesitate to contact us.
 \begin{itemize}
-\item {} 
-\sphinxAtStartPar
-Il\sphinxhyphen{}Yeon Yeo ( ilyeon9 at kisti.re.kr ) Tel: +82\sphinxhyphen{}42\sphinxhyphen{}869\sphinxhyphen{}0658
-
 \item {} 
 \sphinxAtStartPar
 Jung\sphinxhyphen{}Lok Yu ( junglok.yu at kisti.re.kr ) Tel: +82\sphinxhyphen{}42\sphinxhyphen{}869\sphinxhyphen{}0622
