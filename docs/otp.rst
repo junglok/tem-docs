@@ -44,20 +44,21 @@ How can I use FileZilla with 2FA?
 
 With the FileZilla's global settings ("Edit" -> "Setttings"),  
 
-    * In "Connection" menu, make sure to set "Timeout in seconds" value to 0, it will not close and reconnect an idle session.
+    * In "Connection" menu, make sure to set "Timeout in seconds" value to 0, it will not close and reconnect an idle session
 
 .. image:: images/filezilla-0.png
     :scale: 50 %
     :align: center   
    
-    * When editing and connecting a new site for SFTP ("File" -> "Site Manager" -> "New site"),  
-    in "General" tab, choose the Logon Type “interactive”, and with this setting, it will ask you for your password and OTP via another pop-ups.
+When editing and connecting a new site for SFTP ("File" -> "Site Manager" -> "New site"),
+ 
+    * In "General" tab, choose the Logon Type “interactive”, and with this setting, it will ask you for your password and OTP
 
 .. image:: images/filezilla-1.png
     :scale: 50 %
     :align: center
 
-    * In "Transfer Settings" tab, also make sure to check “Limit number of simultaneous connections” and leave the default value of 1.
+    * In "Transfer Settings" tab, also make sure to check “Limit number of simultaneous connections” and leave the default value of 1
 
 .. image:: images/filezilla-2.png
     :scale: 50 %
