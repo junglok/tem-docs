@@ -48,7 +48,8 @@ With the FileZilla global settings ("Edit" -> "Setttings"),
 
 .. image:: images/filezilla-0.png
     :scale: 50 %
-    :align: center   
+    :align: center
+    :class: with-border   
    
 |
 
@@ -60,13 +61,16 @@ When editing and connecting a new site for SFTP ("File" -> "Site Manager" -> "Ne
 .. image:: images/filezilla-1.png
     :scale: 50 %
     :align: center
+    :class: with-border
 
 |
 
 .. image:: images/filezilla-2.png
     :scale: 50 %
-    :align: center    
+    :align: center
+    :class: with-border
 
+|
 
 .. _winscp_with_2fa:
 How can I use WinSCP with 2FA?
