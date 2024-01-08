@@ -20,14 +20,14 @@ We hope your cooperation and please do not hesitate to contact us if you have an
 2FA Tips and Tricks
 ===================
 
-How can I use ssh/sftp GUI with 2FA?
+How can I use SSH/SFTP GUI with 2FA?
 ------------------------------------
 
 Your client (e.g., Linux/Mac GUI terminal) programs may natively support interactive or multi-factor authentication methods. However, many GUI programs do not have this functionality built in.
 
 Known GUI applications for ssh that support 2FA natively:
 
-    * Linux/MAC GUI terminal programs (`SSH via GUI teminals <https://tem-docs.readthedocs.io/en/latest/guide.html#for-linux-mac-users>_`)
+    * Linux/MAC GUI terminal programs (`SSH via GUI teminals <https://tem-docs.readthedocs.io/en/latest/guide.html#for-linux-mac-users>`_)
     * MobaXterm (`SSH via MobaXterm <https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp#mobaxterm-connecting-via-mobaxterm-on-windows>`_)
     * XShell (`SSH using Xshell <https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp#xshell-connecting-using-xshell>`_)
     * Putty
@@ -47,4 +47,6 @@ Choose the Logon Type “interactive” and it will ask you for your password an
 .. _winscp_with_2fa:
 How can I use WinSCP with 2FA?
 ------------------------------
+
+TBD
 
