@@ -34,15 +34,26 @@ Known GUI applications for SSH that support 2FA natively:
 
 Known GUI applications for SFTP that support 2FA natively:
 
-    * FileZilla (for both Windows and Linux/Mac) : see :ref:`filezilla_with_2fa`
-    * WinSCP (for only Windows) : see :ref:`winscp_with_2fa`
+    * FileZilla (for Windows or Linux/Mac) : see :ref:`filezilla_with_2fa`
+    * WinSCP (for Windows only) : see :ref:`winscp_with_2fa`
 
 
 .. _filezilla_with_2fa:
 How can I use FileZilla with 2FA?
 ---------------------------------
 
-Choose the Logon Type “interactive” and it will ask you for your password and OTP. Also make sure to check “Limit number of simultaneous connections” under “Transfer Settings” and leave the default value of 1.
+When editing and connecting a new site for SFTP ("File" -> "Site Manager" -> "New site"), 
+    
+    * In "General" tab, choose the Logon Type “interactive” and it will ask you for your password and OTP
+    * In "Transfer Settings" tab, also make sure to check “Limit number of simultaneous connections” and leave the default value of 1
+
+.. image:: images/filezilla-1.png
+    :scale: 50 %
+    :align: center
+
+.. image:: images/filezilla-2.png
+    :scale: 50 %
+    :align: center    
 
 .. _winscp_with_2fa:
 How can I use WinSCP with 2FA?
