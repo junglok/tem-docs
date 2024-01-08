@@ -27,15 +27,15 @@ Your client (e.g., Linux/Mac GUI terminal) programs may natively support interac
 
 Known GUI applications for SSH that support 2FA natively:
 
-    * Linux/MAC GUI terminal programs (`SSH via GUI teminals <https://tem-docs.readthedocs.io/en/latest/guide.html#for-linux-mac-users>`_ , for Linux/Mac) 
-    * MobaXterm (`SSH via MobaXterm <https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp#mobaxterm-connecting-via-mobaxterm-on-windows>`_ , for Windows only)
-    * XShell (`SSH using Xshell <https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp#xshell-connecting-using-xshell>`_ , for Windows only)
+    * GUI terminal programs (for Linux or Mac) : `SSH via GUI teminals <https://tem-docs.readthedocs.io/en/latest/guide.html#for-linux-mac-users>`_  
+    * MobaXterm (for Windows only) : `SSH via MobaXterm <https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp#mobaxterm-connecting-via-mobaxterm-on-windows>`_
+    * XShell (for Windows only) : `SSH using Xshell <https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp#xshell-connecting-using-xshell>`_
     * Putty
 
 Known GUI applications for SFTP that support 2FA natively:
 
-    * FileZilla (on both Windows and Linux/Mac) : see :ref:`filezilla_with_2fa`
-    * WinSCP (on only Windows) : see :ref:`winscp_with_2fa`
+    * FileZilla (for both Windows and Linux/Mac) : see :ref:`filezilla_with_2fa`
+    * WinSCP (for only Windows) : see :ref:`winscp_with_2fa`
 
 
 .. _filezilla_with_2fa:
