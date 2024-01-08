@@ -58,6 +58,7 @@ When editing and connecting a new site for SFTP ("File" -> "Site Manager" -> "Ne
     :scale: 50 %
     :align: center
 
+
     * In "Transfer Settings" tab, also make sure to check "Limit number of simultaneous connections" and leave the default value of 1.
 
 .. image:: images/filezilla-2.png
