@@ -27,9 +27,9 @@ Your client (e.g., Linux/Mac GUI terminal) programs may natively support interac
 
 Known GUI applications for ssh that support 2FA natively:
 
-    * Linux/MAC GUI terminal programs
-    * MobaXterm (`Connecting via MobaXterm <https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp#mobaxterm-connecting-via-mobaxterm-on-windows>`_)
-    * XShell (`Connecting using Xshell <https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp#xshell-connecting-using-xshell>`_)
+    * Linux/MAC GUI terminal programs (`SSH via GUI teminals <https://tem-docs.readthedocs.io/en/latest/guide.html#for-linux-mac-users>_`)
+    * MobaXterm (`SSH via MobaXterm <https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp#mobaxterm-connecting-via-mobaxterm-on-windows>`_)
+    * XShell (`SSH using Xshell <https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp#xshell-connecting-using-xshell>`_)
     * Putty
 
 Known GUI applications for sftp that support 2FA natively:
