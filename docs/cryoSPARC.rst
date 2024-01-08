@@ -191,6 +191,8 @@ With the following command, you can start an SSH tunnel to export **CRYOSPARC_BA
 .. code-block:: bash
 
    localhost $> ssh -N -f -L localhost:39500:tem-cs-el7.sdfarm.kr:<CRYOSPARC_BASE_PORT> -o Port=<ssh_port> <userid>@tem-cs-el7.sdfarm.kr
+   (<userID>@tem-cs-el7.sdfarm.kr) First Factor:
+   (<userID>@tem-cs-el7.sdfarm.kr) Second Factor(optional):
 
    ## 39500 port on localhost : assume that the port number 39500 is available on your localhost. Otherwise, you can use another port available.
    ## -N : Do not execute a remote command. This is useful option for just forwarding ports.

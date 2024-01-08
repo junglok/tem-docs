@@ -17,6 +17,8 @@ For Linux/Mac users
 .. code-block:: bash
 
   $> ssh -Y -o Port=<port> <userID>@tem-ui-el7.sdfarm.kr
+  (<userID>@tem-ui-el7.sdfarm.kr) First Factor:
+  (<userID>@tem-ui-el7.sdfarm.kr) Second Factor(optional):
 
 -Y (or -X) options : enable trusted X11 (or untrusted X11) forwarding
 
