@@ -50,9 +50,8 @@ With the FileZilla's global settings ("Edit" -> "Setttings...") :
     :scale: 50 %
     :align: center   
 
-, and when editing and connecting a new site for SFTP ("File" -> "Site Manager" -> "New site"), 
     
-    * In "General" tab, choose the Logon Type “interactive”, and with this setting, it will ask you for your password and OTP via another pop-ups.
+    * When editing and connecting a new site for SFTP ("File" -> "Site Manager" -> "New site"),  in "General" tab, choose the Logon Type “interactive”, and with this setting, it will ask you for your password and OTP via another pop-ups.
 
 .. image:: images/filezilla-1.png
     :scale: 50 %
