@@ -23,11 +23,28 @@ We hope your cooperation and please do not hesitate to contact us if you have an
 How can I use ssh/sftp GUI with 2FA?
 ------------------------------------
 
-Your client (e.g., Linux/Mac GUI terminal programs) may natively support interactive or multi-factor authentication methods. However, many GUI programs do not have this functionality built in.
+Your client (e.g., Linux/Mac GUI terminal) programs may natively support interactive or multi-factor authentication methods. However, many GUI programs do not have this functionality built in.
 
 Known GUI applications for ssh that support 2FA natively:
 
     * Linux/MAC GUI terminal programs
-    * MobaXterm (`Connecting via MobaXterm <https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp#mobaxterm-connecting-via-mobaxterm-on-windows>`_ )
-    * XShell (`Connecting using Xshell <https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp#xshell-connecting-using-xshell>`_ )
+    * MobaXterm (`Connecting via MobaXterm <https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp#mobaxterm-connecting-via-mobaxterm-on-windows>`_)
+    * XShell (`Connecting using Xshell <https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp#xshell-connecting-using-xshell>`_)
     * Putty
+
+Known GUI applications for sftp that support 2FA natively:
+
+    * FileZilla (on both Windows and Linux/Mac) : see :ref:`filezilla_with_2fa`
+    * WinSCP (on only Windows) : see :ref:`winscp_with_2fa`
+
+
+.. _filezilla_with_2fa:
+How can I use FileZilla with 2FA?
+---------------------------------
+
+Choose the Logon Type “interactive” and it will ask you for your password and OTP. Also make sure to check “Limit number of simultaneous connections” under “Transfer Settings” and leave the default value of 1.
+
+.. _winscp_with_2fa:
+How can I use WinSCP with 2FA?
+------------------------------
+
