@@ -28,6 +28,7 @@ This error occurs when the credentials issued by your authentication system, whi
 Open your terminal and execute the following command to obtain new credentials.
 
 .. code-block:: bash
+
     $> kinit
     Password for XXXXXX@SDFARM.KR: (Enter your password)
 
@@ -40,6 +41,7 @@ Releasing screen lock
 When the screen lock is activated while using OTP, it prompts for a password with a message like :
 
 .. code-block:: bash
+    
     Screen used by [UserName] <[UserID]> on [loginNodeName].
     Password:
     
