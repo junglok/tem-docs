@@ -112,7 +112,7 @@ How can I use WinSCP with 2FA?
 
 2. Run the WinSCP.exe which you installed in step 1
 
-3. Click "Tab" -> "Sites" -> "Site Manager"
+3. Click "Tabs" -> "Sites" -> "Site Manager"
 
 4. Click on "Advanced..." button on the login window
 
