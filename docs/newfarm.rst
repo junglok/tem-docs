@@ -72,7 +72,7 @@ Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan N
 |              | tem-gpu[08-10]-el7              | - CPU : Intel® Xeon® Gold 6334R CPU @ 3.60GHz 16Core * 2 CPUs             |                 |
 |              |                                 | - RAM : DDR4 32GB * 12 (384GB)                                            |                 |
 |              |                                 | - HDD : 12G SAS HDD 1.6TB * 2EA (RAID-1)                                  |                 |
-|              |                                 | - GPU : NVIDIA A100 80GB (or V100 32GB) * 2EA                             |                 |
+|              |                                 | - GPU : NVIDIA A100 80GB (or V100 32GB) * 4EA                             |                 |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 | Storage      | User home directory (Home)      | 100GB per each user account (/tem/home)                                                     |
 |              +---------------------------------+---------------------------------------------------------------------------+-----------------+
