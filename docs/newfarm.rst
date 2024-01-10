@@ -271,19 +271,22 @@ Job submission templates
    :widths: auto
    :class: longtable
 
-+--------------+-----------------+-----------------------------------------------------------------------+------------------------------------+
-| Category     | Queue Name      | Assigned Computing Resources                                          | Remarks                            |
-+==============+=================+=======================================================================+====================================+
-| Shared       | **cpuQ**        | - tem-wn[1001-1002]-el7.sdfarm.kr (36 cores and 384GB memory per node)| - 380 Physical CPU cores           |
-|              |                 | - tem-wn[1003-1013]-el7.sdfarm.kr (28 cores and 192GB memory per node)|                                    |
-|              +-----------------+-----------------------------------------------------------------------+------------------------------------+
-|              | **gpuQ**        | - tem-gpu[01-03]-el7.sdfarm.kr (28 cores, 2 P100 GPUs and 384GB mem.) | - 204 Physical CPU cores           | 
-|              |                 | - tem-gpu[04-05]-el7.sdfarm.kr (28 cores, 2 P40 GPUs and 256GB mem.)  | - 14 GPUs                          |
-|              |                 | - tem-gpu[06-07]-el7.sdfarm.kr (32 cores, 2 A100 GPUs and 256GB mem.) | - P100 16GB device memory          |
-|              |                 |                                                                       | - P40 24GB device memory           |
-|              |                 |                                                                       | - A100 40GB device memory          |   
-+--------------+-----------------+-----------------------------------------------------------------------+------------------------------------+
+|
 
++--------------+-----------------+-------------------------------------------------------------------------------+------------------------------------+
+| Category     | Queue Name      | Assigned Computing Resources                                                  | Remarks                            |
++==============+=================+===============================================================================+====================================+
+| Shared       | **cpuQ**        | - tem-wn[1001-1002]-el7.sdfarm.kr (36 cores and 384GB memory per node)        | - 380 Physical CPU cores           |
+|              |                 | - tem-wn[1003-1013]-el7.sdfarm.kr (28 cores and 192GB memory per node)        |                                    |
+|              +-----------------+-------------------------------------------------------------------------------+------------------------------------+
+|              | **gpuQ**        | - tem-gpu[01-03]-el7.sdfarm.kr (28 cores, 2 P100 GPUs and 384GB mem.)         | - 300 Physical CPU cores           | 
+|              |                 | - tem-gpu[04-05]-el7.sdfarm.kr (28 cores, 2 P40 GPUs and 256GB mem.)          | - 26 GPUs                          |
+|              |                 | - tem-gpu[06-07]-el7.sdfarm.kr (32 cores, 2 A100 GPUs and 256GB mem.)         | - P100 16GB device memory          |
+|              |                 | - tem-gpu[08-10]-el7.sdfarm.kr (32 cores, 4 A100/V100 GPUs and 384GB mem.)    | - P40 24GB device memory           |
+|              |                 |                                                                               | - V100 32GB device memory          | 
+|              |                 |                                                                               | - A100 40GB device memory          | 
+|              |                 |                                                                               | - A100 80GB device memory          |       
++--------------+-----------------+-------------------------------------------------------------------------------+------------------------------------+
 
 Checking batch queue names and their status
 -------------------------------------------
@@ -535,6 +538,44 @@ Checking all worker nodes status
      gpus = 2
      gpu_status = gpu[1]=gpu_id=00000000:D8:00.0;gpu_pci_device_id=552669406;gpu_pci_location_id=00000000:D8:00.0;gpu_product_name=NVIDIA A100-PCIE-40GB;gpu_memory_total=40536 MB;gpu_memory_used=0 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=31%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=74 C,gpu[0]=gpu_id=00000000:86:00.0;gpu_pci_device_id=552669406;gpu_pci_location_id=00000000:86:00.0;gpu_product_name=NVIDIA A100-PCIE-40GB;gpu_memory_total=40536 MB;gpu_memory_used=0 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=73 C;gpu_display=Enabled,gpu_display=Enabled,driver_ver=495.29.05,timestamp=Thu Dec  9 14:41:33 2021
 
+  tem-gpu08-el7.sdfarm.kr
+     state = free
+     power_state = Running
+     np = 32
+     properties = gpuQ
+     ntype = cluster
+     jobs = 0-7/26246.tem-ce-el7.sdfarm.kr,8-15/26247.tem-ce-el7.sdfarm.kr
+     status = opsys=linux,uname=Linux tem-gpu08-el7.sdfarm.kr 3.10.0-1160.el7.x86_64 #1 SMP Wed Sep 30 08:53:05 CDT 2020 x86_64,sessions=1980 3970 4058,nsessions=3,nusers=2,idletime=1749163,totmem=401565384kb,availmem=207428728kb,physmem=395273932kb,ncpus=32,loadave=2.96,gres=,netload=72578106956,state=free,varattr= ,cpuclock=Fixed,macaddr=84:16:0c:56:c6:80,version=6.1.2,rectime=1704885635,jobs=26246.tem-ce-el7.sdfarm.kr 26247.tem-ce-el7.sdfarm.kr
+     mom_service_port = 15002
+     mom_manager_port = 15003
+     gpus = 4
+     gpu_status = gpu[3]=gpu_id=00000000:E3:00.0;gpu_pci_device_id=548737246;gpu_pci_location_id=00000000:E3:00.0;gpu_product_name=NVIDIA A100 80GB PCIe;gpu_memory_total=81920 MB;gpu_memory_used=875 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=2%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=33 C,gpu[2]=gpu_id=00000000:CA:00.0;gpu_pci_device_id=548737246;gpu_pci_location_id=00000000:CA:00.0;gpu_product_name=NVIDIA A100 80GB PCIe;gpu_memory_total=81920 MB;gpu_memory_used=875 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=33 C;gpu_display=Enabled,gpu[1]=gpu_id=00000000:65:00.0;gpu_pci_device_id=548737246;gpu_pci_location_id=00000000:65:00.0;gpu_product_name=NVIDIA A100 80GB PCIe;gpu_memory_total=81920 MB;gpu_memory_used=5539 MB;gpu_mode=Default;gpu_state=Shared;gpu_utilization=42%;gpu_memory_utilization=4%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=37 C;gpu_display=Enabled,gpu[0]=gpu_id=00000000:17:00.0;gpu_pci_device_id=548737246;gpu_pci_location_id=00000000:17:00.0;gpu_product_name=NVIDIA A100 80GB PCIe;gpu_memory_total=81920 MB;gpu_memory_used=5539 MB;gpu_mode=Default;gpu_state=Shared;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=51 C;gpu_display=Enabled,gpu_display=Enabled,driver_ver=545.23.08,timestamp=Wed Jan 10 20:20:31 2024
+
+  tem-gpu09-el7.sdfarm.kr
+     state = free
+     power_state = Running
+     np = 32
+     properties = gpuQ
+     ntype = cluster
+     status = opsys=linux,uname=Linux tem-gpu09-el7.sdfarm.kr 3.10.0-1160.el7.x86_64 #1 SMP Wed Sep 30 08:53:05 CDT 2020 x86_64,sessions=1974 3604,nsessions=2,nusers=2,idletime=1749082,totmem=401565384kb,availmem=389220984kb,physmem=395273932kb,ncpus=32,loadave=0.18,gres=,netload=20373698063,state=free,varattr= ,cpuclock=Fixed,macaddr=84:16:0c:57:43:10,version=6.1.2,rectime=1704885650,jobs=
+     mom_service_port = 15002
+     mom_manager_port = 15003
+     gpus = 4
+     gpu_status = gpu[3]=gpu_id=00000000:E3:00.0;gpu_pci_device_id=548737246;gpu_pci_location_id=00000000:E3:00.0;gpu_product_name=NVIDIA A100 80GB PCIe;gpu_memory_total=81920 MB;gpu_memory_used=875 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=2%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=39 C,gpu[2]=gpu_id=00000000:CA:00.0;gpu_pci_device_id=548737246;gpu_pci_location_id=00000000:CA:00.0;gpu_product_name=NVIDIA A100 80GB PCIe;gpu_memory_total=81920 MB;gpu_memory_used=875 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=37 C;gpu_display=Enabled,gpu[1]=gpu_id=00000000:65:00.0;gpu_pci_device_id=548737246;gpu_pci_location_id=00000000:65:00.0;gpu_product_name=NVIDIA A100 80GB PCIe;gpu_memory_total=81920 MB;gpu_memory_used=875 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=39 C;gpu_display=Enabled,gpu[0]=gpu_id=00000000:17:00.0;gpu_pci_device_id=548737246;gpu_pci_location_id=00000000:17:00.0;gpu_product_name=NVIDIA A100 80GB PCIe;gpu_memory_total=81920 MB;gpu_memory_used=875 MB;gpu_mode=Default;gpu_state=Unallocated;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=39 C;gpu_display=Enabled,gpu_display=Enabled,driver_ver=545.23.08,timestamp=Wed Jan 10 20:20:43 2024
+
+  tem-gpu10-el7.sdfarm.kr
+     state = free
+     power_state = Running
+     np = 32
+     properties = gpuQ
+     ntype = cluster
+     jobs = 12-14/26099.tem-ce-el7.sdfarm.kr,0-2/26116.tem-ce-el7.sdfarm.kr
+     status = opsys=linux,uname=Linux tem-gpu10-el7.sdfarm.kr 3.10.0-1160.el7.x86_64 #1 SMP Wed Sep 30 08:53:05 CDT 2020 x86_64,sessions=1969 6199 9395 26230,nsessions=4,nusers=3,idletime=688131,totmem=401565384kb,availmem=386644792kb,physmem=395273932kb,ncpus=32,loadave=6.19,gres=,netload=254155932749361,state=free,varattr= ,cpuclock=Fixed,macaddr=84:16:0c:56:d0:e0,version=6.1.2,rectime=1704885651,jobs=26099.tem-ce-el7.sdfarm.kr 26116.tem-ce-el7.sdfarm.kr
+     mom_service_port = 15002
+     mom_manager_port = 15003
+     gpus = 4
+     gpu_status = gpu[3]=gpu_id=00000000:E3:00.0;gpu_pci_device_id=498471134;gpu_pci_location_id=00000000:E3:00.0;gpu_product_name=Tesla V100-PCIE-32GB;gpu_memory_total=32768 MB;gpu_memory_used=267 MB;gpu_mode=Default;gpu_state=Shared;gpu_utilization=1%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=26 C,gpu[2]=gpu_id=00000000:CA:00.0;gpu_pci_device_id=498471134;gpu_pci_location_id=00000000:CA:00.0;gpu_product_name=Tesla V100-PCIE-32GB;gpu_memory_total=32768 MB;gpu_memory_used=267 MB;gpu_mode=Default;gpu_state=Shared;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=26 C;gpu_display=Enabled,gpu[1]=gpu_id=00000000:65:00.0;gpu_pci_device_id=498471134;gpu_pci_location_id=00000000:65:00.0;gpu_product_name=Tesla V100-PCIE-32GB;gpu_memory_total=32768 MB;gpu_memory_used=267 MB;gpu_mode=Default;gpu_state=Shared;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=32 C;gpu_display=Enabled,gpu[0]=gpu_id=00000000:17:00.0;gpu_pci_device_id=498471134;gpu_pci_location_id=00000000:17:00.0;gpu_product_name=Tesla V100-PCIE-32GB;gpu_memory_total=32768 MB;gpu_memory_used=267 MB;gpu_mode=Default;gpu_state=Shared;gpu_utilization=0%;gpu_memory_utilization=0%;gpu_ecc_mode=Enabled;gpu_single_bit_ecc_errors=0;gpu_double_bit_ecc_errors=0;gpu_temperature=28 C;gpu_display=Enabled,gpu_display=Enabled,driver_ver=545.23.08,timestamp=Wed Jan 10 20:20:48 2024
+
 
 8. fstat.bin : Monitoring the usage of all the worker nodes
 ===========================================================
@@ -549,30 +590,33 @@ Checking all worker nodes status
   ------------------------------------------------------------------------------------------------------------------------
   NODE                          QUEUE   STATUS(F/S/E)    [GPU] T/U/F    [CPU] T/U/F  USAGE RATIO
   ------------------------------------------------------------------------------------------------------------------------
-  tem-gpu01-el7.sdfarm.kr        gpuQ          Shared     2/1/1 [#.]        28/2/26  [##..........................]          
-  tem-gpu02-el7.sdfarm.kr        gpuQ          Shared     2/2/0 [##]        28/4/24  [####........................]          
-  tem-gpu03-el7.sdfarm.kr        gpuQ            Free     2/0/2 [..]        28/0/28  [............................]          
-  tem-gpu04-el7.sdfarm.kr        gpuQ            Free     2/0/2 [..]        28/0/28  [............................]          
+  tem-gpu01-el7.sdfarm.kr        gpuQ          Shared     2/2/0 [##]        28/6/22  [######......................]
+  tem-gpu02-el7.sdfarm.kr        gpuQ          Shared     2/2/0 [##]        28/3/25  [###.........................]
+  tem-gpu03-el7.sdfarm.kr        gpuQ          Shared     2/2/0 [##]        28/8/20  [########....................]
+  tem-gpu04-el7.sdfarm.kr        gpuQ          Shared     2/1/1 [#.]        28/2/26  [##..........................]
   tem-gpu05-el7.sdfarm.kr        gpuQ            Free     2/0/2 [..]        28/0/28  [............................]
-  tem-gpu06-el7.sdfarm.kr        gpuQ            Free     2/0/2 [..]        32/0/32  [................................]
-  tem-gpu07-el7.sdfarm.kr        gpuQ            Free     2/0/2 [..]        32/0/32  [................................]          
-  tem-wn1001-el7.sdfarm.kr       cpuQ          Shared            n/a        36/28/8  [############################........]  
-  tem-wn1002-el7.sdfarm.kr       cpuQ          Shared            n/a        36/28/8  [############################........]  
-  tem-wn1003-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
-  tem-wn1004-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
-  tem-wn1005-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
-  tem-wn1006-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
-  tem-wn1007-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
-  tem-wn1008-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
-  tem-wn1009-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
-  tem-wn1010-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
-  tem-wn1011-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
-  tem-wn1012-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]
-  tem-wn1013-el7.sdfarm.kr       cpuQ       Exclusive            n/a        28/28/0  [############################]          
+  tem-gpu06-el7.sdfarm.kr        gpuQ          Shared     2/2/0 [##]       32/16/16  [################................]
+  tem-gpu07-el7.sdfarm.kr        gpuQ          Shared     2/2/0 [##]        32/3/29  [###.............................]
+  tem-gpu08-el7.sdfarm.kr        gpuQ          Shared   4/2/2 [##..]       32/16/16  [################................]
+  tem-gpu09-el7.sdfarm.kr        gpuQ            Free   4/0/4 [....]        32/0/32  [................................]
+  tem-gpu10-el7.sdfarm.kr        gpuQ          Shared   4/4/0 [####]        32/6/26  [######..........................]
+  tem-wn1001-el7.sdfarm.kr       cpuQ          Shared            n/a        36/8/28  [########............................]
+  tem-wn1002-el7.sdfarm.kr       cpuQ            Free            n/a        36/0/36  [....................................]
+  tem-wn1003-el7.sdfarm.kr       cpuQ            Free            n/a        28/0/28  [............................]
+  tem-wn1004-el7.sdfarm.kr       cpuQ            Free            n/a        28/0/28  [............................]
+  tem-wn1005-el7.sdfarm.kr       cpuQ            Free            n/a        28/0/28  [............................]
+  tem-wn1006-el7.sdfarm.kr       cpuQ            Free            n/a        28/0/28  [............................]
+  tem-wn1007-el7.sdfarm.kr       cpuQ            Free            n/a        28/0/28  [............................]
+  tem-wn1008-el7.sdfarm.kr       cpuQ            Free            n/a        28/0/28  [............................]
+  tem-wn1009-el7.sdfarm.kr       cpuQ            Free            n/a        28/0/28  [............................]
+  tem-wn1010-el7.sdfarm.kr       cpuQ            Free            n/a        28/0/28  [............................]
+  tem-wn1011-el7.sdfarm.kr       cpuQ            Free            n/a        28/0/28  [............................]
+  tem-wn1012-el7.sdfarm.kr       cpuQ            Free            n/a        28/0/28  [............................]
+  tem-wn1013-el7.sdfarm.kr       cpuQ            Free            n/a        28/0/28  [............................]
   ------------------------------------------------------------------------------------------------------------------------
-          7 running jobs
-          1 queued(waiting) jobs
-          Total 584 cores / Used 342 cores (utilization 58.5 percent)
+          12 running jobs
+          0 queued(waiting) jobs
+          Total 680 cores / Used 68 cores (utilization 10.00 percent)
   ------------------------------------------------------------------------------------------------------------------------
   (f) Enter f to display farm (nodes) status.
   (j) Enter j to display jobs.
