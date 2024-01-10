@@ -14,8 +14,6 @@ to enable it on your TEM account. Note that you must follow the guide when you a
 
 You are strongly recommended to do so as soon as possible because once all TEM user accounts are OTP enabled, then we plan to suspend the policy requiring source IPs. 
 
-We hope your cooperation and please do not hesitate to contact us if you have any questions.
-
 
 2FA Tips and Tricks
 ===================

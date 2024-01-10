@@ -54,8 +54,8 @@ Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan N
 |              |                                 | - RAM : DDR4 8GB * 24 (192GB)                                             |                 |
 |              |                                 | - HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)                                  |                 |
 |              +---------------------------------+---------------------------------------------------------------------------+-----------------+
-|              | tem-gpu[01-03]-el7              | - CPU : Intel® Xeon® CPU E5-2690v4 @ 2.60GHz 14Core * 2 CPUs              | - 204 cores     |
-|              |                                 | - RAM : DDR4 16GB * 24 (384GB)                                            | - 14 GPGPUs     |
+|              | tem-gpu[01-03]-el7              | - CPU : Intel® Xeon® CPU E5-2690v4 @ 2.60GHz 14Core * 2 CPUs              | - 300 cores     |
+|              |                                 | - RAM : DDR4 16GB * 24 (384GB)                                            | - 26 GPGPUs     |
 |              |                                 | - SSD : 6G SATA SSD 800GB * 2EA (RAID-1)                                  |                 |
 |              |                                 | - GPU : NVIDIA P100 16GB * 2EA                                            |                 |
 |              +---------------------------------+---------------------------------------------------------------------------+                 | 
@@ -68,6 +68,11 @@ Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan N
 |              |                                 | - RAM : DDR4 32GB * 12 (384GB)                                            |                 |
 |              |                                 | - HDD : 12G SAS HDD 1.6TB * 2EA (RAID-1)                                  |                 |
 |              |                                 | - GPU : NVIDIA A100 40GB * 2EA                                            |                 |
+|              +---------------------------------+---------------------------------------------------------------------------+                 | 
+|              | tem-gpu[08-10]-el7              | - CPU : Intel® Xeon® Gold 6334R CPU @ 3.60GHz 16Core * 2 CPUs             |                 |
+|              |                                 | - RAM : DDR4 32GB * 12 (384GB)                                            |                 |
+|              |                                 | - HDD : 12G SAS HDD 1.6TB * 2EA (RAID-1)                                  |                 |
+|              |                                 | - GPU : NVIDIA A100 80GB (or V100 32GB) * 2EA                             |                 |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 | Storage      | User home directory (Home)      | 100GB per each user account (/tem/home)                                                     |
 |              +---------------------------------+---------------------------------------------------------------------------+-----------------+
@@ -75,7 +80,7 @@ Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan N
 |              +---------------------------------+---------------------------------------------------------------------------+-----------------+
 |              | Archive                         | 500TB per each Cryo-EM site (/tem/archive)                                                  | 
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
-| Total                                          | 676 CPU cores (physical), 14 GPGPUs, 800TB Storage                                          |
+| Total                                          | 772 CPU cores (physical), 26 GPGPUs, High Performance Storage                               |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 
 .. _Cluster management softwares:
@@ -154,8 +159,8 @@ Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan N
 |          |**CryoSPARC**| | CryoSPARC is the state-of-the-art platform used globally for     | | v3.0.1                               |
 |          |             | | obtaining 3D structural information from single particle cryo-EM | | v3.2.0                               |
 |          |             | | data.                                                            | | v4.0.0                               |
-|          |             |                                                                    |                                        |
-|          |             | - https://cryosparc.com                                            |                                        |
+|          |             |                                                                    | | v4.2.0                               |
+|          |             | - https://cryosparc.com                                            | | v4.4.0                               |
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
 |          | **Topaz**   | | A pipeline for particle detection in cryoem images using         | | v0.2.4                               |
 |          |             | | convolutional neural networks trained from positive and unlabeled| | (topaz/cuda-9.2/0.2.4)               |
