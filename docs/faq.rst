@@ -39,7 +39,7 @@ You should check all the cryosparc related processes (i.e., supervisord, mongod,
     userid    5625  0.1  0.0 1049868 97640 ?       Sl   Jun24   1:22 /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/cryosparc_app/nodejs/bin/node ./bundle/main.js
     userid    5690  0.2  0.0 1326136 81432 ?       Sl   Jun24   2:12 /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/cryosparc_liveapp/nodejs/bin/node ./bundle/main.js
 
-    (example) userid@tem-cs-el7 $> kill -9 2449 2472 2900 4332 4378 5586 5625 5690
+    (example) userid@tem-cs-el7 $> ps aux | grep <userid> | grep -E "cryosparc|node" | awk '{print $2}' | xargs -I{} kill -9 {}
 
 
 Second, find your own cryosparc unix socket files on /tmp directory, and if exists, delete the files using rm command.
