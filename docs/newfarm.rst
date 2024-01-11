@@ -200,9 +200,11 @@ Module paths for data analysis tools
   apps/relion/cpu/3.0.7
   apps/relion/cpu/3.1.0
   apps/relion/cpu/4.0.0
+  apps/relion/cpu/4.0.1
   apps/relion/gpu/3.0.7
   apps/relion/gpu/3.1.0
   apps/relion/gpu/4.0.0
+  apps/relion/gpu/4.0.1
 
   ---- /tem/el7/Modules/acceleration -----
   cuda/9.2  cuda/11.2
@@ -262,6 +264,12 @@ Job submission templates
   ## Relion 4.0.0 에서 external job 으로 topaz 소프트웨어를 사용하는 작업 템플릿           
   /tem/el7/qsub-relion-4.0.0-topaz.bash         
 
+  ## Relion 4.0.1 CPU MPI 작업 템플릿
+  /tem/el7/qsub-relion-4.0.1-cpu.bash
+  ## Relion 4.0.1 GPU 가속 활용하는 MPI 작업 템플릿           
+  /tem/el7/qsub-relion-4.0.1-gpu.bash
+  ## Relion 4.0.1 에서 external job 으로 topaz 소프트웨어를 사용하는 작업 템플릿           
+  /tem/el7/qsub-relion-4.0.1-topaz.bash   
 
 7. Batch queues
 ===============

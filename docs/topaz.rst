@@ -26,9 +26,11 @@ You can find out each version of topaz executables with the following commands:
   apps/relion/cpu/3.0.7
   apps/relion/cpu/3.1.0
   apps/relion/cpu/4.0.0
+  apps/relion/cpu/4.0.1
   apps/relion/gpu/3.0.7
   apps/relion/gpu/3.1.0
   apps/relion/gpu/4.0.0
+  apps/relion/gpu/4.0.1
 
   ---- /tem/el7/Modules/acceleration ----
   cuda/9.2  cuda/11.2
@@ -144,6 +146,7 @@ For an external job type in relion GUI, after providing python executable path, 
 
 * **/tem/el7/qsub-relion-3.1.0-topaz.bash**
 * **/tem/el7/qsub-relion-4.0.0-topaz.bash**
+* **/tem/el7/qsub-relion-4.0.1-topaz.bash**
 
 .. image:: images/relion-topaz.png
     :scale: 50 %

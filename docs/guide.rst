@@ -62,9 +62,11 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   apps/relion/cpu/3.0.7
   apps/relion/cpu/3.1.0
   apps/relion/cpu/4.0.0
+  apps/relion/cpu/4.0.1
   apps/relion/gpu/3.0.7
   apps/relion/gpu/3.1.0
   apps/relion/gpu/4.0.0
+  apps/relion/cpu/4.0.1
 
   ---- /tem/el7/Modules/acceleration ----
   cuda/9.2  cuda/11.2
@@ -99,17 +101,17 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
 
 .. code-block:: bash
 
-  $> module show apps/relion/gpu/4.0.0
+  $> module show apps/relion/gpu/4.0.1
 
   -------------------------------------------------------------------
-  /tem/el7/Modules/apps/apps/relion/gpu/4.0.0:
+  /tem/el7/Modules/apps/apps/relion/gpu/4.0.1:
 
-  module-whatis   {Setups relion 4.0.0 environment variables}
+  module-whatis   {Setups relion 4.0.1 environment variables}
   module          load mpi/gcc/openmpi/4.0.3
   module          load cuda/11.2
-  setenv          relion_version 4.0.0
-  prepend-path    PATH /tem/el7/relion-4.0.0/gpu/bin
-  prepend-path    LD_LIBRARY_PATH /tem/el7/relion-4.0.0/gpu/lib
+  setenv          relion_version 4.0.1
+  prepend-path    PATH /tem/el7/relion-4.0.1/gpu/bin
+  prepend-path    LD_LIBRARY_PATH /tem/el7/relion-4.0.1/gpu/lib
   setenv          LANG en_US.UTF-8
   setenv          RELION_QUEUE_USE yes
   setenv          RELION_QUEUE_NAME gpuQ
@@ -137,17 +139,17 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   $> module load <module_path>
   or
   $> module add <module_path>
-  e.g., $> module load apps/relion/gpu/4.0.0
+  e.g., $> module load apps/relion/gpu/4.0.1
 
 
 * **Listing loaded modules**
 
 .. code-block:: bash
 
-  $> module load apps/relion/gpu/4.0.0
+  $> module load apps/relion/gpu/4.0.1
   $> module list
   Currently Loaded Modulefiles:
-  1) mpi/gcc/openmpi/4.0.3   2) cuda/11.2   3) apps/relion/gpu/4.0.0
+  1) mpi/gcc/openmpi/4.0.3   2) cuda/11.2   3) apps/relion/gpu/4.0.1
 
 
 * **Unloading modules**
@@ -157,7 +159,7 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   $> module unload <module_path>
   or
   $> module rm <module_path>
-  e.g., $> module unload apps/relion/gpu/4.0.0
+  e.g., $> module unload apps/relion/gpu/4.0.1
 
 
 * **Unloading all the modules**

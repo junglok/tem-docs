@@ -2,6 +2,7 @@
 Change Logs
 ***********
 
+* 2023-01-11 : Relion 4.0.1 support added.
 * 2023-01-03 : One-Time-Password(OTP) guide link added.
 * 2023-06-30 : TEM docs guide version 2.0 released.
 * 2023-06-14 : PyEM usage guide added.
