@@ -242,5 +242,5 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
 
-def setup(app):
-  app.add_css_file('my_theme.css')
+# def setup(app):
+#   app.add_css_file('my_theme.css')
