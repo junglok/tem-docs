@@ -148,13 +148,19 @@ For an external job type in relion GUI, after providing python executable path, 
 * **/tem/el7/qsub-relion-4.0.0-topaz.bash**
 * **/tem/el7/qsub-relion-4.0.1-topaz.bash**
 
+|
+
 .. image:: images/relion-topaz.png
     :scale: 50 %
     :align: center
 
+|
+
 .. image:: images/relion-topaz2.png
     :scale: 50 %
     :align: center
+
+|
 
 Note that both number of nodes and number of GPUs are set to 1 due to the lack of parallelism across multiple servers and GPUs in Topaz application. 
 For more details on running topaz jobs in relion (using external job type), please refer to https://github.com/tbepler/topaz/tree/master/relion_run_topaz.

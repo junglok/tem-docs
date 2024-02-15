@@ -408,8 +408,8 @@ Users can reset the non-admin user's password to a new password with the followi
    $> cryosparcm resetpassword --email <email address> --password <newpassword>
 
 
-3. Job (or Workflow) failed caused by **SSD caching**
------------------------------------------------------
+3. Job (or Workflow) failed caused by SSD caching
+-------------------------------------------------
 
 Job failure log looks like:
 
