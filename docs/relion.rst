@@ -197,6 +197,7 @@ Users should load an environment module, whose path is  **apps/relion/cpu/X.X.X*
 * apps/relion/cpu/3.0.7
 * apps/relion/cpu/3.1.0
 * apps/relion/cpu/4.0.0
+* apps/relion/cpu/4.0.1
 
 Environment variables
 ---------------------
@@ -320,6 +321,10 @@ in the batch job script template.
     :scale: 70 %
     :align: center
 
+
+|
+
+
 .. note::
   For GPU jobs, note that you **MUST** use **gpuQ** for the "Queue name" field and render correct "number of MPI procs" which is generally total number of processes (# of nodes * # of processes per each node) 
 
@@ -387,6 +392,8 @@ Specifying which GPGPUs to use
     :scale: 70 %
     :align: center
 
+|
+
 
 Here, we describe more advanced syntax for restricting RELION processes to certain GPUs on multi-GPU setups. You can use an argument to the --gpu option to provide a list of device-indices. The syntax is then to delimit ranks with colons [:], and threads by commas [,]. Any GPU indices provided is taken to be a list which is repeated if shorter than the total number of GPUs. By extension, the following rules applies
 
@@ -453,9 +460,13 @@ Motion Correction
     :scale: 50 %
     :align: center
 
+|
+
 .. image:: images/relion-motioncor2.png
     :scale: 50 %
     :align: center
+
+|
 
 * **MotionCor2** (GPU-accelerated job)
   
@@ -472,13 +483,19 @@ Motion Correction
     * /tem/el7/qsub-relion-4.0.0-gpu.bash           ## Relion 4.0.0 GPU 가속 활용하는 MPI 작업 템플릿
     * /tem/el7/qsub-relion-4.0.1-gpu.bash           ## Relion 4.0.1 GPU 가속 활용하는 MPI 작업 템플릿    
 
+|
+
 .. image:: images/motioncor2-1.png
     :scale: 50 %
     :align: center
 
+|
+
 .. image:: images/motioncor2-2.png
     :scale: 50 %
     :align: center
+
+|
 
 
 CTF Estimation
@@ -501,13 +518,19 @@ CTF Estimation
     * /tem/el7/qsub-relion-4.0.0-cpu.bash           ## Relion 4.0.0 CPU MPI 작업 템플릿
     * /tem/el7/qsub-relion-4.0.1-cpu.bash           ## Relion 4.0.1 CPU MPI 작업 템플릿
 
+|
+
 .. image:: images/ctffind-1.png
     :scale: 50 %
     :align: center
 
+|
+
 .. image:: images/ctffind-2.png
     :scale: 50 %
     :align: center
+
+|
 
 * **Gctf** (GPU-accelerated job)
 
@@ -526,13 +549,20 @@ CTF Estimation
     * /tem/el7/qsub-relion-4.0.0-gpu.bash           ## Relion 4.0.0 GPU 가속 활용하는 MPI 작업 템플릿
     * /tem/el7/qsub-relion-4.0.1-gpu.bash           ## Relion 4.0.1 GPU 가속 활용하는 MPI 작업 템플릿
 
+|
+
 .. image:: images/gctf-1.png
     :scale: 50 %
     :align: center
 
+|
+
 .. image:: images/gctf-2.png
     :scale: 50 %
     :align: center
+
+|
+
 
 2D Classification
 -----------------
@@ -552,13 +582,19 @@ CTF Estimation
     * /tem/el7/qsub-relion-4.0.0-cpu.bash           ## Relion 4.0.0 CPU MPI 작업 템플릿
     * /tem/el7/qsub-relion-4.0.1-cpu.bash           ## Relion 4.0.1 CPU MPI 작업 템플릿 
 
+|
+
 .. image:: images/2dclass-1.png
     :scale: 50 %
     :align: center
 
+|
+
 .. image:: images/2dclass-2.png
     :scale: 50 %
     :align: center
+
+|
 
 
 * **relion_refine_mpi** (GPU-accelerated job)
@@ -577,9 +613,13 @@ CTF Estimation
     * /tem/el7/qsub-relion-4.0.0-gpu.bash           ## Relion 4.0.0 GPU 가속 활용하는 MPI 작업 템플릿
     * /tem/el7/qsub-relion-4.0.1-gpu.bash           ## Relion 4.0.1 GPU 가속 활용하는 MPI 작업 템플릿
 
+|
+
 .. image:: images/2dclassgpu-1.png
     :scale: 50 %
     :align: center
+
+|
 
 .. image:: images/2dclassgpu-2.png
     :scale: 50 %

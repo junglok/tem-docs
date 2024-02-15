@@ -32,10 +32,10 @@ Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan N
    :class: longtable
 
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
-| Category     | Name (sdfarm.kr)                | Specification                                                             | Resources size  |
+| Category     | Node Name (sdfarm.kr)           | Specification                                                             | Resources size  |
 +==============+=================================+===========================================================================+=================+
 | Login        | **tem-ui-el7**                  | - CPU : Intel(R) Xeon(R) Gold 6150 CPU @ 2.70GHz 18Core * 2 CPUs          | 72 cores (H/T)  |
-|              |                                 | - RAM : DDR4 2,666MHz 16GB * 24EA (384GB)                                 |                 |
+| (CryoSPARC)  |                                 | - RAM : DDR4 2,666MHz 16GB * 24EA (384GB)                                 |                 |
 |              |                                 | - HDD : 12G SAS HDD 1.2TB * 2EA (RAID-1)                                  |                 |
 +--------------+---------------------------------+---------------------------------------------------------------------------+-----------------+
 | Login        | **tem-cs-el7**                  | - CPU : Intel(R) Xeon(R) CPU E5-2697v3 @ 2.60GHz 14Core * 2 CPUs          | 56 cores (H/T)  |
@@ -96,7 +96,7 @@ Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan N
 
 +--------------+------------------------+------------------------------------------------------------+--------------------------------+
 | Category     | Name                   | Description                                                | Version                        |
-|              |                        |                                                            | | (module path)                |
+|              |                        |                                                            | (modulepath)                   |
 +==============+========================+============================================================+================================+
 | OS           | Scientific Linux       | Operating system                                           | 7.9                            |
 +--------------+------------------------+------------------------------------------------------------+--------------------------------+
@@ -148,6 +148,9 @@ Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan N
 |          |             |                                                                    | | (apps/relion/cpu/4.0.0)              |
 |          |             |                                                                    | | (apps/relion/gpu/4.0.0)              |
 |          |             |                                                                    |                                        |
+|          |             |                                                                    | | v4.0.1                               |
+|          |             |                                                                    | | (apps/relion/cpu/4.0.1)              |
+|          |             |                                                                    | | (apps/relion/gpu/4.0.1)              |
 |          |             |                                                                    |                                        |
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
 |          | **cisTEM**  | | User-friendly software to process cryo-EM images of              | | v1.0.0                               |

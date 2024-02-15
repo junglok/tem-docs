@@ -2,26 +2,26 @@
 CryoSPARC
 *********
 CryoSPARC is the state-of-the-art platform used globally for obtaining 3D structural information from single particle cryo-EM data. 
-The cryoSPARC platform enables automated, high quality and high-throughput structure discovery of proteins, viruses and molecular complexes 
+The CryoSPARC platform enables automated, high quality and high-throughput structure discovery of proteins, viruses and molecular complexes 
 for research and drug discovery.
 
 .. note::
-  cryoSPARC offical site : https://cryosparc.com
+  CryoSPARC offical site : https://cryosparc.com
 
 .. note::
-  At the time of writing this document (Jan. 2021), unforturnatelly, cryoSPARC v2.x, v3.x or v4.x does not provide the method of installing **a single cryoSPARC instance**
+  At the time of writing this document (Jan. 2021), unforturnatelly, CryoSPARC v2.x, v3.x or v4.x does not provide the method of installing **a single CryoSPARC instance**
   (consisting of web applcation, command core, and database) **for use by a number of users with the complete isolation and security of their project data**.
-  This problem might be resolved with later versions of cryoSPARC after CryoSPARC re-designs the product with the concept of "Hub" (as mentioned in cryoSPARC forum 
+  This problem might be resolved with later versions of CryoSPARC after CryoSPARC re-designs the product with the concept of "Hub" (as mentioned in cryoSPARC forum 
   https://discuss.cryosparc.com/t/use-linux-user-accounts/3480).
-  In the meanwhile, thus, we had to decide that each group must setup **a completely isolated cryoSPARC instance independently within thier own home directories** 
+  In the meanwhile, thus, we had to decide that each group must setup **a completely isolated CryoSPARC instance independently within thier own home directories** 
   (/tem/scratch/<GroupDir>).
   This method relies on the UNIX system for security and is more tedious to manage but provides stronger access restrictions for users own dataset.
-  For users convenience, we are ready to install and setup a cryoSPARC instance with **administrative automation codes on behalf of users**.  
+  For users convenience, we are ready to install and setup a CryoSPARC instance with **administrative automation codes on behalf of users**.  
 
 Prerequisites
 =============
 
-Now, cryoSPARC is available free of charge for academic use. For a completely isolated cryoSPARC instance, user must have their own non-commercial license key for cryoSPARC v4.
+Now, CryoSPARC is available free of charge for academic use. For a completely isolated CryoSPARC instance, user must have their own non-commercial license key for CryoSPARC v4.
 **Please visit the CryoSPARC official site, request a license key and inform the valid key to GSDC TEM service administrator by e-mail.**  
 
 Getting a cryoSPARC instance 
@@ -30,16 +30,16 @@ Getting a cryoSPARC instance
 CryoSPARC is a backend and frontend software system that provides data processing and image analysis capabilities for single particle cryo-EM, 
 along with a browser based user interface and command line tools. CryoSPARC is composed of three major components : cryosparc_master, cryospace_database and cryosparc_worker.
 
-* **cryosparc_master** : Master processes (webapps, command_core, databases, etc.) run together on one node (for our case, tem-cs-el7.sdfarm.kr login node). These processes host HTML5 based web applications, spawn or submit jobs to a cluster scheduler (for example, to PBS-based batch system)
+* **cryosparc_master** : Master processes (webapps, command_core, databases, etc.) run together on one node (for our case, tem-cs-el7.sdfarm.kr or tem-ui-el7.sdfarm.kr login node). These processes host HTML5 based web applications, spawn or submit jobs to a cluster scheduler (for example, to PBS-based batch system)
 
-* **cryosparc_worker** : Worker process can be spawned on any available worker nodes, and do data processing and image analysis tasks which are pre-defined within cryoSPRAC software packages.
+* **cryosparc_worker** : Worker process can be spawned on any available worker nodes, and do data processing and image analysis tasks which are pre-defined within CryoSPARC software packages.
 
 * **cryosparc_database** : CryoSPARC database is built on top of mongoDB, managing the metadata of users workflows, projects, jobs, backend clusters or workers as well as users. 
 
-1. (Admin) Install and setup a cryoSPARC instance
+1. (Admin) Install and setup a CryoSPARC instance
 -------------------------------------------------
 
-On behalf of users, administrator can execute ansible configuration automation code-snippets to install and setup a cryoSPARC instance, using a given valid license key.
+On behalf of users, administrator can execute ansible configuration automation code-snippets to install and setup a CryoSPARC instance, using a given valid license key.
 Master, worker and database sub-packages will be installed during configuration automation, which are located in **/tem/scratch/<GroupDir>/.cryosparc** after finishing setup.
 A setup procedure includes registering both cluster(lane or worker nodes) instance and webapp's admin/normal users account. 
 The whole setup will take about 10 minutes. 
@@ -48,8 +48,10 @@ After finishing installation, **/tem/scratch/<GroupDir>/.cryosparc** has followi
 
 .. code-block:: bash
 
-  tem-cs-el7.sdfarm.kr $> cd ~/.cryosparc
-  tem-cs-el7.sdfarm.kr $> tree -L 1 ./
+  On the node tem-cs-el7.sdfarm.kr or tem-ui-el7.sdfarm.kr where the CryoSPARC instance's running,
+
+  $> cd ~/.cryosparc
+  $> tree -L 1 ./
   .
   ├─ cluster_info.json              ## cluster(lane) information to register    
   ├─ cluster_script.sh              ## PBS script template to submit jobs to worker cluster(lane)
@@ -62,10 +64,10 @@ After finishing installation, **/tem/scratch/<GroupDir>/.cryosparc** has followi
 
 
 .. warning::
-  **!! CAUTION !!** **DO NOT** delete or modify cryoSPARC instance base directory, **/tem/scratch/<GroupDir>/.cryosparc**. The cryoSPARC base directory contains database. If this directory is deleted,
+  **!! CAUTION !!** **DO NOT** delete or modify CryoSPARC instance base directory, **/tem/scratch/<GroupDir>/.cryosparc**. The CryoSPARC base directory contains database. If this directory is deleted,
   all the project, job and workflow information will be corrupted and lost.
 
-Also, the configuration code-snippets implicitly add cryoSPARC instance's binary path to PATH environment variable.
+Also, the configuration code-snippets implicitly add CryoSPARC instance's binary path to PATH environment variable.
 
 .. code-block:: bash
 
@@ -79,16 +81,21 @@ Also, the configuration code-snippets implicitly add cryoSPARC instance's binary
 --------------------------------
 
 By default, master processes (webapp, command_core, database, etc.) are automatilly started during configuration automation.
-Users should check and verify whether the master processes are working correctly on tem-cs-el7.sdfarm.kr login node or not. 
+Users should check and verify whether the master processes are working correctly on **tem-cs-el7.sdfarm.kr** or **tem-ui-el7.sdfarm.kr** as guided 
 
-* **Checking environment variables for cryoSPARC instance**
+* **Checking environment variables for CryoSPARC instance**
+
+You need to login the **tem-cs-el7.sdfarm.kr** or **tem-ui-el7.sdfarm.kr** via SSH to check the status of the deployed CryoSPARC intance.
+
 
 .. code-block:: bash
 
-   tem-cs-el7.sdfarm.kr $> cryosparcm env
+   On the node tem-cs-el7.sdfarm.kr or tem-ui-el7.sdfarm.kr where the CryoSPARC instance's running,
+
+   $> cryosparcm env
    
    export "CRYOSPARC_HTTP_PORT=39xxx"
-   export "CRYOSPARC_MASTER_HOSTNAME=tem-cs-el7.sdfarm.kr"
+   export "CRYOSPARC_MASTER_HOSTNAME=tem-xx-el7.sdfarm.kr"
    export "CRYOSPARC_CLICK_WRAP=true"
    export "CRYOSPARC_COMMAND_VIS_PORT=39xxx"
    export "CRYOSPARC_CONDA_ENV=cryosparc_master_env"
@@ -127,15 +134,17 @@ Users should check and verify whether the master processes are working correctly
 You can find what kinds of environment variables have been set for the cryoSPARC instance. 
 
 .. note::
-   Especially, user should check **CRYOSPARC_BASE_PORT** (above, for example, 39000), which is **the listening port of cryoSPARC web application**. 
-   Later, this port number is used to make SSH tunneling between client and tem-cs-el7.sdfarm.kr login node. 
-   **Via the tunneled connection over SSH, users can access the web UI of cryoSPARC instance.**    
+   Especially, user should check **CRYOSPARC_BASE_PORT** (above, for example, 39000), which is **the listening port of CryoSPARC web application**. 
+   Later, this port number is used to make SSH tunneling between client and **tem-cs-el7.sdfarm.kr** or **tem-ui-el7.sdfarm.kr** login node. 
+   **Via the tunneled connection over SSH, users can access the web UI of CryoSPARC instance.**    
 
-* **Checking the status of cryoSPARC instance**
+* **Checking the status of CryoSPARC instance**
 
 .. code-block:: bash
 
-   tem-cs-el7.sdfarm.kr $> cryosparcm status
+   On the node tem-cs-el7.sdfarm.kr or tem-ui-el7.sdfarm.kr where the CryoSPARC instance's running,
+
+   $> cryosparcm status
    ----------------------------------------------------------------------------
    CryoSPARC System master node installed at
    /tem/scratch/<GroudID>/.cryosparc/cryosparc_master
@@ -160,7 +169,7 @@ You can find what kinds of environment variables have been set for the cryoSPARC
 
    global config variables:
    export CRYOSPARC_LICENSE_ID="<license_key>"
-   export CRYOSPARC_MASTER_HOSTNAME="tem-cs-el7.sdfarm.kr"
+   export CRYOSPARC_MASTER_HOSTNAME="tem-xx-el7.sdfarm.kr"
    export CRYOSPARC_DB_PATH="/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database"
    export CRYOSPARC_BASE_PORT=39xxx
    export CRYOSPARC_DB_CONNECTION_TIMEOUT_MS=20000
@@ -186,7 +195,9 @@ We assume that user's network setup looks like (most commonly used scenario):
 For Linux/Mac users 
 -------------------
 
-With the following command, you can start an SSH tunnel to export **CRYOSPARC_BASE_PORT** from tem-cs-el7.sdfarm.kr to your local client machine.
+With the following command, you can start an SSH tunnel to export **CRYOSPARC_BASE_PORT** from **tem-cs-el7.sdfarm.kr** or **tem-ui-el7.sdfarm.kr** to your local client machine.
+
+If the provided CryoSPARC instance has been deployed/executed on the **tem-cs-el7.sdfarm.kr** node,
 
 .. code-block:: bash
 
@@ -199,14 +210,30 @@ With the following command, you can start an SSH tunnel to export **CRYOSPARC_BA
    ## -f : Requests ssh to go to background just before command execution.
    ## -L [bind_address:]port:host:hostport
 
+Otherwise, the CryoSPARC instance is running on the **tem-ui-el7.sdfarm.kr**,
+
+.. code-block:: bash
+
+   localhost $> ssh -N -f -L localhost:39500:tem-ui-el7.sdfarm.kr:<CRYOSPARC_BASE_PORT> -o Port=<ssh_port> <userid>@tem-ui-el7.sdfarm.kr
+   (<userID>@tem-ui-el7.sdfarm.kr) First Factor:
+   (<userID>@tem-ui-el7.sdfarm.kr) Second Factor(optional):
+
+   ## 39500 port on localhost : assume that the port number 39500 is available on your localhost. Otherwise, you can use another port available.
+   ## -N : Do not execute a remote command. This is useful option for just forwarding ports.
+   ## -f : Requests ssh to go to background just before command execution.
+   ## -L [bind_address:]port:host:hostport
+
+
 .. note::
    You should execute this 'ssh' command on **YOUR LOCAL PC/WORKSTATION** to make a tunnel between 
-   your local machine and tem-cs-el7.sdfarm.kr (localhost:39500 <--> tem-cs-el7.sdfarm.kr:<CRYOSPARC_BASE_PORT>) over secure channel.
+   your local machine and tem-cs-el7.sdfarm.kr or tem-ui-el7.sdfarm.kr (localhost:39500 <--> tem-[cs|ui]-el7.sdfarm.kr:<CRYOSPARC_BASE_PORT>) over secure channel.
+
+|
 
 .. note::
    You can close the terminal window (because 'ssh' will be run in the background) after running the above command. The tunnel will stay open.   
 
-Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http://localhost:39500. You should be presented with the cryoSPARC login page.
+Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http://localhost:39500. You should be presented with the CryoSPARC login page.
 
 For Windows users 
 -----------------
@@ -231,17 +258,21 @@ Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http:
 * Using Putty
   
   * Open 'PuTTy Configuration' dialog box.
-  * 'PuTTy Configuration' -> 'Session' : Load a SSH session to connect tem-cs-el7.sdfarm.kr login node with the known <ssh_port>.
+  * 'PuTTy Configuration' -> 'Session' : Load a SSH session to connect tem-[cs|ui]-el7.sdfarm.kr login node with the known <ssh_port>.
   * 'PuTTy Configuration' -> 'Connection' -> 'SSH' -> 'Tunnels' : Set a forwarded port binding option and add the entry.
 
 .. note::
-   You must use **tem-cs-el7.sdfarm.kr:CRYOSPARC_BASE_PORT** for the 'Destination' field. 
+   You must use **tem-[cs|ui]-el7.sdfarm.kr:CRYOSPARC_BASE_PORT** for the 'Destination' field. 
+
+|
 
 .. image:: images/putty-tunnel.JPG
     :scale: 60 %
     :align: center
 
-Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http://localhost:39500. You should be presented with the cryoSPARC login page.
+|
+
+Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to http://localhost:39500. You should be presented with the CryoSPARC login page.
 
 Exploring CryoSPARC web apps
 ============================
@@ -250,11 +281,13 @@ CryoSPARC login
 ---------------
 
 E-mail and password information will be notified to users as the installation and setup is finished.
-Given e-mail and password, users can login to cryoSPARC web interfaces. 
+Given e-mail and password, users can login to CryoSPARC web interfaces. 
 
 .. image:: images/cryosparc-login.png
     :scale: 50 %
     :align: center
+
+|
 
 CryoSPARC dashboard
 -------------------
@@ -263,12 +296,16 @@ CryoSPARC dashboard
     :scale: 45 %
     :align: center
 
+|
+
 CryoSPARC project
 -----------------
 
 .. image:: images/cryosparc-project.png
     :scale: 45 %
     :align: center
+
+|
 
 CryoSPARC cluster(lane)
 -----------------------
@@ -277,9 +314,10 @@ CryoSPARC cluster(lane)
     :scale: 45 %
     :align: center
 
+|
 
 .. note::
-   For details on user interface and usages of cryoSPARC, refer to cryoSPARC's official document.
+   For details on user interface and usages of CryoSPARC, refer to CryoSPARC's official document.
    https://cryosparc.com/docs/reference/general 
 
 
@@ -293,14 +331,16 @@ Tutorial on processing T20S
 Trouble shooting
 ================
 
-1. How to stop or start the cryoSPARC instance?
+1. How to stop or start the CryoSPARC instance?
 -----------------------------------------------
 
-* Stop the running cryoSPRAC instance
+* Stop the running CryoSPARC instance
 
 .. code-block:: bash
 
-   tem-cs-el7.sdfarm.kr $> cryosparcm stop
+   On the node tem-cs-el7.sdfarm.kr or tem-ui-el7.sdfarm.kr where the CryoSPARC instance's running,
+
+   $> cryosparcm stop
 
    CryoSPARC is running.
    Stopping cryoSPARC
@@ -319,7 +359,9 @@ Stop the cryosparc instance if running. This will gracefully kill all the master
 
 .. code-block:: bash
 
-   tem-cs-el7.sdfarm.kr $> cryosparcm start
+   On the node tem-cs-el7.sdfarm.kr or tem-ui-el7.sdfarm.kr where the CryoSPARC instance's running,
+   
+   $> cryosparcm start
 
    Starting cryoSPARC System master process..
    CryoSPARC is not already running.
@@ -343,7 +385,7 @@ Stop the cryosparc instance if running. This will gracefully kill all the master
       http://localhost:39xxx
 
    From other machines on the network, access cryoSPARC and cryoSPARC Live at
-      http://tem-cs-el7.sdfarm.kr:39xxx
+      http://tem-[cs|ui]-el7.sdfarm.kr:39xxx
 
 
    Startup can take several minutes. Point your browser to the address
@@ -361,7 +403,9 @@ Users can reset the non-admin user's password to a new password with the followi
 
 .. code-block:: bash
 
-   tem-cs-el7.sdfarm.kr $> cryosparcm resetpassword --email <email address> --password <newpassword>
+   On the node tem-cs-el7.sdfarm.kr or tem-ui-el7.sdfarm.kr where the CryoSPARC instance's running,
+
+   $> cryosparcm resetpassword --email <email address> --password <newpassword>
 
 
 3. Job (or Workflow) failed caused by **SSD caching**
@@ -392,7 +436,8 @@ but if you'd like to keep this option off across all jobs in a project, you can 
 
 .. code-block:: bash
 
-   tem-cs-el7.sdfarm.kr $> cryosparcm cli "set_project_param_default('PX', 'compute_use_ssd', False)"
+   On the node tem-cs-el7.sdfarm.kr or tem-ui-el7.sdfarm.kr where the CryoSPARC instance's running,
+   $> cryosparcm cli "set_project_param_default('PX', 'compute_use_ssd', False)"
 
 where 'PX' is the Project ID you want to set the default value for (e.g., 'P1', 'P2', etc.)
 
@@ -400,10 +445,11 @@ You can undo this setting by running:
 
 .. code-block:: bash
    
-   tem-cs-el7.sdfarm.kr $> cryosparcm cli "unset_project_param_default('PX', 'compute_use_ssd')"
+   On the node tem-cs-el7.sdfarm.kr or tem-ui-el7.sdfarm.kr where the CryoSPARC instance's running,
+   $> cryosparcm cli "unset_project_param_default('PX', 'compute_use_ssd')"
 
-4. Failed to launch! 190
-------------------------
+4. Failed to launch!
+--------------------
 
 As you submit a cryoSPARC job to TEM-FARM cluster, you can encounter an error such as **"Failed to launch! 190"**.
 If you face with this error, you should check **Number of GPUs to parallelize** option under "Compute Setttings" of job builder first.
