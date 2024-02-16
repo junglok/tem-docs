@@ -24,7 +24,7 @@ Prerequisites
 Now, CryoSPARC is available free of charge for academic use. For a completely isolated CryoSPARC instance, user must have their own non-commercial license key for CryoSPARC v4.
 **Please visit the CryoSPARC official site, request a license key and inform the valid key to GSDC TEM service administrator by e-mail.**  
 
-Getting a cryoSPARC instance 
+Getting a CryoSPARC instance 
 ============================
 
 CryoSPARC is a backend and frontend software system that provides data processing and image analysis capabilities for single particle cryo-EM, 

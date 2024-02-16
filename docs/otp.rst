@@ -33,6 +33,20 @@ Open your terminal and execute the following command to obtain new credentials.
 
 Enter your password and press Enter to generate new credentials. Now, re-run the "ipa otptoken-add" command. It should execute without errors, using the newly generated credentials.
 
+How can I resolve **"Unable to display QR code"** error?
+--------------------------------------------------------
+
+When connecting to the GSDC login server via a lab workstation/desktop using the GNOME Terminal in a Linux system (e.g., Ubuntu), 
+executing the "ipa otptoken-add" command results in the message "ipa: WARNING: Unable to display QR code using the configured output encoding. 
+Please use the token URI to configure your OTP device".
+
+To resolve this issue, you can force the use of a locale supported by the internal Python QR code package within the ipa tool. Use the following command:
+
+.. code-block:: bash
+
+    $> LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 ipa otptoken-add --algo=sha512
+
+
 Releasing screen lock
 ---------------------
 
