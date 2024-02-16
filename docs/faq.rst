@@ -2,9 +2,9 @@
 Frequently Asked Questions
 **************************
 
-* `how to resolve the problems on (re)starting your own cryosparc instance`_
-* `how to repair cryosparc database corruption caused by duplicated mongod executions`_
-* `how to update cryosparc softwares`_ 
+* 1. `how to resolve the problems on (re)starting your own cryosparc instance`_
+* 2. `how to repair cryosparc database corruption caused by duplicated mongod executions`_
+* 3. `how to update cryosparc softwares`_ 
 
 .. _how to resolve the problems on (re)starting your own cryosparc instance:
 
@@ -725,7 +725,7 @@ Then, re-install all the cryosparc worker softwares with the followings (note th
     ******************************************************************
 
 
-6. Running the newer cryosparc instance
+6. Running the new cryosparc instance
 ---------------------------------------
 
 All the cryosparc master and worker updates has completed. So, you need to re-execute cryosparc instance daemons (assume userid's CRYOSPARC_BASE_PORT is 39030).
