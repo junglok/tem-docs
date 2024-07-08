@@ -10,6 +10,7 @@ GSDC TEM Application Form
 If you want to get user account to access TEM farm, please download this Application Form, fill-out the blanks, sign and send it to GSDC service managers. 
 
 * `GSDC TEM Application Form <https://github.com/gsdc/tem-docs/raw/master/docs/GSDC-TEM-APPFORM-2024.pdf>`_
+* (No need to describe public IP addresses in the application form since 15 July, 2024 according to the mitigated access control policy)
 
 Tutorial
 ========

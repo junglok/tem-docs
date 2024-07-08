@@ -2,15 +2,16 @@
 Change Logs
 ***********
 
+* 2024-07-08 : GSDC TEM application form updated.
 * 2024-02-16 : CryoSPARC guides updated.
 * 2024-01-11 : Relion 4.0.1 support added.
 * 2024-01-03 : One-Time-Password(OTP) guide link added.
 * 2023-06-30 : TEM docs guide version 2.0 released.
 * 2023-06-14 : PyEM usage guide added.
-* 2023-05-31 : Stared to support Pusan National University (PNU) Cryo-EM Center.
+* 2023-05-31 : Started to support Pusan National University (PNU) Cryo-EM Center.
 * 2023-05-09 : CryoSPARC updated for the scratch directory per each research group.
 * 2023-02-06 : Data migration from old storages (NAS and JBOD) to new high performance storage (based on lustre file system) completed.
-* 2022-12-01 : Stared to support Seoul National University (SNU) Cryo-EM Center.
+* 2022-12-01 : Started to support Seoul National University (SNU) Cryo-EM Center.
 * 2022-11-11 : Relion version 4.0.0 support added.
 * 2022-11-10 : IBM aspera client tool (EMPIAR data transfer tool) added.
 * 2021-11-19 : PyEM module environment added.
