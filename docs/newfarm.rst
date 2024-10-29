@@ -152,6 +152,10 @@ Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan N
 |          |             |                                                                    | | (apps/relion/cpu/4.0.1)              |
 |          |             |                                                                    | | (apps/relion/gpu/4.0.1)              |
 |          |             |                                                                    |                                        |
+|          |             |                                                                    | | v5.0.0                               |
+|          |             |                                                                    | | (apps/relion/cpu/5.0.0)              |
+|          |             |                                                                    | | (apps/relion/gpu/5.0.0)              |
+|          |             |                                                                    |                                        |
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
 |          | **cisTEM**  | | User-friendly software to process cryo-EM images of              | | v1.0.0                               |
 |          |             | | macromolecular complexes and obtain high-resolution 3D           | | (apps/cistem/1.0.0)                  |
@@ -163,7 +167,7 @@ Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan N
 |          |             | | obtaining 3D structural information from single particle cryo-EM | | v3.2.0                               |
 |          |             | | data.                                                            | | v4.0.0                               |
 |          |             |                                                                    | | v4.2.0                               |
-|          |             | - https://cryosparc.com                                            | | v4.4.0                               |
+|          |             | - https://cryosparc.com                                            | | v4.4.0 and later                     |
 |          +-------------+--------------------------------------------------------------------+----------------------------------------+
 |          | **Topaz**   | | A pipeline for particle detection in cryoem images using         | | v0.2.4                               |
 |          |             | | convolutional neural networks trained from positive and unlabeled| | (topaz/cuda-9.2/0.2.4)               |
@@ -200,14 +204,12 @@ Module paths for data analysis tools
   $> module avail
   -------- /tem/el7/Modules/apps ---------
   apps/cistem/1.0.0
-  apps/relion/cpu/3.0.7
-  apps/relion/cpu/3.1.0
   apps/relion/cpu/4.0.0
   apps/relion/cpu/4.0.1
-  apps/relion/gpu/3.0.7
-  apps/relion/gpu/3.1.0
+  apps/relion/cpu/5.0.0
   apps/relion/gpu/4.0.0
   apps/relion/gpu/4.0.1
+  apps/relion/gpu/5.0.0  
 
   ---- /tem/el7/Modules/acceleration -----
   cuda/9.2  cuda/11.2
@@ -253,13 +255,6 @@ Job submission templates
   ## Relion 3.0.7 GPU 가속 활용하는 MPI 작업 템플릿           
   /tem/el7/qsub-relion-3.0.7-gpu.bash           
 
-  ## Relion 3.1.0 CPU MPI 작업 템플릿
-  /tem/el7/qsub-relion-3.1.0-cpu.bash
-  ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿           
-  /tem/el7/qsub-relion-3.1.0-gpu.bash
-  ## Relion 3.1.0 에서 external job 으로 topaz 소프트웨어를 사용하는 작업 템플릿           
-  /tem/el7/qsub-relion-3.1.0-topaz.bash         
-
   ## Relion 4.0.0 CPU MPI 작업 템플릿
   /tem/el7/qsub-relion-4.0.0-cpu.bash
   ## Relion 4.0.0 GPU 가속 활용하는 MPI 작업 템플릿           
@@ -273,6 +268,13 @@ Job submission templates
   /tem/el7/qsub-relion-4.0.1-gpu.bash
   ## Relion 4.0.1 에서 external job 으로 topaz 소프트웨어를 사용하는 작업 템플릿           
   /tem/el7/qsub-relion-4.0.1-topaz.bash   
+
+  ## Relion 5.0.0 CPU MPI 작업 템플릿
+  /tem/el7/qsub-relion-5.0.0-cpu.bash
+  ## Relion 5.0.0 GPU 가속 활용하는 MPI 작업 템플릿           
+  /tem/el7/qsub-relion-5.0.0-gpu.bash
+  ## Relion 5.0.0 에서 external job 으로 topaz 소프트웨어를 사용하는 작업 템플릿           
+  /tem/el7/qsub-relion-5.0.0-topaz.bash
 
 7. Batch queues
 ===============

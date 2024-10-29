@@ -18,14 +18,12 @@ How to start Relion data analysis tool
 
   -------- /tem/el7/Modules/apps --------
   apps/cistem/1.0.0
-  apps/relion/cpu/3.0.7
-  apps/relion/cpu/3.1.0
   apps/relion/cpu/4.0.0
   apps/relion/cpu/4.0.1
-  apps/relion/gpu/3.0.7
-  apps/relion/gpu/3.1.0
+  apps/relion/cpu/5.0.0
   apps/relion/gpu/4.0.0
   apps/relion/gpu/4.0.1
+  apps/relion/gpu/5.0.0
 
   ---- /tem/el7/Modules/acceleration ----
   cuda/9.2  cuda/11.2
@@ -56,21 +54,21 @@ How to start Relion data analysis tool
   rosetta/openmpi-4.0.3/3.13
 
 
-2. Check the module details for the specific relion version (e.g., Relion v4.0.1 with GPGPU support or Relion v4.0.1 with CPU cores support only)
+2. Check the module details for the specific relion version (e.g., Relion v5.0.0 with GPGPU support or Relion v5.0.0 with CPU cores support only)
 
 .. code-block:: bash
 
-  $> module show apps/relion/gpu/4.0.1
+  $> module show apps/relion/gpu/5.0.0
 
   -------------------------------------------------------------------
-  /tem/el7/Modules/apps/apps/relion/gpu/4.0.1:
+  /tem/el7/Modules/apps/apps/relion/gpu/5.0.0:
 
-  module-whatis   {Setups relion 4.0.1 environment variables}
-  module          load mpi/gcc/openmpi/4.0.3
+  module-whatis   {Setups relion 5.0.0 environment variables}
+  module          load mpi/gcc/8.3.1/openmpi/4.0.3
   module          load cuda/11.2
-  setenv          relion_version 4.0.1
-  prepend-path    PATH /tem/el7/relion-4.0.1/gpu/bin
-  prepend-path    LD_LIBRARY_PATH /tem/el7/relion-4.0.1/gpu/lib
+  setenv          relion_version 5.0.0
+  prepend-path    PATH /tem/el7/relion-5.0.0/gpu/bin
+  prepend-path    LD_LIBRARY_PATH /tem/el7/relion-5.0.0/gpu/lib
   setenv          LANG en_US.UTF-8
   setenv          RELION_QUEUE_USE yes
   setenv          RELION_QUEUE_NAME gpuQ
@@ -93,16 +91,16 @@ How to start Relion data analysis tool
 
   or
 
-  $> module show apps/relion/cpu/4.0.1
+  $> module show apps/relion/cpu/5.0.0
 
   -------------------------------------------------------------------
-  /tem/el7/Modules/apps/apps/relion/cpu/4.0.1:
+  /tem/el7/Modules/apps/apps/relion/cpu/5.0.0:
 
-  module-whatis   {Setups relion 4.0.1 environment variables}
-  module          load mpi/gcc/openmpi/4.0.3
-  setenv          relion_version 4.0.1
-  prepend-path    PATH /tem/el7/relion-4.0.1/cpu/bin
-  prepend-path    LD_LIBRARY_PATH /tem/el7/relion-4.0.1/cpu/lib
+  module-whatis   {Setups relion 5.0.0 environment variables}
+  module          load mpi/gcc/8.3.1/openmpi/4.0.3
+  setenv          relion_version 5.0.0
+  prepend-path    PATH /tem/el7/relion-5.0.0/cpu/bin
+  prepend-path    LD_LIBRARY_PATH /tem/el7/relion-5.0.0/cpu/lib
   setenv          LANG en_US.UTF-8
   setenv          RELION_QUEUE_USE yes
   setenv          RELION_QUEUE_NAME cpuQ
@@ -127,17 +125,17 @@ How to start Relion data analysis tool
 
 .. code-block:: bash
 
-  $> module load apps/relion/gpu/4.0.1
+  $> module load apps/relion/gpu/5.0.0
   $> module list
   Currently Loaded Modulefiles:
-    1) mpi/gcc/openmpi/4.0.3   2) cuda/11.2   3) apps/relion/gpu/4.0.1
+    1) mpi/gcc/8.3.1/openmpi/4.0.3   2) cuda/11.2   3) apps/relion/gpu/5.0.0
 
 4. Check the relion application binary path
 
 .. code-block:: bash
 
   $> which relion
-  /tem/el7/relion-4.0.1/gpu/bin/relion
+  /tem/el7/relion-5.0.0/gpu/bin/relion
 
 
 5. Execute the relion application (we assume that X11 forwarding is enabled)
@@ -192,12 +190,13 @@ Running data analysis jobs using CPU cores
 Module path
 -----------
 
-Users should load an environment module, whose path is  **apps/relion/cpu/X.X.X** (i.e., moulde load apps/relion/cpu/4.0.0) to execute data analysis jobs using CPU cores in relion GUI.
+Users should load an environment module, whose path is  **apps/relion/cpu/X.X.X** (i.e., moulde load apps/relion/cpu/5.0.0) to execute data analysis jobs using CPU cores in relion GUI.
 
 * apps/relion/cpu/3.0.7
 * apps/relion/cpu/3.1.0
 * apps/relion/cpu/4.0.0
 * apps/relion/cpu/4.0.1
+* apps/relion/cpu/5.0.0
 
 Environment variables
 ---------------------
@@ -205,10 +204,11 @@ Relion defines a lot of environment variables that can be used to execute differ
 
 .. code-block:: bash
 
-  (for relion 3.0.7 standard job submission script) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-3.0.7-cpu.bash
-  (for relion 3.1.0 standard job submission script) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-3.1.0-cpu.bash
-  (for relion 4.0.0 standard job submission script) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-4.0.0-cpu.bash
-  (for relion 4.0.1 standard job submission script) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-4.0.1-cpu.bash
+  (for relion 3.0.7) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-3.0.7-cpu.bash
+  (for relion 3.1.0) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-3.1.0-cpu.bash
+  (for relion 4.0.0) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-4.0.0-cpu.bash
+  (for relion 4.0.1) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-4.0.1-cpu.bash
+  (for relion 5.0.0) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-5.0.0-cpu.bash
 
 
 For the use of CPU cluster nodes, we have set the RELION_QSUB_EXTRA_COUNT to 2. Two extra options describe "Number of Nodes" and "Number of processes per each node", respectively. These values can be referred by XXXextra1, XXXextra2XXX in the following batch job script template.
@@ -231,7 +231,7 @@ and give **"Number of Nodes"** and **"Number of processes per each node"** value
 .. note::
   For CPU jobs, note that you **MUST** use **cpuQ** for the "Queue name" field and render correct "number of MPI procs" which is generally total number of processes (# of nodes * # of processes per each node) 
 
-Standard job submission script (for relion 4.0.1 CPU use)
+Standard job submission script (for relion 5.0.0 CPU use)
 --------------------------------------------
 
 .. code-block:: bash
@@ -280,8 +280,8 @@ Standard job submission script (for relion 4.0.1 CPU use)
   ###########################################################
 
   ### Run:
-  module load apps/relion/cpu/4.0.1
-  mpirun --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --prefix /tem/el7/openmpi-4.0.3 -machinefile $PBS_NODEFILE XXXcommandXXX
+  module load apps/relion/cpu/5.0.0
+  mpirun --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --prefix /tem/el7/gcc-8.3.1/openmpi-4.0.3 -machinefile $PBS_NODEFILE XXXcommandXXX
 
   echo "Done!"
 
@@ -296,10 +296,11 @@ Relion defines a lot of environment variables that can be used to execute differ
 
 .. code-block:: bash
 
-  (for relion 3.0.7 w/ GPU support standard job submission script) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-3.0.7-gpu.bash
-  (for relion 3.1.0 w/ GPU support standard job submission script) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-3.1.0-gpu.bash
-  (for relion 4.0.0 w/ GPU support standard job submission script) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-4.0.0-gpu.bash
-  (for relion 4.0.1 w/ GPU support standard job submission script) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-4.0.1-gpu.bash
+  (for relion 3.0.7 w/ GPU support) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-3.0.7-gpu.bash
+  (for relion 3.1.0 w/ GPU support) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-3.1.0-gpu.bash
+  (for relion 4.0.0 w/ GPU support) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-4.0.0-gpu.bash
+  (for relion 4.0.1 w/ GPU support) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-4.0.1-gpu.bash
+  (for relion 5.0.0 w/ GPU support) RELION_QSUB_TEMPLATE /tem/el7/qsub-relion-5.0.0-gpu.bash
 
 Unlike CPU cluster use case, we have set the RELION_QSUB_EXTRA_COUNT to 3 for the use of GPGPU cluster, 
 where each extra option describes "Number of Nodes", "Number of processes per each node", and "Number of GPUs per node", respectively. All these values can be accessed by XXXextra1, XXXextra2XXX, XXXextra3XXX 
@@ -328,7 +329,7 @@ in the batch job script template.
 .. note::
   For GPU jobs, note that you **MUST** use **gpuQ** for the "Queue name" field and render correct "number of MPI procs" which is generally total number of processes (# of nodes * # of processes per each node) 
 
-Standard job submission script (for relion 4.0.1 GPGPU use)
+Standard job submission script (for relion 5.0.0 GPGPU use)
 ----------------------------------------------
 
 .. code-block:: bash
@@ -379,8 +380,8 @@ Standard job submission script (for relion 4.0.1 GPGPU use)
   ###########################################################
 
   ### Run:
-  module load apps/relion/gpu/4.0.1
-  mpirun --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --prefix /tem/el7/openmpi-4.0.3 -machinefile $PBS_NODEFILE XXXcommandXXX
+  module load apps/relion/gpu/5.0.0
+  mpirun --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --prefix /tem/el7/gcc-8.3.1/openmpi-4.0.3 -machinefile $PBS_NODEFILE XXXcommandXXX
 
   echo "Done!"
 
@@ -454,7 +455,8 @@ Motion Correction
     * /tem/el7/qsub-relion-3.0.7-cpu.bash           ## Relion 3.0.7 CPU MPI 작업 템플릿
     * /tem/el7/qsub-relion-3.1.0-cpu.bash           ## Relion 3.1.0 CPU MPI 작업 템플릿
     * /tem/el7/qsub-relion-4.0.0-cpu.bash           ## Relion 4.0.0 CPU MPI 작업 템플릿
-    * /tem/el7/qsub-relion-4.0.1-cpu.bash           ## Relion 4.0.1 CPU MPI 작업 템플릿  
+    * /tem/el7/qsub-relion-4.0.1-cpu.bash           ## Relion 4.0.1 CPU MPI 작업 템플릿
+    * /tem/el7/qsub-relion-5.0.0-cpu.bash           ## Relion 5.0.0 CPU MPI 작업 템플릿   
 
 .. image:: images/relion-motioncor1.png
     :scale: 50 %
@@ -481,7 +483,8 @@ Motion Correction
     * /tem/el7/qsub-relion-3.0.7-gpu.bash           ## Relion 3.0.7 GPU 가속 활용하는 MPI 작업 템플릿
     * /tem/el7/qsub-relion-3.1.0-gpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿
     * /tem/el7/qsub-relion-4.0.0-gpu.bash           ## Relion 4.0.0 GPU 가속 활용하는 MPI 작업 템플릿
-    * /tem/el7/qsub-relion-4.0.1-gpu.bash           ## Relion 4.0.1 GPU 가속 활용하는 MPI 작업 템플릿    
+    * /tem/el7/qsub-relion-4.0.1-gpu.bash           ## Relion 4.0.1 GPU 가속 활용하는 MPI 작업 템플릿
+    * /tem/el7/qsub-relion-5.0.0-gpu.bash           ## Relion 5.0.0 GPU 가속 활용하는 MPI 작업 템플릿      
 
 |
 
@@ -517,6 +520,7 @@ CTF Estimation
     * /tem/el7/qsub-relion-4.0.0-cpu.bash           ## Relion 4.0.0 CPU MPI 작업 템플릿
     * /tem/el7/qsub-relion-4.0.0-cpu.bash           ## Relion 4.0.0 CPU MPI 작업 템플릿
     * /tem/el7/qsub-relion-4.0.1-cpu.bash           ## Relion 4.0.1 CPU MPI 작업 템플릿
+    * /tem/el7/qsub-relion-5.0.0-cpu.bash           ## Relion 5.0.0 CPU MPI 작업 템플릿
 
 |
 
@@ -548,6 +552,7 @@ CTF Estimation
     * /tem/el7/qsub-relion-3.1.0-gpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿
     * /tem/el7/qsub-relion-4.0.0-gpu.bash           ## Relion 4.0.0 GPU 가속 활용하는 MPI 작업 템플릿
     * /tem/el7/qsub-relion-4.0.1-gpu.bash           ## Relion 4.0.1 GPU 가속 활용하는 MPI 작업 템플릿
+    * /tem/el7/qsub-relion-5.0.0-gpu.bash           ## Relion 5.0.0 GPU 가속 활용하는 MPI 작업 템플릿
 
 |
 
@@ -581,6 +586,7 @@ CTF Estimation
     * /tem/el7/qsub-relion-3.1.0-cpu.bash           ## Relion 3.1.0 CPU MPI 작업 템플릿
     * /tem/el7/qsub-relion-4.0.0-cpu.bash           ## Relion 4.0.0 CPU MPI 작업 템플릿
     * /tem/el7/qsub-relion-4.0.1-cpu.bash           ## Relion 4.0.1 CPU MPI 작업 템플릿 
+    * /tem/el7/qsub-relion-5.0.0-cpu.bash           ## Relion 5.0.0 CPU MPI 작업 템플릿
 
 |
 
@@ -612,7 +618,8 @@ CTF Estimation
     * /tem/el7/qsub-relion-3.1.0-gpu.bash           ## Relion 3.1.0 GPU 가속 활용하는 MPI 작업 템플릿
     * /tem/el7/qsub-relion-4.0.0-gpu.bash           ## Relion 4.0.0 GPU 가속 활용하는 MPI 작업 템플릿
     * /tem/el7/qsub-relion-4.0.1-gpu.bash           ## Relion 4.0.1 GPU 가속 활용하는 MPI 작업 템플릿
-
+    * /tem/el7/qsub-relion-5.0.0-gpu.bash           ## Relion 5.0.0 GPU 가속 활용하는 MPI 작업 템플릿
+    
 |
 
 .. image:: images/2dclassgpu-1.png

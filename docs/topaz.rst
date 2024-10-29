@@ -147,6 +147,7 @@ For an external job type in relion GUI, after providing python executable path, 
 * **/tem/el7/qsub-relion-3.1.0-topaz.bash**
 * **/tem/el7/qsub-relion-4.0.0-topaz.bash**
 * **/tem/el7/qsub-relion-4.0.1-topaz.bash**
+* **/tem/el7/qsub-relion-5.0.0-topaz.bash**
 
 |
 
