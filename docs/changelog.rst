@@ -2,6 +2,7 @@
 Change Logs
 ***********
 
+* 2024-10-29 : Relion 5.0.0 (beta) support added.
 * 2024-07-08 : GSDC TEM application form updated.
 * 2024-02-16 : CryoSPARC guides updated.
 * 2024-01-11 : Relion 4.0.1 support added.
