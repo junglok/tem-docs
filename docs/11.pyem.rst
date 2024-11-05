@@ -23,12 +23,12 @@ You can find out each version of pyem modules environment with the following com
 
   -------- /tem/el7/Modules/apps --------
   apps/cistem/1.0.0
-  apps/relion/cpu/3.0.7
-  apps/relion/cpu/3.1.0
   apps/relion/cpu/4.0.0
-  apps/relion/gpu/3.0.7
-  apps/relion/gpu/3.1.0
+  apps/relion/cpu/4.0.1
+  apps/relion/cpu/5.0.0
   apps/relion/gpu/4.0.0
+  apps/relion/gpu/4.0.1
+  apps/relion/gpu/5.0.0
 
   ---- /tem/el7/Modules/acceleration ----
   cuda/9.2  cuda/11.2
@@ -41,7 +41,7 @@ You can find out each version of pyem modules environment with the following com
 
   ----- /tem/el7/Modules/virtualenv -----
   conda/2020.11  topaz/cuda-9.2/0.2.4
-  **pyem/0.5**   topaz/cuda-11.0/0.2.4
+  pyem/0.5   topaz/cuda-11.0/0.2.4
 
   ------- /tem/el7/Modules/tools --------
   tools/aspera-cli/3.9.6

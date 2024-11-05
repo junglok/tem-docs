@@ -23,14 +23,12 @@ You can find out each version of topaz executables with the following commands:
 
   -------- /tem/el7/Modules/apps --------
   apps/cistem/1.0.0
-  apps/relion/cpu/3.0.7
-  apps/relion/cpu/3.1.0
   apps/relion/cpu/4.0.0
   apps/relion/cpu/4.0.1
-  apps/relion/gpu/3.0.7
-  apps/relion/gpu/3.1.0
+  apps/relion/cpu/5.0.0
   apps/relion/gpu/4.0.0
   apps/relion/gpu/4.0.1
+  apps/relion/gpu/5.0.0
 
   ---- /tem/el7/Modules/acceleration ----
   cuda/9.2  cuda/11.2

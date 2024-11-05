@@ -191,8 +191,8 @@ Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan N
 ====================================
 The Environment Modules system is a tool to help users manage their Unix or Linux shell environment, by allowing groups of related environment-variable settings to be made or removed dynamically.
 
-**Listing available modules**
------------------------------
+Listing available modules
+-------------------------
 
 
 .. code-block:: bash
@@ -236,8 +236,8 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   rosetta/openmpi-4.0.3/3.13
 
 
-**Show module details**
------------------------
+Show module details
+-------------------
 
 .. code-block:: bash
 
@@ -273,8 +273,8 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   conflict        apps/relion
   -------------------------------------------------------------------
 
-**Loading modules**
--------------------
+Loading modules
+---------------
 
 .. code-block:: bash
 
@@ -284,8 +284,8 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   e.g., $> module load apps/relion/gpu/5.0.0
 
 
-**Listing loaded modules**
---------------------------
+Listing loaded modules
+----------------------
 
 .. code-block:: bash
 
@@ -295,8 +295,8 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   1) mpi/gcc/8.3.1/openmpi/4.0.3   2) cuda/11.2   3) apps/relion/gpu/5.0.0
 
 
-**Unloading modules**
----------------------
+Unloading modules
+-----------------
 
 .. code-block:: bash
 
@@ -306,16 +306,16 @@ The Environment Modules system is a tool to help users manage their Unix or Linu
   e.g., $> module unload apps/relion/gpu/5.0.0
 
 
-**Unloading all the modules**
------------------------------
+Unloading all the modules
+-------------------------
 
 .. code-block:: bash
 
   $> module purge
 
 
-**Module environment help**
----------------------------
+Module environment help
+-----------------------
 
 .. code-block:: bash
 
@@ -421,8 +421,8 @@ Directives in PBS job scripts
 Torque defines some useful directives (starting with \'#PBS\') which can be used to describe job's resources requirements. Users must include those directives in job scripts to submit and execute jobs.
 The order of directives is not important, but the directives must be written prior to job execution commands.
 
-**Resource limits**
-~~~~~~~~~~~~~~~~~~~
+Resource limits
+~~~~~~~~~~~~~~~
 
 The "-l" option is used to request resources, including nodes, memory, time, etc.
 
@@ -472,8 +472,8 @@ If you don't define walltime, the default value is "infinite".
 
 ..
 
-**Job name**
-~~~~~~~~~~~~
+Job name
+~~~~~~~~
 
 You can define a job name using "-N" option. If you omit this directive, the default job name is the same as the file name of job script.
 
@@ -482,8 +482,8 @@ You can define a job name using "-N" option. If you omit this directive, the def
   #PBS -N jobName 
 
 
-**Queue name**
-~~~~~~~~~~~~~~
+Queue name
+~~~~~~~~~~
 
 In general, a "queue" can be thought of a mapped set of computing resources. You can specify a queue name (using "-q" option) which the job is enqueued to. 
 
@@ -492,8 +492,8 @@ In general, a "queue" can be thought of a mapped set of computing resources. You
   #PBS -q batch 
 
 
-**Job log files**
-~~~~~~~~~~~~~~~~~
+Job log files
+~~~~~~~~~~~~~
 When Torque executes an user's job, Torque creates 2 different types of log files (standard output stream and standart error stream) by default. If the job's name is "jobName" and the submitted job ID is "123456", you can find 2 files (jobName.o123456 and jobName.e123456) that are created in the job execution base directory. 
 You can also merge the two streams into one file using "-j oe" option. In that case, jobName.o1234567 file contains the standard error stream.
 
@@ -505,8 +505,8 @@ You can also merge the two streams into one file using "-j oe" option. In that c
 PBS job script examples
 -----------------------
 
-**Simple sequential job**
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Simple sequential job
+~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -519,8 +519,8 @@ PBS job script examples
   /usr/bin/time ./mysci > mysci.hist
 
 
-**Serial job with OpenMP multithreading**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Serial job with OpenMP multithreading
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -534,8 +534,8 @@ PBS job script examples
   ./a.out > my_results
 
 
-**Simple MPI parallel job**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Simple MPI parallel job
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Here is an example of an MPI job that uses 4 nodes with 4 cores each, running one process per core (16 processes total).
 
@@ -551,8 +551,8 @@ Here is an example of an MPI job that uses 4 nodes with 4 cores each, running on
   mpirun -machinefile $PBS_NODEFILE ./a.out
 
 
-**Parallel job with MPI and OpenMP**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Parallel job with MPI and OpenMP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This example is a hybrid MPI/OpenMP job. It runs one MPI process per node with 28 threads per process. The assumption here is that the code was written to support multi-level parallelism. 
 
