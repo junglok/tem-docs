@@ -4,8 +4,8 @@ Accounts
 
 .. _requesting accounts:
 
-Requesting accounts and accessing TEM cluster
-=============================================
+Requesting accounts
+===================
 Before you use GSDC's TEM cluster, you should send an application form to TEM service manager by e-mail and 
 get an user account to access the computing cluster (please see `APPENDIX : Application Form & Materials <https://tem-docs.readthedocs.io/en/latest/app.html#appendix-application-form-materials-newi>`_ section). 
 If you already have valid user accounts, 
@@ -14,6 +14,10 @@ you can make a connection to UI (user interface) login servers to use various ki
 .. note::
     When you first connect to the login servers, you can connect using only your password (or initial password), but you MUST immediately receive OTP (One-Time-Password)s for two-factor authentication.
     After the sucessful login, at ssh terminal, please follow the OTP guide to enable it. :ref:`2fa`
+
+
+Accessing GSDC TEM cluster
+==========================
 
 For Linux/Mac users
 -------------------
@@ -24,7 +28,16 @@ For Linux/Mac users
   (<userID>@tem-ui-el7.sdfarm.kr) First Factor:
   (<userID>@tem-ui-el7.sdfarm.kr) Second Factor(optional):
 
+or, 
+
+.. code-block:: bash
+
+  $> ssh -Y -o Port=<port> <userID>@tem-cs-el7.sdfarm.kr
+  (<userID>@tem-cs-el7.sdfarm.kr) First Factor:
+  (<userID>@tem-cs-el7.sdfarm.kr) Second Factor(optional):
+
 -Y (or -X) options : enable trusted X11 (or untrusted X11) forwarding
+
 
 For Windows users
 -----------------
