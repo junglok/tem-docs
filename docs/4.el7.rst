@@ -502,8 +502,8 @@ You can also merge the two streams into one file using "-j oe" option. In that c
   #PBS -j oe
 
 
-Torque job script examples
---------------------------
+PBS job script examples
+-----------------------
 
 **Simple sequential job**
 ~~~~~~~~~~~~~~~~~~~~~~~~~
