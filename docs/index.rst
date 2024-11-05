@@ -10,16 +10,18 @@ Welcome to tem-docs's documentation! ( Last updated : 2024-07-08 )
    :maxdepth: 3
    :caption: Contents:
 
-   changelog.rst
-   otp.rst
-   newfarm.rst
-   guide.rst
-   queue.rst
-   relion.rst
-   cisTEM.rst
-   cryoSPARC.rst
-   topaz.rst
-   pyem.rst
+   0.changelog.rst
+   1.account.rst
+   2.otp.rst
+   3.datatransfer.rst
+   4.el7.rst
+   5.el9.rst
+   6.queue.rst
+   7.relion.rst
+   8.cisTEM.rst
+   9.cryoSPARC.rst
+   10.topaz.rst
+   11.pyem.rst
    faq.rst
    app.rst
    contact.rst

@@ -3,7 +3,6 @@ Relion
 ******
 RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-alone computer program that employs an empirical Bayesian approach to refinement of (multiple) 3D reconstructions or 2D class averages in electron cryo-microscopy (cryo-EM). (from Relion official site https://www3.mrc-lmb.cam.ac.uk/relion/index.php?title=Main_Page)
 
-
 Executing Relion GUI tools
 ==========================
 
@@ -619,7 +618,7 @@ CTF Estimation
     * /tem/el7/qsub-relion-4.0.0-gpu.bash           ## Relion 4.0.0 GPU 가속 활용하는 MPI 작업 템플릿
     * /tem/el7/qsub-relion-4.0.1-gpu.bash           ## Relion 4.0.1 GPU 가속 활용하는 MPI 작업 템플릿
     * /tem/el7/qsub-relion-5.0.0-gpu.bash           ## Relion 5.0.0 GPU 가속 활용하는 MPI 작업 템플릿
-    
+
 |
 
 .. image:: images/2dclassgpu-1.png
