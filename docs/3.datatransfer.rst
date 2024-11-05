@@ -5,9 +5,9 @@ Data Transfers
 How can I use SSH/SFTP programs with 2FA?
 =========================================
 
-Your client (e.g., Terminal-based ssh/scp/rsync commands on Linux/Mac etc.) programs may natively support interactive or multi-factor authentication methods. 
+Your client (e.g., Terminal-based ssh/sftp/scp/rsync commands on Linux/Mac etc.) programs may natively support interactive or multi-factor authentication methods. 
 
-    * GUI terminal programs (for Linux or Mac) : `SSH/SCP/RSYNC via terminal-based commands <https://tem-docs.readthedocs.io/en/latest/1.account.html#for-linux-mac-users>`_  
+    * GUI terminal programs (for Linux or Mac) : `SSH/SFTP/SCP/RSYNC via terminal-based commands <https://tem-docs.readthedocs.io/en/latest/1.account.html#for-linux-mac-users>`_  
 
 However, many GUI programs do not have this functionality built in.
 
