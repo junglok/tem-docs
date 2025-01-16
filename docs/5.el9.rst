@@ -25,32 +25,29 @@ Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan N
     :header-rows: 1
 
     * - Category
-      - ServerName (sdfarm.kr)
+      - ServerName
       - Specification
       - Resources
     * - Login
-      - tem-ui-al9
-      - Intel Xeon 2.7GHz 18Core * 2CPUs
-        384GB main memory
+      - tem-ui-al9.sdfarm.kr
+      - Intel Xeon 2.7GHz 18Core * 2CPUs, 384GB main memory
       - 72 cores (with hypertheads)
     * - Login
-      - tem-cs-al9
-      - Intel Xeon 2.7GHz 18Core * 2CPUs
-        384GB main memory
+      - tem-cs-al9.sdfarm.kr
+      - Intel Xeon 2.7GHz 18Core * 2CPUs, 384GB main memory
       - 72 cores (with hypertheads)
     * - Batch master
-      - tem-ce-al9
-      - Intel Xeon 2.7GHz 18Core * 2CPUs
-        384GB main memory
+      - tem-ce-al9.sdfarm.kr
+      - Intel Xeon 2.7GHz 18Core * 2CPUs, 384GB main memory
       - 36 cores (without hypertheads)
     * - Workers
-      - tem-gpu[01-10]-al9
-      - Nvidia P40-24GB
-        Nvidia P100-16GB
-        V100-32GB
-        A100-40GB
-        A100-80GB
-      - 680 cores and 26 GPUs total
+      - tem-cpu[01-13]-al9.sdfarm.kr
+      - Intel Xeon 2.6GHz 14Core * 2CPUs, 192GB main memory
+      - 380 cores (cpuQ)
+    * - Workers
+      - tem-gpu[01-10]-al9.sdfarm.kr
+      - 256~384GB main meory, Nvidia P40-24GB, P100-16GB, V100-32GB, A100-40GB, A100-80GB
+      - 300 cores and 26 GPUs total (gpuQ)
     * - Storage
       - Users home directory 
       - 100GB per each user account
