@@ -10,6 +10,8 @@ theme:
   name: material
   # https://squidfunk.github.io/mkdocs-material/customization/
   custom_dir: docs/overrides
+  font:
+    text: Ubuntu
 
 # Include extra JS to setup Read the Docs addons integrations
 extra_javascript:
