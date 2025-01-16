@@ -13,6 +13,8 @@ theme:
   font:
     text: Roboto
     code: Ubuntu Mono
+  features:
+    - navigation.instant
 
 # Include extra JS to setup Read the Docs addons integrations
 extra_javascript:
