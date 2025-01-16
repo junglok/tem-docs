@@ -2,4 +2,49 @@
 GSDC TEM Computing Cluster based on AlmaLinux 9.x
 *************************************************
 
-TBD
+1. Service overview
+===================
+
+GSDC (Global Science experimental Data hub Center) provides data computing services, i.e., large-scale Cryo-EM data transfer, archiving and/or processing to Cryo-EM operators/users.
+Cryo-EM facilities which are operated by government-funded research institutes or academies, can be directly connected to GSDC via KREONET with 10+ Gbps dedicated/shared network links. 
+GSDC also supports petabyes scale of high performance (and/or archiving) storages and CPU/GPU computing servers to help Cryo-EM users' scientific discoveries. 
+Here is GSDC's computing and storage infrastructres for Cryo-EM operators/users.
+
+
+Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan National University)'s Cryo-EM facilities and GSDC TEM computing cluster.
+
+.. image:: images/tem_service_farm.png
+    :scale: 70 %
+    :align: center
+
+2. Computing and storage resources
+==================================
+
+.. list-table:: Computational and stroage resources of GSDC TEM cluster
+    :widths: 25 25 25 25
+    :header-rows: 1
+
+    * - Category
+      - ServerName (sdfarm.kr)
+      - Specification
+      - Resources
+    * - Login
+      - tem-ui-al9
+      - 
+      - 72 cores (with hypertheads)
+    * -
+      - tem-cs-al9
+      -
+      - 72 cores (with hypertheads)
+    * - Batch master
+      - tem-ce-al9
+      -
+      - 36 cores (without hypertheads)
+    * - Workers
+      - tem-gpu[01-10]-al9
+      - 
+      - 300 cores and 26 GPUs
+    * - Storage
+      - 
+      -
+      -
