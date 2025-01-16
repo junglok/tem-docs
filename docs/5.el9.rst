@@ -21,7 +21,7 @@ Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan N
 ==================================
 
 .. list-table:: Computational and stroage resources of GSDC TEM cluster
-    :widths: 25 25 25 25
+    :widths: auto
     :header-rows: 1
 
     * - Category
@@ -30,21 +30,36 @@ Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan N
       - Resources
     * - Login
       - tem-ui-al9
-      - 
+      - Intel Xeon 2.7GHz 18Core * 2CPUs
+        384GB main memory
       - 72 cores (with hypertheads)
-    * -
+    * - Login
       - tem-cs-al9
-      -
+      - Intel Xeon 2.7GHz 18Core * 2CPUs
+        384GB main memory
       - 72 cores (with hypertheads)
     * - Batch master
       - tem-ce-al9
-      -
+      - Intel Xeon 2.7GHz 18Core * 2CPUs
+        384GB main memory
       - 36 cores (without hypertheads)
     * - Workers
       - tem-gpu[01-10]-al9
-      - 
+      - Nvidia P40-24GB
+        Nvidia P100-16GB
+        V100-32GB
+        A100-40GB
+        A100-80GB
       - 300 cores and 26 GPUs
     * - Storage
-      - 
-      -
-      -
+      - Users home directory 
+      - 100GB per each user account
+      - /tem/home
+    * - Storage
+      - Data analysis  
+      - 80TB per each research group
+      - /tem/scratch
+    * - Storage
+      - Archiving 
+      - 500TB per each Cryo-EM operation site
+      - /tem/archive
