@@ -11,7 +11,8 @@ theme:
   # https://squidfunk.github.io/mkdocs-material/customization/
   custom_dir: docs/overrides
   font:
-    text: Ubuntu
+    text: Roboto
+    code: Ubuntu Mono
 
 # Include extra JS to setup Read the Docs addons integrations
 extra_javascript:
