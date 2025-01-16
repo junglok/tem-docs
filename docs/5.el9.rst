@@ -1,47 +1,5 @@
-**********************************************************************
-GSDC TEM Computing Cluster based on AlmaLinux 9.x (Under construction)
-**********************************************************************
+*************************************************
+GSDC TEM Computing Cluster based on AlmaLinux 9.x
+*************************************************
 
-1. Computing and storage resources
-==================================
-
-.. list-table:: Computational and stroage resources of GSDC TEM cluster
-    :widths: auto
-    :header-rows: 1
-
-    * - Category
-      - ServerName
-      - Specification
-      - Resources
-    * - Login
-      - tem-ui-al9.sdfarm.kr
-      - Intel Xeon 2.7GHz 18Core * 2CPUs, 384GB main memory
-      - 72 cores (w/ hypertheads)
-    * - 
-      - tem-cs-al9.sdfarm.kr
-      - Intel Xeon 2.7GHz 18Core * 2CPUs, 384GB main memory
-      - 72 cores (w/ hypertheads)
-    * - Batch master
-      - tem-ce-al9.sdfarm.kr
-      - Intel Xeon 2.7GHz 18Core * 2CPUs, 384GB main memory
-      - 36 cores (w/o hypertheads)
-    * - Workers
-      - tem-cpu[01-13]-al9.sdfarm.kr
-      - Intel Xeon 2.6GHz 14Core * 2CPUs, 192GB main memory
-      - 380 cores (cpuQ)
-    * - 
-      - tem-gpu[01-10]-al9.sdfarm.kr
-      - 256~384GB main memory, Nvidia P40, P100, V100, A100
-      - 300 cores and 26 GPUs total (gpuQ)
-    * - Storage
-      - Users home directory 
-      - 100GB per each user account
-      - /tem/home
-    * - 
-      - Data analysis  
-      - 80TB per each research group
-      - /tem/scratch
-    * - 
-      - Archiving 
-      - 500TB per each Cryo-EM operation site
-      - /tem/archive
+TBD
