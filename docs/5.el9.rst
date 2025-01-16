@@ -31,32 +31,32 @@ Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan N
     * - Login
       - tem-ui-al9.sdfarm.kr
       - Intel Xeon 2.7GHz 18Core * 2CPUs, 384GB main memory
-      - 72 cores (with hypertheads)
-    * - Login
+      - 72 cores (w/ hypertheads)
+    * - 
       - tem-cs-al9.sdfarm.kr
       - Intel Xeon 2.7GHz 18Core * 2CPUs, 384GB main memory
-      - 72 cores (with hypertheads)
+      - 72 cores (w/ hypertheads)
     * - Batch master
       - tem-ce-al9.sdfarm.kr
       - Intel Xeon 2.7GHz 18Core * 2CPUs, 384GB main memory
-      - 36 cores (without hypertheads)
+      - 36 cores (w/o hypertheads)
     * - Workers
       - tem-cpu[01-13]-al9.sdfarm.kr
       - Intel Xeon 2.6GHz 14Core * 2CPUs, 192GB main memory
       - 380 cores (cpuQ)
-    * - Workers
+    * - 
       - tem-gpu[01-10]-al9.sdfarm.kr
-      - 256~384GB main meory, Nvidia P40-24GB, P100-16GB, V100-32GB, A100-40GB, A100-80GB
+      - 256~384GB main memory, Nvidia P40, P100, V100, A100
       - 300 cores and 26 GPUs total (gpuQ)
     * - Storage
       - Users home directory 
       - 100GB per each user account
       - /tem/home
-    * - Storage
+    * - 
       - Data analysis  
       - 80TB per each research group
       - /tem/scratch
-    * - Storage
+    * - 
       - Archiving 
       - 500TB per each Cryo-EM operation site
       - /tem/archive
