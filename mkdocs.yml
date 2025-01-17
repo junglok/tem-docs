@@ -21,6 +21,7 @@ theme:
     - content.code.copy
     - content.tooltips
     - navigation.indexes
+    - navigation.expand
     - navigation.sections
     - navigation.top
     - navigation.tracking
