@@ -22,7 +22,6 @@ theme:
     - content.tooltips
     - navigation.indexes
     - navigation.sections
-    - navigation.tabs
     - navigation.top
     - navigation.tracking
     - search.highlight
@@ -49,6 +48,6 @@ extra_javascript:
   - javascripts/readthedocs.js
 
 nav:
-  - Services: index.md
-  - Frequently Asked Questions (FAQs) : faqs/faqs.md
-  - Changelog: changelog/changelog.md
+  - GETTING STARTED: index.md
+  - FAQs : faqs/faqs.md
+  - CHANGE LOG: changelog/changelog.md
