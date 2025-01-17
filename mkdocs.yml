@@ -12,8 +12,8 @@ theme:
   logo: images/gsdc-logo.png
   custom_dir: docs/overrides
   font:
-    text: Ubuntu
-    code: Ubuntu Mono
+    text: Roboto
+    code: Roboto Mono
   features:
     - announce.dismiss
     - content.action.edit
