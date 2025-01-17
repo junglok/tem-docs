@@ -3,8 +3,10 @@ site_url: !ENV READTHEDOCS_CANONICAL_URL
 
 theme:
   name: material
+  font:
+    text: Poppins
   palette:
     scheme: slate
-    
+
 extra_javascript:
   - javascripts/readthedocs.js
