@@ -48,6 +48,11 @@ extra_javascript:
   - javascripts/readthedocs.js
 
 nav:
-  - GETTING STARTED: index.md
+  - GETTING STARTED: 
+    - Service overview: index.md
+    - Requesting accounts: account.md
   - FAQs : faqs/faqs.md
+  - TECHNICAL SUPPORTS:
+    - Creating new tickets: tickets.md
+  - CONTACT: contact.md
   - CHANGE LOG: changelog/changelog.md
