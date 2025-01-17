@@ -2,7 +2,7 @@ site_name: GSDC TEM Users Guide
 site_url: !ENV READTHEDOCS_CANONICAL_URL
 
 theme:
-  name: material
-  
+  name: readthedocs
+
 extra_javascript:
   - javascripts/readthedocs.js
