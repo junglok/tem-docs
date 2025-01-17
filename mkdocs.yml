@@ -14,11 +14,46 @@ theme:
     text: Roboto
     code: Ubuntu Mono
   features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+    - navigation.indexes
+    - navigation.sections
     - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.suggest
+    - toc.follow
 
+plugins:
+  - blog
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  
 # Include extra JS to setup Read the Docs addons integrations
 extra_javascript:
   - javascripts/readthedocs.js
 
 # I didn't find a good way to disable the "global" hotkeys.
 # https://github.com/squidfunk/mkdocs-material/discussions/4273#discussioncomment-3455176
+
+nav:
+  - Services: index.md
+  - Frequently Asked Questions (FAQs) : faqs/faqs.md
+  - Changelog: changelog/changelog.md
