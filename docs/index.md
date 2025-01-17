@@ -1,3 +1,1 @@
-# GSDC (Global Scientific experimental Data-hub Center)
-
-# Notice
+# GSDC notice
