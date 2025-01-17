@@ -5,8 +5,7 @@ theme:
   name: material
   font:
     text: Poppins
-  palette:
-    scheme: slate
-
+    code: Poppins
+    
 extra_javascript:
   - javascripts/readthedocs.js
