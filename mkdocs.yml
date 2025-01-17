@@ -15,6 +15,10 @@ theme:
     code: Ubuntu Mono
   features:
     - navigation.instant
+    - navigation.sections
+    - navigation.path
+    - navigation.indexes
+    - toc.follow
 
 # Include extra JS to setup Read the Docs addons integrations
 extra_javascript:
