@@ -3,6 +3,8 @@ site_url: !ENV READTHEDOCS_CANONICAL_URL
 
 theme:
   name: material
-
+  palette:
+    scheme: slate
+    
 extra_javascript:
   - javascripts/readthedocs.js
