@@ -10,6 +10,7 @@ theme:
   name: material
   # https://squidfunk.github.io/mkdocs-material/customization/
   logo: images/gsdc-logo.png
+  favicon: images/gsdc-logo.png
   custom_dir: docs/overrides
   font:
     text: Roboto
@@ -40,6 +41,8 @@ plugins:
 markdown_extensions:
   - abbr
   - admonition
+  - pymdownx.details
+  - pymdownx.superfences
   - attr_list
   - md_in_html
   - def_list
