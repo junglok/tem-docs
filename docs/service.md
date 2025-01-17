@@ -5,3 +5,5 @@ GSDC (Global Science experimental Data hub Center) provides data computing servi
 
 ## Overall architecture
 Overall architecture between KBSI, SNU (Seoul National University), PNU (Pusan National University)'s Cryo-EM facilities and GSDC TEM computing cluster.
+
+![tem_service_farm](images/tem_service_farm.png)

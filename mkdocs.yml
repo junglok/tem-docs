@@ -1,5 +1,5 @@
 # Define the site name
-site_name: GSDC TEM Users Guide
+site_name: GSDC TEM USERS GUIDE
 
 # Set the site URL by using a Read the Docs environment variable:
 # https://docs.readthedocs.io/en/stable/reference/environment-variables.html
@@ -32,6 +32,7 @@ theme:
     - toc.follow
 
 plugins:
+  - glightbox
   - blog
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
@@ -40,9 +41,10 @@ markdown_extensions:
   - abbr
   - admonition
   - attr_list
+  - md_in_html
   - def_list
   - footnotes
-  - md_in_html
+  - pymdownx.blocks.caption
   - toc:
       permalink: true
   
