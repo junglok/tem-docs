@@ -50,7 +50,7 @@ extra_javascript:
 
 nav:
   - GETTING STARTED: 
-    - Service overview: index.md
+    - Service overview: service.md
     - Requesting accounts: account.md
   - FAQs : faqs/faqs.md
   - TECHNICAL SUPPORTS:
