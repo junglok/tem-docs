@@ -48,9 +48,6 @@ markdown_extensions:
 extra_javascript:
   - javascripts/readthedocs.js
 
-# I didn't find a good way to disable the "global" hotkeys.
-# https://github.com/squidfunk/mkdocs-material/discussions/4273#discussioncomment-3455176
-
 nav:
   - Services: index.md
   - Frequently Asked Questions (FAQs) : faqs/faqs.md
