@@ -4,8 +4,8 @@
 
 | Server Name            | Specification                                   | Remarks          |
 | ---------------------- | ----------------------------------------------- | ---------------- |
-| tem-ui-al9.sdfarm.kr   | :material-check: blur 1                         |                  |
-|                        | :material-check: blur 2                         |                  |
+| tem-ui-al9.sdfarm.kr   | blur 1 \\ blur 2                                |                  |
+| tem-cs-al9.sdfarm.kr   | blur 1 \\ blur 2                                |                  |
 
 
 ## Batch System Server
