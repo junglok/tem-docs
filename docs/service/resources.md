@@ -1,4 +1,6 @@
-# Login Servers
+# Comptuing and Storage Resources
+
+## Login Servers
 
 | Server Name            | Specification                                   | Remarks          |
 | ---------------------- | ----------------------------------------------- | ---------------- |
@@ -6,7 +8,7 @@
 |                        | :material-check: blur 2                         |                  |
 
 
-# Batch System Server
+## Batch System Server
 
 | Server Name            | Specification                                   | Remarks          |
 | ---------------------- | ----------------------------------------------- | ---------------- |
@@ -14,7 +16,7 @@
 |                        | :material-check: blur 2                         |                  |
 
 
-# Computing Resources in GSDC TEM cluster
+## Computing Resources in GSDC TEM cluster
 
 | Server Name            | Specification                                   | Remarks          |
 | ---------------------- | ----------------------------------------------- | ---------------- |
@@ -22,7 +24,7 @@
 |                        | :material-check: blur 2                         |                  |
 
 
-# Storage Resources in GSDC cluster
+## Storage Resources in GSDC cluster
 
 | Server Name            | Specification                                   | Remarks          |
 | ---------------------- | ----------------------------------------------- | ---------------- |
