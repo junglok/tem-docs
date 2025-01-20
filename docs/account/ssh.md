@@ -7,18 +7,18 @@
 ## Linux/Mac Users
 
 === "tem-ui-al9.sdfarm.kr"
-    ```bash
+    ```yaml
 
     $> ssh -Y -o Port=<port> <userID>@tem-ui-al9.sdfarm.kr # (1)
     First Factor: # (2)
     Second Factor(optional): # (3)    
     ```
 === "tem-cs-al9.sdfarm.kr"
-    ```bash
+    ```yaml
 
-    $> ssh -Y -o Port=<port> <userID>@tem-cs-al9.sdfarm.kr
-    First Factor:
-    Second Factor(optional):
+    $> ssh -Y -o Port=<port> <userID>@tem-cs-al9.sdfarm.kr # (1)
+    First Factor: # (2)
+    Second Factor(optional): #(3)
 
     ```
 1.  :man_raising_hand: `-Y (-X)` means enabling trused (or untrusted) X11 forwarding. __<port>__ is designated port informed by administrator.
