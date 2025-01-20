@@ -4,6 +4,12 @@
 We have introduced a Two-Factor Authentication (2FA) using One-Time-Password (OTP) to enhance the security environment. 
 Please follow the GSDC OTP guide (written in both Korean and English) through the link below to enable it on your TEM account. 
 
+!!! note "GSDC OTP (One-Time-Password) Setup Guide"
+
+    [GSDC OTP Setup Guide](https://gsdc-farm.gitbook.io/gsdc-otp)
+
+<br>
+
 !!! warning 
 
     You must follow the guide when you are already logged-in GSDC login server using SSH terminal.
