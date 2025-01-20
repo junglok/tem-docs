@@ -2,10 +2,10 @@
 
 ## Login Servers
 
-| Server Name            | Specification                                   | Remarks          |
-| ---------------------- | ----------------------------------------------- | ---------------- |
-| tem-ui-al9.sdfarm.kr   | blur 1 \\ blur 2                                |                  |
-| tem-cs-al9.sdfarm.kr   | blur 1 \\ blur 2                                |                  |
+| Server Name            | Specification                                                           | Remarks               |
+| ---------------------- | ----------------------------------------------------------------------- | --------------------- |
+| `tem-ui-al9.sdfarm.kr` | Intel Xeon 2.7GHz 18Core * 2CPUs, 384GB Memory                          | 72 Cores (w/ HT)      |
+| `tem-cs-al9.sdfarm.kr` | Intel Xeon 2.7GHz 18Core * 2CPUs, 384GB Memory                          | 72 Cores (w/ HT)      |
 
 
 ## Batch System Server
