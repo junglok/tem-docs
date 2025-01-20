@@ -2,16 +2,14 @@
 
 For full documentation visit [GSDC TEM Users Guide](https://tem-docs.readthedocs.io/en/al9).
 
-## Notice :
+## Notice
 
-* `2025-01-01` - We are under migrating all the serivce nodes from ScientificLinux 7.x to AlmaLinux 9.x
-* `mkdocs -h` - Print help message and exit.
+*
+*
 
-## Change Log :
+## Change Log
 
-* `2025-01-01` - We are under migrating all the serivce nodes OS from ScientificLinux 7.x to AlmaLinux 9.x
-* `mkdocs -h` - Print help message and exit.
-
+* `2024-12-31` - We are under migrating all the serivce nodes OS from ScientificLinux 7.x to AlmaLinux 9.x
 
     mkdocs.yml    # The configuration file.
     docs/

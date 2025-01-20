@@ -20,6 +20,10 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
-  
+
 extra_javascript:
   - javascripts/readthedocs.js
+
+nav:
+  - Servcies: service/overview.md
+  
