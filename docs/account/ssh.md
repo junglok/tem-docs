@@ -6,28 +6,25 @@
 
 ## Linux/Mac Users
 
-=== "tem-ui-al9.sdfarm.kr"
-    ```yaml
+
+```yaml
 
     $> ssh -Y -o Port=<port> <userID>@tem-ui-al9.sdfarm.kr # (1)
     First Factor: # (2)
     Second Factor(optional): # (3)    
-    ```
-    1.  :man_raising_hand: `-Y (-X)` means enabling trused (or untrusted) X11 forwarding. __<port>__ is designated port informed by administrator.
-    2.  :man_raising_hand: `First Factor` means your own password.
-    3.  :man_raising_hand: `Second Factor` means 6 digits OTP code (You can input just <enter> if you have not enabled OTP yet)
 
-=== "tem-cs-al9.sdfarm.kr"
-    ```yaml
+```
+
+```yaml
 
     $> ssh -Y -o Port=<port> <userID>@tem-cs-al9.sdfarm.kr # (1)
     First Factor: # (2)
     Second Factor(optional): #(3)
 
-    ```
-    1.  :man_raising_hand: `-Y (-X)` means enabling trused (or untrusted) X11 forwarding. __<port>__ is designated port informed by administrator.
-    2.  :man_raising_hand: `First Factor` means your own password.
-    3.  :man_raising_hand: `Second Factor` means 6 digits OTP code (You can input just <enter> if you have not enabled OTP yet)
+```
+1.  :man_raising_hand: `-Y (-X)` means enabling trused (or untrusted) X11 forwarding. __<port>__ is designated port informed by administrator.
+2.  :man_raising_hand: `First Factor` means your own password.
+3.  :man_raising_hand: `Second Factor` means six digits OTP code (You can input just <enter> if you have not enabled OTP yet)
 
 
 ## Windows Users
