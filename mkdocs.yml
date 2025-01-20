@@ -4,8 +4,8 @@ site_url: !ENV READTHEDOCS_CANONICAL_URL
 theme:
   name: material
   font:
-    text: Poppins
-    code: Poppins
+    text: Nunito Sans
+    code: Ubuntu Mono
   palette: 
     - scheme: default
       toggle:
