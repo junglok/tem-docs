@@ -9,7 +9,7 @@ For full documentation visit [GSDC TEM Users Guide](https://tem-docs.readthedocs
 
 ## Change Log :
 
-* `2025-01-01` - We are under migrating all the serivce nodes from ScientificLinux 7.x to AlmaLinux 9.x
+* `2025-01-01` - We are under migrating all the serivce nodes OS from ScientificLinux 7.x to AlmaLinux 9.x
 * `mkdocs -h` - Print help message and exit.
 
 
