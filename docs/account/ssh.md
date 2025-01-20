@@ -20,17 +20,16 @@
     Second Factor(optional): # (3)
     ```
 
+* :man_raising_hand: (1) `-Y (-X)` means enabling trused (or untrusted) X11 forwarding. `__port__` is designated port number informed by administrator.
+* :man_raising_hand: (2) `First Factor` means your own password.
+* :man_raising_hand: (3) `Second Factor` means six digits OTP code (You can input just `__enter__` if you have not enabled OTP yet)
 
 ## Windows Users
 
 ``` yaml
 theme:
   features:
-    - content.code.annotate # (4)
+    - content.code.annotate # (1)
 ```
-
-1. :man_raising_hand: `-Y (-X)` means enabling trused (or untrusted) X11 forwarding. `__port__` is designated port number informed by administrator.
-2. :man_raising_hand: `First Factor` means your own password.
-3. :man_raising_hand: `Second Factor` means six digits OTP code (You can input just `__enter__` if you have not enabled OTP yet)
-4. :man_raising_hand: I'm a code annotation! I can contain `code`, __formatted
+1. :man_raising_hand: I'm a code annotation! I can contain `code`, __formatted
     text__, images, ... basically anything that can be written in Markdown.
