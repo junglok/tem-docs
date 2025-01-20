@@ -42,3 +42,4 @@ nav:
   - Getting Started:
     - Requesting Accounts: account/account.md
     - SSH Login: account/ssh.md
+    - Enabling OTP: account/otp.md
