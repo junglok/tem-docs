@@ -38,4 +38,7 @@ extra_javascript:
 
 nav:
   - Services: service/overview.md
-  - Resources: service/resources.md
+  - Computing and Storage Resources: service/resources.md
+  - Getting Started:
+    - Requesting Accounts: account/account.md
+    - SSH Login: account/ssh.md
