@@ -6,4 +6,16 @@
 
 ## Linux/Mac Users
 
+```bash
+
+    $> ssh -Y -o Port=<port> <userID>@tem-ui-al9.sdfarm.kr
+    
+```
+
+```bash
+
+    $> ssh -Y -o Port=<port> <userID>@tem-cs-al9.sdfarm.kr
+    
+```
+
 ## Windows Users
