@@ -22,7 +22,7 @@
     Second Factor(optional): #(3)
 
 ```
-1.  :man_raising_hand: `-Y (-X)` means enabling trused (or untrusted) X11 forwarding. __<port>__ is designated port informed by administrator.
+1.  :man_raising_hand: `-Y (-X)` means enabling trused (or untrusted) X11 forwarding. __<port>__ is designated port number informed by administrator.
 2.  :man_raising_hand: `First Factor` means your own password.
 3.  :man_raising_hand: `Second Factor` means six digits OTP code (You can input just <enter> if you have not enabled OTP yet)
 
