@@ -8,4 +8,4 @@ GSDC (Global Science experimental Data hub Center) provides data computing servi
 
 Overall architecture between Cryo-EM facilities (operated by KBSI, SNU, PNU and so on) and GSDC.
 
-![tem_service_farm](images/tem_service_farm.png)
+![tem_service_farm](../images/tem_service_farm.png)

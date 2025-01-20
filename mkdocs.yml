@@ -28,4 +28,4 @@ extra_javascript:
   - javascripts/readthedocs.js
 
 nav:
-  - Servcies: service/overview.md
+  - Services: service/overview.md
