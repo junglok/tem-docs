@@ -4,13 +4,7 @@ Before you use GSDC TEM computing cluster, you should send an application form t
 
 !!! note
     <div class="grid cards" markdown>
-    - :material-clock-fast:{ .lg .middle } __Download application form__
-
-        ---
-
-        Install [`mkdocs-material`](#) with [`pip`](#) and get up and running in minutes
-        [:octicons-arrow-right-24: Getting started](#)
-    
+    - :fontawesome-brands-internet-explorer: __Internet Explorer__ ... huh?
     </div>
 
 <br>
