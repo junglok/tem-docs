@@ -1,4 +1,4 @@
-# OTP (One-Time-Passoword)
+# OTP (One-Time-Password)
 
 ## Two-factor Authentication(2FA) with OTP Guide
 We have introduced a Two-Factor Authentication (2FA) using One-Time-Password (OTP) to enhance the security environment. 
@@ -9,8 +9,11 @@ then we plan to suspend the policy requiring source IPs.
 
     [GSDC OTP Setup Guide](https://gsdc-farm.gitbook.io/gsdc-otp)
 
-<br>
 
 !!! warning 
 
     You must follow the guide when you are already logged-in GSDC login server using SSH terminal.
+
+!!! warning 
+
+    In accordance with security guidelines, accounts (and sub-IDs) that do not have OTP enabled will be temporarily suspended through the reqular chechks by service managers.
