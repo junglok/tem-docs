@@ -20,10 +20,12 @@
     Second Factor(optional): # (3)
     ```
 
-!!! note 
-* (1) `-Y (-X)` means enabling trused (or untrusted) X11 forwarding. `port` is designated port number informed by administrator.
-* (2) `First Factor` means your own password string.
-* (3) `Second Factor` means six digits OTP code. You can input just `enter` if you have not enabled OTP yet.
+!!! note
+
+    * (1) `-Y (-X)` means enabling trused (or untrusted) X11 forwarding. `port` is designated port number informed by administrator.
+    * (2) `First Factor` means your own password string.
+    * (3) `Second Factor` means six digits OTP code. You can input just `enter` if you have not enabled OTP yet.
+
 
 ## Windows Users
 
