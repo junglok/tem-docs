@@ -7,22 +7,22 @@
 ## Linux/Mac Users
 
 === "tem-ui-al9.sdfarm.kr"
-    ```yaml
+    ``` yaml
     $> ssh -Y -o Port=<port> <userID>@tem-ui-al9.sdfarm.kr # (1)
     First Factor: # (2)
     Second Factor(optional): # (3)    
     ```
 
 === "tem-cs-al9.sdfarm.kr"
-    ```yaml
+    ``` yaml
     $> ssh -Y -o Port=<port> <userID>@tem-cs-al9.sdfarm.kr # (1)
     First Factor: # (2)
     Second Factor(optional): # (3)
     ```
 
-* :man_raising_hand: (1) `-Y (-X)` means enabling trused (or untrusted) X11 forwarding. `__port__` is designated port number informed by administrator.
-* :man_raising_hand: (2) `First Factor` means your own password.
-* :man_raising_hand: (3) `Second Factor` means six digits OTP code (You can input just `__enter__` if you have not enabled OTP yet)
+:material-check: (1) `-Y (-X)` means enabling trused (or untrusted) X11 forwarding. `port` is designated port number informed by administrator.
+:material-check: (2) `First Factor` means your own password string.
+:material-check: (3) `Second Factor` means six digits OTP code. You can input just `enter` if you have not enabled OTP yet.
 
 ## Windows Users
 
@@ -31,5 +31,6 @@ theme:
   features:
     - content.code.annotate # (1)
 ```
+
 1. :man_raising_hand: I'm a code annotation! I can contain `code`, __formatted
     text__, images, ... basically anything that can be written in Markdown.
