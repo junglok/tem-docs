@@ -20,7 +20,7 @@ theme:
     - content.code.select
     - content.code.annotate
 
-    
+
 plugins:
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
@@ -31,6 +31,8 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - tables
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.blocks.caption
