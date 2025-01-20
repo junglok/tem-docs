@@ -1,15 +1,17 @@
-# Welcome to MkDocs
+# Welcome to GSDC TEM Users Guide
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+For full documentation visit [GSDC TEM Users Guide](https://tem-docs.readthedocs.io/en/al9).
 
-## Commands
+## Notice :
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
+* `2025-01-01` - We are under migrating all the serivce nodes from ScientificLinux 7.x to AlmaLinux 9.x
 * `mkdocs -h` - Print help message and exit.
 
-## Project layout
+## Change Log :
+
+* `2025-01-01` - We are under migrating all the serivce nodes from ScientificLinux 7.x to AlmaLinux 9.x
+* `mkdocs -h` - Print help message and exit.
+
 
     mkdocs.yml    # The configuration file.
     docs/
