@@ -2,7 +2,8 @@
 
 Before you use GSDC TEM computing cluster, you should send an application form to TEM service manager by e-mail and get an user account to access the computing cluster.
 
-!!! note "Download GSDC TEM Application Form
+!!! note "Download GSDC TEM Application Form"
+
     :folder-arrow-down: [Application Form](https://github.com/gsdc/tem-docs/raw/master/docs/GSDC-TEM-APPFORM-2024.pdf)
 
 <br>
