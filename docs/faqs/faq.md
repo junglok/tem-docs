@@ -59,8 +59,8 @@
     CryoSPARC master daemons have been executed on ScientificLinux7.x(EL7)-based login servers (__`tem-ui-el7.sdfarm.kr`__ and __`tem-cs-el7.sdfarm.kr`__) using `cryosparcm start` command for the representative account of each research group. 
     
     During OS upgrades to AlmaLinux 9.x, all these login servers hostname has been changed. 
-    Thus, {==CryoSPARC master configuration must be changed in order to ensure normal execution on the new login servers.
-    (__`tem-ui-al9.sdfarm.kr`__ and __`tem-cs-al9.sdfarm.kr`__)==} 
+    Thus, {==CryoSPARC master configuration must be changed in order to ensure normal execution on the new login servers
+    (__`tem-ui-al9.sdfarm.kr`__ and __`tem-cs-al9.sdfarm.kr`__)==}. 
     
     === "Old EL7-based login servers (config.sh)"
         ``` yaml
@@ -99,7 +99,7 @@
 
 ??? question "How to migrate CryoSPARC's `TEM-FARM` lane from old EL7 to new AL9-based cluster?"
 
-    `TEM-FARM` lane information (stored in Cryosparc database) needs to be updated mainly due to the difference between Torque and PBSPro batch systems. Lane info
+    `TEM-FARM` lane information (stored in Cryosparc database) needs to be updated mainly due to the difference between Torque and PBSPro batch systems. Lane inforamtion is controlled by two files (__`cluster_info.json`__ and __`cluster_script.sh`__).
 
 
     ```yaml
