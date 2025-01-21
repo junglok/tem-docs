@@ -2,7 +2,7 @@
 
 ## Accounts/Password/OTP
 
-??? question "(OTP) How can I resolve the IPA command error when getting OTP?"
+??? question "(OTP) How to resolve the IPA command error when getting OTP?"
 
     This error occurs when the credentials issued by your authentication system, which are valid for one day, expire or become invalid. Here are the steps to resolve this problem. 
     
@@ -15,7 +15,7 @@
 
     Enter your password and press Enter to generate new credentials. Now, re-run the `ipa otptoken-add` command. It should execute without errors, using the newly generated credentials.
 
-??? question "(OTP) How can I resolve `Unable to display QR code` error?"
+??? question "(OTP) How to resolve `Unable to display QR code` error?"
 
     When connecting to the GSDC login server via a lab workstation/desktop using the GNOME Terminal in a Linux system (e.g., Ubuntu), executing the `ipa otptoken-add` command results in the message `ipa: WARNING: Unable to display QR code using the configured output encoding. Please use the token URI to configure your OTP device`.
 
@@ -25,7 +25,7 @@
     $> LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 ipa otptoken-add --algo=sha512
     ```
 
-??? question "(LOCK+OTP) Releasing screen lock"
+??? question "(LOCK+OTP) How to release screen lock"
 
     When the screen lock is activated while using OTP, it prompts for a password with a message like :
 
@@ -255,7 +255,7 @@
         {{ run_cmd }}
         ```
     You can cross-check the updated lane information (CryoSPARC WebGUI, left menu `More`->`Instance Information`)
-    
+
     ![cryosparc_lane_info](../images/cryosparc_lane_info.png)
     /// caption
     Updated TEM-FARM lane information
@@ -265,3 +265,59 @@
     /// caption
     Updated TEM-FARM cluster submission script
     ///
+
+??? question "How to resolve the problems on starting and/or restarting CryoSPARC daemons?"
+
+    First, you should all the cryosparc related processes - supervisord, mongod, command_core, command_vis, command_rtp, webapp, app, liveapp - to be terminated successfully on the CryoSPARC master host. If necessary, you can kill the zombie processes.
+
+    ``` bash
+    $> cryosparcm stop
+    CryoSPARC is running.
+    Stopping cryoSPARC
+    app: stopped
+    app_api: stopped
+    command_core: stopped
+    command_rtp: stopped
+    command_vis: stopped
+    Shut down
+    ```
+
+    ``` bash
+    $> ps aux | grep <AccountName> | grep cryosparc
+    $> ps aux | grep <userid> | grep -E "cryosparc|node" | awk '{print $2}' | xargs -I{} kill -9 {}
+    ```
+
+    Second, find your own cryosparc unix socket files on `/tmp` directory, and if exists, delete the files using `rm` command.
+
+    ``` bash
+    $> cd /tmp
+    $> ls -al | grep <AccountName> | grep sock
+    srwx------.  1 userid  userid  0 Jun 24 16:39 cryosparc-supervisor-6276.sock
+    srwx------.  1 userid  userid  0 Jun 24 16:39 mongodb-39000.sock
+    $> rm cryosparc-supervisor-6276.sock
+    $> rm mongodb-39000.sock
+    ```
+
+    Then, start your cryosparc instance.
+
+    ``` bash
+    Starting CryoSPARC System master process...
+    CryoSPARC is not already running.
+    configuring database...
+        configuration complete
+    database: started
+    database OK
+    command_core: started
+        command_core connection succeeded
+        command_core startup successful
+    command_vis: started
+    command_rtp: started
+        command_rtp connection succeeded
+        command_rtp startup successful
+    app: started
+    app_api: started
+    -----------------------------------------------------
+    ...
+    Startup can take several minutes. Point your browser to the address
+    and refresh until you see the CryoSPARC web interface.
+    ```
