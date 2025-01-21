@@ -51,3 +51,11 @@
 ## SSH Tunnelling
 
 ## Data Transfer
+
+## CryoSPARC
+
+??? question "How to migrate CryoSPARC's `TEM-FARM` lane from old EL7 to new AL9?"
+
+    `TEM-FARM` lane information (stored in Cryosparc database) needs to be updated mainly due to the difference between Torque and PBSPro batch systems.
+
+    
