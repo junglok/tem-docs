@@ -108,7 +108,12 @@
     Those files are located at :
     
     * `/tem/scratch/<GroupDir>/.cryosparc/cluster_info.json` 
-    * `/tem/scratch/<GroupDir>/.croysparc/cluster_script.sh`.
+    * `/tem/scratch/<GroupDir>/.croysparc/cluster_script.sh`
+
+    1. Start CryoSPARC (`cryosparcm start`) on the one of new login servers
+    !!! note
+
+        The one of new login servers is the same as the CryoSPARC's master hostname.
 
     === "EL7 : cluster_info.json"
         ``` yaml
