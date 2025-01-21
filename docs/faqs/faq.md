@@ -254,6 +254,8 @@
 
         {{ run_cmd }}
         ```
+    You can cross-check the updated lane information (CryoSPARC WebGUI, left menu `More`->`Instance Information`)
+    
     ![cryosparc_lane_info](../images/cryosparc_lane_info.png)
     /// caption
     Updated TEM-FARM lane information
