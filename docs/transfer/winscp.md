@@ -21,7 +21,7 @@
 
 ![winscp-1](../images/winscp-1.png)
 
-6. Back in the login window, confirm the hostname (__`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`), port number and use r name. Note to leave the blank in `Password:`. Click `Save` button and choose a name for this session configuration in the `Site name` field, and click OK.
+6. Back in the login window, confirm the hostname (__`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__), port number and use r name. Note to leave the blank in `Password:`. Click `Save` button and choose a name for this session configuration in the `Site name` field, and click OK.
 
 ![winscp-2](../images/winscp-2.png)
 
