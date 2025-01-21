@@ -133,6 +133,8 @@
             "qinfo_cmd_tpl" : "qstat -q"
         }
         ```
+    
+    
 
     === "EL7 : cluster_script.sh"
         ```bash
