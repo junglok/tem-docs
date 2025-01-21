@@ -8,10 +8,10 @@
 
 3. Click `Tabs` -> `Sites` -> `Site Manager`
 
-* Select SFTP as `File protocol:`.
-* Enter __`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__ as `Host name:`.
-* Enter a designated port number as `Port number:`
-* Enter `User name:`
+   * Select SFTP as `File protocol:`.
+   * Enter __`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__ as `Host name:`.
+   * Enter a designated port number as `Port number:`
+   * Enter `User name:`
 
 4. Click on `Advanced...` button on the login window
 
