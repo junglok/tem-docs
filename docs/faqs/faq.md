@@ -62,15 +62,15 @@
     Thus, CryoSPARC master configuration must be changed in order to ensure normal execution on the new login servers.
     (__`tem-ui-al9.sdfarm.kr`__ and __`tem-cs-al9.sdfarm.kr`__) 
     
-    === "tem-ui-al9.sdfarm.kr"
-    ``` yaml linenums="1"
+=== "tem-ui-al9.sdfarm.kr"
+    ``` yaml
     $> ssh -Y -o Port=<port> <userID>@tem-ui-al9.sdfarm.kr
     First Factor:
     Second Factor(optional):
     ```
 
-    === "tem-cs-al9.sdfarm.kr"
-    ``` yaml linenums="1"
+=== "tem-cs-al9.sdfarm.kr"
+    ``` yaml
     $> ssh -Y -o Port=<port> <userID>@tem-cs-al9.sdfarm.kr
     First Factor:
     Second Factor(optional):
