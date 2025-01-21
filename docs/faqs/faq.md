@@ -134,7 +134,7 @@
         }
         ```
     
-    
+    Those files are located at `/tem/scratch/<GroupDir>/.cryosparc/cluster_info.json` and `/tem/scratch/<GroupDir>/.croysparc/cluster_script.sh`.
 
     === "EL7 : cluster_script.sh"
         ```bash
@@ -158,10 +158,7 @@
         ## {{ job_uid }}            - uid of the job
         ## {{ job_creator }}        - name of the user that created the job (may contain spaces)
         ## {{ cryosparc_username }} - cryosparc username of the user that created the job (usually an email)
-        ##
-        ##PBS -l select=1:ncpus={{ num_cpu }}:ngpus={{ num_gpu }}:mem={{ (ram_gb*1000)|int }}mb:gputype=P100
-        ## What follows is a simple PBS script:
-
+        
         #PBS -N cryosparc_{{ project_uid }}_{{ job_uid }}
         {%- if num_gpu == 0 %}
         #PBS -l nodes=1:ppn={{ num_cpu }}:cpuQ
@@ -217,10 +214,7 @@
         ## {{ job_uid }}            - uid of the job
         ## {{ job_creator }}        - name of the user that created the job (may contain spaces)
         ## {{ cryosparc_username }} - cryosparc username of the user that created the job (usually an email)
-        ##
-        ##PBS -l select=1:ncpus={{ num_cpu }}:ngpus={{ num_gpu }}:mem={{ (ram_gb*1000)|int }}mb:gputype=P100
-        ## What follows is a simple PBS script:
-
+        
         #PBS -N cryosparc_{{ project_uid }}_{{ job_uid }}
 
         {%- if num_gpu == 0 %}
