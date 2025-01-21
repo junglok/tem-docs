@@ -31,6 +31,40 @@ On the Linux/Mac environment, users can execute the built-in `ssh` command in or
 
 ## Windows Users
 
+### MobaXterm
+
+* Download and install [MobaXterm](https://mobaxterm.mobatek.net)
+* MobaXterm is an enhanced terminal for Windows with **self-contained X11 server**, SSH client, network tools and much more.
+* After executing MobaXterm, click `Sessions`
+* On `Session settings` dialog, select `SSH`
+
+![mobaxterm-1](../images/mobaxterm-1.jpg)
+
+* Enter __`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__ as `Remote host`.
+* Check `Specify username`, enter your <UserID> and a designated `Port` number.
+* On the dialog -> `Advanced SSH settings` tab: check `X11-Forwarding` and `Compression`, and also interactive shell as `Remote environment`.
+* Click OK button and proceed the login procedure, i.e., authentication using the first and second factors)
+
+
+### Putty
+
+* Download and install [Putty](https://www.putty.org)
+
+!!! info
+
+    To use X11-forwarding (controlling X11 GUI application running on the server-side over the SSH network channel), Putty requires a 3rd-party XWindows manager (e.g., Xming, Xmanager, etc.) installed in advance on the client workstation.
+
+* After executing Putty, on the `Putty Configuration` dialog, click `Session`
+* On the right panel, enter __`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__ as `Host Name`.
+* Also, enter a designated `Port` number.
+* Move `Connection`->`SSH`->`Auth`->`X11` and confirm to check `Enable X11 forwarding`
+* Move `Session`, optionally save the profile with the given session name and click `Open` to connect the login servers.
+
+![putty-1](../images/putty-1.jpg)
+
+![putty-2](../images/putty-2.jpg)
+
+
 ``` yaml
 theme:
   features:
