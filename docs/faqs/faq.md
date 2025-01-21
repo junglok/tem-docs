@@ -108,7 +108,7 @@
     Those files are located at `/tem/scratch/<GroupDir>/.cryosparc/cluster_info.json` and `/tem/scratch/<GroupDir>/.croysparc/cluster_script.sh`.
 
     === "EL7 : cluster_info.json"
-        ```bash
+        ``` yaml
         {
             "name" : "TEM-FARM",
             "worker_bin_path" : "/tem/scratch/<GroupDir>/.cryosparc/cryosparc_worker/bin/cryosparcw",
@@ -121,7 +121,7 @@
         }
         ```
     === "AL9 : cluster_info.json"
-        ```bash
+        ``` yaml
         {
             "name" : "TEM-FARM",
             "worker_bin_path" : "/tem/scratch/<GroupDir>/.cryosparc/cryosparc_worker/bin/cryosparcw",
