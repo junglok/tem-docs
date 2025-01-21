@@ -12,8 +12,7 @@ then we plan to suspend the policy requiring source IPs.
 
 !!! warning 
 
-    You must follow the guide when you are already logged-in GSDC login server using SSH terminal.
+    * You must follow the guide when you are already logged-in GSDC login server using SSH terminal.
+    * Based on the security guidelines, accounts (and sub-IDs) that do not have OTP enabled will be temporarily suspended through the reqular chechks by service managers.
 
-!!! warning 
-
-    In accordance with security guidelines, accounts (and sub-IDs) that do not have OTP enabled will be temporarily suspended through the reqular chechks by service managers.
+    
