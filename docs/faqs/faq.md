@@ -110,6 +110,8 @@
     * `/tem/scratch/<GroupDir>/.cryosparc/cluster_info.json` 
     * `/tem/scratch/<GroupDir>/.croysparc/cluster_script.sh`
 
+    <br>
+
     1. Start CryoSPARC (`cryosparcm start`) on the one of new login servers
     !!! note
 
