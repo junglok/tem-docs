@@ -56,8 +56,8 @@ On the Linux/Mac environment, users can execute the built-in `ssh` command in or
 * After executing Putty, on the `Putty Configuration` dialog, click `Session`
 * On the right panel, enter __`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__ as `Host Name`.
 * Also, enter a designated `Port` number.
-* Move `Connection`->`SSH`->`Auth`->`X11` and confirm to check `Enable X11 forwarding`
-* Move `Session`, optionally save the profile with the given session name and click `Open` to connect the login servers.
+* Move to `Connection`->`SSH`->`Auth`->`X11` and confirm to check `Enable X11 forwarding`
+* Move to `Session`, optionally save the profile with the given session name and click `Open` to connect the login servers.
 
 ![putty-1](../images/putty-1.jpg)
 
