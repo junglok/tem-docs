@@ -56,6 +56,10 @@
 
 ??? question "How to change CryoSPARC's master host name?"
 
+    CryoSPARC master daemons have been executed on ScientificLinux7.x(EL7)-based login servers (__`tem-ui-el7.sdfarm.kr`__ and __`tem-cs-el7.sdfarm.kr`__) using `cryosparcm start` command for the representative account of each research group. 
+    During OS upgrades to AlmaLinux 9.x, all these login servers hostname has been changed. 
+    Thus, CryoSPARC master configuration must be changed in order to ensure normal execution on the new login servers.
+    (__`tem-ui-al9.sdfarm.kr`__ and __`tem-cs-al9.sdfarm.kr`__) 
     1. a
 
     2. b
