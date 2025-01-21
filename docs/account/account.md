@@ -4,6 +4,6 @@ Before you use GSDC TEM computing cluster, you should send an application form t
 
 !!! note "Download GSDC TEM Application Form"
 
-    [:fontawesome-regular-face-laugh-wink: Dowload Application Form](https://github.com/gsdc/tem-docs/raw/master/docs/GSDC-TEM-APPFORM-2024.pdf){ .md-button}
+    [:octicons-download-24: Dowload Application Form](https://github.com/gsdc/tem-docs/raw/master/docs/GSDC-TEM-APPFORM-2024.pdf){ .md-button}
 
 If you already have valid user accounts, you can make a connection to UI (user interface) login servers to use various kind of cluster computing/storage resources and software environments (including data analysis tools, e.g., Relion, CryoSPARC, etc.).
