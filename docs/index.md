@@ -6,7 +6,12 @@ For full documentation visit [GSDC TEM Users Guide](https://tem-docs.readthedocs
 
 ???+ tip "Creating tickets for resolving techinical problems/errors using GSDC services"
 
-    aaa
+    Since Mar. 2021, we launched GSDC ticketing system to support all the technical problems for users, so feel free to create tickets. 
+    
+    E-mail address : __gsdc-support at kisti.re.kr__ (__[TEM]__ prefix required in the e-mail title)
+
+
+
 
 ## Change Log
 
