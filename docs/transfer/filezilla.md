@@ -2,7 +2,7 @@
 
 ## Data transfer using FileZilla with 2FA
 
-With the FileZilla global settings ("Edit" -> "Setttings"),
+With the FileZilla global settings (`Edit` -> `Setttings`),
 
 * In `Connection` menu, make sure to set `Timeout in seconds` value to `0`, it will not close and recreate idle sessions.
 
@@ -10,7 +10,7 @@ With the FileZilla global settings ("Edit" -> "Setttings"),
 
 Then, when editing and connecting a new site for SFTP (`File` -> `Site Manager` -> `New site`),
 
-* In `General` tab, select SFTP as Protocol and enter `tem-ui-al9.sdfarm.kr` or `tem-cs-al9.sdfarm.kr` login server as Host. 
+* In `General` tab, select SFTP as Protocol and enter __`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__ login server as Host and Port number. 
 * In `General` tab, choose the Logon Type `interactive`, and with this setting, it will ask you for your password and OTP.
 * In `Transfer Settings` tab, also make sure to check `Limit number of simultaneous connections` and leave the default value of 1.
 
