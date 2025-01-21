@@ -54,11 +54,13 @@
 
 ## CryoSPARC
 
-??? question "How to migrate CryoSPARC's master host name ?"
+??? question "How to change CryoSPARC's master host name?"
 
-    1.
-    2.
-    3.
+    1. a
+
+    2. b
+
+    3. c
 
 
 ??? question "How to migrate CryoSPARC's `TEM-FARM` lane from old EL7 to new AL9-based cluster?"
