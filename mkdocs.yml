@@ -72,9 +72,9 @@ nav:
   - GSDC Computing Cluster for TEM Users and Operators:
     - Servers and storages: service/resources.md
     - Cluster Managment Softwares: service/softwares.md
-    - Data Analysis Tools: service/tools.md
     - Environment Modules: service/modules.md
-    - Utilities: services/util.md
+    - Data Analysis Tools: service/tools.md
+    - Utilities: service/util.md
   - Batch Systems:
     - PBSPro: batch/pbspro.md 
   - Data Processing:
