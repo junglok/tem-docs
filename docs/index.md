@@ -4,7 +4,7 @@ For full documentation visit [GSDC TEM Users Guide](https://tem-docs.readthedocs
 
 ## Notice
 
-???+ tip "Creating tickets for supporting techinical issues/problems/errors on using GSDC infratructures"
+???+ tip "Creating tickets for resolving techinical problems/errors using GSDC services"
 
     aaa
 
