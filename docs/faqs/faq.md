@@ -46,7 +46,8 @@
 
 ## SSH Login/Terminal
 
-## Data transfer
+## X11 Forwarding
 
-## X11 forwarding
+## SSH Tunnelling
 
+## Data Transfer

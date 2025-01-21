@@ -56,4 +56,8 @@ nav:
     - Requesting Accounts: account/account.md
     - SSH Login: account/ssh.md
     - Enabling OTP: account/otp.md
+  - Data Transfer:
+    - SFTP (SecureFTP): transfer/sftp.md
+    - FileZilla: transfer/filezilla.md
+    - WinSCP: transfer/winscp.md
   - FAQs: faqs/faq.md
