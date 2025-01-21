@@ -113,9 +113,9 @@
     <br>
 
     1. Start CryoSPARC (`cryosparcm start`) on the one of new login servers
-    !!! note
+    !!! warning
 
-        The one of new login servers is the same as the CryoSPARC's master hostname.
+        Login account is each group's representative account, and the one of new login servers should be the same as the CryoSPARC's master hostname.
 
     === "EL7 : cluster_info.json"
         ``` yaml
