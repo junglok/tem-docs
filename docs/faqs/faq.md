@@ -17,7 +17,7 @@
 
 ??? question "(OTP) How to resolve `Unable to display QR code` error?"
 
-    When connecting to the GSDC login server via a lab workstation/desktop using the GNOME Terminal in a Linux system (e.g., Ubuntu), executing the `ipa otptoken-add` command results in the message `ipa: WARNING: Unable to display QR code using the configured output encoding. Please use the token URI to configure your OTP device`.
+    When connecting to the GSDC login server via a lab workstation/desktop using the GNOME Terminal in a Linux system (e.g., Ubuntu), executing the `ipa otptoken-add` command results in the message {==`ipa: WARNING: Unable to display QR code using the configured output encoding. Please use the token URI to configure your OTP device`==}.
 
     To resolve this issue, you can force the use of a locale supported by the internal Python QR code package within the ipa tool. Use the following command:
     
@@ -268,7 +268,7 @@
 
 ??? question "How to resolve the problems on starting and/or restarting CryoSPARC daemons?"
 
-    First, you should all the cryosparc related processes - supervisord, mongod, command_core, command_vis, command_rtp, webapp, app, liveapp - to be terminated successfully on the CryoSPARC master host. If necessary, you can kill the zombie processes.
+    First, you should check all the cryosparc related processes - supervisord, mongod, command_core, command_vis, command_rtp, webapp, app, liveapp - to be terminated successfully on the CryoSPARC master host. If necessary, you can kill the zombie processes.
 
     ``` bash
     $> cryosparcm stop
