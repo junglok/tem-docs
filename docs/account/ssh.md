@@ -2,9 +2,11 @@
 
 !!! note "Enabling OTP"
 
-    When you first connect to the login servers, you can log-in using only your password (or initial password), but you MUST immediately receive OTP (One-Time-Password)s for two-factor authentication. After the sucessful login, at ssh terminal, please follow the [GSDC OTP GUIDE](./otp.md) to enable it. 
+    When connecting first to the login servers, you can log-in using only your password (or initial password), but you MUST immediately receive OTP (One-Time-Password)s for two-factor authentication. After the sucessful login, at ssh terminal, please follow the [GSDC OTP GUIDE](./otp.md) to enable it. 
 
 ## Linux/Mac Users
+
+On the Linux/Mac environment, users can execute the built-in `ssh` command in order to connect and access GSDC TEM login servers.
 
 === "tem-ui-al9.sdfarm.kr"
     ``` yaml linenums="1"
