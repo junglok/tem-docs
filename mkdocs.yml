@@ -52,6 +52,8 @@ markdown_extensions:
 
 extra_javascript:
   - javascripts/readthedocs.js
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
 
 nav:
   - Services: service/overview.md
