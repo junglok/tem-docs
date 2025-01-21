@@ -95,19 +95,143 @@
         ```
     2. Locate `/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master`, edit `config.sh` file and save (see above codeblock). 
     3. Log-in new login servers (__`tem-ui-al9`__ or __`tem-cs-al9`__) using the same account. Start cryosparc.
-        - `$> cat /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/config.sh`
-        - `$> cryosparcm start`
+        ```bash
+        $> cat /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/config.sh
+        $> cryosparcm start
+        ```
 
 
 ??? question "How to migrate CryoSPARC's `TEM-FARM` lane from old EL7 to new AL9-based cluster?"
 
     `TEM-FARM` lane information (stored in Cryosparc database) needs to be updated mainly due to the difference between Torque and PBSPro batch systems. Lane inforamtion is controlled by two files (__`cluster_info.json`__ and __`cluster_script.sh`__).
+    
+    Those files are located at `/tem/scratch/<GroupDir>/.cryosparc/cluster_info.json` and `/tem/scratch/<GroupDir>/.croysparc/cluster_script.sh`.
 
+     === "EL7 : cluster_info.json"
+        ```bash
+        {
+            "name" : "TEM-FARM",
+            "worker_bin_path" : "/tem/scratch/<GroupDir>/.cryosparc/cryosparc_worker/bin/cryosparcw",
+            "cache_path" : "",
+            "send_cmd_tpl" : "{{ command }}",
+            "qsub_cmd_tpl" : "qsub {{ script_path_abs }}",
+            "qstat_cmd_tpl" : "qstat -as {{ cluster_job_id }}",
+            "qdel_cmd_tpl" : "qdel {{ cluster_job_id }}",
+            "qinfo_cmd_tpl" : "qstat -q"
+        }
+        ```
+    === "AL9 : cluster_info.json"
+        ```bash
+        {
+            "name" : "TEM-FARM",
+            "worker_bin_path" : "/tem/scratch/<GroupDir>/.cryosparc/cryosparc_worker/bin/cryosparcw",
+            "cache_path" : "",
+            "send_cmd_tpl" : "{{ command }}",
+            "qsub_cmd_tpl" : "qsub {{ script_path_abs }}",
+            "qstat_cmd_tpl" : "qstat -as {{ cluster_job_id }}",
+            "qdel_cmd_tpl" : "qdel {{ cluster_job_id }}",
+            "qinfo_cmd_tpl" : "qstat -q"
+        }
+        ```
 
-    ```yaml
-    a text
-    ```
+     === "EL7 : cluster_script.sh"
+        ```bash
+        #!/usr/bin/env bash
+        #### cryoSPARC cluster submission script template for PBS
+        ## Available variables:
+        ## {{ run_cmd }}            - the complete command string to run the job
+        ## {{ num_cpu }}            - the number of CPUs needed
+        ## {{ num_gpu }}            - the number of GPUs needed.
+        ##                            Note: the code will use this many GPUs starting from dev id 0
+        ##                                  the cluster scheduler or this script have the responsibility
+        ##                                  of setting CUDA_VISIBLE_DEVICES so that the job code ends up
+        ##                                  using the correct cluster-allocated GPUs.
+        ## {{ ram_gb }}             - the amount of RAM needed in GB
+        ## {{ job_dir_abs }}        - absolute path to the job directory
+        ## {{ project_dir_abs }}    - absolute path to the project dir
+        ## {{ job_log_path_abs }}   - absolute path to the log file for the job
+        ## {{ worker_bin_path }}    - absolute path to the cryosparc worker command
+        ## {{ run_args }}           - arguments to be passed to cryosparcw run
+        ## {{ project_uid }}        - uid of the project
+        ## {{ job_uid }}            - uid of the job
+        ## {{ job_creator }}        - name of the user that created the job (may contain spaces)
+        ## {{ cryosparc_username }} - cryosparc username of the user that created the job (usually an email)
+        ##
+        ##PBS -l select=1:ncpus={{ num_cpu }}:ngpus={{ num_gpu }}:mem={{ (ram_gb*1000)|int }}mb:gputype=P100
+        ## What follows is a simple PBS script:
 
-    ```yaml
-    b text
-    ```
+        #PBS -N cryosparc_{{ project_uid }}_{{ job_uid }}
+        {%- if num_gpu == 0 %}
+        #PBS -l nodes=1:ppn={{ num_cpu }}:cpuQ
+        #PBS -q cpuQ
+        {%- else %}
+        #PBS -l nodes=1:ppn={{ num_cpu }}:gpus={{ num_gpu }}:gpuQ
+        #PBS -q gpuQ
+        {%- endif %}
+        #PBS -o {{ job_dir_abs }}
+        #PBS -e {{ job_dir_abs }}
+
+        ################################
+        ## Print Environment Variables #
+        ################################
+        echo ------------------------------------------------------
+        echo -n 'Job is running on node '; cat $PBS_NODEFILE
+        echo ------------------------------------------------------
+        echo PBS: qsub is running on $PBS_O_HOST
+        echo PBS: originating queue is $PBS_O_QUEUE
+        echo PBS: executing queue is $PBS_QUEUE
+        echo PBS: working directory is $PBS_O_WORKDIR
+        echo PBS: execution mode is $PBS_ENVIRONMENT
+        echo PBS: job identifier is $PBS_JOBID
+        echo PBS: job name is $PBS_JOBNAME
+        echo PBS: node file is $PBS_NODEFILE
+        echo PBS: current home directory is $PBS_O_HOME
+        echo PBS: PATH = $PBS_O_PATH
+        echo PBS: PBS_GPUFILE=$PBS_GPUFILE
+        echo PBS: CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES
+        echo ------------------------------------------------------
+
+        {{ run_cmd }}
+        ```
+    === "AL9 : cluster_script.sh"
+        ```bash
+        #!/usr/bin/env bash
+        #### cryoSPARC cluster submission script template for PBS
+        ## Available variables:
+        ## {{ run_cmd }}            - the complete command string to run the job
+        ## {{ num_cpu }}            - the number of CPUs needed
+        ## {{ num_gpu }}            - the number of GPUs needed.
+        ##                            Note: the code will use this many GPUs starting from dev id 0
+        ##                                  the cluster scheduler or this script have the responsibility
+        ##                                  of setting CUDA_VISIBLE_DEVICES so that the job code ends up
+        ##                                  using the correct cluster-allocated GPUs.
+        ## {{ ram_gb }}             - the amount of RAM needed in GB
+        ## {{ job_dir_abs }}        - absolute path to the job directory
+        ## {{ project_dir_abs }}    - absolute path to the project dir
+        ## {{ job_log_path_abs }}   - absolute path to the log file for the job
+        ## {{ worker_bin_path }}    - absolute path to the cryosparc worker command
+        ## {{ run_args }}           - arguments to be passed to cryosparcw run
+        ## {{ project_uid }}        - uid of the project
+        ## {{ job_uid }}            - uid of the job
+        ## {{ job_creator }}        - name of the user that created the job (may contain spaces)
+        ## {{ cryosparc_username }} - cryosparc username of the user that created the job (usually an email)
+        ##
+        ##PBS -l select=1:ncpus={{ num_cpu }}:ngpus={{ num_gpu }}:mem={{ (ram_gb*1000)|int }}mb:gputype=P100
+        ## What follows is a simple PBS script:
+
+        #PBS -N cryosparc_{{ project_uid }}_{{ job_uid }}
+
+        {%- if num_gpu == 0 %}
+        #PBS -l select=1:ncpus={{ num_cpu }}:mem={{ (ram_gb*1000)|int }}mb
+        #PBS -q cpuQ
+        {%- else %}
+        #PBS -l select=1:ncpus={{ num_cpu }}:ngpus={{ num_gpu }}:mem={{ (ram_gb*1000)|int }}mb
+        #PBS -q gpuQ
+        {%- endif %}
+
+        #PBS -o {{ job_dir_abs }}/cluster.out
+        #PBS -e {{ job_dir_abs }}/cluster.err
+        #PBS -k eod
+
+        {{ run_cmd }}
+        ```        
