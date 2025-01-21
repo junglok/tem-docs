@@ -54,14 +54,22 @@
 
 ## CryoSPARC
 
+??? question "How to migrate CryoSPARC's master host name ?"
+
+    1.
+    2.
+    3.
+
+
 ??? question "How to migrate CryoSPARC's `TEM-FARM` lane from old EL7 to new AL9-based cluster?"
 
-    `TEM-FARM` lane information (stored in Cryosparc database) needs to be updated mainly due to the difference between Torque and PBSPro batch systems.
+    `TEM-FARM` lane information (stored in Cryosparc database) needs to be updated mainly due to the difference between Torque and PBSPro batch systems. Lane info
+
 
     ```yaml
-        a text
+    a text
     ```
 
     ```yaml
-        b text
+    b text
     ```
