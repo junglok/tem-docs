@@ -19,7 +19,14 @@ theme:
     - content.code.copy
     - content.code.select
     - content.code.annotate
-
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - toc.follow
 
 plugins:
   - search:

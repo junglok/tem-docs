@@ -28,7 +28,6 @@ On the Linux/Mac environment, users can execute the built-in `ssh` command in or
     * line 2: `First Factor` means your own password string.
     * line 3: `Second Factor` means six digits OTP code. You can input just `enter` if you have not enabled OTP yet.
 
-
 ## Windows Users
 
 ### MobaXterm
@@ -41,8 +40,8 @@ On the Linux/Mac environment, users can execute the built-in `ssh` command in or
 ![mobaxterm-1](../images/mobaxterm-1.jpg)
 
 * Enter __`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__ as `Remote host`.
-* Check `Specify username`, enter your <UserID> and a designated `Port` number.
-* On the dialog -> `Advanced SSH settings` tab: check `X11-Forwarding` and `Compression`, and also interactive shell as `Remote environment`.
+* Check `Specify username`, enter your account and a designated `Port` number.
+* On the dialog, select `Advanced SSH settings` tab: check `X11-Forwarding` and `Compression`, and also interactive shell as `Remote environment`.
 * Click OK button and proceed the login procedure, i.e., authentication using the first and second factors)
 
 
