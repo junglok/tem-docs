@@ -59,23 +59,33 @@
     CryoSPARC master daemons have been executed on ScientificLinux7.x(EL7)-based login servers (__`tem-ui-el7.sdfarm.kr`__ and __`tem-cs-el7.sdfarm.kr`__) using `cryosparcm start` command for the representative account of each research group. 
     
     During OS upgrades to AlmaLinux 9.x, all these login servers hostname has been changed. 
-    Thus, CryoSPARC master configuration must be changed in order to ensure normal execution on the new login servers.
-    (__`tem-ui-al9.sdfarm.kr`__ and __`tem-cs-al9.sdfarm.kr`__) 
+    Thus, {==CryoSPARC master configuration must be changed in order to ensure normal execution on the new login servers.
+    (__`tem-ui-al9.sdfarm.kr`__ and __`tem-cs-al9.sdfarm.kr`__)==} 
     
-    === "tem-ui-al9.sdfarm.kr"
+    === Old EL7-based login servers (config.sh)
         ``` yaml
-        $> ssh -Y -o Port=<port> <userID>@tem-ui-al9.sdfarm.kr
-        First Factor:
-        Second Factor(optional):
+        ...
+        export CRYOSPARC_MASTER_HOSTNAME="tem-ui-el7.sdfarm.kr"
+        ...
         ```
-    === "tem-cs-al9.sdfarm.kr"
         ``` yaml
-        $> ssh -Y -o Port=<port> <userID>@tem-cs-al9.sdfarm.kr
-        First Factor:
-        Second Factor(optional):
+        ...
+        export CRYOSPARC_MASTER_HOSTNAME="tem-cs-el7.sdfarm.kr"
+        ...
+        ```
+    === New AL9-based login servers (config.sh)
+        ``` yaml
+        ...
+        export CRYOSPARC_MASTER_HOSTNAME="tem-ui-al9.sdfarm.kr"
+        ...
+        ```
+        ``` yaml
+        ...
+        export CRYOSPARC_MASTER_HOSTNAME="tem-cs-al9.sdfarm.kr"
+        ...
         ```
 
-    1. a
+    1. Login old login servers using each group's representative account. Stop all the cryosparc daemons.
 
     2. b
 
