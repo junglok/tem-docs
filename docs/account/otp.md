@@ -7,7 +7,7 @@ then we plan to suspend the policy requiring source IPs.
 
 !!! note "GSDC OTP (One-Time-Password) Setup Guide"
 
-    [GSDC OTP Setup Guide](https://gsdc-farm.gitbook.io/gsdc-otp)
+    [:octicons-key-24: GSDC OTP Setup](https://gsdc-farm.gitbook.io/gsdc-otp){.md-button}
 
 
 !!! warning 
