@@ -112,9 +112,19 @@
 
     <br>
     1. Start CryoSPARC (`cryosparcm start`) on the one of new login servers (__`tem-ui-al9`__ or __`tem-cs-al9`__)
-    !!! warning
+        !!! warning
 
-        Login account is each group's representative account, and the one of new login servers (__`tem-ui-al9`__ or __`tem-cs-al9`__) should be the same as the CryoSPARC's master hostname.
+            Login account is each group's representative account, and the one of new login servers (__`tem-ui-al9`__ or __`tem-cs-al9`__) should be the same as the CryoSPARC's master hostname.
+    2. Locate `/tem/scratch/<GroupDir>/.cryosparc` direcotry, edit `cluster_info.json` and `cluster_script.sh` files for AL9 and save them. (see the below codeblocks).
+    3. Update the existing cluster lane information using the modified two files.
+        ``` bash
+        $> cd /tem/scratch/<GroupDir>/.cryosparc
+        $> cat cluster_info.json
+        $> cat cluster_script.sh
+        $> __cryosparcm cluster connect__
+        ```
+
+    `cryosparcm cluster connect` command reads `cluster_info.json` and `cluster_script.sh` from the current directory and update the lane configuration.       
 
     === "EL7 : cluster_info.json"
         ``` yaml
@@ -142,8 +152,7 @@
             "qinfo_cmd_tpl" : "qstat -q"
         }
         ```
-    
-    2. Locate `/tem/scratch/<GroupDir>/.cryosparc`direcotry, edit `cluster_info.json` and `cluster_script.sh` files for AL9 and save them. (see the above and below codeblocks).
+    <br>
 
     === "EL7 : cluster_script.sh"
         ```bash
@@ -241,11 +250,4 @@
         {{ run_cmd }}
         ```
 
-    3. Update the existing cluster lane information using the modified two files.
-        ``` yaml inenums="1"
-        $> cd /tem/scratch/<GroupDir>/.cryosparc
-        $> cat cluster_info.json
-        $> cat cluster_script.sh
-        $> __cryosparcm cluster connect__
-        ```
-        `cryosparcm cluster connect` command reads `cluster_info.json` and `cluster_script.sh` from the current directory and update the lane configuration.       
+    
