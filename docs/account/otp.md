@@ -7,12 +7,10 @@ then we plan to suspend the policy requiring source IPs.
 
 !!! note "GSDC OTP (One-Time-Password) Setup Guide"
 
-    [:octicons-key-24: GSDC OTP Setup](https://gsdc-farm.gitbook.io/gsdc-otp){.md-button}
+    [:material-file-key: GSDC OTP Setup](https://gsdc-farm.gitbook.io/gsdc-otp){.md-button}
 
 
 !!! warning 
 
     * You must follow the guide when you are already logged-in GSDC login server using SSH terminal.
     * Based on the security guidelines, accounts (and sub-IDs) that do not have OTP enabled will be temporarily suspended through the reqular checks by service managers.
-
-    

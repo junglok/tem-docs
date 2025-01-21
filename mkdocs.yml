@@ -69,4 +69,15 @@ nav:
     - SFTP (SecureFTP): transfer/sftp.md
     - FileZilla: transfer/filezilla.md
     - WinSCP: transfer/winscp.md
+  - GSDC Computing Cluster for TEM Users and Operators:
+    - Servers and storages: service/resources.md
+    - Cluster Managment Softwares: service/softwares.md
+    - Data Analysis Tools: service/tools.md
+    - Environment Modules: service/modules.md
+    - Utilities: services/util.md
+  - Batch Systems:
+    - PBSPro: batch/pbspro.md 
+  - Data Processing:
+    - Relion: apps/relion.md
+    - CryoSPARC : apps/cryosparc.md
   - FAQs: faqs/faq.md
