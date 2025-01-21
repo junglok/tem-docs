@@ -29,9 +29,9 @@ Back in the login window, choose this site and click on the `Login` buttion. You
 
 WinSCP asks your password and OTP code for connecting to the login server.
 
-![winscp-4](../images/winscp-4.png) { width="400" }
+![winscp-4](../images/winscp-4.png){: style="height:200px;width:200px"}
 
-![winscp-5](../images/winscp-5.png) { width="400" }
+![winscp-5](../images/winscp-5.png){: style="height:200px;width:200px"} 
 
 Finally, in the main window you will see the files on the GSDC TEM cluster in the right panel, and the files on your computer in the left one. You can drag and drop files to copy them from the cluster to your computer and vice versa.
 
