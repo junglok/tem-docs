@@ -62,7 +62,7 @@
     Thus, {==CryoSPARC master configuration must be changed in order to ensure normal execution on the new login servers.
     (__`tem-ui-al9.sdfarm.kr`__ and __`tem-cs-al9.sdfarm.kr`__)==} 
     
-    === Old EL7-based login servers (config.sh)
+    === "Old EL7-based login servers (config.sh)"
         ``` yaml
         ...
         export CRYOSPARC_MASTER_HOSTNAME="tem-ui-el7.sdfarm.kr"
@@ -73,7 +73,7 @@
         export CRYOSPARC_MASTER_HOSTNAME="tem-cs-el7.sdfarm.kr"
         ...
         ```
-    === New AL9-based login servers (config.sh)
+    === "New AL9-based login servers (config.sh)"
         ``` yaml
         ...
         export CRYOSPARC_MASTER_HOSTNAME="tem-ui-al9.sdfarm.kr"
@@ -87,9 +87,9 @@
 
     1. Login old login servers using each group's representative account. Stop all the cryosparc daemons.
 
-    2. b
+    2. Locate `/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master` and edit `config.sh` file 
 
-    3. c
+    3. 
 
 
 ??? question "How to migrate CryoSPARC's `TEM-FARM` lane from old EL7 to new AL9-based cluster?"
