@@ -1,6 +1,6 @@
 # FileZilla
 
-## Data transfer using FileZilla with 2FA
+## Data Transfer using FileZilla with 2FA
 
 With the FileZilla global settings (`Edit` -> `Setttings`),
 
