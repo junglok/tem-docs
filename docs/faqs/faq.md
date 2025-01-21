@@ -107,7 +107,7 @@
     
     Those files are located at `/tem/scratch/<GroupDir>/.cryosparc/cluster_info.json` and `/tem/scratch/<GroupDir>/.croysparc/cluster_script.sh`.
 
-     === "EL7 : cluster_info.json"
+    === "EL7 : cluster_info.json"
         ```bash
         {
             "name" : "TEM-FARM",
@@ -134,7 +134,7 @@
         }
         ```
 
-     === "EL7 : cluster_script.sh"
+    === "EL7 : cluster_script.sh"
         ```bash
         #!/usr/bin/env bash
         #### cryoSPARC cluster submission script template for PBS
