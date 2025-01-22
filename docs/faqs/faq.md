@@ -112,7 +112,7 @@
 
     !!! note
 
-        Login account is each group's representative account, and the one of new login servers (__`tem-ui-al9`__ or __`tem-cs-al9`__) should be the same as the CryoSPARC's master hostname.
+        Login account and login server (__`tem-ui-al9`__ or __`tem-cs-al9`__) should be each group's representative account and the CryoSPARC's master host, respectively.
 
 
     1. Start CryoSPARC (`cryosparcm start`) on the one of new login servers (__`tem-ui-al9`__ or __`tem-cs-al9`__)
@@ -301,6 +301,7 @@
     Then, start your cryosparc instance.
 
     ``` bash
+    $> cryosparcm start
     Starting CryoSPARC System master process...
     CryoSPARC is not already running.
     configuring database...
