@@ -544,13 +544,14 @@ If your master installation directory is "cryosparc_master", use these commands.
     userid@tem-[cs|ui]-el7 $> tar xvfz cryosparc_worker.tar.gz
 
  
-Then, re-install all the cryosparc worker softwares with the followings (note that cryosparc version 3.2.0+ requires CUDA SDK 11.x+):
+Then, re-install all the cryosparc worker softwares with the followings (note that cryosparc version 4.3.0+ has self-contained CUDA SDK, so you don't have to 
+select the host directory path of CUDA SDK while installing the cryosparc worker):
 
 .. code-block:: bash
 
     userid@tem-[cs|ui]-el7 $> cd /tem/scratch/<GroupDir>/.cryosparc/cryosparc_worker          
     userid@tem-[cs|ui]-el7 $> eval $(cryosparcm env)
-    userid@tem-[cs|ui]-el7 $> ./install.sh --license $CRYOSPARC_LICENSE_ID --cudapath /usr/local/cuda-11.2
+    userid@tem-[cs|ui]-el7 $> ./install.sh --license $CRYOSPARC_LICENSE_ID
     ******* CRYOSPARC SYSTEM: WORKER INSTALLER ***********************
 
     Installation Settings:
@@ -564,9 +565,9 @@ Then, re-install all the cryosparc worker softwares with the followings (note th
     CUDA check..
     Found nvidia-smi at /bin/nvidia-smi
 
-    CUDA Path was provided as /usr/local/cuda-11.2
+    CUDA Path was provided as /usr/local/cuda-11.8
     Checking CUDA installation...
-    Found nvcc at /usr/local/cuda-11.2/bin/nvcc
+    Found nvcc at /usr/local/cuda-11.8/bin/nvcc
     The above cuda installation will be used but can be changed later.
 
     ******************************************************************
