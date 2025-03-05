@@ -89,11 +89,93 @@
     ```
 
 ## Relion
+**Description**
+> Relion (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a software package that employs an empirical Bayesian approach for electron cryo-microscopy (cryo-EM) structure determination. It is developed in the group of Sjors Scheres at the MRC Laboratory of Molecular Biology.
+
+**URL**
+> * [Relion 4.x](https://relion.readthedocs.io/en/release-4.0)
+> * [Relion 5.x](https://relion.readthedocs.io/en/release-5.0)
+
+???+ note "ModulePaths for Relion"
+
+    ```bash
+    apps/relion/4.0.1/cpu/gcc-11.5.0
+    apps/relion/4.0.1/cpu/intel-compiler-2024.0.2
+    apps/relion/4.0.1/gpu/cuda-11.8
+    apps/relion/4.0.1/gpu/cuda-12.6
+
+    apps/relion/5.0.0/cpu/gcc-11.5.0
+    apps/relion/5.0.0/cpu/intel-compiler-2024.0.2
+    apps/relion/5.0.0/gpu/cuda-11.8
+    apps/relion/5.0.0/gpu/cuda-12.6
+    ```
 
 ## ResMap
+**Description**
+> (Resolution Map) a Python (NumPy/SciPy) application with a Tkinter GUI. It is an easy to use software package for computing the local resolution of 3D density maps studied in structural biology, primarily electron cryo-microscopy (cryo-EM). ResMap has a both a GUI (window) and a command line interface.
+
+**URL**
+> [https://resmap.sourceforge.net](https://resmap.sourceforge.net)
+
+???+ note "ModulePaths for ResMap"
+
+    ```bash
+    apps/resmap/1.1.4
+    ```
 
 ## SumMovie
+**Description**
+> A tool that uses the alignment results from the software application Unblur to calculate movie frame sums.
+
+**URL**
+> [https://grigoriefflab.umassmed.edu/unblur_summovie](https://grigoriefflab.umassmed.edu/unblur_summovie)
+
+???+ note "ModulePaths for SumMovie"
+
+    ```bash
+    apps/summovie/1.0.2
+    ```
 
 ## Topaz
+**Description**
+> A pipeline for particle detection in cryo-electron microscopy images using convolutional neural networks trained from positive and unlabeled examples. Topaz includes methods for micrograph denoising using deep denoising models.
+
+**URL**
+> [https://github.com/tbepler/topaz](https://github.com/tbepler/topaz)
+
+???+ note "ModulePaths for Topaz"
+
+    ```bash
+    apps/topaz/0.2.5/gpu/cuda-11.8
+    apps/topaz/0.2.5/gpu/cuda-12.4
+
+    apps/topaz/0.3.1/gpu/cuda-11.8
+    apps/topaz/0.3.1/gpu/cuda-12.4
+    ```
+
+## Topaz for picking Filaments
+**Descriptioin**
+> A program with added support for filament start-end coordinate picking (new options -f, -fp and -fl in the extract command extract.py) in Topaz, for subsequent helical reconstruction in RELION.
+
+**URL**
+> [https://github.com/3dem/topaz](https://github.com/3dem/topaz)
+
+???+ note "ModulePaths for Topaz filaments picking"
+
+    ```bash
+    apps/topaz/0.2.5_filaments/gpu/cuda-11.8
+    apps/topaz/0.2.5_filaments/gpu/cuda-12.4
+    ```
 
 ## Unblur
+**Description**
+> A tool used to align the frames of movies recorded on an electron microscope to reduce image blurring due to beam-induced motion. It reads stacks of movies that are stored in MRC/CCP4 format and generates frame sums that can be used in subsequent image processing.
+
+**URL**
+> [https://grigoriefflab.umassmed.edu/unblur_summovie](https://grigoriefflab.umassmed.edu/unblur_summovie)
+
+???+ note "ModulePaths for Unblur"
+
+    ```bash
+    apps/unblur/1.0.2
+    ```
