@@ -21,7 +21,6 @@ This includes easily adding or removing directories to the PATH environment vari
 
     ```bash
     $> module list
-
     Currently Loaded Modules:
       1) gcc/11.5.0   2) cuda/12.6   3) openmpi/5.0.3/gcc-11.5.0   4) apps/relion/4.0.1/gpu/cuda-12.6 
 
@@ -57,16 +56,12 @@ This includes easily adding or removing directories to the PATH environment vari
     apps/pyem/0.65                                         apps/topaz/0.3.1/gpu/cuda-11.8
     apps/relion/4.0.1/cpu/gcc-11.5.0                       apps/topaz/0.3.1/gpu/cuda-12.4                (D)
     apps/relion/4.0.1/cpu/intel-compiler-2024.0.2   (D)    apps/unblur/1.0.2
-
     ------------------------------------ /tem/el9/system/lmod/8.7.53/modulefiles/virtual -------------------
     anaconda3/2024.10-1
-
     -------------------------------------- /tem/el9/system/lmod/8.7.53/modulefiles/mpi ---------------------
     openmpi/5.0.3/gcc-11.5.0    openmpi/5.0.3/intel-compiler-2024.0.2 (D)
-
     ---------------------------------- /tem/el9/system/lmod/8.7.53/modulefiles/acceleration ----------------
     cuda/11.8    cuda/12.6 (D)
-
     ------------------------------------ /tem/el9/system/lmod/8.7.53/modulefiles/compiler ------------------
     gcc/11.5.0                      intel/dnnl/3.3.0                    intel/itac/2022.0
     intel/advisor/2024.0            intel/dpct/2024.0.0                 intel/mkl/2024.0
@@ -81,12 +76,9 @@ This includes easily adding or removing directories to the PATH environment vari
 
     Where:
     D:  Default Module
-
     If the avail list is too long consider trying:
-
     "module --default avail" or "ml -d av" to just list the default modules.
     "module overview" or "ml ov" to display the number of modules for each name.
-
     Use "module spider" to find all possible modules and extensions.
     Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
     ```
@@ -114,16 +106,12 @@ This includes easily adding or removing directories to the PATH environment vari
     apps/motioncor3/1.1.1/gpu (2)   apps/topaz/0.3.1/gpu           (2)
     apps/pyem                 (1)   apps/unblur                    (1)
     apps/relion/4.0.1/cpu     (2)
-
     ---------------- /tem/el9/system/lmod/8.7.53/modulefiles/virtual -----------
     anaconda3 (1)
-
     ------------------ /tem/el9/system/lmod/8.7.53/modulefiles/mpi -------------
     openmpi/5.0.3 (2)
-
     ------------- /tem/el9/system/lmod/8.7.53/modulefiles/acceleration ---------
     cuda (2)
-
     --------------- /tem/el9/system/lmod/8.7.53/modulefiles/compiler -----------
     gcc                 (1)   intel/dnnl                (1)   intel/itac    (1)
     intel/advisor       (1)   intel/dpct                (1)   intel/mkl     (1)
@@ -154,29 +142,47 @@ This includes easily adding or removing directories to the PATH environment vari
     -----------------------------------------------------------
     The following modules match your search criteria: "nvidia"
     -----------------------------------------------------------
-
     cuda: cuda/11.8, cuda/12.6
         NVIDIA CUDA
-
     -----------------------------------------------------------
-
     To learn more about a package execute:
-
     $ module spider Foo
-
     where "Foo" is the name of a module.
-
     To find detailed information about a particular package you
     must specify the version if there is more than one version:
-
     $ module spider Foo/11.1
-
     -----------------------------------------------------------
     ```
 
-> * Spider tool
-> Another way to search for modules is with the “module spider” command. This command searches the entire list of possible modules. 
+> * Spider command : Another way to search for modules is with the “module spider” command. This command searches the entire list of possible modules. 
 
+=== ":material-powershell: Command"
+
+    ```bash
+    $> module spider
+    ```
+
+=== ":material-alpha-e-box-outline: Example"
+
+    ```bash
+    $> module spider cuda
+    ------------------------------------------------------------------
+    cuda:
+    ------------------------------------------------------------------
+        Description:
+        NVIDIA CUDA
+        Versions:
+            cuda/11.8
+            cuda/12.6
+    ------------------------------------------------------------------
+    For detailed information about a specific "cuda" package 
+    (including how to load the modules) use the module's full name.
+    Note that names that have a trailing (E) are extensions provided 
+    by other modules.
+    For example:
+        $ module spider cuda/12.6
+    ------------------------------------------------------------------
+    ```
 
 ## Showing the defails of the module
 
