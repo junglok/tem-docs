@@ -9,7 +9,7 @@ This includes easily adding or removing directories to the PATH environment vari
 
 ## Listing the loaded modules
 
-> * To list all the modules already loaded by the user
+* To list all the modules already loaded by the user
 
 === ":material-powershell: Command"
 
@@ -28,7 +28,7 @@ This includes easily adding or removing directories to the PATH environment vari
 
 ## Finding out what modules are available
 
-> * To find out what modules are available to be loaded a user can do
+* To find out what modules are available to be loaded a user can do
 
 === ":material-powershell: Command"
 
@@ -83,7 +83,7 @@ This includes easily adding or removing directories to the PATH environment vari
     Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
     ```
 
-> * If there are many modules on a system, it can be difficult to see what modules are available to load. Lmod provides the **overview command** to provide a concise listing
+* If there are many modules on a system, it can be difficult to see what modules are available to load. Lmod provides the **overview command** to provide a concise listing
 
 === ":material-powershell: Command"
 
@@ -127,7 +127,7 @@ This includes easily adding or removing directories to the PATH environment vari
 
 ## Searching modules
 
-> * Keyword search tool : This will search any help message or whatis description for the word(s) given on the command
+* Keyword search tool : This will search any help message or whatis description for the word(s) given on the command
 
 === ":material-powershell: Command"
 
@@ -154,7 +154,7 @@ This includes easily adding or removing directories to the PATH environment vari
     -----------------------------------------------------------
     ```
 
-> * Spider command : Another way to search for modules is with the “module spider” command. This command searches the entire list of possible modules. 
+* Spider command : Another way to search for modules is with the “module spider” command. This command searches the entire list of possible modules. 
 
 === ":material-powershell: Command"
 
@@ -186,7 +186,7 @@ This includes easily adding or removing directories to the PATH environment vari
 
 ## Showing the defails of the module
 
-> There are several ways to use the show sub-command to show the contents of a modulefile. The first is to show the module functions instead of executing them:
+There are several ways to use the show sub-command to show the contents of a modulefile. The first is to show the module functions instead of executing them:
 
 === ":material-powershell: Command"
 
@@ -242,7 +242,7 @@ This includes easily adding or removing directories to the PATH environment vari
 
 ## Accessing a modulesfile's help
 
-> Modulefiles can contain help messages. To access a modulefile’s help do:
+Modulefiles can contain help messages. To access a modulefile’s help do:
 
 === ":material-powershell: Command"
 
@@ -264,8 +264,65 @@ This includes easily adding or removing directories to the PATH environment vari
 
 ## Loding modules
 
+* To load packages a user simply does:
+
+=== ":material-powershell: Command"
+
+    ```bash
+    $> module load <package1> <package2> ...
+    ```
+
+=== ":material-alpha-e-box-outline: Example"
+
+    ```bash
+    $> module list
+    No modules loaded
+    $> module load apps/relion/4.0.1/gpu/cuda-12.6
+    $> module list
+    Currently Loaded Modules:
+      1) gcc/11.5.0   2) cuda/12.6   3) openmpi/5.0.3/gcc-11.5.0   4) apps/relion/4.0.1/gpu/cuda-12.6 
+    ```
+
 ## Unloading modules
 
+* To unload packages a user does:
+
+=== ":material-powershell: Command"
+
+    ```bash
+    $> module unload <package1> <package2> ...
+    ```
+
+=== ":material-alpha-e-box-outline: Example"
+
+    ```bash
+    $> module list
+    Currently Loaded Modules:
+      1) gcc/11.5.0   2) cuda/12.6   3) openmpi/5.0.3/gcc-11.5.0   4) apps/relion/4.0.1/gpu/cuda-12.6 
+    $> module unload apps/relion/4.0.1/gpu/cuda-12.6
+    $> module list
+    No modules loaded
+    ```
+
 ## Removing all the modules loaded
+
+* To remove all the loaded modules
+
+=== ":material-powershell: Command"
+
+    ```bash
+    $> module purge
+    ```
+
+=== ":material-alpha-e-box-outline: Example"
+
+    ```bash
+    $> module list
+    Currently Loaded Modules:
+      1) gcc/11.5.0   2) cuda/12.6   3) openmpi/5.0.3/gcc-11.5.0   4) apps/relion/4.0.1/gpu/cuda-12.6 
+    $> module purge
+    $> module list
+    No modules loaded
+    ```
 
 ## Modules help
