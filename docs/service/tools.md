@@ -1,8 +1,10 @@
 # TEM Data Analysis Tools
 
 ## AreTomo
-* Description : (Alignment and Reconstruction for Electron Tomography) GPU-accelerated software package that provides an integrated solution to both fiducial-free alignment and reconstruction for cryoEM tomography.
-* URL : [https://msg.ucsf.edu/software](https://msg.ucsf.edu/software)
+Description 
+> (Alignment and Reconstruction for Electron Tomography) GPU-accelerated software package that provides an integrated solution to both fiducial-free alignment and reconstruction for cryoEM tomography.
+URL 
+> [https://msg.ucsf.edu/software](https://msg.ucsf.edu/software)
 
 ???+ note "ModulePaths for AreTomo"
 
@@ -61,6 +63,14 @@
     ```
 
 ## PyEM
+* Description : A collection of Python modules and command-line utilities for electron microscopy of biological samples.
+* URL : [https://github.com/asarnow/pyem](https://github.com/asarnow/pyem)
+
+???+ note "ModulePaths for PyEM"
+
+    ```bash
+    apps/pyem/0.65
+    ```
 
 ## Relion
 
