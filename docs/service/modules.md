@@ -186,6 +186,60 @@ This includes easily adding or removing directories to the PATH environment vari
 
 ## Showing the defails of the module
 
+> There are several ways to use the show sub-command to show the contents of a modulefile. The first is to show the module functions instead of executing them:
+
+=== ":material-powershell: Command"
+
+    ```bash
+    $> module show
+    ```
+
+=== ":material-alpha-e-box-outline: Example"
+
+    ```bash
+    $> module show apps/relion/5.0.0/gpu/cuda-12.6
+    ------------------------------------------------------------------------------
+    /tem/el9/system/lmod/8.7.53/modulefiles/applications/apps/relion/5.0.0/gpu/cuda-12.6.lua:
+    ------------------------------------------------------------------------------
+    help([[
+    Relion version 5.0.0 built on top of GPU build tools:
+    RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is 
+    a stand-alone computer program that employs an empirical Bayesian approach to refinement of
+    (multiple) 3D reconstructions or 2D class averages in electron cryo-microscopy.
+
+    https://relion.readthedocs.io/en/release-5.0/index.html
+
+    ]])
+    whatis("Name:         RELION")
+    whatis("Version:      5.0.0 on top of GPU build tools")
+    whatis("Description:  RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on)")
+    whatis("URL:          https://relion.readthedocs.io/")
+    whatis("Categories:   Cryo-EM, Cryo-ET, data analysis, MPI")
+    whatis("Keywords:     RHEL9, data analysis, GPU build tools")
+    depends_on("anaconda3/2024.10-1")
+    depends_on("gcc/11.5.0")
+    depends_on("cuda/12.6")
+    depends_on("openmpi/5.0.3/gcc-11.5.0")
+    prepend_path("PATH","/tem/el9/applications/relion-5.0.0-gpu-cuda-12.6/bin")
+    prepend_path("LD_LIBRARY_PATH","/tem/el9/applications/relion-5.0.0-gpu-cuda-12.6/lib")
+    setenv("LANG","en_US.UTF-8")
+    setenv("TORCH_HOME","~/.cache/torch")
+    setenv("RELION_QUEUE_USE","yes")
+    setenv("RELION_QUEUE_NAME","gpuQ")
+    setenv("RELION_QSUB_COMMAND","qsub")
+    setenv("RELION_QSUB_EXTRA_COUNT","4")
+    setenv("RELION_QSUB_EXTRA1","Number of Nodes")
+    setenv("RELION_QSUB_EXTRA2","Number of processes per each node")
+    setenv("RELION_QSUB_EXTRA3","Number of GPUs per node")
+    setenv("RELION_QSUB_EXTRA4","Amount of memory(GB) per each node")
+    setenv("RELION_QSUB_EXTRA1_DEFAULT","1")
+    setenv("RELION_QSUB_EXTRA2_DEFAULT","3")
+    setenv("RELION_QSUB_EXTRA3_DEFAULT","2")
+    setenv("RELION_QSUB_EXTRA4_DEFAULT","64")
+    conflict("apps/relion")
+    ```
+
+
 ## Accessing a modulesfile's help
 
 ## Loding modules
