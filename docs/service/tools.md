@@ -1,10 +1,12 @@
 # TEM Data Analysis Tools
 
 ## AreTomo
-Description 
+**Description** 
 > (Alignment and Reconstruction for Electron Tomography) GPU-accelerated software package that provides an integrated solution to both fiducial-free alignment and reconstruction for cryoEM tomography.
-URL 
+ 
+**URL** 
 > [https://msg.ucsf.edu/software](https://msg.ucsf.edu/software)
+
 
 ???+ note "ModulePaths for AreTomo"
 
