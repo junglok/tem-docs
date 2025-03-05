@@ -5,7 +5,7 @@
 * Name : AlmaLinux
 * Version : 9.4
 * Description : Open-source, community-driven Linux operating system
-* URL : https://almalinux.org
+* URL : [https://almalinux.org](https://almalinux.org)
 
 ## Build Tools (Compilers)
 
@@ -13,7 +13,7 @@
 * Name : GNU Compiler
 * Version : 11.5.0
 * Description : Compiler for the GNU operating system
-* URL : https://gcc.gnu.org
+* URL : [https://gcc.gnu.org](https://gcc.gnu.org)
 
 ???+ note "ModulePaths for GNU Compiler"
 
@@ -25,7 +25,7 @@
 * Name : Intel Compiler Collection (OneAPI)
 * Version : 2024.0
 * Description : Compiler collection for generating Intel CPU optimized executable
-* URL : https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html
+* URL : [https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html](https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html)
 
 ???+ note "ModulePaths for Intel Compiler"
 
@@ -43,19 +43,19 @@
 * Name : LMOD
 * Version : 8.7.53
 * Descripyion : A Lua based module system that easily handles the MODULEPATH Hierarchical problem. Environment Modules provide a convenient way to dynamically change the users’ environment through modulefiles.
-* URL : https://lmod.readthedocs.io/en/latest
+* URL : [https://lmod.readthedocs.io/en/latest](https://lmod.readthedocs.io/en/latest)
 
 ## Batch System
 * Name : PBS Professional (Community Edition)
 * Version : 23.06.06
 * Description : Job scheduling and workload management in high-performance computing (HPC) environments – clusters, clouds, and supercomputers – improving system efficiency and people’s productivity.
-* URL : https://github.com/openpbs/openpbs
+* URL : [https://github.com/openpbs/openpbs](https://github.com/openpbs/openpbs)
 
 ## MPI (Message Passing Interfaces)
 * Name : OpenMPI
 * Version : 5.0.3
 * Description : An open source Message Passing Interface implementation that is developed and maintained by a consortium of academic, research, and industry partners.
-* URL : https://www.open-mpi.org
+* URL : [https://www.open-mpi.org](https://www.open-mpi.org)
 
 ???+ note "ModulePaths for MPI"
 
@@ -68,7 +68,7 @@
 * Name : Anaconda
 * Version : 2024.10-1
 * Description : A collection of tools and a distribution of the Python and R programming languages for data science and machine learning. It's used to develop and manage data science and AI projects.
-* URL : https://anaconda.com
+* URL : [https://anaconda.com](https://anaconda.com)
 
 ???+ note "ModulePaths for Anaconda"
 
@@ -80,7 +80,7 @@
 * Name : CUDA
 * Version : 11.8 or above
 * Description : A parallel computing platform and programming model created by NVIDIA
-* URL : https://developer.nvidia.com/cuda-toolkit
+* URL : [https://developer.nvidia.com/cuda-toolkit](https://developer.nvidia.com/cuda-toolkit)
 
 ???+ note "ModulePaths for CUDA"
 
