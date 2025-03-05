@@ -13,9 +13,12 @@ This includes easily adding or removing directories to the PATH environment vari
 
 ## Searching modules
 
+## Showing the defails of the module
+
 ## Loding modules
 
 ## Unloading modules
 
 ## Removing all the modules loaded
 
+## Modules help
