@@ -41,7 +41,7 @@ This includes easily adding or removing directories to the PATH environment vari
 
     ```bash
     $> module avail
-    ---------------------------------- /tem/el9/system/lmod/8.7.53/modulefiles/applications ----------------------------------
+    ---------------------------------- /tem/el9/system/lmod/8.7.53/modulefiles/applications ----------------
     apps/aretomo/1.3.4/gpu/cuda-11.8                       apps/relion/4.0.1/gpu/cuda-11.8
     apps/aretomo2/1.1.2/gpu/cuda-11.8                      apps/relion/4.0.1/gpu/cuda-12.6               (D)
     apps/aretomo2/1.1.2/gpu/cuda-12.6               (D)    apps/relion/5.0.0/cpu/gcc-11.5.0
@@ -58,16 +58,16 @@ This includes easily adding or removing directories to the PATH environment vari
     apps/relion/4.0.1/cpu/gcc-11.5.0                       apps/topaz/0.3.1/gpu/cuda-12.4                (D)
     apps/relion/4.0.1/cpu/intel-compiler-2024.0.2   (D)    apps/unblur/1.0.2
 
-    ------------------------------------ /tem/el9/system/lmod/8.7.53/modulefiles/virtual -------------------------------------
+    ------------------------------------ /tem/el9/system/lmod/8.7.53/modulefiles/virtual -------------------
     anaconda3/2024.10-1
 
-    -------------------------------------- /tem/el9/system/lmod/8.7.53/modulefiles/mpi ---------------------------------------
+    -------------------------------------- /tem/el9/system/lmod/8.7.53/modulefiles/mpi ---------------------
     openmpi/5.0.3/gcc-11.5.0    openmpi/5.0.3/intel-compiler-2024.0.2 (D)
 
-    ---------------------------------- /tem/el9/system/lmod/8.7.53/modulefiles/acceleration ----------------------------------
+    ---------------------------------- /tem/el9/system/lmod/8.7.53/modulefiles/acceleration ----------------
     cuda/11.8    cuda/12.6 (D)
 
-    ------------------------------------ /tem/el9/system/lmod/8.7.53/modulefiles/compiler ------------------------------------
+    ------------------------------------ /tem/el9/system/lmod/8.7.53/modulefiles/compiler ------------------
     gcc/11.5.0                      intel/dnnl/3.3.0                    intel/itac/2022.0
     intel/advisor/2024.0            intel/dpct/2024.0.0                 intel/mkl/2024.0
     intel/ccl/2021.11.2             intel/dpl/2022.3                    intel/mkl32/2024.0
@@ -103,32 +103,38 @@ This includes easily adding or removing directories to the PATH environment vari
 
     ```bash
     $> module overview
-    ---------------------------------- /tem/el9/system/lmod/8.7.53/modulefiles/applications ----------------------------------
-    apps/aretomo/1.3.4/gpu    (1)   apps/motioncor3/1.1.1/gpu (2)   apps/summovie                  (1)
-    apps/aretomo2/1.1.2/gpu   (2)   apps/pyem                 (1)   apps/topaz/0.2.5/gpu           (2)
-    apps/aretomo3/2.0.3/gpu   (2)   apps/relion/4.0.1/cpu     (2)   apps/topaz/0.2.5_filaments/gpu (2)
-    apps/ctffind/4.1.14/cpu   (2)   apps/relion/4.0.1/gpu     (2)   apps/topaz/0.3.1/gpu           (2)
-    apps/isonet/0.2.1/gpu     (1)   apps/relion/5.0.0/cpu     (2)   apps/unblur                    (1)
-    apps/isonet/0.3.0/gpu     (1)   apps/relion/5.0.0/gpu     (2)
-    apps/motioncor2/1.6.4/gpu (1)   apps/resmap               (1)
+    ------------- /tem/el9/system/lmod/8.7.53/modulefiles/applications ----------
+    apps/aretomo/1.3.4/gpu    (1)   apps/relion/4.0.1/gpu          (2)
+    apps/aretomo2/1.1.2/gpu   (2)   apps/relion/5.0.0/cpu          (2)
+    apps/aretomo3/2.0.3/gpu   (2)   apps/relion/5.0.0/gpu          (2)
+    apps/ctffind/4.1.14/cpu   (2)   apps/resmap                    (1)
+    apps/isonet/0.2.1/gpu     (1)   apps/summovie                  (1)
+    apps/isonet/0.3.0/gpu     (1)   apps/topaz/0.2.5/gpu           (2)
+    apps/motioncor2/1.6.4/gpu (1)   apps/topaz/0.2.5_filaments/gpu (2)
+    apps/motioncor3/1.1.1/gpu (2)   apps/topaz/0.3.1/gpu           (2)
+    apps/pyem                 (1)   apps/unblur                    (1)
+    apps/relion/4.0.1/cpu     (2)
 
-    ------------------------------------ /tem/el9/system/lmod/8.7.53/modulefiles/virtual -------------------------------------
+    ---------------- /tem/el9/system/lmod/8.7.53/modulefiles/virtual -----------
     anaconda3 (1)
 
-    -------------------------------------- /tem/el9/system/lmod/8.7.53/modulefiles/mpi ---------------------------------------
+    ------------------ /tem/el9/system/lmod/8.7.53/modulefiles/mpi -------------
     openmpi/5.0.3 (2)
 
-    ---------------------------------- /tem/el9/system/lmod/8.7.53/modulefiles/acceleration ----------------------------------
+    ------------- /tem/el9/system/lmod/8.7.53/modulefiles/acceleration ---------
     cuda (2)
 
-    ------------------------------------ /tem/el9/system/lmod/8.7.53/modulefiles/compiler ------------------------------------
-    gcc                 (1)   intel/dal           (1)   intel/ifort32             (1)   intel/mkl     (1)
-    intel/advisor       (1)   intel/debugger      (1)   intel/inspector           (1)   intel/mkl32   (1)
-    intel/ccl           (1)   intel/dev-utilities (1)   intel/intel_ipp_ia32      (1)   intel/mpi     (1)
-    intel/compiler-rt   (1)   intel/dnnl          (1)   intel/intel_ipp_intel64   (1)   intel/oclfpga (1)
-    intel/compiler-rt32 (1)   intel/dpct          (1)   intel/intel_ippcp_ia32    (1)   intel/tbb     (1)
-    intel/compiler      (1)   intel/dpl           (1)   intel/intel_ippcp_intel64 (1)   intel/tbb32   (1)
-    intel/compiler32    (1)   intel/ifort         (1)   intel/itac                (1)   intel/vtune   (1)
+    --------------- /tem/el9/system/lmod/8.7.53/modulefiles/compiler -----------
+    gcc                 (1)   intel/dnnl                (1)   intel/itac    (1)
+    intel/advisor       (1)   intel/dpct                (1)   intel/mkl     (1)
+    intel/ccl           (1)   intel/dpl                 (1)   intel/mkl32   (1)
+    intel/compiler-rt   (1)   intel/ifort               (1)   intel/mpi     (1)
+    intel/compiler-rt32 (1)   intel/ifort32             (1)   intel/oclfpga (1)
+    intel/compiler      (1)   intel/inspector           (1)   intel/tbb     (1)
+    intel/compiler32    (1)   intel/intel_ipp_ia32      (1)   intel/tbb32   (1)
+    intel/dal           (1)   intel/intel_ipp_intel64   (1)   intel/vtune   (1)
+    intel/debugger      (1)   intel/intel_ippcp_ia32    (1)
+    intel/dev-utilities (1)   intel/intel_ippcp_intel64 (1)
     ```
 
 
