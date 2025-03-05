@@ -19,6 +19,13 @@
 * URL : [https://cryosparc.com](https://cryosparc.com)
 * Remarks : Running CryoSPARC instance is provided per each Research Group basis on their scratch directory (/tem/scratch/<GroupName>/.cryosparc)
 
+???+ tip "Remarks on CryoSPARC"
+
+    Running CryoSPARC instance is provided per each Research Group basis on their scratch directory (/tem/scratch/<GroupName>/.cryosparc)
+
+    For more details, please refer to [CryoSPARC] (../apps/cryosparc.md)
+
+
 ## CTFFind
 
 ## IsoNet
