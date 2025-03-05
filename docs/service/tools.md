@@ -1,7 +1,7 @@
 # TEM Data Analysis Tools
 
-## AreTomo (Alignment and Reconstruction for Electron Tomography)
-* Description : GPU-accelerated software package that provides an integrated solution to both fiducial-free alignment and reconstruction for cryoEM tomography.
+## AreTomo
+* Description : (Alignment and Reconstruction for Electron Tomography) GPU-accelerated software package that provides an integrated solution to both fiducial-free alignment and reconstruction for cryoEM tomography.
 * URL : [https://msg.ucsf.edu/software](https://msg.ucsf.edu/software)
 
 ???+ note "ModulePaths for AreTomo"
@@ -17,13 +17,12 @@
 ## CryoSPARC
 * Description : A state of the art scientific software platform for cryo-electron microscopy (cryo-EM) used in research and drug discovery pipelines.
 * URL : [https://cryosparc.com](https://cryosparc.com)
-* Remarks : Running CryoSPARC instance is provided per each Research Group basis on their scratch directory (/tem/scratch/<GroupName>/.cryosparc)
+* Remarks : Running CryoSPARC instance is provided per each Research Group basis on their scratch directory (/tem/scratch/__GroupName__/.cryosparc)
 
 ???+ tip "Remarks on CryoSPARC"
 
-    Running CryoSPARC instance is provided per each Research Group basis on their scratch directory (/tem/scratch/<GroupName>/.cryosparc)
-
-    For more details, please refer to [CryoSPARC] (../apps/cryosparc.md)
+    Running CryoSPARC instance is provided per each Research Group basis on their scratch directory (/tem/scratch/__GroupName__/.cryosparc)
+    For more details, please refer to [CryoSPARC](../apps/cryosparc.md)
 
 
 ## CTFFind
