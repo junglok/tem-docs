@@ -56,13 +56,13 @@
 
 ??? question "How to change CryoSPARC's master host name?"
 
-    CryoSPARC master daemons have been executed on ScientificLinux7.x(EL7)-based login servers (__`tem-ui-el7.sdfarm.kr`__ and __`tem-cs-el7.sdfarm.kr`__) using `cryosparcm start` command for the representative account of each research group. 
+    CryoSPARC master daemons have been executed on ScientificLinux7.x(SL7)-based login servers (__`tem-ui-el7.sdfarm.kr`__ and __`tem-cs-el7.sdfarm.kr`__) using `cryosparcm start` command for the representative account of each research group. 
     
     During OS upgrades to AlmaLinux 9.x, all these login servers hostname has been changed. 
     Thus, {==CryoSPARC master configuration must be changed in order to ensure normal execution on the new login servers
     (__`tem-ui-al9.sdfarm.kr`__ and __`tem-cs-al9.sdfarm.kr`__)==}. 
     
-    === "Old EL7-based login servers (config.sh)"
+    === "Old SL7-based login servers (config.sh)"
         ``` yaml
         ...
         export CRYOSPARC_MASTER_HOSTNAME="tem-ui-el7.sdfarm.kr"
@@ -87,21 +87,21 @@
         ...
         ```
 
-    1. Log-in old login servers (__`tem-ui-el7`__ or __`tem-cs-el7`__) using each group's representative account. Stop all the cryosparc daemons.
+    1. Log-in old cryosparc servers (__`tem-ui-el7`__ or __`tem-cs-el7`__), which your cryosparc master is running on using each group's representative account. Stop all the cryosparc daemons.
         ```bash
         $> cryosparcm stop 
         $> ps aux | grep <AccountName> | grep cryosparc
         $> ps aux | grep <AccountName> | grep -E "cryosparc|node" | awk '{print $2}' | xargs -I{} kill -9 {}
         ```
     2. Locate `/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master`, edit `config.sh` file and save (see above codeblock). 
-    3. Log-in new login servers (__`tem-ui-al9`__ or __`tem-cs-al9`__) using the same account. Start cryosparc.
+    3. Log-in new cryosparc servers (__`tem-ui-al9`__ or __`tem-cs-al9`__), where your cryosparc master will be running using the same account. Start cryosparc.
         ```bash
         $> cat /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/config.sh
         $> cryosparcm start
         ```
 
 
-??? question "How to migrate CryoSPARC's `TEM-FARM` lane from old EL7 to new AL9-based cluster?"
+??? question "How to migrate CryoSPARC's `TEM-FARM` lane from old SL7 to new AL9-based cluster?"
 
     `TEM-FARM` lane information (stored in Cryosparc database) needs to be updated mainly due to the difference between Torque and PBSPro batch systems. Lane information is controlled by two files (__`cluster_info.json`__ and __`cluster_script.sh`__).
     
@@ -131,7 +131,7 @@
 
     `cryosparcm cluster connect` command reads `cluster_info.json` and `cluster_script.sh` from the current directory and update the lane configuration.       
 
-    === "EL7 : cluster_info.json"
+    === "SL7 : cluster_info.json"
         ``` yaml
         {
             "name" : "TEM-FARM",
@@ -159,7 +159,7 @@
         ```
     <br>
 
-    === "EL7 : cluster_script.sh"
+    === "SL7 : cluster_script.sh"
         ```bash
         #!/usr/bin/env bash
         #### cryoSPARC cluster submission script template for PBS
