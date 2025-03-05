@@ -1,10 +1,11 @@
 # Welcome to GSDC TEM Users Guide
 
-For full documentation visit [GSDC TEM Users Guide](https://tem-docs.readthedocs.io/en/al9).
+These pages refer to the GSDC TEM users guide of the new AlmaLinux 9.x based TEM cluster.
+For the documentation of the old ScientificLinux 7.x based system, please visit [Scientific Linux 7.x based GSDC TEM Users Guide](https://tem-docs.readthedocs.io/en/latest).
 
 ## Notice
 
-???+ tip "Creating tickets for resolving techinical problems/errors using GSDC services"
+???+ tip "Creating tickets to request the support for resolving techinical problems/errors using GSDC services"
 
     Since March 2021, we launched GSDC ticketing system to support all the technical problems for users/operators, so feel free to create tickets. 
     
@@ -16,4 +17,4 @@ For full documentation visit [GSDC TEM Users Guide](https://tem-docs.readthedocs
 
 ## Change Log
 
-* `2024-12-31` - We are under migrating all the serivce nodes OS from ScientificLinux 7.x to AlmaLinux 9.x
+* `2024-12-31` - We are under migrating all the service nodes OS from ScientificLinux 7.x to AlmaLinux 9.x
