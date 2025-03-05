@@ -132,7 +132,7 @@ This includes easily adding or removing directories to the PATH environment vari
 === ":material-powershell: Command"
 
     ```bash
-    $> module keyword
+    $> module keyword <keyword>
     ```
 
 === ":material-alpha-e-box-outline: Example"
@@ -159,7 +159,7 @@ This includes easily adding or removing directories to the PATH environment vari
 === ":material-powershell: Command"
 
     ```bash
-    $> module spider
+    $> module spider <keyword>
     ```
 
 === ":material-alpha-e-box-outline: Example"
@@ -191,7 +191,7 @@ This includes easily adding or removing directories to the PATH environment vari
 === ":material-powershell: Command"
 
     ```bash
-    $> module show
+    $> module show <packageName>
     ```
 
 === ":material-alpha-e-box-outline: Example"
@@ -241,6 +241,26 @@ This includes easily adding or removing directories to the PATH environment vari
 
 
 ## Accessing a modulesfile's help
+
+> Modulefiles can contain help messages. To access a modulefile’s help do:
+
+=== ":material-powershell: Command"
+
+    ```bash
+    $> module help <packageName>
+    ```
+
+=== ":material-alpha-e-box-outline: Example"
+
+    ```bash
+    $> module help apps/relion/5.0.0/gpu/cuda-12.6
+    ----------------- Module Specific Help for "apps/relion/5.0.0/gpu/cuda-12.6" -----------------
+    Relion version 5.0.0 built on top of GPU build tools:
+    RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-alone 
+    computer program that employs an empirical Bayesian approach to refinement of 
+    (multiple) 3D reconstructions or 2D class averages in electron cryo-microscopy.
+    https://relion.readthedocs.io/en/release-5.0/index.html
+    ```
 
 ## Loding modules
 
