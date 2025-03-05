@@ -19,8 +19,11 @@
     ```
 
 ## CryoSPARC
-* Description : A state of the art scientific software platform for cryo-electron microscopy (cryo-EM) used in research and drug discovery pipelines.
-* URL : [https://cryosparc.com](https://cryosparc.com)
+**Description**
+> A state of the art scientific software platform for cryo-electron microscopy (cryo-EM) used in research and drug discovery pipelines.
+
+**URL**
+> [https://cryosparc.com](https://cryosparc.com)
 
 ???+ tip "Remarks on CryoSPARC"
 
@@ -29,8 +32,11 @@
 
 
 ## CTFFind4
-* Description : A new version of ctffind (a program for finding CTFs of electron micrographs) that should run significantly faster than CTFFind3 and may give slightly improved results when processing data from detectors other than scanned photographic film.
-* URL : [https://grigoriefflab.umassmed.edu/ctffind4](https://grigoriefflab.umassmed.edu/ctffind4)
+**Description**
+> A new version of ctffind (a program for finding CTFs of electron micrographs) that should run significantly faster than CTFFind3 and may give slightly improved results when processing data from detectors other than scanned photographic film.
+
+**URL**
+> [https://grigoriefflab.umassmed.edu/ctffind4](https://grigoriefflab.umassmed.edu/ctffind4)
 
 ???+ note "ModulePaths for CTFFind4"
 
@@ -40,8 +46,11 @@
     ```
 
 ## IsoNet
-* Description : (ISOtropic reconstructioN of Electron Tomography) A tool that trains deep convolutional neural networks to reconstruct meaningful contents in the missing wedge for electron tomography, and to increase signal-to-noise ratio, using the information learned from the original tomogram.
-* URL : [https://github.com/IsoNet-cryoET/IsoNet](https://github.com/IsoNet-cryoET/IsoNet)
+**Description**
+> (ISOtropic reconstructioN of Electron Tomography) A tool that trains deep convolutional neural networks to reconstruct meaningful contents in the missing wedge for electron tomography, and to increase signal-to-noise ratio, using the information learned from the original tomogram.
+
+**URL**
+> [https://github.com/IsoNet-cryoET/IsoNet](https://github.com/IsoNet-cryoET/IsoNet)
 
 ???+ note "ModulePaths for IsoNet"
 
@@ -51,10 +60,12 @@
     ```
 
 ## MotionCor
-* Description : A multi-GPU program that corrects beam-induced sample motion on dose fractionated movie stacks. It implements a robust iterative alignment algorithm that delivers precise measurement and correction of both global and non-uniform local motions at single pixel level across the whole frame, suitable for both single-particle and tomographic images.
-* URL
-    - [MotionCor2](https://msg.ucsf.edu/software)
-    - [MotinoCor3](https://github.com/czimaginginstitute/MotionCor3)
+**Description**
+> A multi-GPU program that corrects beam-induced sample motion on dose fractionated movie stacks. It implements a robust iterative alignment algorithm that delivers precise measurement and correction of both global and non-uniform local motions at single pixel level across the whole frame, suitable for both single-particle and tomographic images.
+
+**URL**
+> * [MotionCor2](https://msg.ucsf.edu/software)
+> * [MotinoCor3](https://github.com/czimaginginstitute/MotionCor3)
 
 ???+ note "ModulePaths for MotionCor"
 
@@ -65,8 +76,11 @@
     ```
 
 ## PyEM
-* Description : A collection of Python modules and command-line utilities for electron microscopy of biological samples.
-* URL : [https://github.com/asarnow/pyem](https://github.com/asarnow/pyem)
+**Description**
+> A collection of Python modules and command-line utilities for electron microscopy of biological samples.
+
+**URL**
+> [https://github.com/asarnow/pyem](https://github.com/asarnow/pyem)
 
 ???+ note "ModulePaths for PyEM"
 
