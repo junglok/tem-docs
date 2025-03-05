@@ -42,7 +42,7 @@
 ## Environment Modules
 * Name : LMOD
 * Version : 8.7.53
-* Descripyion : A Lua based module system that easily handles the MODULEPATH Hierarchical problem. Environment Modules provide a convenient way to dynamically change the users’ environment through modulefiles.
+* Description : A Lua based module system that easily handles the MODULEPATH Hierarchical problem. Environment Modules provide a convenient way to dynamically change the users’ environment through modulefiles.
 * URL : [https://lmod.readthedocs.io/en/latest](https://lmod.readthedocs.io/en/latest)
 
 ## Batch System
