@@ -9,7 +9,7 @@ This includes easily adding or removing directories to the PATH environment vari
 
 ## Listing the loaded modules
 
-To list all the modules already loaded by users
+* To list all the modules already loaded by the user
 
 === "Command"
 
@@ -23,7 +23,7 @@ To list all the modules already loaded by users
     $> module list
 
     Currently Loaded Modules:
-      1) gcc/11.5.0   2) cuda/12.6   3) openmpi/5.0.3/gcc-11.5.0   4) apps/relion/4.0.1/gpu/cuda-12.6
+      1) gcc/11.5.0   2) cuda/12.6   3) openmpi/5.0.3/gcc-11.5.0   4) apps/relion/4.0.1/gpu/cuda-12.6 
 
     ```
 
