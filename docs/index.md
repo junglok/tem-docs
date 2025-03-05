@@ -1,8 +1,12 @@
 # Welcome to GSDC TEM Users Guide
 
-> These pages refer to the GSDC TEM users guide of the new AlmaLinux 9.x based TEM cluster.
+{== 
 
-> For the document of the old ScientificLinux 7.x based system, please visit [Scientific Linux 7.x based GSDC TEM Users Guide](https://tem-docs.readthedocs.io/en/latest).
+These pages refer to the GSDC TEM users guide of the new AlmaLinux 9.x based TEM cluster.
+
+==}
+
+For the document of the old ScientificLinux 7.x based system, please visit [Scientific Linux 7.x based GSDC TEM Users Guide](https://tem-docs.readthedocs.io/en/latest).
 
 ## Notice
 
