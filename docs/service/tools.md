@@ -49,8 +49,8 @@
 ## MotionCor
 * Description : A multi-GPU program that corrects beam-induced sample motion on dose fractionated movie stacks. It implements a robust iterative alignment algorithm that delivers precise measurement and correction of both global and non-uniform local motions at single pixel level across the whole frame, suitable for both single-particle and tomographic images.
 * URL
-  ** [MotionCor2](https://msg.ucsf.edu/software)
-  ** [MotinoCor3](https://github.com/czimaginginstitute/MotionCor3)
+    - [MotionCor2](https://msg.ucsf.edu/software)
+    - [MotinoCor3](https://github.com/czimaginginstitute/MotionCor3)
 
 ???+ note "ModulePaths for MotionCor"
 
