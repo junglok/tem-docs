@@ -17,15 +17,23 @@
 ## CryoSPARC
 * Description : A state of the art scientific software platform for cryo-electron microscopy (cryo-EM) used in research and drug discovery pipelines.
 * URL : [https://cryosparc.com](https://cryosparc.com)
-* Remarks : Running CryoSPARC instance is provided per each Research Group basis on their scratch directory (/tem/scratch/__GroupName__/.cryosparc)
 
 ???+ tip "Remarks on CryoSPARC"
 
-    Running CryoSPARC instance is provided per each Research Group basis on their scratch directory (/tem/scratch/__GroupName__/.cryosparc)
+    Running CryoSPARC instance is provided per each Research Group basis on their scratch directory (/tem/scratch/__GroupName__/.cryosparc).
     For more details, please refer to [CryoSPARC](../apps/cryosparc.md)
 
 
-## CTFFind
+## CTFFind4
+* Description : A new version of ctffind (a program for finding CTFs of electron micrographs) that should run significantly faster than CTFFind3 and may give slightly improved results when processing data from detectors other than scanned photographic film.
+* URL : [https://grigoriefflab.umassmed.edu/ctffind4](https://grigoriefflab.umassmed.edu/ctffind4)
+
+???+ note "ModulePaths for CTFFind4"
+
+    ```bash
+    apps/ctffind/4.1.14/cpu/gcc-11.5.0
+    apps/ctffind/4.1.14/cpu/intel-compiler-2024.0.2
+    ```
 
 ## IsoNet
 
