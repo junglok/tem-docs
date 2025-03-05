@@ -9,11 +9,15 @@ This includes easily adding or removing directories to the PATH environment vari
 
 ## Listing the loaded modules
 
+
+
 ## Finding out what modules are available
 
 ## Searching modules
 
 ## Showing the defails of the module
+
+## Accessing a modulesfile's help
 
 ## Loding modules
 
