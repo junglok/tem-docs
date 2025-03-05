@@ -11,13 +11,13 @@ This includes easily adding or removing directories to the PATH environment vari
 
 * To list all the modules already loaded by the user
 
-=== "Command"
+=== ":material-powershell: Command"
 
     ```bash
     $> module list
     ```
 
-=== "Example"
+=== ":material-alpha-e-box-outline: Example"
 
     ```bash
     $> module list
@@ -28,6 +28,11 @@ This includes easily adding or removing directories to the PATH environment vari
     ```
 
 ## Finding out what modules are available
+
+* To find out what modules are available to be loaded a user can do
+
+* If there are many modules on a system, it can be difficult to see what modules are available to load. Lmod provides the **overview command** to provide a concise listing
+
 
 ## Searching modules
 
