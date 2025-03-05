@@ -9,7 +9,7 @@ This includes easily adding or removing directories to the PATH environment vari
 
 ## Listing the loaded modules
 
-* To list all the modules already loaded by the user
+> * To list all the modules already loaded by the user
 
 === ":material-powershell: Command"
 
@@ -29,7 +29,7 @@ This includes easily adding or removing directories to the PATH environment vari
 
 ## Finding out what modules are available
 
-* To find out what modules are available to be loaded a user can do
+> * To find out what modules are available to be loaded a user can do
 
 === ":material-powershell: Command"
 
@@ -91,7 +91,7 @@ This includes easily adding or removing directories to the PATH environment vari
     Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
     ```
 
-* If there are many modules on a system, it can be difficult to see what modules are available to load. Lmod provides the **overview command** to provide a concise listing
+> * If there are many modules on a system, it can be difficult to see what modules are available to load. Lmod provides the **overview command** to provide a concise listing
 
 === ":material-powershell: Command"
 
@@ -137,8 +137,46 @@ This includes easily adding or removing directories to the PATH environment vari
     intel/dev-utilities (1)   intel/intel_ippcp_intel64 (1)
     ```
 
-
 ## Searching modules
+
+> * Keyword search tool : This will search any help message or whatis description for the word(s) given on the command
+
+=== ":material-powershell: Command"
+
+    ```bash
+    $> module keyword
+    ```
+
+=== ":material-alpha-e-box-outline: Example"
+
+    ```bash
+    $> module keyword nvidia
+    -----------------------------------------------------------
+    The following modules match your search criteria: "nvidia"
+    -----------------------------------------------------------
+
+    cuda: cuda/11.8, cuda/12.6
+        NVIDIA CUDA
+
+    -----------------------------------------------------------
+
+    To learn more about a package execute:
+
+    $ module spider Foo
+
+    where "Foo" is the name of a module.
+
+    To find detailed information about a particular package you
+    must specify the version if there is more than one version:
+
+    $ module spider Foo/11.1
+
+    -----------------------------------------------------------
+    ```
+
+> * Spider tool
+> Another way to search for modules is with the “module spider” command. This command searches the entire list of possible modules. 
+
 
 ## Showing the defails of the module
 
