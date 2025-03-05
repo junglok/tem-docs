@@ -20,7 +20,7 @@
 ### Intel
 * Name : Intel Compiler Collection
 * Description : Compiler collection for generating Intel CPU optimized executable
-* 
+
 ???+ note "Modulepaths for Intel Compiler"
 
     ```bash
