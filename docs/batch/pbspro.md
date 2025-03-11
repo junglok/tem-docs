@@ -79,11 +79,15 @@ The example above contains several **directives** which are interpreted by the `
 * **`-N hello_pbs`**
   > provides a *job name*. This name will be displayed by the scheduler for diagnostic and file output. 
   > If omitted, and a script is used to submit the job, the job's name is the name of the script.
-* `-j oe` requests we *combine any standard text output (`o`) and error (`e`) into one output file*.
-  (By default, PBS will write program output and error to different log files. This behavior is contrary to what many users expect from terminal interaction, where output and error are generally interspersed. This optional flag changes that behavior.)
-* `-q cpuQ` specifies the desired PBS *queue* for this job.
-* `-l walltime=00:05:00` requests 5 minutes as the maximum job execution (*walltime*) time.  Specified in `HH:MM:SS` format.
-* `-l select=2:ncpus=16:mpiprocs=16` is a computational *resource chunk* request, detailing the quantity and configuration of *compute nodes* required for this job. This example requests a *selection* of 2 nodes, where each node must have 16 CPU cores, each of which we will use as an MPI rank in our application.
+* **`-j oe`**
+  > requests we *combine any standard text output (`o`) and error (`e`) into one output file*.
+  > (By default, PBS will write program output and error to different log files. This behavior is contrary to what many users expect from terminal interaction, where output and error are generally interspersed. This optional flag changes that behavior.)
+* **`-q cpuQ`**
+  > specifies the desired PBS *queue* for this job.
+* **`-l walltime=00:05:00`**
+  > requests 5 minutes as the maximum job execution (*walltime*) time.  Specified in `HH:MM:SS` format.
+* **`-l select=2:ncpus=16:mpiprocs=16`** 
+  > a computational *resource chunk* request, detailing the quantity and configuration of *compute nodes* required for this job. This example requests a *selection* of 2 nodes, where each node must have 16 CPU cores, each of which we will use as an MPI rank in our application.
 
 
 ### **Script contents**
