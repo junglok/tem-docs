@@ -177,9 +177,27 @@ Taken together, this specifies a *resource chunk*. Homogeneous resource chunks a
    select=96:ncpus=128:mpiprocs=128+32:ncpus=128:mpiprocs=16:ompthreads=8
    ```
 
-#### `walltime`
+#### `walltime` statements
 The `-l walltime=HH:MM:SS` resource directive specifies maximum job duration.
 Jobs still running when this wall time is exceeded will be terminated automatically by the scheduler. (Optional, defaults to infinite)
 ```pre
 walltime=HH:MM:SS
 ```
+
+## Execution environment variables
+Within the **script contents** of the job script, it is common for the specifics of the job to depend slightly on the PBS and specific `module` execution environment.
+Both running under PBS and loading certain [module files](../service/modules.md) create some environment variables that might be useful when writing
+portable scripts; for example scripts that might be shared among users or executed within several different configurations.
+
+### PBS execution environment variables
+PBS creates a number of environment variables that are accessible within a job's execution environment.
+Some of the more useful ones are:
+
+|  <div style="width:110px">Variable</div> | Value |
+|---------------|-------|
+| `PBS_JOBID`     | The PBS Job ID for this job.<br>Example: `1473351.tem-ce-al9` |
+| `PBS_JOBNAME`   | The name of this job. Matches the `-N` specified.<br>Example: `hello_pbs` |
+| `PBS_O_WORKDIR` | The working directory from where the job was submitted. |
+| `PBS_SELECT`    | The resource specification `-l select=` line for this job.<br>This can be useful for setting runtime-specific configuration options that might depend on resource selection.<br>(e.g. processor layout, CPU binding, etc...)<br>Example: `2:ncpus=128:mpiprocs=2:ompthreads=2:mem=200GB:ngpus=1`  |
+| `PBS_NODEFILE`  | A file whose contents lists the nodes assigned to this job.<br> Typically listed as one node name per line, for each MPI rank in the job.<br>Each node will be listed for as many times as it has MPI ranks. <br>Example: `/var/spool/pbs/aux/1473351.tem-ce-al9` |
+<!-- | `PBS_QUEUE`     | The name of the PBS execution queue.<br>In general this will be an *execution* queue, and different than the *routing* queue specified by `-q` in the job script.<br>Example: `cpu` | -->
