@@ -8,7 +8,7 @@ specific resources allocated by the scheduler when available. Scripts can also b
 Sample basic PBS scripts are shown below:
 
 !!! example "PBS Job Scripts"
-    === "bash"
+    === "Bash"
         ```bash
         #!/bin/bash
         #PBS -N hello_pbs
@@ -40,10 +40,10 @@ Sample basic PBS scripts are shown below:
     === "Python"
         ```python
         #!/usr/bin/python
-        #PBS -N hello_pbs
+        #PBS -N hello_python_pbs
         #PBS -j oe
         #PBS -k eod
-        #PBS -q main
+        #PBS -q cpuQ
         #PBS -l walltime=00:05:00
         #PBS -l select=1:ncpus=8
 
@@ -60,7 +60,7 @@ Sample basic PBS scripts are shown below:
 
         The  first line denotes the interpreter to be used for the script:
         ```python
-        #!/glade/u/apps/opt/conda/envs/npl/bin/python
+        #!/usr/bin/python
         ```
         indicates this is a `python` script
 
@@ -91,10 +91,8 @@ The commands here are arbitrary, however we strongly recommend the general struc
 
 1.  **Explicitly setting the `TMPDIR` variable**.
 
-    As described here, many programs write temporary data to `TMPDIR`, which is usually small and
-    shared among st users.  Specifying your own directory for temporary
-    files can help you avoid the risk of your own programs and other
-    users' programs failing when no more space is available.
+    Many programs can write temporary data to `TMPDIR`, which is usually small (e.g., 30 ~ 40 GBytes) and shared among normal users. Specifying your own directory for temporary
+    files can help you avoid the risk of your own programs and other users' programs failing when no more space is available.
 
 2.  **Loading and reporting the specific module environment required for this job.**
 
