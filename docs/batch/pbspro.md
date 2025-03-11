@@ -131,7 +131,13 @@ Display information for all of your pending, running, and finished jobs.
 qstat -x -u $USER
 ```
 
-Display information for all the jobs (incuding other users jobs)
+Display information for all of your unfinished jobs with `exec_host` and any `scheduler_comment` below the basic information.
+
+```bash
+qstat -n -s -u $USER
+```
+
+Display information for all the jobs (including other users jobs)
 
 ```bash
 qstat -a
