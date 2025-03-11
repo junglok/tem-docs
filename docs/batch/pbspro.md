@@ -11,7 +11,7 @@ GSDC TEM computing cluster uses the Portable Batch System as implemented in Alta
 
 ---
 
-## Job scripts
+## **Job scripts**
 [Job scripts](./jobscripts.md) form the basis of batch jobs. A job script is simply a text file with instructions of the work to
 execute. Job scripts are usually written in `bash` and thus mimic commands a user would execute interactively through a shell,
 but instead are executed on specific resources allocated by the scheduler when available.
