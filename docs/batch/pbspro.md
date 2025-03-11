@@ -7,7 +7,8 @@ For additional background, see [Batch Computing Overview](https://en.wikipedia.o
 GSDC TEM computing cluster uses the Portable Batch System as implemented in Altair's PBS Pro across shared resources.
 
 **URL**
-> [PBS Pro](https://github.com/openpbs/openpbs)
+> [PBS Pro (Community Edition)](https://github.com/openpbs/openpbs)
+> [PBS Pro (Commercial)](https://altair.com/pbs-professional)
 
 ---
 
@@ -17,3 +18,16 @@ execute. Job scripts are usually written in `bash` and thus mimic commands a use
 but instead are executed on specific resources allocated by the scheduler when available.
 Scripts can also be written in other languages - commonly Python.
 See our [job scripts](./jobscripts.md) page for a detailed discussion of job scripts and examples.
+
+## **Submitting jobs**
+
+## **Propagating environment settings**
+
+## **Managing jobs**
+
+### **qdel**
+
+### **qstat**
+
+## **Interactive jobs**
+
