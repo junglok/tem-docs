@@ -1,10 +1,10 @@
-# PBS (Portable Batch System) Professional Job Scripts
+# PBS (Portable Batch System) Job Scripts
 
 **Job scripts** form the basis of batch jobs. A job script is simply a text file with instructions of the work to execute.
 Job scripts are *usually* written in `bash` and thus mimic commands a user would execute interactively through a shell; but instead are executed on 
 specific resources allocated by the scheduler when available. Scripts can also be written in other languages - commonly *Python*.
 
-## Basics of a Job Script
+## **Basics of a Job Script**
 Sample basic PBS scripts are shown below:
 
 !!! example "PBS Job Scripts"
@@ -18,7 +18,7 @@ Sample basic PBS scripts are shown below:
         #PBS -l walltime=00:05:00
         #PBS -l select=2:ncpus=16:mpiprocs=16
 
-        ### Set temp to scratch (note that <GroupDir> should be replaced with proper name)
+        ### Set temp to scratch (note that <GroupDir> should be replaced with the proper name)
         setenv TMPDIR /tem/scratch/<GroupDir>/temp && mkdir -p ${TMPDIR}
 
         ### Specify desired module environment to be loaded
@@ -72,7 +72,7 @@ Sample basic PBS scripts are shown below:
 2.  The remaining **script contents** are simply `bash` commands that will be run inside the batch environment on the selected resources and define the work to be done in this job.
 
 
-### PBS directives
+### **PBS directives**
 
 The example above contains several **directives** which are interpreted by the `qsub` submission program:
 
@@ -84,12 +84,12 @@ The example above contains several **directives** which are interpreted by the `
 * `-l select=2:ncpus=16:mpiprocs=16` is a computational *resource chunk* request, detailing the quantity and configuration of *compute nodes* required for this job. This example requests a *selection* of 2 nodes, where each node must have 16 CPU cores, each of which we will use as an MPI rank in our application.
 
 
-### Script contents
+### **Script contents**
 
 The remaining script contains shell commands that define the job execution workflow. 
 The commands here are arbitrary, however we strongly recommend the general structure presented above.  This includes:
 
-1.  **Explicitly setting the `TMPDIR` variable**.
+1.  **(*Optional*) Explicitly setting the `TMPDIR` variable.**
 
     Many programs can write temporary data to `TMPDIR`, which is usually small (e.g., 30 ~ 40 GBytes) and shared among normal users. Specifying your own directory for temporary
     files can help you avoid the risk of your own programs and other users' programs failing when no more space is available.
@@ -98,7 +98,7 @@ The commands here are arbitrary, however we strongly recommend the general struc
 
     While strictly not necessary, we recommend this as best practice as it facilitates debugging and reproducing later. (Manually specifying module versions allows you to recreate the same execution environment in the future.)
 
-3.  **(*Optional*) Defining any environment variables specific to the chosen module environment.**
+3.  **Defining any environment variables specific to the chosen module environment.**
 
     Occasionally users will want to define particular run time environment variables e.g. for a specific MPI or library chosen via the `module load` commands.
 
