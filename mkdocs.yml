@@ -84,7 +84,8 @@ nav:
     - Utilities: service/util.md
     - Environment Modules: service/modules.md
   - Batch Systems:
-    - PBS Job Scripts: batch/pbspro.md
+    - Running Jobs (PBS): batch/pbspro.md
+    - PBS Job Scripts: batch/jobscripts.md
     - Batch Queues: batch/queue.md 
   - Data Processing:
     - Relion: apps/relion.md
