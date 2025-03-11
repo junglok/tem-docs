@@ -128,17 +128,24 @@ select=<# NODES>:ncpus=<# CPU Cores/node>:mem=<RAM/node>:mpiprocs=<# MPI Ranks/n
 ```
 where
 
-*  **`<# NODES>`** is the total number of compute nodes requested, followed by a colon-separated list of
+**`<# NODES>`** 
+> the total number of compute nodes requested, followed by a colon-separated list (see below)
 
-*  **`<# CPU Cores/node>`** is the *total* number of CPUs requested *on each node*, which can be a mix of MPI Ranks and/or OpenMP threads,
+**`<# CPU Cores/node>`** 
+> the *total* number of CPUs requested *on each node*, which can be a mix of MPI Ranks and/or OpenMP threads,
 
-*  **`<RAM/node>`** is how much main memory (RAM) the job will be able to access *on each node*. (Optional, default is system dependent, but **system default is very small amount memory 256MBytes, so as the best practice, we recommend to explicitly specify the size of memory required**),
+**`<RAM/node>`** 
+> how much main memory (RAM) the job will be able to access *on each node*. 
+> (Optional, default is system dependent, but system default is very small amount memory 256MBytes, so as the best practice, we recommend to explicitly specify the size of memory required),
   
-*  **`<# MPI Ranks/node`** is the number of MPI Ranks *on each node* (Optional, defaults to 1),
+**`<# MPI Ranks/node`** 
+> the number of MPI Ranks *on each node* (Optional, defaults to 1),
 
-*  **`<# OpenMP Threads/node>`** is the number of OpenMP ranks *per MPI Rank on each node* (Optional, defaults to 1), and
+**`<# OpenMP Threads/node>`** 
+> the number of OpenMP ranks *per MPI Rank on each node* (Optional, defaults to 1)
 
-*  **`<# GPUs/node>`** is the number of GPUs *per node*. (Optional, defaults to 0).
+**`<# GPUs/node>`** 
+> the number of GPUs *per node*. (Optional, defaults to 0).
 
 Taken together, this specifies a *resource chunk*. Homogeneous resource chunks are the most common case, however, 
 *heterogeneous* selection statements can be constructed by multiple chunks separated by a **+** (examples below).
