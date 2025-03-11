@@ -107,3 +107,59 @@ The commands here are arbitrary, however we strongly recommend the general struc
     In the example above, we first compile and then execute `hello_c.c`, a simple MPI program with having total 32 processes on 2 nodes.
 
 ---
+
+## Common `#PBS` directives
+
+### **Resource requests**
+Resources (compute node configuration, job duration) are requested through a combination of *resource selection* flags, each preceded with `-l`.
+
+For example:
+```pre
+#PBS -l walltime=00:05:00
+#PBS -l select=1:ncpus=64:mpiprocs=4:ngpus=4:mem=400GB
+```
+specifies job `walltime` and compute node selection. See more details below.
+
+
+#### **`select` statements**
+Resources are specified through a `select` statement. The general form of a *homogeneous* selection statement is
+```pre
+select=<# NODES>:ncpus=<# CPU Cores/node>:mem=<RAM/node>:mpiprocs=<# MPI Ranks/node>:ompthreads=<# OpenMP Threads/rank>:ngpus=<# GPUs/node>
+```
+where
+
+*  **`<# NODES>`** is the total number of compute nodes requested, followed by a colon-separated list of
+
+*  **`<# CPU Cores/node>`** is the *total* number of CPUs requested *on each node*, which can be a mix of MPI Ranks and/or OpenMP threads,
+
+*  **`<RAM/node>`** is how much main memory (RAM) the job will be able to access *on each node*. (Optional, default is system dependent, but **system default is very small amount memory 256MBytes, so as the best practice, we recommend to explicitly describe the size of memory requested**),
+  
+*  **`<# MPI Ranks/node`** is the number of MPI Ranks *on each node* (Optional, defaults to 1),
+
+*  **`<# OpenMP Threads/node>`** is the number of OpenMP ranks *per MPI Rank on each node* (Optional, defaults to 1), and
+
+*  **`<# GPUs/node>`** is the number of GPUs *per node*. (Optional, defaults to 0).
+
+Taken together, this specifies a *resource chunk*. Homogeneous resource chunks are the most common case, however, 
+*heterogeneous* selection statements can be constructed by multiple chunks separated by a **+** (examples below).
+
+##### Examples
+*  4 128-core nodes, each running 128 MPI ranks (4 `x` 128 = 512 MPI ranks total).
+   ```pre
+   select=4:ncpus=128:mpiprocs=128
+   ```
+
+*  4 128-core nodes, each running 32 MPI ranks with 4 OpenMP threads per rank (4 `x` 32 = 128 MPI ranks total, each with 4 threads = 512 total CPU cores).
+   ```pre
+   select=4:ncpus=128:mpiprocs=32:ompthreads=4
+   ```
+
+*  2 64-core nodes, each running 4 MPI ranks, 4 GPUS, and 384 GB memory (8 GPUs total, with 8 MPI ranks).
+   ```pre
+   select=2:ncpus=64:mpiprocs=4:ngpus=4:mem=384GB
+   ```
+
+*  A heterogeneous selection, 96 128-core nodes each with 128 MPI ranks, and 32 128-core nodes each with 16 MPI ranks and 8 OpenMP threads
+   ```pre
+   select=96:ncpus=128:mpiprocs=128+32:ncpus=128:mpiprocs=16:ompthreads=8
+   ```
