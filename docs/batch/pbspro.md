@@ -32,6 +32,31 @@ qsub job.pbs
 
 ## **Propagating environment settings**
 
+Some users find it useful to set environment variables in their login environment that can be temporarily used for multiple batch jobs without modifying the job script.
+This practice can be particularly useful during iterative development and debugging work.
+
+PBSPro has two approaches to propagation:
+
+1. Specific variables can be forwarded to the job upon request.
+2. The entire environment can be forwarded to the job.
+
+In general, the first approach is preferred because the second may have unintended consequences.
+
+These settings are controlled by qsub arguments that can be used at the command line or as directives within job scripts. Here are examples of both approaches:
+
+```bash
+# Selectively forward runtime variables to the job (lower-case v)
+qsub -v DEBUG=true,CASE_NAME job.pbs
+```
+
+When you use the selective option (lower-case `v`), you can either specify only the variable name to propagate the current value (as in `CASE_NAME` in the example), 
+or you can explicitly set it to a given value at submission time (as in `DEBUG`).
+
+```bash
+# Forward the entire environment to the job (upper-case V)
+qsub -V job.pbs
+```
+
 ## **Managing jobs**
 
 ### **qdel**
