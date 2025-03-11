@@ -59,9 +59,84 @@ qsub -V job.pbs
 
 ## **Managing jobs**
 
-### **qdel**
+Here are some of the most useful commands for managing and monitoring jobs that have been launched with PBS. Most of these commands will only modify or query data from jobs that are active on the same system.
 
-### **qstat**
+### **`qdel`**
+
+Run `qdel` with the job ID to kill a pending or running job.
+
+```bash
+qdel jobID
+```
+
+Kill all of your own pending or running jobs. (Be sure to use backticks as shown.)
+
+```bash
+qdel `qselect -u $USER`
+```
+
+### **`qstat`**
+
+Run this to see the status of all of your own unfinished jobs.
+
+```bash
+qstat -u $USER
+```
+
+Your output will be similar to what is shown just below. Most column headings are self-explanatory – `NDS` for nodes, `TSK` for tasks, and so on.
+
+In the status `(S)` column, most jobs are either queued `(Q)` or running `(R)`. Sometimes jobs are held `(H)`, which might mean 
+they are dependent on the completion of another job.
+
+```pre
+tem-ce-al9.sdfarm.kr:
+                                                            Req'd  Req'd   Elap
+Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
+--------------- -------- -------- ---------- ------ --- --- ------ ----- - -----
+838.tem-ce-al9* tem      cpuQ     cryosparc*  95965   1   1  8000m   --  R 00:01
+840.tem-ce-al9* tem      gpuQ     cryosparc*  84478   1   6   16gb   --  R 00:00
+841.tem-ce-al9* tem      gpuQ     cryosparc*  84594   1   6   16gb   --  R 00:00
+```
+
+Following are examples of `qstat` with some other commonly used options and arguments.
+
+Get a long-form summary of the status of an unfinished job.
+
+```bash
+qstat -f jobID
+```
+!!! warning
+    Use the above command only sparingly; it places a high load on PBSPro.
+
+Get a single-line summary of the status of an unfinished or recently completed job (within 72 hours).
+
+```bash
+qstat -x jobID
+```
+
+Get information about unfinished jobs in a specified execution queue.
+
+```bash
+qstat queue_name
+```
+See job activity by queue (e.g., pending, running) in terms of numbers of jobs.
+
+```bash
+qstat -Q
+```
+
+Display information for all of your pending, running, and finished jobs.
+
+```bash
+qstat -x -u $USER
+```
+
+Display information for all the jobs (incuding other users jobs)
+
+```bash
+qstat -a
+```
+
 
 ## **Interactive jobs**
 
