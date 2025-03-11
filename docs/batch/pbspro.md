@@ -143,6 +143,28 @@ Display information for all the jobs (including other users jobs)
 qstat -a
 ```
 
-
 ## **Interactive jobs**
 
+Interactive jobs provide an interactive session on a compute node, useful for debugging, testing code, and running short tasks that require user interaction.
+
+Users can start an interactive job on GSDC TEM login nodes using the `qsub -I` command. 
+The `-I` flag is used to request an interactive session. The following example shows how to start an interactive job with specified resources on `cpuQ`:
+
+```bash
+qsub -I -l select=1:ncpus=4:mem=32GB -q cpuQ -l walltime=01:00:00
+```
+
+The result for the above command is following:
+
+```bash
+qsub: waiting for job 850.tem-ce-al9.sdfarm.kr to start
+qsub: job 850.tem-ce-al9.sdfarm.kr ready
+
+[tem@tem-cpu00-al9 ~]$ Do something
+
+...
+
+[tem@tem-cpu00-al9 ~]$ exit
+logout
+qsub: job 850.tem-ce-al9.sdfarm.kr completed
+```
