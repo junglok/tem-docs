@@ -8,6 +8,7 @@ GSDC TEM computing cluster uses the Portable Batch System as implemented in Alta
 
 **URL**
 > [PBS Pro (Community Edition)](https://github.com/openpbs/openpbs)
+
 > [PBS Pro (Commercial)](https://altair.com/pbs-professional)
 
 ---
@@ -151,7 +152,7 @@ Users can start an interactive job on GSDC TEM login nodes using the `qsub -I` c
 The `-I` flag is used to request an interactive session. The following example shows how to start an interactive job with specified resources on `cpuQ`:
 
 ```bash
-qsub -I -l select=1:ncpus=4:mem=32GB -q cpuQ -l walltime=01:00:00
+qsub -I -q cpuQ -l select=1:ncpus=4:mem=32GB -l walltime=01:00:00
 ```
 
 The result for the above command is following:
