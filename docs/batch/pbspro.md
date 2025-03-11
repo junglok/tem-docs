@@ -132,7 +132,7 @@ where
 
 *  **`<# CPU Cores/node>`** is the *total* number of CPUs requested *on each node*, which can be a mix of MPI Ranks and/or OpenMP threads,
 
-*  **`<RAM/node>`** is how much main memory (RAM) the job will be able to access *on each node*. (Optional, default is system dependent, but **system default is very small amount memory 256MBytes, so as the best practice, we recommend to explicitly describe the size of memory requested**),
+*  **`<RAM/node>`** is how much main memory (RAM) the job will be able to access *on each node*. (Optional, default is system dependent, but **system default is very small amount memory 256MBytes, so as the best practice, we recommend to explicitly specify the size of memory required**),
   
 *  **`<# MPI Ranks/node`** is the number of MPI Ranks *on each node* (Optional, defaults to 1),
 
@@ -163,3 +163,10 @@ Taken together, this specifies a *resource chunk*. Homogeneous resource chunks a
    ```pre
    select=96:ncpus=128:mpiprocs=128+32:ncpus=128:mpiprocs=16:ompthreads=8
    ```
+
+#### `walltime`
+The `-l walltime=HH:MM:SS` resource directive specifies maximum job duration.
+Jobs still running when this wall time is exceeded will be terminated automatically by the scheduler. (Optional, defaults to infinite)
+```pre
+walltime=HH:MM:SS
+```
