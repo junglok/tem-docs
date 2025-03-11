@@ -84,7 +84,8 @@ nav:
     - Utilities: service/util.md
     - Environment Modules: service/modules.md
   - Batch Systems:
-    - PBSPro: batch/pbspro.md 
+    - PBS Job Scripts: batch/pbspro.md
+    - Batch Queues: batch/queue.md 
   - Data Processing:
     - Relion: apps/relion.md
     - CryoSPARC : apps/cryosparc.md
