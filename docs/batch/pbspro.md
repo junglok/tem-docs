@@ -21,6 +21,15 @@ See our [job scripts](./jobscripts.md) page for a detailed discussion of job scr
 
 ## **Submitting jobs**
 
+In the examples that follow, `job.pbs`, `script_name` etc. represent a job script files submitted for batch execution.
+[PBS Pro](https://github.com/openpbs/openpbs) can be used to schedule both interactive jobs and batch compute jobs.
+
+To submit a batch job, use the `qsub` command followed by the name of your PBS batch script file.
+
+```bash
+qsub job.pbs
+```
+
 ## **Propagating environment settings**
 
 ## **Managing jobs**
