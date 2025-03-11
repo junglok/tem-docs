@@ -144,7 +144,7 @@ where
 > how much main memory (RAM) the job will be able to access *on each node*. 
 > (Optional, default is system dependent, but system default is very small amount memory 256MBytes, so as the best practice, we recommend to explicitly specify the size of memory required),
   
-**`<# MPI Ranks/node`** 
+**`<# MPI Ranks/node>`** 
 > the number of MPI Ranks *on each node* (Optional, defaults to 1),
 
 **`<# OpenMP Threads/node>`** 
