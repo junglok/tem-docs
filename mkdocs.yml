@@ -23,6 +23,7 @@ theme:
     - navigation.instant.prefetch
     - navigation.instant.progress
     - navigation.tracking
+    - navigation.sections
     - toc.follow
 
 plugins:
