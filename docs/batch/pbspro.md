@@ -28,7 +28,7 @@ In the examples that follow, `job.pbs`, `script_name` etc. represent a job scrip
 To submit a batch job, use the `qsub` command followed by the name of your PBS batch script file.
 
 ```bash
-qsub job.pbs
+$> qsub job.pbs
 ```
 
 ## **Propagating environment settings**
@@ -47,7 +47,7 @@ These settings are controlled by qsub arguments that can be used at the command 
 
 ```bash
 # Selectively forward runtime variables to the job (lower-case v)
-qsub -v DEBUG=true,CASE_NAME job.pbs
+$> qsub -v DEBUG=true,CASE_NAME job.pbs
 ```
 
 When you use the selective option (lower-case `v`), you can either specify only the variable name to propagate the current value (as in `CASE_NAME` in the example), 
@@ -55,7 +55,7 @@ or you can explicitly set it to a given value at submission time (as in `DEBUG`)
 
 ```bash
 # Forward the entire environment to the job (upper-case V)
-qsub -V job.pbs
+$> qsub -V job.pbs
 ```
 
 ## **Managing jobs**
@@ -67,13 +67,13 @@ Here are some of the most useful commands for managing and monitoring jobs that 
 Run `qdel` with the job ID to kill a pending or running job.
 
 ```bash
-qdel jobID
+$> qdel jobID
 ```
 
 Kill all of your own pending or running jobs. (Be sure to use backticks as shown.)
 
 ```bash
-qdel `qselect -u $USER`
+$> qdel `qselect -u $USER`
 ```
 
 ### **`qstat`**
@@ -81,7 +81,7 @@ qdel `qselect -u $USER`
 Run this to see the status of all of your own unfinished jobs.
 
 ```bash
-qstat -u $USER
+$> qstat -u $USER
 ```
 
 Your output will be similar to what is shown just below. Most column headings are self-explanatory – `NDS` for nodes, `TSK` for tasks, and so on.
@@ -104,7 +104,7 @@ Following are examples of `qstat` with some other commonly used options and argu
 Get a long-form summary of the status of an unfinished job.
 
 ```bash
-qstat -f jobID
+$> qstat -f jobID
 ```
 !!! warning
     Use the above command only sparingly; it places a high load on PBSPro.
@@ -112,36 +112,36 @@ qstat -f jobID
 Get a single-line summary of the status of an unfinished or recently completed job (within 72 hours).
 
 ```bash
-qstat -x jobID
+$> qstat -x jobID
 ```
 
 Get information about unfinished jobs in a specified execution queue.
 
 ```bash
-qstat queue_name
+$> qstat queue_name
 ```
 See job activity by queue (e.g., pending, running) in terms of numbers of jobs.
 
 ```bash
-qstat -Q
+$> qstat -Q
 ```
 
 Display information for all of your pending, running, and finished jobs.
 
 ```bash
-qstat -x -u $USER
+$> qstat -x -u $USER
 ```
 
 Display information for all of your unfinished jobs with `exec_host` and any `scheduler_comment` below the basic information.
 
 ```bash
-qstat -n -s -u $USER
+$> qstat -n -s -u $USER
 ```
 
 Display information for all the jobs (including other users jobs)
 
 ```bash
-qstat -a
+$> qstat -a
 ```
 
 ## **Interactive jobs**
@@ -152,7 +152,7 @@ Users can start an interactive job on GSDC TEM login nodes using the `qsub -I` c
 The `-I` flag is used to request an interactive session. The following example shows how to start an interactive job with specified resources on `cpuQ`:
 
 ```bash
-qsub -I -q cpuQ -l select=1:ncpus=4:mem=32GB -l walltime=01:00:00
+$> qsub -I -q cpuQ -l select=1:ncpus=4:mem=32GB -l walltime=01:00:00
 ```
 
 The result for the above command is following:
