@@ -12,4 +12,3 @@ Overall architecture between Cryo-EM facilities (operated by KBSI, SNU, PNU and 
 /// caption
 Overall architecture of GSDC TEM computing cluster
 ///
-
