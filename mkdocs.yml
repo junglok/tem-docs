@@ -78,12 +78,12 @@ nav:
     - SFTP (SecureFTP): transfer/sftp.md
     - FileZilla: transfer/filezilla.md
     - WinSCP: transfer/winscp.md
-  - GSDC Computing Cluster for TEM:
+  - GSDC TEM Cluster:
     - Servers and storages: service/resources.md
     - Cluster Managment Softwares: service/softwares.md
+    - Environment Modules: service/modules.md
     - Data Analysis Tools: service/tools.md
     - Utilities: service/util.md
-    - Environment Modules: service/modules.md
   - Batch Systems:
     - Running Jobs (PBS): batch/pbspro.md
     - PBS Job Scripts: batch/jobscripts.md
