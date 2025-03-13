@@ -28,7 +28,7 @@
 
 ???+ tip "Remarks on CryoSPARC"
 
-    Running CryoSPARC instance is provided per each Research Group basis on their scratch directory (/tem/scratch/__GroupName__/.cryosparc).
+    Running CryoSPARC instance is provided per each Research Group basis on their scratch directory (/tem/scratch/__GroupDir__/.cryosparc).
     For more details, please refer to [CryoSPARC](../apps/cryosparc.md)
 
 
