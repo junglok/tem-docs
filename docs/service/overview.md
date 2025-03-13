@@ -8,7 +8,7 @@ GSDC (Global Science experimental Data hub Center) provides data computing servi
 
 10 feet views from between Cryo-EM facilities (operated by KBSI, SNU, PNU and so on) and GSDC.
 
-![tem_service_farm](../images/gsdc-cryoem.jpg)
+![gsdc-cryoem](../images/gsdc-cryoem.jpg)
 /// caption
 Collaboration between Cryo-EM sites and GSDC
 ///

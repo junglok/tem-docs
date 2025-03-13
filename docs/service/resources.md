@@ -1,4 +1,9 @@
-# Comptuing and Storage Resources in GSDC TEM cluster
+# Comptuing and Storage Resources in GSDC TEM
+
+![gsdc-tem-overview](../images/gsdc-tem-overview.jpg)
+/// caption
+Overall architecture of GSDC TEM Comptuing and Storage Resources (including Data Transfer Nodes)
+///
 
 ## Login Servers
 
