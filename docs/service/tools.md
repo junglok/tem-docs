@@ -47,6 +47,20 @@
     apps/ctffind/4.1.14/cpu/intel-compiler-2024.0.2
     ```
 
+## **EternaFold**
+
+**Description**
+> A tool that performs multitask learning to improve RNA structure prediction. Its training tasks include 1) predicting single structures, 2) maximizing the likelihood of structure probing data, and 3) predicting experimentally-measured affinities of RNA molecules to proteins and small molecules.
+
+**URL**
+> [https://github.com/eternagame/EternaFold](https://github.com/eternagame/EternaFold)
+
+???+ note "ModulePaths for CTFFind4"
+
+    ```bash
+    apps/eternafold/1.3.1/cpu/gcc-11.5.0
+    ```
+
 ## **IsoNet**
 
 **Description**
