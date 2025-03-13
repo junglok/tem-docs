@@ -192,7 +192,7 @@ There are several ways to use the show sub-command to show the contents of a mod
 === ":material-powershell: Command"
 
     ```bash
-    $> module show <packageName>
+    $> module show <modulePath>
     ```
 
 === ":material-alpha-e-box-outline: Example"
@@ -248,7 +248,7 @@ Modulefiles can contain help messages. To access a modulefile’s help do:
 === ":material-powershell: Command"
 
     ```bash
-    $> module help <packageName>
+    $> module help <modulePath>
     ```
 
 === ":material-alpha-e-box-outline: Example"
@@ -270,7 +270,7 @@ Modulefiles can contain help messages. To access a modulefile’s help do:
 === ":material-powershell: Command"
 
     ```bash
-    $> module load <package1> <package2> ...
+    $> module load <modulePath1> <modulePath2> ...
     ```
 
 === ":material-alpha-e-box-outline: Example"
