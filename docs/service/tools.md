@@ -55,7 +55,7 @@
 **URL**
 > [https://github.com/eternagame/EternaFold](https://github.com/eternagame/EternaFold)
 
-???+ note "ModulePaths for CTFFind4"
+???+ note "ModulePaths for EternaFold"
 
     ```bash
     apps/eternafold/1.3.1/cpu/gcc-11.5.0
