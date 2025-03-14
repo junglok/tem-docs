@@ -10,19 +10,25 @@ Note that multiple jobs requiring CPU and/or GPU resources can be executed concu
 
 ## **Batch Queues**
 
+---
+
 ### **cpuQ**
 
-**Category(shared or dedicated)**
-> Shared
+???+ tip "Details on the `cpuQ`"
 
-**QueueName**
-> `cpuQ`
+    **Category(shared or dedicated)**
+    > Shared
 
-**Assigned Computing Resources**
-> * tem-cpu[01-11]-al9.sdfarm.kr : Intel(R) Xeon(R) CPU E5-2697v3@2.60GHz 28 Cores, DDR4 192GB Main Memory
+    **QueueName**
+    > `cpuQ`
 
-**Remarks**
-> Total 380 CPU cores
+    **Assigned Computing Resources**
+    > * tem-cpu[01-11]-al9.sdfarm.kr : Intel(R) Xeon(R) CPU E5-2697v3@2.60GHz 28 Cores, DDR4 192GB Main Memory
+
+    **Remarks**
+    > Total 380 CPU cores
+
+---
 
 ### **gpuQ**
 
@@ -41,3 +47,5 @@ Note that multiple jobs requiring CPU and/or GPU resources can be executed concu
  
 **Remarks**
 > Total 300 CPU cores, 26 NVIDIA GPUs
+
+---
