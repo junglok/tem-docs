@@ -14,14 +14,14 @@ Note that multiple jobs requiring CPU and/or GPU resources can be executed concu
 
 ### **cpuQ**
 
-???+ tip "Details on the `cpuQ`"
+???+ tip "More detailed information about `cpuQ`"
 
     **Category(shared or dedicated)** : Shared
 
     **QueueName** : `cpuQ`
 
     **Assigned Computing Resources**
-    > * tem-cpu[01-11]-al9.sdfarm.kr : Intel(R) Xeon(R) CPU E5-2697v3@2.60GHz 28 Cores, DDR4 192GB Main Memory
+    > * tem-cpu[01-11]-al9.sdfarm.kr : Intel® Xeon® CPU E5-2697v3@2.60GHz 28 Cores, 192GB Main Memory
     
     **Remarks** : Total 380 CPU Cores
 
@@ -29,20 +29,19 @@ Note that multiple jobs requiring CPU and/or GPU resources can be executed concu
 
 ### **gpuQ**
 
-**Category(shared or dedicated)**
-> Shared
+???+ tip "More detailed information about `qpuQ`"
 
-**QueueName**
-> `gpuQ`
+    **Category(shared or dedicated)** : Shared
 
-**Assigned Computing Resources**
-> * tem-gpu[01-02]-al9.sdfarm.kr : Intel® Xeon® Gold 6226R CPU @ 2.90GHz 32 Cores, 384GB Memory, NVIDIA A100 40GB * 2EA
-> * tem-gpu[03-04]-al9.sdfarm.kr : Intel® Xeon® Gold 6334R CPU @ 3.60GHz 32 Cores, 384GB Memory, NVIDIA A100 80GB * 4EA
-> * tem-gpu05-al9.sdfarm.kr : Intel® Xeon® Gold 6334R CPU @ 3.60GHz 32 Cores, 384GB Memory, NVIDIA V100 32GB * 4EA
-> * tem-gpu[06-08]-al9.sdfarm.kr : Intel® Xeon® CPU E5-2690v4 @ 2.60GHz 28 Cores, 384GB Memory, NVIDIA P100 16GB * 2EA
-> * tem-gpu[09-10]-al9.sdfarm.kr : Intel® Xeon® CPU E5-2690v4 @ 2.60GHz 28 Cores, 256GB Memory, NVIDIA P40 24GB * 2EA
+    **QueueName** : `gpuQ`
+    
+    **Assigned Computing Resources**
+    > * tem-gpu[01-02]-al9.sdfarm.kr : Intel® Xeon® Gold 6226R CPU@2.90GHz 32 Cores, 384GB Memory, NVIDIA A100 40GB * 2EA
+    > * tem-gpu[03-04]-al9.sdfarm.kr : Intel® Xeon® Gold 6334R CPU@3.60GHz 32 Cores, 384GB Memory, NVIDIA A100 80GB * 4EA
+    > * tem-gpu05-al9.sdfarm.kr : Intel® Xeon® Gold 6334R CPU@3.60GHz 32 Cores, 384GB Memory, NVIDIA V100 32GB * 4EA
+    > * tem-gpu[06-08]-al9.sdfarm.kr : Intel® Xeon® CPU E5-2690v4@2.60GHz 28 Cores, 384GB Memory, NVIDIA P100 16GB * 2EA
+    > * tem-gpu[09-10]-al9.sdfarm.kr : Intel® Xeon® CPU E5-2690v4@2.60GHz 28 Cores, 256GB Memory, NVIDIA P40 24GB * 2EA
  
-**Remarks**
-> Total 300 CPU cores, 26 NVIDIA GPUs
+    **Remarks** : Total 300 CPU cores, 26 NVIDIA GPUs
 
 ---
