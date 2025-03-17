@@ -47,6 +47,20 @@
     apps/ctffind/4.1.14/cpu/intel-compiler-2024.0.2
     ```
 
+## **EMRNA**
+
+**Description**
+> A tool that performs Deep learning based automated RNA modeling from cryo-EM maps.
+
+**URL**
+> [http://huanglab.phys.hust.edu.cn/EMRNA](http://huanglab.phys.hust.edu.cn/EMRNA)
+
+???+ note "ModulePaths for EMRNA"
+
+    ```bash
+    apps/emrna/1.5/gpu/cuda-11.1
+    ```
+
 ## **EternaFold**
 
 **Description**
