@@ -22,4 +22,4 @@ For the document of the old ScientificLinux 7.x based system, please visit [Scie
 
 ## Change Log
 
-* `2024-12-31` - We are under migrating all the service nodes OS from ScientificLinux 7.x to AlmaLinux 9.x
+* `2025-2-28` - We are under migrating all the service nodes OS from ScientificLinux 7.x to AlmaLinux 9.x
