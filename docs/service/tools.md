@@ -33,7 +33,7 @@
     ```
 
 
-## **CryoSPARC**
+## [**CryoSPARC**](../apps/cryosparc.md)
 
 **Description**
 > A state of the art scientific software platform for cryo-electron microscopy (cryo-EM) used in research and drug discovery pipelines.
@@ -136,7 +136,7 @@
     apps/pyem/0.65
     ```
 
-## **Relion**
+## [**Relion**](../apps/relion.md)
 
 **Description**
 > Relion (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a software package that employs an empirical Bayesian approach for electron cryo-microscopy (cryo-EM) structure determination. It is developed in the group of Sjors Scheres at the MRC Laboratory of Molecular Biology.
