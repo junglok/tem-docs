@@ -94,9 +94,9 @@ tem-ce-al9.sdfarm.kr:
                                                             Req'd  Req'd   Elap
 Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
 --------------- -------- -------- ---------- ------ --- --- ------ ----- - -----
-838.tem-ce-al9* tem      cpuQ     cryosparc*  95965   1   1  8000m   --  R 00:01
-840.tem-ce-al9* tem      gpuQ     cryosparc*  84478   1   6   16gb   --  R 00:00
-841.tem-ce-al9* tem      gpuQ     cryosparc*  84594   1   6   16gb   --  R 00:00
+838.tem-ce-al9* USERID   cpuQ     cryosparc*  95965   1   1  8000m   --  R 00:01
+840.tem-ce-al9* USERID   gpuQ     cryosparc*  84478   1   6   16gb   --  R 00:00
+841.tem-ce-al9* USERID   gpuQ     cryosparc*  84594   1   6   16gb   --  R 00:00
 ```
 
 Following are examples of `qstat` with some other commonly used options and arguments.
@@ -161,11 +161,11 @@ The result for the above command is following:
 qsub: waiting for job 850.tem-ce-al9.sdfarm.kr to start
 qsub: job 850.tem-ce-al9.sdfarm.kr ready
 
-[tem@tem-cpu00-al9 ~]$ Do something
+[USERID@tem-cpu00-al9 ~]$ Do something
 
 ...
 
-[tem@tem-cpu00-al9 ~]$ exit
+[USERID@tem-cpu00-al9 ~]$ exit
 logout
 qsub: job 850.tem-ce-al9.sdfarm.kr completed
 ```
@@ -186,11 +186,11 @@ The result for the above command is following:
 qsub: waiting for job 900.tem-ce-al9.sdfarm.kr to start
 qsub: job 900.tem-ce-al9.sdfarm.kr ready
 
-[tem@tem-cpu00-al9 ~]$ echo $DISPLAY
+[USERID@tem-cpu00-al9 ~]$ echo $DISPLAY
 localhost:50.0
 ...
-[tem@tem-cpu00-al9 ~]$ xclock
-[tem@tem-cpu00-al9 ~]$ exit
+[USERID@tem-cpu00-al9 ~]$ xclock
+[USERID@tem-cpu00-al9 ~]$ exit
 logout
 qsub: job 900.tem-ce-al9.sdfarm.kr completed
 ```
