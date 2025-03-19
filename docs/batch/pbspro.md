@@ -169,3 +169,28 @@ qsub: job 850.tem-ce-al9.sdfarm.kr ready
 logout
 qsub: job 850.tem-ce-al9.sdfarm.kr completed
 ```
+
+## **Interactive jobs with GUI(X11)-based applications**
+
+User can also start an interactive job supporting GUI(X11)-based applications using `qsub -X -V -I` command.
+
+The following example shows how to start an interactive job with specified resources on `cpuQ`, having environment variables and X11-forwarding attributes to be set:
+
+```bash
+$> qsub -X -V -I -q cpuQ -l select=1:ncpus=1:mem=16GB -l walltime=01:00:00
+```
+
+The result for the above command is following:
+
+```bash
+qsub: waiting for job 900.tem-ce-al9.sdfarm.kr to start
+qsub: job 900.tem-ce-al9.sdfarm.kr ready
+
+[tem@tem-cpu00-al9 ~]$ echo $DISPLAY
+localhost:50.0
+...
+[tem@tem-cpu00-al9 ~]$ xclock
+[tem@tem-cpu00-al9 ~]$ exit
+logout
+qsub: job 900.tem-ce-al9.sdfarm.kr completed
+```
