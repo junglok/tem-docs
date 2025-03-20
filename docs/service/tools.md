@@ -18,7 +18,7 @@
     apps/aretomo3/2.0.3/gpu/cuda-12.6    
     ```
 
-## **cisTEM**
+## **CisTEM**
 
 **Description**
 > GUI-based software to process cryo-EM images of macromolecular complexes and obtain high-resolution 3D reconstructions. It provides a number of tools to process image data including movies, micrographs and stacks of single-particle images, implementing a complete “pipeline” of processing steps to obtain high-resolution single-particle reconstructions
@@ -32,6 +32,9 @@
     apps/cistem/1.0.0/cpu/gcc-11.5.0
     ```
 
+## **CrYOLO**
+
+TBD
 
 ## [**CryoSPARC**](../apps/cryosparc.md)
 
@@ -144,7 +147,7 @@ TBD
     apps/pyem/0.65
     ```
 
-## **pyTOM**
+## **PyTOM**
 
 TBD
 
