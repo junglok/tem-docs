@@ -7,7 +7,7 @@ This is very useful for running multiple programs with a single connection, such
 
 Tmux also decouples your programs from the main terminal, protecting them from accidentally disconnecting. You can detach tmux from the current terminal, and all your programs will continue to run safely in the background. Later, you can reattach tmux to the same or a different terminal.
 
-### Get stared with tmux
+### Get started with tmux
 
 When you login-in the login servers, a tmux session will be created by default for your convenience.
 If the default session is not activated, type `tmux` in order to start using tmux. This command launches a tmux server, creates a session with a single window, and attaches to it.   
@@ -16,3 +16,28 @@ If the default session is not activated, type `tmux` in order to start using tmu
 /// caption
 Default tmux session (session number is 22 in this example)
 ///
+
+### Useful key bindings
+
+```bash
+    Tmux prefix key: Ctrl-b
+    Key bindings after prefix:
+        - ? : Show key bindings except copy-mode keys
+        - / : Show key bindings
+        - c : New window
+        - w : Choose window tree
+        - % : Dynamic split window
+        - ' : Horizontal split window
+        - - : Vertical split window
+        - z : Zoom pane
+        - \ : Dump current pane to file at home
+        - | : Pipe current pane output to file at home
+        - Alt-s : Synchronize panes
+        - Alt-m : Toggle mouse use (on, off)
+        - Alt-x : Kill current pane
+        - Alt-Shift-X : Kill current window
+        - Alt-Ctrl-x : Kill current session
+        - ` : Switch to app launcher
+        - ? : Show man
+        - m : Show MOTD
+```
