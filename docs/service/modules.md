@@ -291,7 +291,7 @@ Modulefiles can contain help messages. To access a modulefile’s help do:
 === ":material-powershell: Command"
 
     ```bash
-    $> module unload <package1> <package2> ...
+    $> module unload <modulePath1> <modulePath2> ...
     ```
 
 === ":material-alpha-e-box-outline: Example"
