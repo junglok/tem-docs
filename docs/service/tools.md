@@ -62,6 +62,10 @@
     apps/ctffind/4.1.14/cpu/intel-compiler-2024.0.2
     ```
 
+## **Dynamo**
+
+TBD
+
 ## **EMRNA**
 
 **Description**
@@ -89,6 +93,10 @@
     ```bash
     apps/eternafold/1.3.1/cpu/gcc-11.5.0
     ```
+
+## **IMOD**
+
+TBD
 
 ## **IsoNet**
 
@@ -135,6 +143,10 @@
     ```bash
     apps/pyem/0.65
     ```
+
+## **pyTOM**
+
+TBD
 
 ## [**Relion**](../apps/relion.md)
 
