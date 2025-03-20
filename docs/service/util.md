@@ -33,9 +33,9 @@ To list all the tmux sessions created by an user, type **`tmux ls`**.
 
 Tmux operates using a series of keybindings (keyboard shortcuts) triggered by pressing the **prefix** combination.
 
-By default, the prefix is **`Ctrl+b`**. After that, for instance, press `c` to create a new window in the current session.
+By default, the prefix is **`Ctrl+b`**. After that, for instance, press **`c`** to create a new window in the current session.
 
-To traverse between tmux sessions (or windows), press **`Ctrl+b`** and `w`.
+To traverse between tmux sessions (or windows), press **`Ctrl+b`** and **`w`**.
 
 ```bash
     (0)   - 2: 9 windows (attached)
