@@ -17,7 +17,13 @@ If the default session is not activated, type `tmux` in order to start using tmu
 Default tmux session (session number is 22 in this example)
 ///
 
-### Useful key bindings
+### Useful keybindings
+
+Tmux operates using a series of keybindings (keyboard shortcuts) triggered by pressing the **prefix** combination.
+
+By default, the prefix is **`Ctrl+B`**. After that, for instance, press `c` to create a new window in the current session.
+
+Tmux provides several keybindings to execute commands quickly in a tmux session. Here are some of the most useful ones.
 
 ```bash
     Tmux prefix key: Ctrl-b
