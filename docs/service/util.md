@@ -23,6 +23,7 @@ Default tmux session (session number is 22 in this example)
 To list all the tmux sessions created by an user, type **`tmux ls`**.
 
 ```bash
+    $> tmux ls
     2: 9 windows (created Tue Mar 11 12:35:06 2025) (attached)
     21: 1 windows (created Thu Mar 20 09:21:30 2025)
     22: 1 windows (created Thu Mar 20 13:02:43 2025) (attached)
