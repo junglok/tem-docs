@@ -50,7 +50,7 @@ To traverse between tmux sessions (or windows), press **`Ctrl+b`** and **`w`**.
     (9)   └─> 9: USERID@tem-cs-al9:/tem/home/USERID(bash)~-: "tem-cs-al9.sdfarm.kr"
     (M-a) - 21: 1 windows
     (M-b) └─> 1: USERID@tem-cs-al9:/tmp(bash)~*: "tem-cs-al9.sdfarm.kr"
-    (M-c) - 23: 1 windows (attached)
+    (M-c) - 22: 1 windows (attached)
     (M-d) └─> 1: USERID@tem-cs-al9:/tem/home/USERID(bash)*: "tem-cs-al9.sdfarm.kr"
 ```
 
