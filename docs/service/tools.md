@@ -34,7 +34,17 @@
 
 ## **CrYOLO**
 
-TBD
+**Description**
+> An application for fast and accurate cryo-EM particle picking. It’s based on convolutional neural networks and utilizes the popular You Only Look Once (YOLO) object detection system.
+
+**URL**
+> [https://cryolo.readthedocs.io](https://cryolo.readthedocs.io)
+
+???+ note "ModulePaths for cryolo"
+
+    ```bash
+    apps/cryolo/1.9.9/gpu/cuda-11.x
+    ```
 
 ## [**CryoSPARC**](../apps/cryosparc.md)
 
