@@ -99,7 +99,17 @@ TBD
 
 ## **IMOD**
 
-TBD
+**Description**
+> IMOD is a set of image processing, modeling and display programs used for tomographic reconstruction and for 3D reconstruction of EM serial sections and optical sections. The package contains tools for assembling and aligning data within multiple types and sizes of image stacks, viewing 3-D data from any orientation, and modeling and display of the image files.
+
+**URL**
+> [https://bio3d.colorado.edu/imod](https://bio3d.colorado.edu/imod)
+
+???+ note "ModulePaths for IMOD"
+
+    ```bash
+    apps/imod/5.1.1/gpu/cuda-12.6
+    ```
 
 ## **IsoNet**
 
