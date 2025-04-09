@@ -29,7 +29,7 @@ To list all the tmux sessions created by an user, type **`tmux ls`**.
     22: 1 windows (created Thu Mar 20 13:02:43 2025) (attached)
 ```
 
-### **Traversing between tmux sessions or windows**
+### **Switching between tmux sessions or windows**
 
 Tmux operates using a series of keybindings (keyboard shortcuts) triggered by pressing the **prefix** combination.
 

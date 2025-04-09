@@ -65,15 +65,15 @@
     ```
 
 ## Virtual Environments
-* Name : Anaconda
-* Version : 2024.10-1
+* Name : Miniconda
+* Version : py312_25.1.1-2
 * Description : A collection of tools and a distribution of the Python and R programming languages for data science and machine learning. It's used to develop and manage data science and AI projects.
 * URL : [https://anaconda.com](https://anaconda.com)
 
-???+ note "ModulePaths for Anaconda"
+???+ note "ModulePaths for Miniconda"
 
     ```bash
-    anaconda3/2024.10-1
+    miniconda3/py312_25.1.1-2
     ```
 
 ## NVIDIA Software Development Kit (SDK)
