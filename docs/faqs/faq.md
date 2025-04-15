@@ -162,7 +162,7 @@
             "qinfo_cmd_tpl" : "qstat -q"
         }
         ```
-    === "AL9 : cluster_info.json" (actually the same as SL7-based cluster_info.json in this case)
+    === "AL9 : cluster_info.json (actually the same as SL7-based cluster_info.json in this case)"
         ``` yaml
         {
             "name" : "TEM-FARM",
