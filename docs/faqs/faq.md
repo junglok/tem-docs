@@ -104,7 +104,7 @@
         ...
         ```
 
-    1. Log-in old cryosparc servers (__`tem-ui-el7`__ or __`tem-cs-el7`__), which your cryosparc master is running on using each group's representative account. Stop all the cryosparc daemons.
+    1. Log-in old cryosparc servers (__`tem-ui-el7`__ or __`tem-cs-el7`__), which your cryosparc master has been running on using each group's representative account. Stop all the cryosparc daemons.
         ```bash
         $> cryosparcm stop 
         $> ps aux | grep <AccountName> | grep cryosparc
@@ -129,12 +129,13 @@
 
     !!! note
 
-        Login account and login server (__`tem-ui-al9`__ or __`tem-cs-al9`__) should be each group's representative account and the CryoSPARC's master host, respectively.
+        Login to login server (__`tem-ui-al9`__ or __`tem-cs-al9`__) using each group's representative account. The login server should be the designated CryoSPARC's master host informed by administrator.
 
+    0. As pre-requisites, stop all the cryosparc daemons on the old SL7-based login servers, change your cryosparc master hostname to a new AL9-based login server (__`tem-ui-al9`__ or __`tem-cs-al9`__). 
 
     1. Start CryoSPARC (`cryosparcm start`) on the one of new login servers (__`tem-ui-al9`__ or __`tem-cs-al9`__)
 
-    2. Locate `/tem/scratch/<GroupDir>/.cryosparc` directory, edit `cluster_info.json` and `cluster_script.sh` files for AL9 and save them. (see the below codeblocks).
+    2. Locate `/tem/scratch/<GroupDir>/.cryosparc` directory, edit `cluster_info.json` and `cluster_script.sh` files for AL9 and save them. (please see the below codeblocks and change the files contents).
 
     3. Update the existing cluster lane information using the modified two files.
         ``` bash
@@ -161,7 +162,7 @@
             "qinfo_cmd_tpl" : "qstat -q"
         }
         ```
-    === "AL9 : cluster_info.json"
+    === "AL9 : cluster_info.json" (actually the same as SL7-based cluster_info.json in this case)
         ``` yaml
         {
             "name" : "TEM-FARM",
