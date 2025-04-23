@@ -196,10 +196,10 @@ localhost $> ssh -N -f -L localhost:39500:tem-cs-al9.sdfarm.kr:<CRYOSPARC_BASE_P
 
 ???+ tip
     
-    ## 39500 port on localhost : assume that the port number 39500 is available on your localhost. Otherwise, you can use another port available.
-    ## -N : Do not execute a remote command. This is useful option for just forwarding ports.
-    ## -f : Requests ssh to go to background just before command execution.
-    ## -L [bind_address:]port:host:hostport
+    * 39500 port on localhost : assume that the port number 39500 is available on your localhost. Otherwise, you can use another port available.
+    * -N : Do not execute a remote command. This is useful option for just forwarding ports.
+    * -f : Requests ssh to go to background just before command execution.
+    * -L [bind_address:]port:host:hostport
 
 
 Otherwise, the CryoSPARC instance is running on the **tem-ui-al9.sdfarm.kr**,
@@ -212,10 +212,10 @@ localhost $> ssh -N -f -L localhost:39500:tem-ui-al9.sdfarm.kr:<CRYOSPARC_BASE_P
 
 ???+ tip
 
-    ## 39500 port on localhost : assume that the port number 39500 is available on your localhost. Otherwise, you can use another port available.
-    ## -N : Do not execute a remote command. This is useful option for just forwarding ports.
-    ## -f : Requests ssh to go to background just before command execution.
-    ## -L [bind_address:]port:host:hostport
+    * 39500 port on localhost : assume that the port number 39500 is available on your localhost. Otherwise, you can use another port available.
+    * -N : Do not execute a remote command. This is useful option for just forwarding ports.
+    * -f : Requests ssh to go to background just before command execution.
+    * -L [bind_address:]port:host:hostport
 
 
 !!! note
