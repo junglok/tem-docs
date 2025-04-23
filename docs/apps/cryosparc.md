@@ -124,10 +124,10 @@ export "CONDA_DEFAULT_ENV=cryosparc_master_env"
 You can find what kinds of environment variables have been set for the cryoSPARC instance. 
 
 !!! note
-
-   Especially, user should check **CRYOSPARC_BASE_PORT** (above, for example, 39000), which is **the listening port of CryoSPARC web application**. 
-   Later, this port number is used to make SSH tunneling between client and **tem-cs-al9.sdfarm.kr** or **tem-ui-al9.sdfarm.kr** login node. 
-   **Via the tunneled connection over SSH, users can access the web UI of CryoSPARC instance.**    
+    
+    Especially, user should check **CRYOSPARC_BASE_PORT** (above, for example, 39000), which is **the listening port of CryoSPARC web application**. 
+    Later, this port number is used to make SSH tunneling between client and **tem-cs-al9.sdfarm.kr** or **tem-ui-al9.sdfarm.kr** login node. 
+    **Via the tunneled connection over SSH, users can access the web UI of CryoSPARC instance.**    
 
 
 #### **Checking the status of CryoSPARC instance**
@@ -195,11 +195,11 @@ localhost $> ssh -N -f -L localhost:39500:tem-cs-al9.sdfarm.kr:<CRYOSPARC_BASE_P
 ```
 
 ???+ tip
-
-   ## 39500 port on localhost : assume that the port number 39500 is available on your localhost. Otherwise, you can use another port available.
-   ## -N : Do not execute a remote command. This is useful option for just forwarding ports.
-   ## -f : Requests ssh to go to background just before command execution.
-   ## -L [bind_address:]port:host:hostport
+    
+    ## 39500 port on localhost : assume that the port number 39500 is available on your localhost. Otherwise, you can use another port available.
+    ## -N : Do not execute a remote command. This is useful option for just forwarding ports.
+    ## -f : Requests ssh to go to background just before command execution.
+    ## -L [bind_address:]port:host:hostport
 
 
 Otherwise, the CryoSPARC instance is running on the **tem-ui-al9.sdfarm.kr**,
@@ -212,10 +212,10 @@ localhost $> ssh -N -f -L localhost:39500:tem-ui-al9.sdfarm.kr:<CRYOSPARC_BASE_P
 
 ???+ tip
 
-   ## 39500 port on localhost : assume that the port number 39500 is available on your localhost. Otherwise, you can use another port available.
-   ## -N : Do not execute a remote command. This is useful option for just forwarding ports.
-   ## -f : Requests ssh to go to background just before command execution.
-   ## -L [bind_address:]port:host:hostport
+    ## 39500 port on localhost : assume that the port number 39500 is available on your localhost. Otherwise, you can use another port available.
+    ## -N : Do not execute a remote command. This is useful option for just forwarding ports.
+    ## -f : Requests ssh to go to background just before command execution.
+    ## -L [bind_address:]port:host:hostport
 
 
 !!! note
@@ -231,11 +231,12 @@ Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to [http
 
 ### For Windows users 
 
-* Using MobaXterm
-** Open `MobaXterm` application.
-** `MobaXterm` -> `Tools` -> `MobaSSHTunnel (port forwarding)` : Open MobaSSHTunnel dialog box.
-** `New SSH tunnel` : Set a forwarded port binding option and save the setting.
-** Give the name to the saved port forwarding settings, and start the tunnel connection.
+#### Using MobaXterm
+
+- Open `MobaXterm` application.
+- `MobaXterm` -> `Tools` -> `MobaSSHTunnel (port forwarding)` : Open MobaSSHTunnel dialog box.
+- `New SSH tunnel` : Set a forwarded port binding option and save the setting.
+- Give the name to the saved port forwarding settings, and start the tunnel connection.
 
 !!! note
 
@@ -245,10 +246,11 @@ Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to [http
 
 Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to [http://localhost:39500](http://localhost:39500). You should be presented with the cryoSPARC login page.
 
-* Using Putty
-** Open `PuTTy Configuration` dialog box.
-** `PuTTy Configuration` -> `Session` : Load a SSH session to connect tem-[cs|ui]-al9.sdfarm.kr login node with the known <ssh_port>.
-** `PuTTy Configuration` -> `Connection` -> `SSH` -> `Tunnels` : Set a forwarded port binding option and add the entry.
+#### Using Putty
+
+- Open `PuTTy Configuration` dialog box.
+- `PuTTy Configuration` -> `Session` : Load a SSH session to connect tem-[cs|ui]-al9.sdfarm.kr login node with the known <ssh_port>.
+- `PuTTy Configuration` -> `Connection` -> `SSH` -> `Tunnels` : Set a forwarded port binding option and add the entry.
 
 !!! note
 
