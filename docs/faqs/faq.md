@@ -345,7 +345,7 @@
 
     The following update guides summarize the procedure for cryosparc’s master and worker software updates. For more details, please refer to [https://guide.cryosparc.com/setup-configuration-and-management/software-updates](https://guide.cryosparc.com/setup-configuration-and-management/software-updates).
 
-    __`1. Check for updates`__
+    1. Check for updates
 
         Log into the __`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__ server where the cryosparc master is running using ssh. 
         Then, run the below command to check available updates.
@@ -407,7 +407,7 @@
         ```
 
 
-    __`2. Before you update: complete or kill running jobs`__
+    2. Before you update: complete or kill running jobs
 
         Before you update the cryosparc softwares, you must wait for all the running cryosparc jobs completed (or kill your jobs). You also must check all the cryosparc related processes (i.e., supervisord, mongod, command_core, command_vis, command_rtp, webapp, app, liveapp) to be terminated successfully.
 
@@ -451,7 +451,7 @@
         userid@tem-[cs|ui]-al9 $> rm mongodb-39031.sock
         ```
 
-    __`3. Back-up cryosparc databases`__
+    3. Back-up cryosparc databases
    
         We also highly recommend making a backup of your database as described below.
 
@@ -493,7 +493,7 @@
         userid@tem-[cs|ui]-al9 $> cryosparcm stop
         ```
 
-    __`4. Cryosparc master updates`__
+    4. Cryosparc master updates
 
         To begin automatic master updates with the newest available version of cryosparc, just run
 
@@ -699,7 +699,7 @@
         userid@tem-[cs|ui]-al9 $> cryosparcm stop
         ```
         
-    __`5. Cryosparc worker updates`__
+    5. Cryosparc worker updates
 
         Since we adopt the clustered installation method for cryosparc instances, we shoud manually update the cryosparc worker. Now let's newly install all the cryosparc worker softwares.
 
@@ -904,7 +904,7 @@
         ```
 
 
-    __`6. Running the new cryosparc instance`__
+    6. Running the new cryosparc instance
 
         All the cryosparc master and worker updates has completed. So, you need to re-execute cryosparc instance daemons (assume that userid’s CRYOSPARC_BASE_PORT is 39030).
 
