@@ -348,10 +348,10 @@
     1. Check for updates
 
     Log into the __`tem-ui-al9.sdfarm.kr__` or __`tem-cs-al9.sdfarm.kr`__ server where the cryosparc master is running using ssh. 
-    Then, run this command to check available updates.
+    Then, run the below command to check available updates.
 
     ``` bash
-    userid@tem-[cs|ui]-al7 $> cryosparcm update --check
+    userid@tem-[cs|ui]-al9 $> cryosparcm update --check
     CryoSPARC current version v4.5.3
           update starting on Wed Apr 23 05:35:33 PM KST 2025
 
