@@ -347,19 +347,64 @@
 
     1. Check for updates
 
-    Log into the __`tem-ui-al9.sdfarm.kr__` or __`tem-cs-al9.sdfarm.kr`__ server where the cryosparc master is running using ssh. 
-    Then, run the below command to check available updates.
+        Log into the __`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__ server where the cryosparc master is running using ssh. 
+        Then, run the below command to check available updates.
 
-    ``` bash
-    userid@tem-[cs|ui]-al9 $> cryosparcm update --check
-    CryoSPARC current version v4.5.3
-          update starting on Wed Apr 23 05:35:33 PM KST 2025
+        ``` bash
+        userid@tem-[cs|ui]-al9 $> cryosparcm update --check
+        CryoSPARC current version v4.5.3
+            update starting on Wed Apr 23 05:35:33 PM KST 2025
 
-    current version v4.5.3
-        new version v4.7.0
+        current version v4.5.3
+            new version v4.7.0
 
-    Update available!
-    ```
+        Update available!
+        ```
+
+        Also, you can use this command `cryosparcm update --list` to get a full list of available versions.
+
+        ``` bash
+        userid@tem-[cs|ui]-al9 $> cryosparcm update --list
+        CryoSPARC current version v4.5.3
+                update starting on Wed Apr 23 05:41:22 PM KST 2025
+
+        Available versions:
+
+        v2.15.0
+        v3.0.0
+        v3.0.1
+        v3.1.0
+        v3.2.0
+        v3.3.0
+        v3.3.1
+        v3.3.2
+        v3.4.0
+        v4.0.0
+        v4.0.1
+        v4.0.2
+        v4.0.3
+        v4.0.4
+        v4.1.0
+        v4.1.1
+        v4.1.2
+        v4.2.0
+        v4.2.1
+        v4.3.0
+        v4.3.1
+        v4.4.0
+        v4.4.1
+        v4.5.0
+        v4.5.1
+        v4.5.2
+        v4.5.3
+        v4.6.0
+        v4.6.1
+        v4.6.2
+        v4.7.0
+
+        To install a specific version, use
+            $ cryosparcm update --version=vXX.YY.ZZ[-branchname]
+        ```
 
 
     2. Before you update: complete or kill running jobs
