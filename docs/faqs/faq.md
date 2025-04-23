@@ -340,3 +340,14 @@
     Startup can take several minutes. Point your browser to the address
     and refresh until you see the CryoSPARC web interface.
     ```
+
+??? question "How to upgrade (or downgrade) to the specific version of cryosparc softwares?"
+
+    The following update guides summarize the procedure for cryosparc’s master and worker software updates. For more details, please refer to [https://guide.cryosparc.com/setup-configuration-and-management/software-updates](https://guide.cryosparc.com/setup-configuration-and-management/software-updates).
+
+    1. Check for updates
+    2. Before you update: complete or kill running jobs
+    3. Back-up cryosparc databases
+    4. Cryosparc master updates
+    5. Cryosparc worker updates
+    6. Running the new cryosparc instance
