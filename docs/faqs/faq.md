@@ -2,7 +2,7 @@
 
 ## **Accounts/Password/OTP**
 
-### How to resolve the IPA command error when getting OTP?
+#### **How to resolve the IPA command error when getting OTP?**
 
 ??? question "(OTP) How to resolve the IPA command error when getting OTP?"
 
@@ -17,7 +17,7 @@
 
     Enter your password and press Enter to generate new credentials. Now, re-run the `ipa otptoken-add` command. It should execute without errors, using the newly generated credentials.
 
-### How to resolve "Unable to display QR code" error?
+#### **How to resolve "Unable to display QR code" error?**
 
 ??? question "(OTP) How to resolve `Unable to display QR code` error?"
 
@@ -29,8 +29,9 @@
     $> LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 ipa otptoken-add --algo=sha512
     ```
 
-### How to release screen lock?
-??? question "(LOCK+OTP) How to release screen lock"
+#### **How to release terminal's screen lock?**
+
+??? question "(LOCK+OTP) How to release terminal's screen lock"
 
     When the screen lock is activated while using OTP, it prompts for a password with a message like :
 
@@ -59,7 +60,7 @@
 
 ## **Module Environment (LMOD)**
 
-### `module avail` can't find some modules. What do I do?
+#### **`module avail` can't find some modules. What do I do?**
 
 ??? question "`module avail` can't find some modules. What do I do?"
 
@@ -78,7 +79,8 @@
 
 ## **CryoSPARC**
 
-### How to change CryoSPARC's master host name?
+#### **How to change CryoSPARC's master host name?**
+
 ??? question "How to change CryoSPARC's master host name?"
 
     CryoSPARC master daemons have been executed on ScientificLinux7.x(SL7)-based login servers (__`tem-ui-el7.sdfarm.kr`__ and __`tem-cs-el7.sdfarm.kr`__) using `cryosparcm start` command for the representative account of each research group. 
@@ -126,7 +128,7 @@
         ```
 
 
-### How to migrate CryoSPARC's `TEM-FARM` lane from old SL7 to new AL9-based cluster?
+#### **How to migrate CryoSPARC's `TEM-FARM` lane from old SL7 to new AL9-based cluster?**
 
 ??? question "How to migrate CryoSPARC's `TEM-FARM` lane from old SL7 to new AL9-based cluster?"
 
@@ -294,7 +296,7 @@
     Updated TEM-FARM cluster submission script
     ///
 
-### How to resolve the problems on starting and/or restarting CryoSPARC daemons?
+#### **How to resolve the problems on starting and/or restarting CryoSPARC daemons?**
 
 ??? question "How to resolve the problems on starting and/or restarting CryoSPARC daemons?"
 
@@ -353,7 +355,7 @@
     and refresh until you see the CryoSPARC web interface.
     ```
 
-### How to upgrade (or downgrade) to the specific version of cryosparc softwares?
+#### **How to upgrade (or downgrade) to the specific version of cryosparc softwares?**
 
 ??? question "How to upgrade (or downgrade) to the specific version of cryosparc softwares?"
 
