@@ -2,6 +2,8 @@
 
 ## **Accounts/Password/OTP**
 
+### How to resolve the IPA command error when getting OTP?
+
 ??? question "(OTP) How to resolve the IPA command error when getting OTP?"
 
     This error occurs when the credentials issued by your authentication system, which are valid for one day, expire or become invalid. Here are the steps to resolve this problem. 
@@ -15,6 +17,8 @@
 
     Enter your password and press Enter to generate new credentials. Now, re-run the `ipa otptoken-add` command. It should execute without errors, using the newly generated credentials.
 
+### How to resolve "Unable to display QR code" error?
+
 ??? question "(OTP) How to resolve `Unable to display QR code` error?"
 
     When connecting to the GSDC login server via a lab workstation/desktop using the GNOME Terminal in a Linux system (e.g., Ubuntu), executing the `ipa otptoken-add` command results in the message {==`ipa: WARNING: Unable to display QR code using the configured output encoding. Please use the token URI to configure your OTP device`==}.
@@ -25,6 +29,7 @@
     $> LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 ipa otptoken-add --algo=sha512
     ```
 
+### How to release screen lock?
 ??? question "(LOCK+OTP) How to release screen lock"
 
     When the screen lock is activated while using OTP, it prompts for a password with a message like :
@@ -54,6 +59,8 @@
 
 ## **Module Environment (LMOD)**
 
+### `module avail` can't find some modules. What do I do?
+
 ??? question "`module avail` can't find some modules. What do I do?"
 
     You might have an out-of-date cache. Try running:
@@ -71,6 +78,7 @@
 
 ## **CryoSPARC**
 
+### How to change CryoSPARC's master host name?
 ??? question "How to change CryoSPARC's master host name?"
 
     CryoSPARC master daemons have been executed on ScientificLinux7.x(SL7)-based login servers (__`tem-ui-el7.sdfarm.kr`__ and __`tem-cs-el7.sdfarm.kr`__) using `cryosparcm start` command for the representative account of each research group. 
@@ -117,6 +125,8 @@
         $> cryosparcm start
         ```
 
+
+### How to migrate CryoSPARC's `TEM-FARM` lane from old SL7 to new AL9-based cluster?
 
 ??? question "How to migrate CryoSPARC's `TEM-FARM` lane from old SL7 to new AL9-based cluster?"
 
@@ -284,6 +294,8 @@
     Updated TEM-FARM cluster submission script
     ///
 
+### How to resolve the problems on starting and/or restarting CryoSPARC daemons?
+
 ??? question "How to resolve the problems on starting and/or restarting CryoSPARC daemons?"
 
     First, you should check all the cryosparc related processes - supervisord, mongod, command_core, command_vis, command_rtp, webapp, app, liveapp - to be terminated successfully on the CryoSPARC master host. If necessary, you can kill the zombie processes.
@@ -340,6 +352,8 @@
     Startup can take several minutes. Point your browser to the address
     and refresh until you see the CryoSPARC web interface.
     ```
+
+### How to upgrade (or downgrade) to the specific version of cryosparc softwares?
 
 ??? question "How to upgrade (or downgrade) to the specific version of cryosparc softwares?"
 
