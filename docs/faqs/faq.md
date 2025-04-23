@@ -408,7 +408,541 @@
 
 
     2. Before you update: complete or kill running jobs
+
+        Before you update the cryosparc softwares, you must wait for all the running cryosparc jobs completed (or kill your jobs). You also must check all the cryosparc related processes (i.e., supervisord, mongod, command_core, command_vis, command_rtp, webapp, app, liveapp) to be terminated successfully.
+
+        ``` bash
+        userid@tem-[cs|ui]-al9 $> cryosparcm stop
+
+        CryoSPARC is running.
+        Stopping cryoSPARC
+        app: stopped
+        command_core: stopped
+        command_rtp: stopped
+        command_vis: stopped
+        liveapp: stopped
+        webapp: stopped
+        database: stopped
+        Shut down
+
+        userid@tem-[cs|ui]-al9 $>  ps aux | grep <userid> | grep cryosparc
+        userid    2449  0.0  0.0 152792 17480 ?        Ss   Jun24   0:18 python /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/deps/anaconda/envs/cryosparc_master_env/bin/supervisord -c /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/supervisord.conf
+        userid    2472  1.2  0.0 1429268 57412 ?       Sl   Jun24  13:19 mongod --dbpath /tem/scratch/<GroupDir>/.cryosparc/cryosparc_database --port 
+        userid    2900  0.2  0.0 860572 83028 ?        Sl   Jun24   2:23 python -c import cryosparc_command.command_core as serv; serv.start
+        userid    4332  0.1  0.1 854192 236396 ?       Sl   Jun24   1:53 python -c import cryosparc_command.command_vis as serv; serv.start
+        userid    4378  0.4  0.0 1190536 196316 ?      Sl   Jun24   4:59 python -c import cryosparc_command.command_rtp as serv; serv.start
+        userid    5586  0.1  0.0 1331136 116972 ?      Sl   Jun24   1:17 /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/cryosparc_webapp/nodejs/bin/node ./bundle/main.js
+        userid    5625  0.1  0.0 1049868 97640 ?       Sl   Jun24   1:22 /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/cryosparc_app/nodejs/bin/node ./bundle/main.js
+        userid    5690  0.2  0.0 1326136 81432 ?       Sl   Jun24   2:12 /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/cryosparc_liveapp/nodejs/bin/node ./bundle/main.js
+
+        userid@tem-[cs|ui]-al9 $> ps aux | grep <userid> | grep -E "cryosparc|node" | awk '{print $2}' | xargs -I{} kill -9 {}
+        ```
+
+        Find your own cryosparc unix socket files on /tmp directory, and if exists, delete the files using rm command.
+
+        ``` bash
+        userid@tem-[cs|ui]-al9 $> cd /tmp
+        userid@tem-[cs|ui]-al9 $> ls -al | grep <userid> | grep sock
+
+        srwx------.  1 userid       userid          0 Jun 24 16:39 cryosparc-supervisor-627a9991e2f2f069094732dfd78d1696.sock
+        srwx------.  1 userid       userid          0 Jun 24 16:39 mongodb-39031.sock
+
+        userid@tem-[cs|ui]-al9 $> rm cryosparc-supervisor-627a9991e2f2f069094732dfd78d1696.sock
+        userid@tem-[cs|ui]-al9 $> rm mongodb-39031.sock
+        ```
+
     3. Back-up cryosparc databases
+   
+        We also highly recommend making a backup of your database as described below.
+
+        ``` bash
+        userid@tem-[cs|ui]-al9 $> cryosparcm backup
+
+        Backing up to /tem/scratch/<GroupDir>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive
+
+        CryoSPARC is not already running.
+
+        Starting the database in case it's not already running.
+        database: started
+
+        Executing mongodump.
+
+        2021-04-20T15:00:42.606+0900    writing admin.system.version to archive '/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+        2021-04-20T15:00:42.608+0900    done dumping admin.system.version (1 document)
+        2021-04-20T15:00:42.609+0900    writing meteor.events to archive '/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+        2021-04-20T15:00:42.617+0900    writing meteor.fs.files to archive '/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+        2021-04-20T15:00:42.617+0900    writing meteor.notifications to archive '/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+        2021-04-20T15:00:42.618+0900    writing meteor.fs.chunks to archive '/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database/backup/cryosparc_backup_2021_04_20_15h00.archive'
+        2021-04-20T15:00:42.661+0900    done dumping meteor.notifications (315 documents)
+
+        ... (omit)
+
+        2021-04-20T15:00:42.751+0900    done dumping meteor.file_index (0 documents)
+        2021-04-20T15:00:42.755+0900    done dumping meteor.exposures (0 documents)
+        2021-04-20T15:00:42.770+0900    done dumping meteor.events (25676 documents)
+        2021-04-20T15:00:53.903+0900    [########################]  meteor.fs.chunks  8386/8386  (100.0%)
+        2021-04-20T15:00:53.905+0900    done dumping meteor.fs.chunks (8386 documents)
+
+        Complete!
+        ```
+
+        After backing up your cryosparc database, you should check the status of cryosparc daemons and stop them again.
+
+        ``` bash
+        userid@tem-[cs|ui]-al9 $> cryosparcm status
+        userid@tem-[cs|ui]-al9 $> cryosparcm stop
+        ```
+
     4. Cryosparc master updates
+
+        To begin automatic master updates with the newest available version of cryosparc, just run
+
+        ``` bash
+        userid@tem-[cs|ui]-al9$> cryosparcm update
+
+        CryoSPARC current version v4.3.0
+                update starting on Tue Apr 20 15:36:12 KST 2025
+
+        No version specified - updating to latest version.
+
+        =============================
+        Updating to version v4.5.3.
+        =============================
+        CryoSPARC is not already running.
+        If you would like to restart, use cryosparcm restart
+        Removing previous downloads...
+        Downloading master update...
+        % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                        Dload  Upload   Total   Spent    Left  Speed
+        0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
+        100  785M  100  785M    0     0  2072k      0  0:06:27  0:06:27 --:--:-- 3897k
+        Downloading worker update...
+        % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                        Dload  Upload   Total   Spent    Left  Speed
+        0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
+        100 1807M  100 1807M    0     0  2312k      0  0:13:20  0:13:20 --:--:-- 7988k
+        Done.
+
+        Update will now be applied to the master installation,
+        followed by worker installations on other nodes.
+
+        Deleting old files...
+        Extracting...
+        Done.
+
+        ===================================================
+        Installing latest master dependencies.
+        ===================================================
+
+        Checking dependencies...
+        Dependencies for python have changed - reinstalling...
+        ------------------------------------------------------------------------
+
+        Installing anaconda python...
+        ------------------------------------------------------------------------
+        PREFIX=/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/deps/anaconda
+        Unpacking payload ...
+
+        Solving environment: done
+
+        ## Package Plan ##
+
+        environment location: /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/deps/anaconda
+
+        added / updated specs:
+            - _libgcc_mutex==0.1=main
+            - ca-certificates==2020.1.1=0
+            - certifi==2020.4.5.1=py37_0
+            - cffi==1.14.0=py37he30daa8_1
+            - chardet==3.0.4=py37_1003
+            - conda-package-handling==1.6.1=py37h7b6447c_0
+            - conda==4.8.3=py37_0
+            - cryptography==2.9.2=py37h1ba5d50_0
+            - idna==2.9=py_1
+            - ld_impl_linux-64==2.33.1=h53a641e_7
+            - libedit==3.1.20181209=hc058e9b_0
+            - libffi==3.3=he6710b0_1
+            - libgcc-ng==9.1.0=hdf63c60_0
+            - libstdcxx-ng==9.1.0=hdf63c60_0
+            - ncurses==6.2=he6710b0_1
+            - openssl==1.1.1g=h7b6447c_0
+            - pip==20.0.2=py37_3
+            - pycosat==0.6.3=py37h7b6447c_0
+            - pycparser==2.20=py_0
+            - pyopenssl==19.1.0=py37_0
+            - pysocks==1.7.1=py37_0
+            - python==3.7.7=hcff3b4d_5
+            - readline==8.0=h7b6447c_0
+            - requests==2.23.0=py37_0
+            - ruamel_yaml==0.15.87=py37h7b6447c_0
+            - setuptools==46.4.0=py37_0
+            - six==1.14.0=py37_0
+            - sqlite==3.31.1=h62c20be_1
+            - tk==8.6.8=hbc83047_0
+            - tqdm==4.46.0=py_0
+            - urllib3==1.25.8=py37_0
+            - wheel==0.34.2=py37_0
+            - xz==5.2.5=h7b6447c_0
+            - yaml==0.1.7=had09818_2
+            - zlib==1.2.11=h7b6447c_3
+
+
+        The following NEW packages will be INSTALLED:
+
+        _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+        ca-certificates    pkgs/main/linux-64::ca-certificates-2020.1.1-0
+        certifi            pkgs/main/linux-64::certifi-2020.4.5.1-py37_0
+        cffi               pkgs/main/linux-64::cffi-1.14.0-py37he30daa8_1
+        chardet            pkgs/main/linux-64::chardet-3.0.4-py37_1003
+        conda              pkgs/main/linux-64::conda-4.8.3-py37_0
+        conda-package-han~ pkgs/main/linux-64::conda-package-handling-1.6.1-py37h7b6447c_0
+        cryptography       pkgs/main/linux-64::cryptography-2.9.2-py37h1ba5d50_0
+        idna               pkgs/main/noarch::idna-2.9-py_1
+        ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.33.1-h53a641e_7
+        libedit            pkgs/main/linux-64::libedit-3.1.20181209-hc058e9b_0
+        libffi             pkgs/main/linux-64::libffi-3.3-he6710b0_1
+        libgcc-ng          pkgs/main/linux-64::libgcc-ng-9.1.0-hdf63c60_0
+        libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-9.1.0-hdf63c60_0
+        ncurses            pkgs/main/linux-64::ncurses-6.2-he6710b0_1
+        openssl            pkgs/main/linux-64::openssl-1.1.1g-h7b6447c_0
+        pip                pkgs/main/linux-64::pip-20.0.2-py37_3
+        pycosat            pkgs/main/linux-64::pycosat-0.6.3-py37h7b6447c_0
+        pycparser          pkgs/main/noarch::pycparser-2.20-py_0
+        pyopenssl          pkgs/main/linux-64::pyopenssl-19.1.0-py37_0
+        pysocks            pkgs/main/linux-64::pysocks-1.7.1-py37_0
+        python             pkgs/main/linux-64::python-3.7.7-hcff3b4d_5
+        readline           pkgs/main/linux-64::readline-8.0-h7b6447c_0
+        requests           pkgs/main/linux-64::requests-2.23.0-py37_0
+        ruamel_yaml        pkgs/main/linux-64::ruamel_yaml-0.15.87-py37h7b6447c_0
+        setuptools         pkgs/main/linux-64::setuptools-46.4.0-py37_0
+        six                pkgs/main/linux-64::six-1.14.0-py37_0
+        sqlite             pkgs/main/linux-64::sqlite-3.31.1-h62c20be_1
+        tk                 pkgs/main/linux-64::tk-8.6.8-hbc83047_0
+        tqdm               pkgs/main/noarch::tqdm-4.46.0-py_0
+        urllib3            pkgs/main/linux-64::urllib3-1.25.8-py37_0
+        wheel              pkgs/main/linux-64::wheel-0.34.2-py37_0
+        xz                 pkgs/main/linux-64::xz-5.2.5-h7b6447c_0
+        yaml               pkgs/main/linux-64::yaml-0.1.7-had09818_2
+        zlib               pkgs/main/linux-64::zlib-1.2.11-h7b6447c_3
+
+
+        Preparing transaction: done
+        Executing transaction: done
+        installation finished.
+        ------------------------------------------------------------------------
+            Done.
+            anaconda python installation successful.
+        ------------------------------------------------------------------------
+        Extracting all conda packages...
+        ------------------------------------------------------------------------
+        ............................................................................
+        ------------------------------------------------------------------------
+            Done.
+            conda packages installation successful.
+        ------------------------------------------------------------------------
+        Main dependency installation completed. Continuing...
+        ------------------------------------------------------------------------
+        Completed.
+        Currently checking hash for mongodb
+        Dependencies for mongodb have not changed.
+        Completed dependency check.
+
+        ===================================================
+        Successfully updated master to version v4.5.3.
+        ---
+        Starting cryoSPARC System master process..
+        CryoSPARC is not already running.
+        database: started
+        command_core: started
+            command_core connection succeeded
+            command_core startup successful
+        command_vis: started
+        command_rtp: started
+            command_rtp connection succeeded
+            command_rtp startup successful
+        webapp: started
+        app: started
+        liveapp: started
+        -----------------------------------------------------
+
+        CryoSPARC master started.
+        ...
+        Startup can take several minutes. Point your browser to the address
+        and refresh until you see the cryoSPARC web interface.
+
+        ===================================================
+        Now updating worker nodes.
+        ===================================================
+
+        All workers:
+        ---------------------------------------------------
+        Done updating all worker nodes.
+        If any nodes failed to update, you can manually update them.
+        Cluster worker installations must be manually updated.
+
+        To update manually, copy the cryosparc_worker.tar.gz file into the
+        cryosparc worker installation directory, and then run
+            $ bin/cryosparcw update
+        from inside the worker installation directory.
+        ```
+
+        Or, you can update the master with a specific version.
+
+        ``` bash
+        userid@tem-[cs|ui]-al9 $> cryosparcm update --version=vXX.YY.ZZ
+        ```
+
+        After updating the master of your cryosparc instance, you should check the status of cryosparc daemons and stop them again in order to re-install the worker softwares.
+
+        ``` bash
+        userid@tem-[cs|ui]-al9 $> cryosparcm status
+        userid@tem-[cs|ui]-al9 $> cryosparcm stop
+        ```
+        
     5. Cryosparc worker updates
+
+        Since we adopt the clustered installation method for cryosparc instances, we shoud manually update the cryosparc worker. Now let's newly install all the cryosparc worker softwares.
+
+        If you successully update the cryosparc master softwares above, you must find __`cryosparc_worker.tar.gz`__ tar ball in __`/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master`__ directory.
+
+        ``` bash
+        userid@tem-[cs|ui]-al9 $> cd /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master
+        userid@tem-[cs|ui]-al9 $> ls -al *.tar.gz
+        -rw-r-----. 1 userid userid  823226956 Apr 20 15:42 cryosparc_master.tar.gz
+        -rw-r-----. 1 userid userid 1895278500 Apr 20 15:56 cryosparc_worker.tar.gz
+        ```
+
+        First, modify the name of the previous worker directory to that with .orig postfix and copy/uncompress the new worker tarball to .cryosparc directory.
+
+        If your master installation directory is “cryosparc_master”, use these commands.
+
+        ``` bash
+        userid@tem-[cs|ui]-al9 $> cd /tem/scratch/<GroupDir>/.cryosparc
+        userid@tem-[cs|ui]-al9 $> mv cryosparc_worker cryosparc_worker.orig
+        userid@tem-[cs|ui]-al9 $> cp /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/cryosparc_worker.tar.gz /tem/scratch/<GroupDir>/.cryosparc
+        userid@tem-[cs|ui]-al9 $> tar xvfz cryosparc_worker.tar.gz
+        ```
+
+        Then, re-install all the cryosparc worker softwares with the followings (note that cryosparc version 4.3.0+ has self-contained CUDA SDK, so you don’t have to select the host directory path of CUDA while installing the cryosparc worker):
+
+        ``` bash
+        userid@tem-[cs|ui]-al9 $> cd /tem/scratch/<GroupDir>/.cryosparc/cryosparc_worker
+        userid@tem-[cs|ui]-al9 $> eval $(cryosparcm env)
+        userid@tem-[cs|ui]-al9 $> ./install.sh --license $CRYOSPARC_LICENSE_ID
+        ******* CRYOSPARC SYSTEM: WORKER INSTALLER ***********************
+
+        Installation Settings:
+        License ID              : xxxxxxxxxxxx
+        Root Directory          : /tem/scratch/<GroupDir>/.cryosparc/cryosparc_worker
+        Standalone Installation : false
+        Version                 : v4.5.3
+
+        ******************************************************************
+
+        CUDA check..
+        Found nvidia-smi at /bin/nvidia-smi
+
+        CUDA Path was provided as /usr/local/cuda-11.8
+        Checking CUDA installation...
+        Found nvcc at /usr/local/cuda-11.8/bin/nvcc
+        The above cuda installation will be used but can be changed later.
+
+        ******************************************************************
+
+        Setting up hard-coded config.sh environment variables
+
+        ******************************************************************
+
+        Installing all dependencies.
+
+        Warning: conda environment not found; this indicates that a cryoSPARC installation is either incomplete or in progress
+        Checking dependencies...
+        Dependencies for python have changed - reinstalling...
+        ------------------------------------------------------------------------
+        Installing anaconda python...
+        ------------------------------------------------------------------------
+        PREFIX=/tem/scratch/<GroupDir>/.cryosparc/cryosparc_worker/deps/anaconda
+        Unpacking payload ...
+
+        Solving environment: done
+
+        ## Package Plan ##
+
+        environment location: /tem/scratch/<GroupDir>/.cryosparc/cryosparc_worker/deps/anaconda
+
+        added / updated specs:
+            - _libgcc_mutex==0.1=main
+            - ca-certificates==2020.1.1=0
+            - certifi==2020.4.5.1=py37_0
+            - cffi==1.14.0=py37he30daa8_1
+            - chardet==3.0.4=py37_1003
+            - conda-package-handling==1.6.1=py37h7b6447c_0
+            - conda==4.8.3=py37_0
+            - cryptography==2.9.2=py37h1ba5d50_0
+            - idna==2.9=py_1
+            - ld_impl_linux-64==2.33.1=h53a641e_7
+            - libedit==3.1.20181209=hc058e9b_0
+            - libffi==3.3=he6710b0_1
+            - libgcc-ng==9.1.0=hdf63c60_0
+            - libstdcxx-ng==9.1.0=hdf63c60_0
+            - ncurses==6.2=he6710b0_1
+            - openssl==1.1.1g=h7b6447c_0
+            - pip==20.0.2=py37_3
+            - pycosat==0.6.3=py37h7b6447c_0
+            - pycparser==2.20=py_0
+            - pyopenssl==19.1.0=py37_0
+            - pysocks==1.7.1=py37_0
+            - python==3.7.7=hcff3b4d_5
+            - readline==8.0=h7b6447c_0
+            - requests==2.23.0=py37_0
+            - ruamel_yaml==0.15.87=py37h7b6447c_0
+            - setuptools==46.4.0=py37_0
+            - six==1.14.0=py37_0
+            - sqlite==3.31.1=h62c20be_1
+            - tk==8.6.8=hbc83047_0
+            - tqdm==4.46.0=py_0
+            - urllib3==1.25.8=py37_0
+            - wheel==0.34.2=py37_0
+            - xz==5.2.5=h7b6447c_0
+            - yaml==0.1.7=had09818_2
+            - zlib==1.2.11=h7b6447c_3
+
+
+        The following NEW packages will be INSTALLED:
+
+        _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+        ca-certificates    pkgs/main/linux-64::ca-certificates-2020.1.1-0
+        certifi            pkgs/main/linux-64::certifi-2020.4.5.1-py37_0
+        cffi               pkgs/main/linux-64::cffi-1.14.0-py37he30daa8_1
+        chardet            pkgs/main/linux-64::chardet-3.0.4-py37_1003
+        conda              pkgs/main/linux-64::conda-4.8.3-py37_0
+        conda-package-han~ pkgs/main/linux-64::conda-package-handling-1.6.1-py37h7b6447c_0
+        cryptography       pkgs/main/linux-64::cryptography-2.9.2-py37h1ba5d50_0
+        idna               pkgs/main/noarch::idna-2.9-py_1
+        ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.33.1-h53a641e_7
+        libedit            pkgs/main/linux-64::libedit-3.1.20181209-hc058e9b_0
+        libffi             pkgs/main/linux-64::libffi-3.3-he6710b0_1
+        libgcc-ng          pkgs/main/linux-64::libgcc-ng-9.1.0-hdf63c60_0
+        libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-9.1.0-hdf63c60_0
+        ncurses            pkgs/main/linux-64::ncurses-6.2-he6710b0_1
+        openssl            pkgs/main/linux-64::openssl-1.1.1g-h7b6447c_0
+        pip                pkgs/main/linux-64::pip-20.0.2-py37_3
+        pycosat            pkgs/main/linux-64::pycosat-0.6.3-py37h7b6447c_0
+        pycparser          pkgs/main/noarch::pycparser-2.20-py_0
+        pyopenssl          pkgs/main/linux-64::pyopenssl-19.1.0-py37_0
+        pysocks            pkgs/main/linux-64::pysocks-1.7.1-py37_0
+        python             pkgs/main/linux-64::python-3.7.7-hcff3b4d_5
+        readline           pkgs/main/linux-64::readline-8.0-h7b6447c_0
+        requests           pkgs/main/linux-64::requests-2.23.0-py37_0
+        ruamel_yaml        pkgs/main/linux-64::ruamel_yaml-0.15.87-py37h7b6447c_0
+        setuptools         pkgs/main/linux-64::setuptools-46.4.0-py37_0
+        six                pkgs/main/linux-64::six-1.14.0-py37_0
+        sqlite             pkgs/main/linux-64::sqlite-3.31.1-h62c20be_1
+        tk                 pkgs/main/linux-64::tk-8.6.8-hbc83047_0
+        tqdm               pkgs/main/noarch::tqdm-4.46.0-py_0
+        urllib3            pkgs/main/linux-64::urllib3-1.25.8-py37_0
+        wheel              pkgs/main/linux-64::wheel-0.34.2-py37_0
+        xz                 pkgs/main/linux-64::xz-5.2.5-h7b6447c_0
+        yaml               pkgs/main/linux-64::yaml-0.1.7-had09818_2
+        zlib               pkgs/main/linux-64::zlib-1.2.11-h7b6447c_3
+
+
+        Preparing transaction: done
+        Executing transaction: done
+        installation finished.
+        ------------------------------------------------------------------------
+            Done.
+            anaconda python installation successful.
+        ------------------------------------------------------------------------
+        Extracting all conda packages...
+        ------------------------------------------------------------------------
+
+        ------------------------------------------------------------------------
+            Done.
+            conda packages installation successful.
+        ------------------------------------------------------------------------
+        Preparing to install all pip packages...
+        ------------------------------------------------------------------------
+        Processing ./deps_bundle/python/python_packages/pip_packages/pycuda-2020.1.tar.gz
+        Skipping wheel build for pycuda, due to binaries being disabled for it.
+        Installing collected packages: pycuda
+            Running setup.py install for pycuda ... done
+        Successfully installed pycuda-2020.1
+        ------------------------------------------------------------------------
+            Done.
+            pip packages installation successful.
+        ------------------------------------------------------------------------
+        Main dependency installation completed. Continuing...
+        ------------------------------------------------------------------------
+        Completed.
+        Currently checking hash for ctffind
+        Dependencies for ctffind have changed - reinstalling...
+        ------------------------------------------------------------------------
+        ctffind 4.1.10 installation successful.
+        ------------------------------------------------------------------------
+        Completed.
+        Currently checking hash for cudnn
+        Dependencies for cudnn have changed - reinstalling...
+        ------------------------------------------------------------------------
+        cudnn 8.1.0.77 for CUDA 11 installation successful.
+        ------------------------------------------------------------------------
+        Completed.
+        Currently checking hash for gctf
+        Dependencies for gctf have changed - reinstalling...
+        ------------------------------------------------------------------------
+        Gctf v1.06 installation successful.
+        ------------------------------------------------------------------------
+        Completed.
+        Completed dependency check.
+
+        ******* CRYOSPARC WORKER INSTALLATION COMPLETE *******************
+
+        In order to run processing jobs, you will need to connect this
+        worker to a cryoSPARC master.
+
+        ******************************************************************
+        ```
+
+
     6. Running the new cryosparc instance
+
+        All the cryosparc master and worker updates has completed. So, you need to re-execute cryosparc instance daemons (assume that userid’s CRYOSPARC_BASE_PORT is 39030).
+
+        ``` bash
+        userid@tem-[cs|ui]-al9 $> cd ~/
+        userid@tem-[cs|ui]-al9 $> cryosparcm env
+        userid@tem-[cs|ui]-al9 $> cryosparcm status
+        userid@tem-[cs|ui]-al9 $> cryosparcm start
+
+        Starting cryoSPARC System master process..
+        CryoSPARC is not already running.
+        database: started
+        command_core: started
+            command_core connection succeeded
+            command_core startup successful
+        command_vis: started
+        command_rtp: started
+            command_rtp connection succeeded
+            command_rtp startup successful
+        webapp: started
+        app: started
+        liveapp: started
+        -----------------------------------------------------
+
+        CryoSPARC master started.
+        From this machine, access cryoSPARC at
+            http://localhost:39030
+        and access cryoSPARC Live at
+            http://localhost:39036
+        please note the legacy cryoSPARC Live application is running at
+            http://localhost:39037
+
+        From other machines on the network, access cryoSPARC at
+            http://tem-[cs|ui]-el7.sdfarm.kr:39030
+        and access cryoSPARC Live at
+            http://tem-[cs|ui]-el7.sdfarm.kr:39036
+
+
+        Startup can take several minutes. Point your browser to the address
+        and refresh until you see the cryoSPARC web interface.
+        ```
