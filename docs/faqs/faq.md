@@ -2,7 +2,7 @@
 
 ## **Accounts/Password/OTP**
 
-#### **How to resolve the IPA command error when getting OTP?**
+* **How to resolve the IPA command error when getting OTP?**
 
 ??? note "(OTP) How to resolve the IPA command error when getting OTP?"
 
@@ -996,6 +996,3 @@
     As you submit a CryoSPARC job to TEM-FARM lane, you can encounter an error such as __Failed to launch!__. If you face with this error, you should check __`Number of GPUs to parallelize`__ option under `Compute Setttings` of job builder first. Unlike relion, it seems that all the CryoSPARC jobs can not distribute their worker processes onto multiple worker nodes (that is, all the cryoSPARC job is executed on a single CPU or GPU node). So, please remain the maximum number of GPUs which can be used to parallelize within a job is less than 2.
 
     ![cryosparc-maxgpus](../images/cryosparc-maxgpus.png)
-
-
-
