@@ -288,12 +288,12 @@ Given e-mail and password, users can login to CryoSPARC web interfaces.
 
 ???+ note
 
-    For details about user interface and usage of CryoSPARC, refer to CryoSPARC's official document. [https://cryosparc.com/docs/reference/general](https://cryosparc.com/docs/reference/general) 
+    For details about user interface and usage of CryoSPARC, refer to CryoSPARC's official document. [https://guide.cryosparc.com/application-guide-v4.0+/a-tour-of-the-cryosparc-interface](https://guide.cryosparc.com/application-guide-v4.0+/a-tour-of-the-cryosparc-interface) 
 
 
 ## Tutorial on processing T20S
 
-Please refer to CryoSPARC's webpage for the tutorial on processing T20S : [https://cryosparc.com/docs/tutorials/t20s](https://cryosparc.com/docs/tutorials/t20s)
+Please refer to CryoSPARC's webpage for the tutorial on processing T20S : [https://guide.cryosparc.com/processing-data/get-started-with-cryosparc-introductory-tutorial](https://guide.cryosparc.com/processing-data/get-started-with-cryosparc-introductory-tutorial)
 
 
   
