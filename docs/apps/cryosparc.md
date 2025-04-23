@@ -76,7 +76,7 @@ export PATH='/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/bin':$PATH
 
 By default, master processes (webapp, command_core, database, etc.) are automatilly started during configuration automation. Users should check and verify whether the master processes are working correctly on **tem-cs-al9.sdfarm.kr** or **tem-ui-al9.sdfarm.kr** as guided 
 
-#### **Checking environment variables for CryoSPARC instance**
+#### **2.1. Checking environment variables for CryoSPARC instance**
 
 You need to login the **tem-cs-al9.sdfarm.kr** or **tem-ui-al9.sdfarm.kr** via SSH to check the status of the deployed CryoSPARC intance.
 (On the node tem-cs-al9.sdfarm.kr or tem-ui-al9.sdfarm.kr where the CryoSPARC instance's running)
@@ -130,7 +130,7 @@ You can find what kinds of environment variables have been set for the cryoSPARC
     **Via the tunneled connection over SSH, users can access the web UI of CryoSPARC instance.**    
 
 
-#### **Checking the status of CryoSPARC instance**
+#### **2.2. Checking the status of CryoSPARC instance**
 
 On the node tem-cs-al9.sdfarm.kr or tem-ui-al9.sdfarm.kr where the CryoSPARC instance's running,
 
