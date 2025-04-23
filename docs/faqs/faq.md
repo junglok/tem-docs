@@ -962,3 +962,40 @@
         Startup can take several minutes. Point your browser to the address
         and refresh until you see the cryoSPARC web interface.
         ```
+
+#### **How to reset the password of non-administrator user?**
+
+??? note "How to reset the password of non-administrator user?"
+
+    Group representative user (i.e, PI) can reset the CryoSPARC non-admin user’s password to a new password with the following command-line execution:
+    First, login the server (__`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__) where the cryosparc instance is running, using representative account. 
+
+    ```bash
+    $> cryosparcm resetpassword --email <email address> --password <newpassword>
+    ```
+
+#### **Job failure caused by SSD caching**
+
+??? note "How to address job failure caused by SSD caching?"
+
+    During cryosparc configuration, we did not provide an option to support any SSD caching due to the lack of SSD (or NVMe SSD) drives on the worker nodes. However, by default, CryoSPARC seems to have __SSD caching__ enabled on its Web user interface. When you are running jobs that process particles (for example: Ab-Initio, Homogeneous Refinement, 2D Classification, 3D Variability), you will find a parameter at the bottom of the job builder under `Compute Settings` called `Cache particle images on SSD`. Turn this option off to load raw data from their original location instead.
+
+    Also, you can set a default parameter value of each project. By default, the Cache particle images on SSD parameter is always on for every job you build, but if you’d like to keep this option off across all jobs in a project, you can set a project-level default by running the following command:
+
+    ``` bash
+    $> cryosparcm cli "set_project_param_default('PX', 'compute_use_ssd', False)"
+    ```
+
+    where ‘PX’ is the Project ID you want to set the default value for (e.g., ‘P1’, ‘P2’, etc.)
+
+
+#### **Failed to launch job**
+
+??? note "How to address job launch failure?"
+
+    As you submit a CryoSPARC job to TEM-FARM lane, you can encounter an error such as __Failed to launch!__. If you face with this error, you should check __`Number of GPUs to parallelize`__ option under `Compute Setttings` of job builder first. Unlike relion, it seems that all the CryoSPARC jobs can not distribute their worker processes onto multiple worker nodes (that is, all the cryoSPARC job is executed on a single CPU or GPU node). So, please remain the maximum number of GPUs which can be used to parallelize within a job is less than 2.
+
+    ![cryosparc-maxgpus](../images/cryosparc-maxgpus.png)
+
+
+
