@@ -62,7 +62,7 @@ $> qsub -V job.pbs
 
 Here are some of the most useful commands for managing and monitoring jobs that have been launched with PBS. Most of these commands will only modify or query data from jobs that are active on the same system.
 
-### **`qdel`**
+### **qdel**
 
 #### **Canceling a single job**
 Run `qdel` with the job ID to kill a pending or running job.
@@ -78,8 +78,9 @@ Kill all of your own pending or running jobs. (Be sure to use backticks as shown
 $> qdel `qselect -u $USER`
 ```
 
-### **`qstat`**
+### **qstat**
 
+### **Status of all your own jobs**
 Run this to see the status of all of your own unfinished jobs.
 
 ```bash
@@ -103,6 +104,8 @@ Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
 
 Following are examples of `qstat` with some other commonly used options and arguments.
 
+### **Status of an unfinished job**
+
 Get a long-form summary of the status of an unfinished job.
 
 ```bash
@@ -111,35 +114,42 @@ $> qstat -f jobID
 !!! warning
     Use the above command only sparingly; it places a high load on PBSPro.
 
+### **Status of jobs within some periods**
 Get a single-line summary of the status of an unfinished or recently completed job (within 72 hours).
 
 ```bash
 $> qstat -x jobID
 ```
 
+### **Status of jobs on a specified queue**
 Get information about unfinished jobs in a specified execution queue.
 
 ```bash
 $> qstat queue_name
 ```
+
+### **Status of jobs by queue**
 See job activity by queue (e.g., pending, running) in terms of numbers of jobs.
 
 ```bash
 $> qstat -Q
 ```
 
+### **Status of all of your jobs**
 Display information for all of your pending, running, and finished jobs.
 
 ```bash
 $> qstat -x -u $USER
 ```
 
+### **Status of all your own jobs with comments**
 Display information for all of your unfinished jobs with `exec_host` and any `scheduler_comment` below the basic information.
 
 ```bash
 $> qstat -n -s -u $USER
 ```
 
+### **Status of all jobs**
 Display information for all the jobs (including other users jobs)
 
 ```bash
