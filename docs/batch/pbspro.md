@@ -80,7 +80,7 @@ $> qdel `qselect -u $USER`
 
 ### **qstat**
 
-### **Status of all your own jobs**
+#### **Status of all your own jobs**
 Run this to see the status of all of your own unfinished jobs.
 
 ```bash
@@ -104,7 +104,7 @@ Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
 
 Following are examples of `qstat` with some other commonly used options and arguments.
 
-### **Status of an unfinished job**
+#### **Status of an unfinished job**
 
 Get a long-form summary of the status of an unfinished job.
 
@@ -114,42 +114,42 @@ $> qstat -f jobID
 !!! warning
     Use the above command only sparingly; it places a high load on PBSPro.
 
-### **Status of jobs within some periods**
+#### **Status of jobs within some periods**
 Get a single-line summary of the status of an unfinished or recently completed job (within 72 hours).
 
 ```bash
 $> qstat -x jobID
 ```
 
-### **Status of jobs on a specified queue**
+#### **Status of jobs on a specified queue**
 Get information about unfinished jobs in a specified execution queue.
 
 ```bash
 $> qstat queue_name
 ```
 
-### **Status of jobs by queue**
+#### **Status of jobs by queue**
 See job activity by queue (e.g., pending, running) in terms of numbers of jobs.
 
 ```bash
 $> qstat -Q
 ```
 
-### **Status of all of your jobs**
+#### **Status of all of your jobs**
 Display information for all of your pending, running, and finished jobs.
 
 ```bash
 $> qstat -x -u $USER
 ```
 
-### **Status of all your own jobs with comments**
+#### **Status of all your own jobs with comments**
 Display information for all of your unfinished jobs with `exec_host` and any `scheduler_comment` below the basic information.
 
 ```bash
 $> qstat -n -s -u $USER
 ```
 
-### **Status of all jobs**
+#### **Status of all jobs**
 Display information for all the jobs (including other users jobs)
 
 ```bash
