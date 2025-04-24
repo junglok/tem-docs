@@ -2,14 +2,11 @@
 
 CryoSPARC is the state-of-the-art platform used globally for obtaining 3D structural information from single particle cryo-EM data. The CryoSPARC platform enables automated, high quality and high-throughput structure discovery of proteins, viruses and molecular complexes for research and drug discovery.
 
-???+ info
-
-    CryoSPARC offical site : [https://cryosparc.com](https://cryosparc.com)
-
-???+ note
+!!! note
 
     At the time of writing this document (Jan. 2021), unforturnatelly, CryoSPARC does not provide the method of installing **a single CryoSPARC instance**
     (consisting of web applcation, command core, and database) **for use by a number of users with the complete isolation and security of their project data**.
+    
     This problem might be resolved with later versions of CryoSPARC after CryoSPARC re-designs the product with the concept of "Hub" ( as mentioned in cryoSPARC forum 
     [https://discuss.cryosparc.com/t/use-linux-user-accounts/3480](https://discuss.cryosparc.com/t/use-linux-user-accounts/3480) ). 
     
@@ -23,6 +20,11 @@ CryoSPARC is available free of charge for academic use.
 For a completely isolated CryoSPARC instance, user must have their own non-commercial license key for CryoSPARC.
 
 **Please visit the CryoSPARC official site, request a license key and inform the valid key to GSDC TEM service administrator by e-mail.**  
+
+???+ info
+
+    CryoSPARC offical site : [https://cryosparc.com](https://cryosparc.com)
+
 
 ## Getting a CryoSPARC instance 
 
@@ -40,11 +42,11 @@ along with a browser based user interface and command line tools. CryoSPARC is c
 
 ### 1. (Admin) Install and setup a CryoSPARC instance
 
-On behalf of users, administrator can execute ansible configuration automation code-snippets to install and setup a CryoSPARC instance, using a given valid license key.
-Master, worker and database sub-packages will be installed during configuration automation, which are located in __/tem/scratch/<GroupDir>/.cryosparc__ after finishing setup.
+On behalf of users, GSDC administrator can execute ansible configuration automation code-snippets to install and setup a CryoSPARC instance, using a given valid license key.
+Master, worker and database sub-packages will be installed during configuration automation, which are located in __/tem/scratch/GroupDir/.cryosparc__ after finishing setup.
 A setup procedure includes registering both cluster(lane or worker nodes) instance and webapp's admin/normal users account. The whole setup will take about 10 minutes. 
 
-After finishing installation, __/tem/scratch/<GroupDir>/.cryosparc__ has following directories/files structure: (On the node tem-cs-al9.sdfarm.kr or tem-ui-al9.sdfarm.kr where the CryoSPARC instance's running)
+After finishing installation, __/tem/scratch/GroupDir/.cryosparc__ has following directories/files structure: (On the node tem-cs-al9.sdfarm.kr or tem-ui-al9.sdfarm.kr where the CryoSPARC instance's running)
     
 ``` bash
 $> cd /tem/scratch/<GroupDir>/.cryosparc
@@ -79,7 +81,7 @@ By default, master processes (webapp, command_core, database, etc.) are automati
 #### **2.1. Checking environment variables for CryoSPARC instance**
 
 You need to login the **tem-cs-al9.sdfarm.kr** or **tem-ui-al9.sdfarm.kr** via SSH to check the status of the deployed CryoSPARC intance.
-(On the node tem-cs-al9.sdfarm.kr or tem-ui-al9.sdfarm.kr where the CryoSPARC instance's running)
+You should execute `cryosparcm env` command on the node tem-cs-al9.sdfarm.kr or tem-ui-al9.sdfarm.kr where the CryoSPARC instance's running.
 
 ```bash
 $> cryosparcm env
@@ -132,7 +134,7 @@ You can find what kinds of environment variables have been set for the cryoSPARC
 
 #### **2.2. Checking the status of CryoSPARC instance**
 
-On the node tem-cs-al9.sdfarm.kr or tem-ui-al9.sdfarm.kr where the CryoSPARC instance's running,
+On the node tem-cs-al9.sdfarm.kr or tem-ui-al9.sdfarm.kr where the CryoSPARC instance's running, the result of `cryosparcm status` command is as follows:
 
 ``` bash
 $> cryosparcm status
