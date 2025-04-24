@@ -287,9 +287,9 @@ Given e-mail and password, users can login to CryoSPARC web interfaces.
 ![cryosparc-project](../images/cryosparc-project.png)
 
 
-### CryoSPARC cluster (lane)
+### CryoSPARC lane information
 
-![cryosparc-cluster](../images/cryosparc-cluster.png)
+![cryosparc-cluster](../images/cryosparc_lane_info.png)
 
 ???+ note
 
