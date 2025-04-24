@@ -129,9 +129,10 @@ You can find what kinds of environment variables have been set for the cryoSPARC
 
 !!! note
     
-    Especially, user should check **CRYOSPARC_BASE_PORT** (above, for example, 39000), which is **the listening port of CryoSPARC web application**. 
-    Later, this port number is used to make SSH tunneling between client and **tem-cs-al9.sdfarm.kr** or **tem-ui-al9.sdfarm.kr** login node. 
-    **Via the tunneled connection over SSH, users can access the web UI of CryoSPARC instance.**    
+    Especially, user should remember **CRYOSPARC_BASE_PORT** (above, for example, 39000), which is **the listening port of CryoSPARC web application**.
+
+    Later, this port number is used to make SSH tunneling between client and cryosparc hosting node (**tem-cs-al9.sdfarm.kr** or **tem-ui-al9.sdfarm.kr**). 
+    **Via the tunneled connection over SSH, users can access Web UI of CryoSPARC instance.**    
 
 
 #### **2.2. Checking the status of CryoSPARC instance**
