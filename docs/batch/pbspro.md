@@ -64,12 +64,14 @@ Here are some of the most useful commands for managing and monitoring jobs that 
 
 ### **`qdel`**
 
+#### **Canceling a single job**
 Run `qdel` with the job ID to kill a pending or running job.
 
 ```bash
 $> qdel jobID
 ```
 
+#### **Stopping all of your own jobs**
 Kill all of your own pending or running jobs. (Be sure to use backticks as shown.)
 
 ```bash
