@@ -63,7 +63,9 @@ $> tree -L 1 ./
 
 ???+ warning 
   
-    **!! CAUTION !!** **DO NOT** delete or modify CryoSPARC instance base directory, __/tem/scratch/<GroupDir>/.cryosparc__. The CryoSPARC base directory contains database. If this directory is deleted, all the project, job and workflow information will be corrupted and lost.
+    **DO NOT** delete or modify CryoSPARC instance base directory, **/tem/scratch/GroupDir/.cryosparc**. 
+    
+    The CryoSPARC base directory contains database. If this directory is deleted, all the project, job and workflow metadata information will be corrupted or lost.
 
 Also, the configuration code-snippets implicitly add CryoSPARC instance's binary path to PATH environment variable.
 
