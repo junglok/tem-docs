@@ -57,7 +57,7 @@ RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-a
     $> which relion
     /tem/al9/applications/relion-4.0.1-gpu-cuda-12.6/bin/relion
     ```
-    
+
 4. Execute the relion (we assume that X11 forwarding is enabled)
 
     ``` bash
@@ -66,3 +66,21 @@ RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-a
 
     ![relion-1](../images/relion-1.png)
 
+
+## Relion job templates (Standard submission scripts)
+
+All the relion job templates (also known as standard submission scripts) for PBSPro, is located at the following : **/tem/al9/templates/relion**
+
+``` bash
+$> cd /tem/al9/templates/relion
+$> tree .
+.
+├── relion-4.0.1-cpu.bash
+├── relion-4.0.1-gpu-cuda11.bash
+├── relion-4.0.1-gpu-cuda12.bash
+├── relion-4.0.1-intel.bash
+├── relion-5.0.0-cpu.bash
+├── relion-5.0.0-gpu-cuda11.bash
+├── relion-5.0.0-gpu-cuda12.bash
+└── relion-5.0.0-intel.bash
+```
