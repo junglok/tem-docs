@@ -60,9 +60,9 @@
 
 ## **Module Environment (LMOD)**
 
-#### **module avail can't find some modules. What do I do?**
+#### **"module avail" can't find some modules. What do I do?**
 
-??? note "module avail can't find some modules. What do I do?"
+??? note "`module avail` can't find some modules. What do I do?"
 
     You might have an out-of-date cache. Try running:
 
@@ -79,7 +79,7 @@
 
 ## **CryoSPARC**
 
-#### **How to change CryoSPARC's master host name?**
+#### **Changing CryoSPARC's master host name?**
 
 ??? note "How to change CryoSPARC's master host name?"
 
@@ -128,7 +128,7 @@
         ```
 
 
-#### **How to migrate CryoSPARC's `TEM-FARM` lane from old SL7 to new AL9-based cluster?**
+#### **Migrating CryoSPARC's `TEM-FARM` lane from old SL7 to new AL9-based cluster?**
 
 ??? note "How to migrate CryoSPARC's `TEM-FARM` lane from old SL7 to new AL9-based cluster?"
 
@@ -296,7 +296,7 @@
     Updated TEM-FARM cluster submission script
     ///
 
-#### **How to resolve the problems on starting and/or restarting CryoSPARC daemons?**
+#### **Resolving the problems on starting and/or restarting CryoSPARC daemons?**
 
 ??? note "How to resolve the problems on starting and/or restarting CryoSPARC daemons?"
 
@@ -355,7 +355,7 @@
     and refresh until you see the CryoSPARC web interface.
     ```
 
-#### **How to upgrade (or downgrade) to the specific version of cryosparc softwares?**
+#### **Upgrading (or Downgrading) to the specific version of cryosparc softwares?**
 
 ??? note "How to upgrade (or downgrade) to the specific version of cryosparc softwares?"
 
@@ -963,7 +963,7 @@
         and refresh until you see the cryoSPARC web interface.
         ```
 
-#### **How to reset the password of non-administrator user?**
+#### **Initializaing the password of non-administrator user?**
 
 ??? note "How to reset the password of non-administrator user?"
 
@@ -989,7 +989,7 @@
     where ‘PX’ is the Project ID you want to set the default value for (e.g., ‘P1’, ‘P2’, etc.)
 
 
-#### **Failed to launch job**
+#### **Job launching failure**
 
 ??? note "How to address job launch failure?"
 
