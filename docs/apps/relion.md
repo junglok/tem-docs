@@ -68,7 +68,9 @@ RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-a
 
 ## Relion job templates (Standard submission scripts)
 
-All the relion job templates (also known as standard submission scripts) for PBSPro is located at the following : **/tem/al9/templates/relion**
+All the relion job templates (also known as standard submission scripts) for PBSPro is located at the following directory : 
+
+**/tem/al9/templates/relion**
 
 ``` bash
 $> cd /tem/al9/templates/relion
@@ -135,14 +137,14 @@ echo "Done!"
 
 | String          | Meaning                                                                          | Remarks                    |
 | --------------- | -------------------------------------------------------------------------------- | -------------------------- |
-| XXXnameXXX      | Job name                                                                         |                            |
-| XXXcommandXXX   | Relion command + arguments                                                       |                            |
-| XXXqueueXXX     | Queue Name (`Queue name:`)                                                       | gpuQ                       |
-| XXXextra1XXX    | Number of Nodes (`Number of Nodes:`)                                             | 1-2 (recommended)          |
-| XXXextra2XXX    | Number of processes per node (`Number of processes per each node:`)              |                            |
-| XXXextra3XXX    | Number of GPUs per node (`Number of GPUs per node:`)                             | 1-2 (recommended)          |
-| XXXextra4XXX    | Amount of memory per node (`Amount of memory(GB) per each node:`)                | # of processes per node x 6GB (recommended) |
-| XXXmpinodesXXX  | Number of Nodes x (Number of processes per each node)                            |                            |
+| **XXXnameXXX**      | Job name                                                                         |                            |
+| **XXXcommandXXX**   | Relion command + arguments                                                       |                            |
+| **XXXqueueXXX**     | Queue Name (`Queue name:`)                                                       | gpuQ                       |
+| **XXXextra1XXX**    | Number of Nodes (`Number of Nodes:`)                                             | 1-2 (recommended)          |
+| **XXXextra2XXX**    | Number of processes per node (`Number of processes per each node:`)              |                            |
+| **XXXextra3XXX**    | Number of GPUs per node (`Number of GPUs per node:`)                             | 1-2 (recommended)          |
+| **XXXextra4XXX**    | Amount of memory per node (`Amount of memory(GB) per each node:`)                | # of processes per node x 6GB (recommended) |
+| **XXXmpinodesXXX**  | Number of Nodes x (Number of processes per  node)                            |                            |
 
 
 ![relion-gpu](../images/relion-gpu.png)
@@ -152,12 +154,12 @@ echo "Done!"
 
 | String          | Meaning                                                                          | Remarks                    |
 | --------------- | -------------------------------------------------------------------------------- | -------------------------- |
-| XXXnameXXX      | Job name                                                                         |                            |
-| XXXcommandXXX   | Relion command to be executed                                                    |                            |
-| XXXqueueXXX     | Queue Name (`Queue name:`)                                                       | cpuQ                       |
-| XXXextra1XXX    | Number of Nodes (`Number of Nodes:`)                                             | 1-2 (recommended)          |
-| XXXextra2XXX    | Number of processes per node (`Number of processes per each node:`)              |                            |
-| XXXextra3XXX    | Amount of memory per node (`Amount of memory(GB) per each node:`)                | # of processes per node x 6GB (recommended) |
-| XXXmpinodesXXX  | (Number of Nodes) x (Number of processes per each node)                          |                            |
+| **XXXnameXXX**      | Job name                                                                         |                            |
+| **XXXcommandXXX**   | Relion command to be executed                                                    |                            |
+| **XXXqueueXXX**     | Queue Name (`Queue name:`)                                                       | cpuQ                       |
+| **XXXextra1XXX**    | Number of Nodes (`Number of Nodes:`)                                             | 1-2 (recommended)          |
+| **XXXextra2XXX**    | Number of processes per node (`Number of processes per each node:`)              |                            |
+| **XXXextra3XXX**    | Amount of memory per node (`Amount of memory(GB) per each node:`)                | # of processes per node x 6GB (recommended) |
+| **XXXmpinodesXXX**  | (Number of Nodes) x (Number of processes per  node)                          |                            |
 
 ![relion-cpu](../images/relion-cpu.png)
