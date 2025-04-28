@@ -16,7 +16,7 @@ Sample basic PBS scripts are shown below:
         #PBS -k eod
         #PBS -q cpuQ
         #PBS -l walltime=00:05:00
-        #PBS -l select=2:ncpus=16:mpiprocs=16
+        #PBS -l select=2:ncpus=16:mem=64GB:mpiprocs=16
 
         ### Set temp to scratch (note that <GroupDir> should be replaced with the proper name)
         setenv TMPDIR /tem/scratch/<GroupDir>/temp && mkdir -p ${TMPDIR}
@@ -86,8 +86,8 @@ The example above contains several **directives** which are interpreted by the `
   > specifies the desired PBS *queue* for this job.
 * **`-l walltime=00:05:00`**
   > requests 5 minutes as the maximum job execution (*walltime*) time.  Specified in `HH:MM:SS` format.
-* **`-l select=2:ncpus=16:mpiprocs=16`** 
-  > a computational *resource chunk* request, detailing the quantity and configuration of *compute nodes* required for this job. This example requests a *selection* of 2 nodes, where each node must have 16 CPU cores, each of which we will use as an MPI rank in our application.
+* **`-l select=2:ncpus=16:mem=64GB:mpiprocs=16`** 
+  > a computational *resource chunk* request, detailing the quantity and configuration of *compute nodes* required for this job. This example requests a *selection* of 2 nodes, where each node must have 16 CPU cores and 64GB free memory, each of which we will use as an MPI rank in our application.
 
 
 ### **Script contents**
@@ -122,7 +122,7 @@ Resources (compute node configuration, job duration) are requested through a com
 For example:
 ```pre
 #PBS -l walltime=00:05:00
-#PBS -l select=1:ncpus=64:mpiprocs=4:ngpus=4:mem=400GB
+#PBS -l select=1:ncpus=64:mpiprocs=4:ngpus=4:mem=256GB
 ```
 specifies job `walltime` and compute node selection. See more details below.
 

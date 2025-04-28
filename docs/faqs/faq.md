@@ -60,9 +60,9 @@
 
 ## **Module Environment (LMOD)**
 
-#### **`module avail` can't find some modules. What do I do?**
+#### **module avail can't find some modules. What do I do?**
 
-??? note "`module avail` can't find some modules. What do I do?"
+??? note "module avail can't find some modules. What do I do?"
 
     You might have an out-of-date cache. Try running:
 
@@ -70,7 +70,7 @@
     $> module --ignore_cache avail
     ```
 
-    If this command does find it, then you have an old personal spider cache. To remove it do:
+    If this command does find it, then you have an old personal lmod's spider cache. To remove it do:
 
     ```bash
     $> rm -rf ~/.cache/lmod
