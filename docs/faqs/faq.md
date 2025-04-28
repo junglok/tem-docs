@@ -2,7 +2,7 @@
 
 ## **Accounts/Password/OTP**
 
-#### **How to resolve the IPA command error when getting OTP?**
+#### **Resolving the IPA command error when getting OTP?**
 
 ??? note "(OTP) How to resolve the IPA command error when getting OTP?"
 
@@ -17,7 +17,7 @@
 
     Enter your password and press Enter to generate new credentials. Now, re-run the `ipa otptoken-add` command. It should execute without errors, using the newly generated credentials.
 
-#### **How to resolve "Unable to display QR code" error?**
+#### **Resolving "Unable to display QR code" error?**
 
 ??? note "(OTP) How to resolve `Unable to display QR code` error?"
 
@@ -29,7 +29,7 @@
     $> LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 ipa otptoken-add --algo=sha512
     ```
 
-#### **How to release terminal's screen lock?**
+#### **Releasing terminal's screen lock?**
 
 ??? note "(LOCK+OTP) How to release terminal's screen lock"
 
