@@ -82,4 +82,88 @@ $> tree .
 ├── relion-5.0.0-gpu-cuda11.bash
 ├── relion-5.0.0-gpu-cuda12.bash
 └── relion-5.0.0-intel.bash
+
+$> cat relion-4.0.1-gpu-cuda12.bash
+#!/bin/bash
+
+### Inherit all current environment variables
+#PBS -V
+
+### Queue name
+#PBS -q XXXqueueXXX
+
+### GPU cluster use : Specify the number of nodes (XXXextra1XXX)
+### the number of processes per each node (XXXextra2XXX)
+### the number of GPUs per each node (XXXextra3XXX)
+### and the size of required memory per each node (GB, XXXextra4XXX)
+
+#PBS -l select=XXXextra1XXX:ncpus=XXXextra2XXX:ngpus=XXXextra3XXX:mem=XXXextra4XXXGB:mpiprocs=XXXextra2XXX
+#PBS -o XXXoutfileXXX
+#PBS -e XXXerrfileXXX
+
+#PBS -k eod
+
+###########################################################
+### Print Environment Variables
+###########################################################
+echo ------------------------------------------------------
+echo -n 'Job is running on node '; cat $PBS_NODEFILE
+echo ------------------------------------------------------
+echo PBS: qsub is running on $PBS_O_HOST
+echo PBS: originating queue is $PBS_O_QUEUE
+echo PBS: executing queue is $PBS_QUEUE
+echo PBS: working directory is $PBS_O_WORKDIR
+echo PBS: execution mode is $PBS_ENVIRONMENT
+echo PBS: job identifier is $PBS_JOBID
+echo PBS: job name is $PBS_JOBNAME
+echo PBS: node file is $PBS_NODEFILE
+echo PBS: current home directory is $PBS_O_HOME
+echo PBS: PATH = $PBS_O_PATH
+echo ------------------------------------------------------
+
+###########################################################
+# Switch to the working directory;
+cd $PBS_O_WORKDIR/XXXnameXXX
+touch run.out
+touch run.err
+cd $PBS_O_WORKDIR
+###########################################################
+
+### Run:
+module load apps/relion/4.0.1/gpu/cuda-12.6
+mpirun --mca btl tcp,self -n XXXmpinodesXXX -N XXXextra2XXX --machinefile $PBS_NODEFILE XXXcommandXXX
+
+echo "Done!"
 ```
+
+The job templates file contains **some pre-defined strings (XXX...XXX)**. Each string is replaced with some values provided by users (or automatically by the program) in the relion GUI tool when a relion job is submitted using the template.
+
+* GPU scripts strings
+
+| String                 | Meaning                                                                          | Remarks                    |
+| ---------------------- | -------------------------------------------------------------------------------- | -------------------------- |
+| XXXnameXXX             | Job name                                                                         |                            |
+| XXXcommandXXX          | Relion command to be executed                                                    |                            |
+| XXXqueueXXX            | Queue Name (`Queue name:` in GUI)                                                | cpuQ or gpuQ               |
+| XXXextra1XXX           | Number of Nodes (`Number of Nodes:` in GUI)                                      | 1-2 (recommended)          |
+| XXXextra2XXX           | Number of proccesses per each node (`Number of processes per each node:` in GUI) |                            |
+| XXXextra3XXX           | Number of GPUs per each node (`Number of GPUs per node:` in GUI)                 | 1-2 (recommended)          |
+| XXXextra4XXX           | Amount of memory per each node (`Amount of memory(GB) per each node:` in GUI)    | Number of processes per each node * 6GB (recommended) |
+| XXXmpinodesXXX         | Number of Nodes x (Number of processes per each node)                            |                            |
+
+
+![relion-gpu](../images/relion-gpu.png)
+
+* CPU scripts strings
+
+| String                 | Meaning                                                                          | Remarks                    |
+| ---------------------- | -------------------------------------------------------------------------------- | -------------------------- |
+| XXXnameXXX             | Job name                                                                         |                            |
+| XXXcommandXXX          | Relion command to be executed                                                    |                            |
+| XXXqueueXXX            | Queue Name (`Queue name:` in GUI)                                                | cpuQ or gpuQ               |
+| XXXextra1XXX           | Number of Nodes (`Number of Nodes:` in GUI)                                      | 1-2 (recommended)          |
+| XXXextra2XXX           | Number of proccesses per each node (`Number of processes per each node:` in GUI) |                            |
+| XXXextra3XXX           | Amount of memory per each node (`Amount of memory(GB) per each node:` in GUI)    | Number of processes per each node * 6GB (recommended) |
+| XXXmpinodesXXX         | (Number of Nodes) x (Number of processes per each node)                          |                            |
+
+![relion-cpu](../images/relion-cpu.png)
