@@ -27,9 +27,12 @@ RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-a
     ------------------------------------------------------------------------------------------------------------
     To learn more about a package execute:
     $ module spider Foo
+    
     where "Foo" is the name of a module.
+
     To find detailed information about a particular package you
     must specify the version if there is more than one version:
+    
     $ module spider Foo/11.1
     ------------------------------------------------------------------------------------------------------------
     ```
