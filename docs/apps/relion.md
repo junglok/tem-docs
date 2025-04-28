@@ -82,7 +82,15 @@ $> tree .
 ├── relion-5.0.0-gpu-cuda11.bash
 ├── relion-5.0.0-gpu-cuda12.bash
 └── relion-5.0.0-intel.bash
+```
 
+## Relion pre-defined strings
+
+The job templates file contains **some pre-defined strings (XXX...XXX)**. 
+Each string is replaced with some values provided by users (or automatically by the program) in the relion tool when a relion job is submitted using the template.
+
+
+``` bash
 $> cat relion-4.0.1-gpu-cuda12.bash
 #!/bin/bash
 
@@ -136,9 +144,7 @@ mpirun --mca btl tcp,self -n XXXmpinodesXXX -N XXXextra2XXX --machinefile $PBS_N
 echo "Done!"
 ```
 
-The job templates file contains **some pre-defined strings (XXX...XXX)**. Each string is replaced with some values provided by users (or automatically by the program) in the relion GUI tool when a relion job is submitted using the template.
-
-* GPU scripts strings
+* GPU script strings
 
 | String                 | Meaning                                                                          | Remarks                    |
 | ---------------------- | -------------------------------------------------------------------------------- | -------------------------- |
@@ -148,11 +154,12 @@ The job templates file contains **some pre-defined strings (XXX...XXX)**. Each s
 | XXXextra1XXX           | Number of Nodes (`Number of Nodes:` in GUI)                                      | 1-2 (recommended)          |
 | XXXextra2XXX           | Number of proccesses per each node (`Number of processes per each node:` in GUI) |                            |
 | XXXextra3XXX           | Number of GPUs per each node (`Number of GPUs per node:` in GUI)                 | 1-2 (recommended)          |
-| XXXextra4XXX           | Amount of memory per each node (`Amount of memory(GB) per each node:` in GUI)    | Number of processes per each node * 6GB (recommended) |
+| XXXextra4XXX           | Amount of memory per each node (`Amount of memory(GB) per each node:` in GUI)    | # of processes per each node x 6GB (recommended) |
 | XXXmpinodesXXX         | Number of Nodes x (Number of processes per each node)                            |                            |
 
 
 ![relion-gpu](../images/relion-gpu.png)
+
 
 * CPU scripts strings
 
@@ -163,7 +170,7 @@ The job templates file contains **some pre-defined strings (XXX...XXX)**. Each s
 | XXXqueueXXX            | Queue Name (`Queue name:` in GUI)                                                | cpuQ or gpuQ               |
 | XXXextra1XXX           | Number of Nodes (`Number of Nodes:` in GUI)                                      | 1-2 (recommended)          |
 | XXXextra2XXX           | Number of proccesses per each node (`Number of processes per each node:` in GUI) |                            |
-| XXXextra3XXX           | Amount of memory per each node (`Amount of memory(GB) per each node:` in GUI)    | Number of processes per each node * 6GB (recommended) |
+| XXXextra3XXX           | Amount of memory per each node (`Amount of memory(GB) per each node:` in GUI)    | # of processes per each node x 6GB (recommended) |
 | XXXmpinodesXXX         | (Number of Nodes) x (Number of processes per each node)                          |                            |
 
 ![relion-cpu](../images/relion-cpu.png)
