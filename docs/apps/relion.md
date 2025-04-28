@@ -12,7 +12,7 @@ RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-a
     The following modules match your search criteria: "relion"
     ------------------------------------------------------------------------------------------------------------
 
-    apps/relion/4.0.1/cpu: apps/relion/4.0.1/cpu/gcc-11.5.0, apps/relion/4.0.1/cpu/intel-compiler-2024.0.2
+    apps/relion/4.0.1/cpu: **apps/relion/4.0.1/cpu/gcc-11.5.0**, **apps/relion/4.0.1/cpu/intel-compiler-2024.0.2**
         RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on)
 
     apps/relion/4.0.1/gpu: apps/relion/4.0.1/gpu/cuda-11.8, apps/relion/4.0.1/gpu/cuda-12.6
