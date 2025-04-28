@@ -52,6 +52,17 @@
 
 ## **SSH Login/Terminal**
 
+#### **Releasing the account lock?**
+
+??? note "(LOCK) How to release the GSDC account lock?"
+
+    When logging in to the login server using a GSDC UserID, entering the wrong password (including OTP) more than 5 times may cause the UserID to be locked. 
+    When the UserID is locked, access to the server is restricted for a certain period of time. 
+    
+    To unlock the account, you must send **a ticket email** to the person in charge.
+    
+    E-mail address : __gsdc-support at kisti.re.kr__ (__[TEM]__ prefix required in the e-mail title)
+
 ## **X11 Forwarding**
 
 ## **SSH Tunnelling**
