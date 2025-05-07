@@ -107,6 +107,21 @@ TBD
     apps/eternafold/1.3.1/cpu/gcc-11.5.0
     ```
 
+## **GCtfFind**
+
+**Description**
+> GCtfFind is a new application that robustly estimates the contrast transfer function (CTF) of cryoET tilt series and cryoEM micrographs, essential information needed for cryoET subtomogram averaging and cryoEM single-particle reconstruction.
+
+**URL**
+> [https://github.com/czimaginginstitute/GCtfFind](https://github.com/czimaginginstitute/GCtfFind)
+
+???+ note "ModulePaths for GCtfFind"
+
+    ```bash
+    apps/gctffind/1.0.0/gpu/cuda-11.8
+    apps/gctffind/1.0.0/gpu/cuda-12.6
+    ```
+
 ## **IMOD**
 
 **Description**
