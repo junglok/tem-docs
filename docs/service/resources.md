@@ -17,8 +17,8 @@ Overall architecture of GSDC TEM Comptuing and Storage Resources (including Data
 
 | Server Name            | Specification                                                           | Remarks               |
 | ---------------------- | ----------------------------------------------------------------------- | --------------------- |
-| __tem-dm-al9.sdfarm.kr__   | Intel Xeon 3.1GHz 18Core * 2CPUs, 384GB Memory                          | SFTP, Globus Online (GridFTP)|
-| __tem-dtn-al9.sdfarm.kr__  | Intel Xeon 2.7GHz 18Core * 2CPUs, 384GB Memory                          | Rclone, GridFTP        |
+| __tem-dm-al9.sdfarm.kr__   | Intel Xeon 3.1GHz 18Core * 2CPUs, 384GB Memory                      | SFTP, GridFTP         |
+| __tem-dtn-al9.sdfarm.kr__  | Intel Xeon 2.7GHz 18Core * 2CPUs, 384GB Memory                      | Rclone, GridFTP       |
 
 
 ## Batch System Server
