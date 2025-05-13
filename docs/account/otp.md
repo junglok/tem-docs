@@ -12,4 +12,4 @@ Please follow the GSDC OTP guide (written in both Korean and English) through th
 !!! warning 
 
     * You must follow the guide when you are already logged-in GSDC login server using SSH terminal.
-    * Based on the security guidelines, accounts (and sub-IDs) that do not have OTP enabled will be temporarily suspended through the reqular checks by service managers.
+    * Based on the security guidelines, accounts (and sub-IDs) that do not have OTP enabled will be temporarily disabled through the regular checks by service managers.
