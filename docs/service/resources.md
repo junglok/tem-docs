@@ -40,6 +40,6 @@ Overall architecture of GSDC TEM Comptuing and Storage Resources (including Data
 
 | Category               | Specification                                   | Remarks                    |
 | ---------------------- | ----------------------------------------------- | -------------------------- |
-| Users Home Directory   | :material-check: 100GB / each account(ID)       | /tem/home/<userID>         |
-| Scratch Directory      | :material-check: 80TB / each research group     | /tem/scratch/<groupDir>    |
-| Archiving Directory    | :material-check: 500TB / each Cryo-EM site      | /tem/archive/<siteDir>     |
+| Users Home Directory   | :material-check: 100GB / each account(ID)       | /tem/home/__UserID__       |
+| Scratch Directory      | :material-check: 80TB / each research group     | /tem/scratch/__GroupDir__  |
+| Archiving Directory    | :material-check: 500TB / each Cryo-EM site      | /tem/archive/__SiteDir__   |
