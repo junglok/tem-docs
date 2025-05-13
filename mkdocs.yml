@@ -75,8 +75,8 @@ nav:
     - SSH Login: account/ssh.md
     - Enabling OTP: account/otp.md
   - Data Transfer:
-    - Globus Online (GridFTP) : transfer/globus.md
-    - SFTP (SecureFTP): transfer/sftp.md
+    - Globus Online: transfer/globus.md
+    - SFTP: transfer/sftp.md
     - FileZilla: transfer/filezilla.md
     - WinSCP: transfer/winscp.md
   - GSDC TEM Cluster:
