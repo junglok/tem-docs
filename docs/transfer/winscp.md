@@ -9,7 +9,7 @@ Run the WinSCP.exe which you installed in above step.
 Click `Tabs` -> `Sites` -> `Site Manager`
 
    * Select SFTP as `File protocol:`.
-   * Enter __`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__ as `Host name:`.
+   * Enter __`tem-dm-al9.sdfarm.kr`__ as `Host name:`.
    * Enter a designated port number as `Port number:`
    * Enter `User name:`
 
@@ -21,7 +21,7 @@ In advanced dialog, go to the `SSH` -> `Authentication`, check all the options i
 
 ![winscp-1](../images/winscp-1.png)
 
-Back in the login window, confirm the hostname (__`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__), port number and user name. Note to leave the blank in `Password:`. Click `Save` button and choose a name for this session configuration in the `Site name` field, and click OK.
+Back in the login window, confirm the hostname (__`tem-dm-al9.sdfarm.kr`__), port number and user name. Note to leave the blank in `Password:`. Click `Save` button and choose a name for this session configuration in the `Site name` field, and click OK.
 
 ![winscp-2](../images/winscp-2.png)
 
