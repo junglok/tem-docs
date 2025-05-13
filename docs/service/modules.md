@@ -41,29 +41,37 @@ This includes easily adding or removing directories to the PATH environment vari
 
     ```bash
     $> module avail
-    ---------------------------------- /tem/el9/system/lmod/8.7.53/modulefiles/applications ----------------
-    apps/aretomo/1.3.4/gpu/cuda-11.8                       apps/relion/4.0.1/gpu/cuda-11.8
-    apps/aretomo2/1.1.2/gpu/cuda-11.8                      apps/relion/4.0.1/gpu/cuda-12.6               (D)
-    apps/aretomo2/1.1.2/gpu/cuda-12.6               (D)    apps/relion/5.0.0/cpu/gcc-11.5.0
-    apps/aretomo3/2.0.3/gpu/cuda-11.8                      apps/relion/5.0.0/cpu/intel-compiler-2024.0.2 (D)
-    apps/aretomo3/2.0.3/gpu/cuda-12.6               (D)    apps/relion/5.0.0/gpu/cuda-11.8
-    apps/ctffind/4.1.14/cpu/gcc-11.5.0                     apps/relion/5.0.0/gpu/cuda-12.6               (D)
-    apps/ctffind/4.1.14/cpu/intel-compiler-2024.0.2 (D)    apps/resmap/1.1.4
-    apps/isonet/0.2.1/gpu/cuda-12.5                        apps/summovie/1.0.2
-    apps/isonet/0.3.0/gpu/cuda-12.5                        apps/topaz/0.2.5/gpu/cuda-11.8
-    apps/motioncor2/1.6.4/gpu/cuda-11.8                    apps/topaz/0.2.5/gpu/cuda-12.4                (D)
-    apps/motioncor3/1.1.1/gpu/cuda-11.8                    apps/topaz/0.2.5_filaments/gpu/cuda-11.8
-    apps/motioncor3/1.1.1/gpu/cuda-12.6             (D)    apps/topaz/0.2.5_filaments/gpu/cuda-12.4      (D)
-    apps/pyem/0.65                                         apps/topaz/0.3.1/gpu/cuda-11.8
-    apps/relion/4.0.1/cpu/gcc-11.5.0                       apps/topaz/0.3.1/gpu/cuda-12.4                (D)
-    apps/relion/4.0.1/cpu/intel-compiler-2024.0.2   (D)    apps/unblur/1.0.2
-    ------------------------------------ /tem/el9/system/lmod/8.7.53/modulefiles/virtual -------------------
-    anaconda3/2024.10-1
-    -------------------------------------- /tem/el9/system/lmod/8.7.53/modulefiles/mpi ---------------------
-    openmpi/5.0.3/gcc-11.5.0    openmpi/5.0.3/intel-compiler-2024.0.2 (D)
-    ---------------------------------- /tem/el9/system/lmod/8.7.53/modulefiles/acceleration ----------------
+    --------------------------- /tem/al9/system/lmod/8.7.53/modulefiles/applications ----------------------------
+    apps/aretomo/1.3.4/gpu/cuda-11.8                       apps/pyem/0.65
+    apps/aretomo2/1.1.2/gpu/cuda-11.8                      apps/relion/4.0.1/cpu/gcc-11.5.0
+    apps/aretomo2/1.1.2/gpu/cuda-12.6               (D)    apps/relion/4.0.1/cpu/intel-compiler-2024.0.2 (D)
+    apps/aretomo3/2.0.3/gpu/cuda-11.8                      apps/relion/4.0.1/gpu/cuda-11.8
+    apps/aretomo3/2.0.3/gpu/cuda-12.6               (D)    apps/relion/4.0.1/gpu/cuda-12.6               (D)
+    apps/cistem/1.0.0/cpu/gcc-11.5.0                       apps/relion/5.0.0/cpu/gcc-11.5.0
+    apps/cryolo/1.9.9/gpu/cuda-11.x                        apps/relion/5.0.0/cpu/intel-compiler-2024.0.2 (D)
+    apps/ctffind/4.1.14/cpu/gcc-11.5.0                     apps/relion/5.0.0/gpu/cuda-11.8
+    apps/ctffind/4.1.14/cpu/intel-compiler-2024.0.2 (D)    apps/relion/5.0.0/gpu/cuda-12.6               (D)
+    apps/emrna/1.5/gpu/cuda-11.1                           apps/resmap/1.1.4
+    apps/eternafold/1.3.1/cpu/gcc-11.5.0                   apps/summovie/1.0.2
+    apps/gctffind/1.0.0/gpu/cuda-11.8                      apps/topaz/0.2.5/gpu/cuda-11.8
+    apps/gctffind/1.0.0/gpu/cuda-12.6               (D)    apps/topaz/0.2.5/gpu/cuda-12.4                (D)
+    apps/imod/5.1.1/gpu/cuda-12.6                          apps/topaz/0.2.5_filaments/gpu/cuda-11.8
+    apps/isonet/0.2.1/gpu/cuda-12.5                        apps/topaz/0.2.5_filaments/gpu/cuda-12.4      (D)
+    apps/isonet/0.3/gpu/cuda-12.5                          apps/topaz/0.3.1/gpu/cuda-11.8
+    apps/motioncor2/1.6.4/gpu/cuda-11.8                    apps/topaz/0.3.1/gpu/cuda-12.4                (D)
+    apps/motioncor3/1.1.1/gpu/cuda-11.8                    apps/unblur/1.0.2
+    apps/motioncor3/1.1.1/gpu/cuda-12.6             (D)
+
+    ------------------------------ /tem/al9/system/lmod/8.7.53/modulefiles/virtual ------------------------------
+    miniconda3/py312_25.1.1-2
+
+    --------------------------- /tem/al9/system/lmod/8.7.53/modulefiles/acceleration ----------------------------
     cuda/11.8    cuda/12.6 (D)
-    ------------------------------------ /tem/el9/system/lmod/8.7.53/modulefiles/compiler ------------------
+
+    -------------------------------- /tem/al9/system/lmod/8.7.53/modulefiles/mpi --------------------------------
+    openmpi/5.0.3/gcc-11.5.0    openmpi/5.0.3/intel-compiler-2024.0.2 (D)
+
+    ----------------------------- /tem/al9/system/lmod/8.7.53/modulefiles/compiler ------------------------------
     gcc/11.5.0                      intel/dnnl/3.3.0                    intel/itac/2022.0
     intel/advisor/2024.0            intel/dpct/2024.0.0                 intel/mkl/2024.0
     intel/ccl/2021.11.2             intel/dpl/2022.3                    intel/mkl32/2024.0
@@ -77,9 +85,12 @@ This includes easily adding or removing directories to the PATH environment vari
 
     Where:
     D:  Default Module
+
     If the avail list is too long consider trying:
+
     "module --default avail" or "ml -d av" to just list the default modules.
     "module overview" or "ml ov" to display the number of modules for each name.
+
     Use "module spider" to find all possible modules and extensions.
     Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
     ```
@@ -96,24 +107,31 @@ This includes easily adding or removing directories to the PATH environment vari
 
     ```bash
     $> module overview
-    ------------- /tem/el9/system/lmod/8.7.53/modulefiles/applications ----------
-    apps/aretomo/1.3.4/gpu    (1)   apps/relion/4.0.1/gpu          (2)
-    apps/aretomo2/1.1.2/gpu   (2)   apps/relion/5.0.0/cpu          (2)
-    apps/aretomo3/2.0.3/gpu   (2)   apps/relion/5.0.0/gpu          (2)
-    apps/ctffind/4.1.14/cpu   (2)   apps/resmap                    (1)
-    apps/isonet/0.2.1/gpu     (1)   apps/summovie                  (1)
-    apps/isonet/0.3.0/gpu     (1)   apps/topaz/0.2.5/gpu           (2)
-    apps/motioncor2/1.6.4/gpu (1)   apps/topaz/0.2.5_filaments/gpu (2)
-    apps/motioncor3/1.1.1/gpu (2)   apps/topaz/0.3.1/gpu           (2)
-    apps/pyem                 (1)   apps/unblur                    (1)
-    apps/relion/4.0.1/cpu     (2)
-    ---------------- /tem/el9/system/lmod/8.7.53/modulefiles/virtual -----------
-    anaconda3 (1)
-    ------------------ /tem/el9/system/lmod/8.7.53/modulefiles/mpi -------------
-    openmpi/5.0.3 (2)
-    ------------- /tem/el9/system/lmod/8.7.53/modulefiles/acceleration ---------
+    ------------ /tem/al9/system/lmod/8.7.53/modulefiles/applications -------------
+    apps/aretomo/1.3.4/gpu    (1)   apps/motioncor3/1.1.1/gpu      (2)
+    apps/aretomo2/1.1.2/gpu   (2)   apps/pyem                      (1)
+    apps/aretomo3/2.0.3/gpu   (2)   apps/relion/4.0.1/cpu          (2)
+    apps/cistem/1.0.0/cpu     (1)   apps/relion/4.0.1/gpu          (2)
+    apps/cryolo/1.9.9/gpu     (1)   apps/relion/5.0.0/cpu          (2)
+    apps/ctffind/4.1.14/cpu   (2)   apps/relion/5.0.0/gpu          (2)
+    apps/emrna/1.5/gpu        (1)   apps/resmap                    (1)
+    apps/eternafold/1.3.1/cpu (1)   apps/summovie                  (1)
+    apps/gctffind/1.0.0/gpu   (2)   apps/topaz/0.2.5/gpu           (2)
+    apps/imod/5.1.1/gpu       (1)   apps/topaz/0.2.5_filaments/gpu (2)
+    apps/isonet/0.2.1/gpu     (1)   apps/topaz/0.3.1/gpu           (2)
+    apps/isonet/0.3/gpu       (1)   apps/unblur                    (1)
+    apps/motioncor2/1.6.4/gpu (1)
+
+    --------------- /tem/al9/system/lmod/8.7.53/modulefiles/virtual ---------------
+    miniconda3 (1)
+
+    ------------ /tem/al9/system/lmod/8.7.53/modulefiles/acceleration -------------
     cuda (2)
-    --------------- /tem/el9/system/lmod/8.7.53/modulefiles/compiler -----------
+
+    ----------------- /tem/al9/system/lmod/8.7.53/modulefiles/mpi -----------------
+    openmpi/5.0.3 (2)
+
+    -------------- /tem/al9/system/lmod/8.7.53/modulefiles/compiler ---------------
     gcc                 (1)   intel/dnnl                (1)   intel/itac    (1)
     intel/advisor       (1)   intel/dpct                (1)   intel/mkl     (1)
     intel/ccl           (1)   intel/dpl                 (1)   intel/mkl32   (1)
@@ -200,7 +218,7 @@ There are several ways to use the show sub-command to show the contents of a mod
     ```bash
     $> module show apps/relion/5.0.0/gpu/cuda-12.6
     ------------------------------------------------------------------------------
-    /tem/el9/system/lmod/8.7.53/modulefiles/applications/apps/relion/5.0.0/gpu/cuda-12.6.lua:
+    /tem/al9/system/lmod/8.7.53/modulefiles/applications/apps/relion/5.0.0/gpu/cuda-12.6.lua:
     ------------------------------------------------------------------------------
     help([[
     Relion version 5.0.0 built on top of GPU build tools:
@@ -217,12 +235,12 @@ There are several ways to use the show sub-command to show the contents of a mod
     whatis("URL:          https://relion.readthedocs.io/")
     whatis("Categories:   Cryo-EM, Cryo-ET, data analysis, MPI")
     whatis("Keywords:     RHEL9, data analysis, GPU build tools")
-    depends_on("anaconda3/2024.10-1")
+    depends_on("miniconda3/py312_25.1.1-2")
     depends_on("gcc/11.5.0")
     depends_on("cuda/12.6")
     depends_on("openmpi/5.0.3/gcc-11.5.0")
-    prepend_path("PATH","/tem/el9/applications/relion-5.0.0-gpu-cuda-12.6/bin")
-    prepend_path("LD_LIBRARY_PATH","/tem/el9/applications/relion-5.0.0-gpu-cuda-12.6/lib")
+    prepend_path("PATH","/tem/al9/applications/relion-5.0.0-gpu-cuda-12.6/bin")
+    prepend_path("LD_LIBRARY_PATH","/tem/al9/applications/relion-5.0.0-gpu-cuda-12.6/lib")
     setenv("LANG","en_US.UTF-8")
     setenv("TORCH_HOME","~/.cache/torch")
     setenv("RELION_QUEUE_USE","yes")

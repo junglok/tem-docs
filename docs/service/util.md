@@ -81,3 +81,47 @@ Tmux provides several keybindings to execute commands quickly in a tmux session.
         - ? : Show man
         - m : Show MOTD
 ```
+
+## **cluster.mydata**
+
+Users can perform the following command (`cluster.mydata`) to check storage quota limit, usage ratio and so on. `cluster.mydata` tool is available on all the login nodes.
+
+```bash
+    $> which cluster.mydata
+    /usr/local/bin/cluster.mydata
+
+    $> cluster.mydata
+    ____ ____  ____   ____   _____ _____ __  __    ____ _           _
+    / ___/ ___||  _ \ / ___| |_   _| ____|  \/  |  / ___| |_   _ ___| |_ ___ _ __
+    | |  _\___ \| | | | |       | | |  _| | |\/| | | |   | | | | / __| __/ _ \ '__|
+    | |_| |___) | |_| | |___    | | | |___| |  | | | |___| | |_| \__ \ ||  __/ |
+    \____|____/|____/ \____|   |_| |_____|_|  |_|  \____|_|\__,_|___/\__\___|_|
+
+    + Official GSDC TEM Users Guide  : https://tem-docs.readthedocs.io/en/al9
+
+    + Scratch/Home Quota Information : $> cluster.mydata
+    + TEM Cluster Status Information : $> cluster.status
+    +------------------------------------------------------------------------+
+    + Hostname............: tem-ui-al9.sdfarm.kr
+    + OS Release..........: AlmaLinux release 9.5 (Teal Serval)
+    + System Uptime.......: 20 days 0 hours 18 minutes 12 seconds
+    + Users...............: Currently 2 user(s) logged on
+    + Processes...........: 1123 running
+    + CPU usage...........: 0.07, 0.13, 0.19 (1, 5, 15 min)
+    + Memory (used/total).: 7699 MB / 384883 MB
+    + Swap in use.........: 0 MB
+    +------------------------------------------------------------------------+
+    + TEM Storage (used/total).......: 2.4 PBytes / 7.2 PBytes (34%)
+    + Current User...................: <UserID>
+    * User Home Directory............: /tem/home/<UserID>
+    ** Disk Quota Limit............: 0k
+    ** Disk Usage..................: 19.87G
+    ** Number of Files.............: 267373
+    * Group Scratch Directory........: /tem/scratch/<GroupDir>
+    ** Disk Quota Limit............: 80T
+    ** Disk Usage..................: 71.75T
+    ** Number of Files.............: 5330260
+    +------------------------------------------------------------------------+
+```
+
+## **cluster.status**
