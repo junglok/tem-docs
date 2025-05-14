@@ -184,7 +184,18 @@ TBD
 
 ## **PyTOM**
 
-TBD
+**Description**
+> PyTom is a software package for the analysis of volumetric data obtained by cryo electron tomography (cryo-ET). It covers a complete pipeline of processing steps for tomogram reconstruction, localization of macromolecular complexes in tomograms, fine alignment of subtomograms extracted at these locations, and their classification.
+
+**URL**
+> [https://pytom.sites.uu.nl](https://pytom.sites.uu.nl)
+> [https://github.com/SBC-Utrecht/PyTom](https://github.com/SBC-Utrecht/PyTom) 
+
+???+ note "ModulePaths for PyTom"
+
+    ```bash
+    apps/pytom/1.1/gpu/cuda-12.x
+    ```
 
 ## [**Relion**](../apps/relion.md)
 
