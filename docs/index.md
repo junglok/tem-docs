@@ -18,7 +18,7 @@ For the document of the old ScientificLinux 7.x based system, please visit [Scie
 
 ## **Change Log**
 
-* `2025-05-14` - AlmaLinux9-based TEM users guides pre-released
+* `2025-05-14` - AlmaLinux9-based TEM users guide pre-released
 * `2025-05-07` - All the login servers (tem-ui-al9, tem-cs-al9, tem-dm-al9) becomes ready including DNS/firewall setup
 * `2025-04-21` - DevOps codes for all the analysis tools have been refactored and distributed on the new cluster system
 * `2025-03-17` - CE (scheduler) server and some of test worker servers become ready
