@@ -247,7 +247,7 @@ Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to [http
 
     You must use **CRYOSPARC_BASE_PORT** for the 'Remote server' port section.   
 
-![mobaxterm-tunnel](../images/mobaxterm-tunnel1-el7.JPG)
+![mobaxterm-tunnel](../images/mobaxterm-tunnel-al9.jpg)
 
 Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to [http://localhost:39500](http://localhost:39500). You should be presented with the cryoSPARC login page.
 
@@ -262,7 +262,7 @@ Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to [http
     You must use **tem-[cs|ui]-al9.sdfarm.kr:CRYOSPARC_BASE_PORT** for the 'Destination' field. 
 
 
-![putty-tunnel](../images/putty-tunnel.JPG)
+![putty-tunnel](../images/putty-tunnel.jpg)
 
 Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to [http://localhost:39500](http://localhost:39500). 
 You should be presented with the CryoSPARC login page.
