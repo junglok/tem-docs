@@ -125,3 +125,50 @@ Users can perform the following command (`cluster.mydata`) to check storage quot
 ```
 
 ## **cluster.status**
+
+Users can monitor the status and the usage ratio of all worker nodes with the following command (`cluster.status`).
+`cluster.status` tool is available on all the login nodes.
+
+
+```bash
+    $> which cluster.status
+    /usr/local/bin/cluster.status
+
+    $> cluster.status
+
+            Refreshed every 10 seconds automatically. (To exit, press Ctrl+C)
+    ------------------------------------------------------------------------------------------------------------------------------
+    NODE                      QUEUE     STATE     [GPU]T/U/F  [CPU]T/U/F  UTILIZATION                          [MEM]T/U/F(GB)
+    ------------------------------------------------------------------------------------------------------------------------------
+    tem-cpu00-al9.sdfarm.kr    cpuQ      free            n/a     28/1/27  [#---------------------------]       187.3/  7.8/179.5
+    tem-gpu01-al9.sdfarm.kr    gpuQ      free     2/2/0 [##]     32/8/24  [########------------------------]   376.1/ 39.1/337.0
+    ------------------------------------------------------------------------------------------------------------------------------
+            [CPU] Total  60 / Used   9 cores ( 15.00 % )
+            [GPU] Total   2 / Used   2    ea ( 100.00 % )
+    ------------------------------------------------------------------------------------------------------------------------------
+    Current DateTime : 2025-05-15 11:25:02.752113
+    List of Jobs:
+
+    tem-ce-al9.sdfarm.kr:
+                                                                Req'd  Req'd   Elap
+    Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
+    --------------- -------- -------- ---------- ------ --- --- ------ ----- - -----
+    4822.tem-ce-al* tem      cpuQ     cryosparc* 426316   1   1  8000m   --  R 02:11
+    4842.tem-ce-al* tem      gpuQ     cryosparc* 19237*   1   4   16gb   --  R 01:12
+    4845.tem-ce-al* tem      gpuQ     cryosparc* 19325*   1   4   24gb   --  R 00:34
+    4846.tem-ce-al* tem      gpuQ     cryosparc*    --    1   4   24gb   --  Q   --
+```
+
+???+ tip ""
+
+    * NODE  : CPU 또는 GPU 장치를 가진 계산서버 이름
+    * QUEUE : 각 서버가 속한 큐 이름
+    * STATE(F/S/E/D/O)
+    - F (free) : 계산서버에 어떤 데이터 분석 작업도 할당되어 있지 않음
+    - S (shared) : 계산서버에 CPU 또는 GPU 작업이 할당되어 실행중이나, 해당 서버의 모든 자원을 할당받은 상태는 아님
+    - E (exclusive) : 계산서버에 작업들이 할당되어 실행중이고, 작업들이 모든 자원을 할당받아 busy 한 상태
+    - D (drained) : 작업들이 할당되어 실행중이나, 새로운 작업들은 할당되지 않을 예정인 상태 (예, 장애, 재부팅 등 관리모드 전환)
+    - O (down) : 장애발생으로 계산서버가 가용하지 못한 상태
+    * [GPU] T/U/F : 각 GPU 계산서버에 설치된 GPU 카드 총 개수, 사용중인 개수(#), 유휴 카드 개수(-)
+    * [CPU] T/U/F : 각 CPU 계산서버의 총 코어 개수, 사용중인 개수(#), 유휴 코어 개수(-)
+    * [MEM] T/U/F : 각 계산서버의 총 메모리 양, 사용중인 양, 유휴 양 (GB단위)
