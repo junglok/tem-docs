@@ -15,11 +15,8 @@ For the document of the old ScientificLinux 7.x based system, please visit [Scie
     E-mail address : __gsdc-support at kisti.re.kr__ (__[TEM]__ prefix required in the e-mail title)
 
 
-
 ## **Change Log**
 
-* `2025-05-14` - AlmaLinux9-based TEM users guide pre-released
-* `2025-05-07` - All the login servers (tem-ui-al9, tem-cs-al9, tem-dm-al9) becomes ready including DNS/firewall setup
+* `2025-05-14` - AlmaLinux9-based TEM users guide released
 * `2025-04-21` - DevOps codes for all the analysis tools have been refactored and distributed on the new cluster system
-* `2025-03-17` - CE (tem-ce-al9) server and some of worker servers become ready
 * `2025-02-28` - We are under migrating all the service nodes OS from ScientificLinux 7.x to AlmaLinux 9.x
