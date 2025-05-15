@@ -90,6 +90,6 @@ nav:
     - PBS Job Scripts: batch/jobscripts.md
     - Batch Queues: batch/queue.md 
   - Data Processing:
-    - Relion: apps/relion.md
     - CryoSPARC : apps/cryosparc.md
+    - Relion: apps/relion.md
   - FAQs: faqs/faq.md
