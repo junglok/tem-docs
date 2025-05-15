@@ -89,7 +89,9 @@ Users can perform the following command (`cluster.mydata`) to check storage quot
 ```bash
     $> which cluster.mydata
     /usr/local/bin/cluster.mydata
+```
 
+```bash
     $> cluster.mydata
     ____ ____  ____   ____   _____ _____ __  __    ____ _           _
     / ___/ ___||  _ \ / ___| |_   _| ____|  \/  |  / ___| |_   _ ___| |_ ___ _ __
@@ -133,7 +135,9 @@ Users can monitor the status and the usage ratio of all worker nodes with the fo
 ```bash
     $> which cluster.status
     /usr/local/bin/cluster.status
+```
 
+```bash
     $> cluster.status
 
             Refreshed every 10 seconds automatically. (To exit, press Ctrl+C)
