@@ -262,7 +262,7 @@ Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to [http
     You must use **tem-[cs|ui]-al9.sdfarm.kr:CRYOSPARC_BASE_PORT** for the 'Destination' field. 
 
 
-![putty-tunnel](../images/putty-tunnel.jpg)
+![putty-tunnel](../images/putty-tunnel-al9.jpg)
 
 Now, open your browser (Chrome/Firefox/Safari recommended) and navigate to [http://localhost:39500](http://localhost:39500). 
 You should be presented with the CryoSPARC login page.
