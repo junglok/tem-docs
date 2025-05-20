@@ -96,7 +96,7 @@ Each string is replaced with some values provided by users (or automatically by 
 
 
 ``` bash
-$> cat /tem/al9/tempates/relion/relion-4.0.1-gpu-cuda12.bash
+$> cat /tem/al9/templates/relion/relion-4.0.1-gpu-cuda12.bash
 #!/bin/bash
 
 ### Inherit all current environment variables
