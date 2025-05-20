@@ -12,14 +12,14 @@ On the Linux/Mac environment, users can execute the built-in `ssh` command in or
     ``` yaml linenums="1"
     $> ssh -Y -o Port=<port> <userID>@tem-ui-al9.sdfarm.kr
     First Factor:
-    Second Factor(optional):
+    Second Factor:
     ```
 
 === "tem-cs-al9.sdfarm.kr"
     ``` yaml linenums="1"
     $> ssh -Y -o Port=<port> <userID>@tem-cs-al9.sdfarm.kr
     First Factor:
-    Second Factor(optional):
+    Second Factor:
     ```
 
 !!! note
@@ -62,13 +62,3 @@ On the Linux/Mac environment, users can execute the built-in `ssh` command in or
 ![putty-1](../images/putty-1.jpg)
 
 ![putty-2](../images/putty-2.jpg)
-
-
-``` yaml
-theme:
-  features:
-    - content.code.annotate # (1)
-```
-
-1. :man_raising_hand: I'm a code annotation! I can contain `code`, __formatted
-    text__, images, ... basically anything that can be written in Markdown.
