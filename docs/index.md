@@ -8,7 +8,7 @@ For the document of the old ScientificLinux 7.x based system, please visit [Scie
 
 ???+ info "Preventive Maintenance(PM) scheduled (from June 18 to 27)"
 
-    The reinstallation of operating systems for CPU/GPU compute servers and the integration with the AL9-based new analysis farm are scheduled from June 18(Wed) 00:00 to 27(Fri) 18:00.
+    The reinstallation of operating systems for CPU/GPU compute servers and the integration with the AL9-based new analysis farm are scheduled from June 18(Wed.) 00:00 to 27(Fri.) 18:00.
 
 
 ???+ tip "Creating tickets to request the support for resolving techinical problems/errors using GSDC services"
