@@ -28,7 +28,7 @@ Sample basic PBS scripts are shown below:
 
         ### Compile and Run MPI Program
         mpicc -o hello_c /tem/el9/samples/hello_c.c -fopenmp
-        mpirun -n 32 --machinefile $PBS_NODEFILE ./hello_c
+        mpirun --mca btl tcp,self --mca btl_tcp_port_min_v4 32768 --mca btl_tcp_port_range_v4 32768 -n 32 --machinefile $PBS_NODEFILE ./hello_c
         ```
 
         ---
