@@ -111,6 +111,7 @@ The commands here are arbitrary, however we strongly recommend the general struc
 4.  **Remaining job-specific steps.**
 
     In the example above, we first compile and then execute `hello_c.c`, a simple MPI program with having total 32 processes on 2 nodes.
+    `btl_tcp_port_min_v4` and `btl_tcp_port_range_v4` describe OpenMPI specific parameters, which are written to specify the port range for TCP connections to be used in the MPI application. 
 
 ---
 
