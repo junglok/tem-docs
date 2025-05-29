@@ -34,13 +34,13 @@ ____ ____  ____   ____   _____ _____ __  __    ____ _           _
 + TEM Storage (used/total).......: 2.4 PBytes / 7.2 PBytes (34%)
 + Current User...................: <UserID>
 * User Home Directory............: /tem/home/<UserID>
-** Disk Quota Limit............: 0k
-** Disk Usage..................: 19.87G
-** Number of Files.............: 267373
+  ** Disk Quota Limit............: 0k
+  ** Disk Usage..................: 19.87G
+  ** Number of Files.............: 267373
 * Group Scratch Directory........: /tem/scratch/<GroupDir>
-** Disk Quota Limit............: 80T
-** Disk Usage..................: 71.75T
-** Number of Files.............: 5330260
+  ** Disk Quota Limit............: 80T
+  ** Disk Usage..................: 71.75T
+  ** Number of Files.............: 5330260
 +------------------------------------------------------------------------+
 ```
 
@@ -91,7 +91,7 @@ Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
     - O (down) : 장애발생으로 계산서버가 가용하지 못한 상태
 * [GPU] T/U/F : 각 GPU 계산서버에 설치된 GPU 카드 총 개수, 사용중인 개수(#), 유휴 카드 개수(-)
 * [CPU] T/U/F : 각 CPU 계산서버의 총 코어 개수, 사용중인 개수(#), 유휴 코어 개수(-)
-    * [MEM] T/U/F : 각 계산서버의 총 메모리 양, 사용중인 양, 유휴 양 (GB단위)
+* [MEM] T/U/F : 각 계산서버의 총 메모리 양, 사용중인 양, 유휴 양 (GB단위)
 ```
 
 ## **TMUX**
