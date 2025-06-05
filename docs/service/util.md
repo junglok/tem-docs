@@ -62,24 +62,33 @@ $> cluster.status
 ------------------------------------------------------------------------------------------------------------------------------
 NODE                      QUEUE     STATE     [GPU]T/U/F  [CPU]T/U/F  UTILIZATION                          [MEM]T/U/F(GB)
 ------------------------------------------------------------------------------------------------------------------------------
-tem-cpu00-al9.sdfarm.kr    cpuQ      free            n/a     28/1/27  [#---------------------------]       187.3/  7.8/179.5
-tem-gpu01-al9.sdfarm.kr    gpuQ      free     2/2/0 [##]     32/8/24  [########------------------------]   376.1/ 39.1/337.0
+tem-cpu00-al9.sdfarm.kr    cpuQ      free            n/a     28/3/25  [###-------------------------]       187.3/ 15.6/171.7
+tem-cpu01-al9.sdfarm.kr    cpuQ      free            n/a     28/0/28  [----------------------------]       187.3/  0.0/187.3
+tem-cpu02-al9.sdfarm.kr    cpuQ      free            n/a     28/0/28  [----------------------------]       187.3/  0.0/187.3
+tem-cpu09-al9.sdfarm.kr    cpuQ      free            n/a     28/0/28  [----------------------------]       187.3/  0.0/187.3
+tem-cpu10-al9.sdfarm.kr    cpuQ      free            n/a     28/0/28  [----------------------------]       187.3/  0.0/187.3
+tem-cpu11-al9.sdfarm.kr    cpuQ      free            n/a     28/1/27  [#---------------------------]       187.3/  0.0/187.3
+tem-gpu01-al9.sdfarm.kr    gpuQ      free     2/2/0 [##]     32/6/26  [######--------------------------]   376.1/ 31.2/344.8
+tem-gpu10-al9.sdfarm.kr    gpuQ      free     2/1/1 [#-]     28/2/26  [##--------------------------]       250.1/  7.8/242.3
+tem-gpu13-al9.sdfarm.kr    gpuQ      free   4/0/4 [----]     32/0/32  [--------------------------------]   375.6/  0.0/375.6
 ------------------------------------------------------------------------------------------------------------------------------
-        [CPU] Total  60 / Used   9 cores ( 15.00 % )
-        [GPU] Total   2 / Used   2    ea ( 100.00 % )
+        [CPU] Total 260 / Used  12 cores ( 4.62 % )
+        [GPU] Total   8 / Used   3    ea ( 37.50 % )
 ------------------------------------------------------------------------------------------------------------------------------
-Current DateTime : 2025-05-15 11:25:02.752113
+Current DateTime : 2025-06-05 13:31:15.537565
 List of Jobs:
 
 tem-ce-al9.sdfarm.kr:
                                                             Req'd  Req'd   Elap
 Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
 --------------- -------- -------- ---------- ------ --- --- ------ ----- - -----
-4822.tem-ce-al* tem      cpuQ     cryosparc* 426316   1   1  8000m   --  R 02:11
-4842.tem-ce-al* tem      gpuQ     cryosparc* 19237*   1   4   16gb   --  R 01:12
-4845.tem-ce-al* tem      gpuQ     cryosparc* 19325*   1   4   24gb   --  R 00:34
-4846.tem-ce-al* tem      gpuQ     cryosparc*    --    1   4   24gb   --  Q   --
-
+5963.tem-ce-al* tem      cpuQ     cryosparc* 18142*   1   1  8000m   --  R 00:51
+5971.tem-ce-al* tem      cpuQ     cryosparc* 18147*   1   1  8000m   --  R 00:38
+5996.tem-ce-al* tem      gpuQ     cryosparc* 610397   1   4   24gb   --  R 00:01
+5998.tem-ce-al* tem      gpuQ     cryosparc* 610388   1   2  8000m   --  R 00:01
+5999.tem-ce-al* tem      gpuQ     cryosparc* 467236   1   2  8000m   --  R 00:04
+6000.tem-ce-al* tem      cpuQ     STDIN      148596   1   1    --    --  R 00:00
+6001.tem-ce-al* tem      cpuQ     STDIN         --    1   1    --    --  R   --
 
 * NODE  : CPU 또는 GPU 장치를 가진 계산서버 이름
 * QUEUE : 각 서버가 속한 큐 이름
