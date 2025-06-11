@@ -147,18 +147,16 @@
 
     `TEM-FARM` lane information (stored in Cryosparc database) needs to be updated mainly due to the difference between Torque and PBSPro batch systems. Lane information is controlled by two files (__`cluster_info.json`__ and __`cluster_script.sh`__).
     
-    The file that should be updated is located at :
-    
-    * `/tem/scratch/<GroupDir>/.croysparc/cluster_script.sh`
+    The file that should be updated is located at : `/tem/scratch/<GroupDir>/.croysparc/cluster_script.sh`
 
 
-    0. As pre-requisites, stop all the cryosparc daemons on the old SL7-based login servers, change your cryosparc master hostname to a new AL9-based login server (__`tem-ui-al9`__ or __`tem-cs-al9`__). 
+    1. As pre-requisites, stop all the cryosparc daemons on the old SL7-based login servers, change your cryosparc master hostname to a new AL9-based login server (__`tem-ui-al9`__ or __`tem-cs-al9`__). 
 
-    1. Start CryoSPARC (`cryosparcm start`) on the one of new login servers (__`tem-ui-al9`__ or __`tem-cs-al9`__)
+    2. Start CryoSPARC (`cryosparcm start`) on the one of new login servers (__`tem-ui-al9`__ or __`tem-cs-al9`__)
 
-    2. Locate `/tem/scratch/<GroupDir>/.cryosparc` directory. You will find the original `cluster_info.json` and `cluster_script.sh`.
+    3. Locate `/tem/scratch/<GroupDir>/.cryosparc` directory. You will find the original `cluster_info.json` and `cluster_script.sh`.
 
-    3. Replace the original `cluster_script.sh` file with the new one (__`/tem/al9/cluster_script.sh`__).
+    4. Replace the original `cluster_script.sh` file with the new one (__`/tem/al9/cluster_script.sh`__).
         ``` bash
         $> cd /tem/scratch/<GroupDir>/.cryosparc
         $> cp -i /tem/al9/cluster_script.sh .
