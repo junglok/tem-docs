@@ -97,9 +97,11 @@
     CryoSPARC master daemons have been executed on ScientificLinux7.x(SL7)-based login servers (__`tem-ui-el7.sdfarm.kr`__ and __`tem-cs-el7.sdfarm.kr`__) using `cryosparcm start` command for the representative account of each research group. 
     
     During OS upgrades to AlmaLinux 9.x, all these login servers hostname has been changed. 
-    Thus, {==CryoSPARC master configuration must be changed in order to ensure normal execution on the new login servers
+    Thus, {==CryoSPARC master configuration must be changed in order to ensure correct execution on the new login servers
     (__`tem-ui-al9.sdfarm.kr`__ and __`tem-cs-al9.sdfarm.kr`__)==}. 
     
+    Please follow below step-by-step guide to run your CryoSPARC onto the new login servers.
+
     === "Old SL7-based login servers (config.sh)"
         ``` yaml
         ...
@@ -125,14 +127,14 @@
         ...
         ```
 
-    1. Log-in old cryosparc servers (__`tem-ui-el7`__ or __`tem-cs-el7`__), which your cryosparc master has been running on using each group's representative account. Stop all the cryosparc daemons.
+    1. Log-in old cryosparc servers (__`tem-ui-el7`__ or __`tem-cs-el7`__) with each group's representative account, which your cryosparc master daemons have been running on. Stop all the cryosparc daemons.
         ```bash
         $> cryosparcm stop 
         $> ps aux | grep <AccountName> | grep cryosparc
         $> ps aux | grep <AccountName> | grep -E "cryosparc|node" | awk '{print $2}' | xargs -I{} kill -9 {}
         ```
     2. Locate `/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master`, edit `config.sh` file and save (see above codeblock). 
-    3. Log-in new cryosparc servers (__`tem-ui-al9`__ or __`tem-cs-al9`__), where your cryosparc master will be running using the same account. Start cryosparc.
+    3. Log-in new cryosparc servers (__`tem-ui-al9`__ or __`tem-cs-al9`__) using the same account, where your cryosparc master will be running. Start cryosparc.
         ```bash
         $> cat /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/config.sh
         $> cryosparcm start
