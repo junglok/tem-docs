@@ -37,11 +37,10 @@ Note that multiple jobs requiring CPU and/or GPU resources can be executed concu
     
     **Assigned Computing Resources**
     > * tem-gpu[01-02]-al9.sdfarm.kr : Intel® Xeon® Gold 6226R CPU@2.90GHz 32 Cores, 384GB Memory, NVIDIA A100 40GB * 2EA (Logically A100 20GB * 4EA using MIG)
-    > * tem-gpu[03-03]-al9.sdfarm.kr : Intel® Xeon® Gold 6334R CPU@3.60GHz 32 Cores, 384GB Memory, NVIDIA V100 32GB * 4EA
     > * tem-gpu[06-08]-al9.sdfarm.kr : Intel® Xeon® CPU E5-2690v4@2.60GHz 28 Cores, 384GB Memory, NVIDIA P100 16GB * 2EA
     > * tem-gpu[09-10]-al9.sdfarm.kr : Intel® Xeon® CPU E5-2690v4@2.60GHz 28 Cores, 256GB Memory, NVIDIA P40 24GB * 2EA
     > * tem-gpu[11-12]-al9.sdfarm.kr : Intel® Xeon® Gold 6334R CPU@3.60GHz 32 Cores, 384GB Memory, NVIDIA A100 80GB * 4EA  (Logically A100 40GB * 8EA using MIG)
-
+    > * tem-gpu[13]-al9.sdfarm.kr : Intel® Xeon® Gold 6334R CPU@3.60GHz 32 Cores, 384GB Memory, NVIDIA V100 32GB * 4EA
     
     **Remarks** : Total 300 CPU cores, 26 NVIDIA GPUs (MIG GPU Instances : 38 GPUs Total)
 
