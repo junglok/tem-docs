@@ -168,9 +168,7 @@
         Successfully added cluster lane TEM-FARM
         ```
 
-    `cryosparcm cluster connect` command reads `cluster_info.json` and `cluster_script.sh` from the current directory and update the lane configuration.       
-
-    <br>
+    `cryosparcm cluster connect` command reads `cluster_info.json` and `cluster_script.sh` from the current directory and update the lane configuration.
 
     === "SL7 : cluster_script.sh"
         ```bash
