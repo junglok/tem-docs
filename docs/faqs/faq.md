@@ -147,25 +147,23 @@
 
     `TEM-FARM` lane information (stored in Cryosparc database) needs to be updated mainly due to the difference between Torque and PBSPro batch systems. Lane information is controlled by two files (__`cluster_info.json`__ and __`cluster_script.sh`__).
     
-    Those files are located at :
+    The file that should be updated is located at :
     
-    * `/tem/scratch/<GroupDir>/.cryosparc/cluster_info.json` 
     * `/tem/scratch/<GroupDir>/.croysparc/cluster_script.sh`
 
-    !!! note
-
-        Login to login server (__`tem-ui-al9`__ or __`tem-cs-al9`__) using each group's representative account. The login server should be the designated CryoSPARC's master host informed by administrator.
 
     0. As pre-requisites, stop all the cryosparc daemons on the old SL7-based login servers, change your cryosparc master hostname to a new AL9-based login server (__`tem-ui-al9`__ or __`tem-cs-al9`__). 
 
     1. Start CryoSPARC (`cryosparcm start`) on the one of new login servers (__`tem-ui-al9`__ or __`tem-cs-al9`__)
 
-    2. Locate `/tem/scratch/<GroupDir>/.cryosparc` directory, edit `cluster_info.json` and `cluster_script.sh` files for AL9 and save them. (please see the below codeblocks and change the files contents).
+    2. Locate `/tem/scratch/<GroupDir>/.cryosparc` directory. You will find the original `cluster_info.json` and `cluster_script.sh`.
 
-    3. Update the existing cluster lane information using the modified two files.
+    3. Replace the original `cluster_script.sh` file with the new one (__`/tem/al9/cluster_script.sh`__).
         ``` bash
         $> cd /tem/scratch/<GroupDir>/.cryosparc
-        $> cat cluster_info.json
+        $> cp -i /tem/al9/cluster_script.sh .
+        cp: overwrite './cluster_script.sh'? y
+
         $> cat cluster_script.sh
         $> cryosparcm cluster connect
         ...
@@ -174,32 +172,6 @@
 
     `cryosparcm cluster connect` command reads `cluster_info.json` and `cluster_script.sh` from the current directory and update the lane configuration.       
 
-    === "SL7 : cluster_info.json"
-        ``` yaml
-        {
-            "name" : "TEM-FARM",
-            "worker_bin_path" : "/tem/scratch/<GroupDir>/.cryosparc/cryosparc_worker/bin/cryosparcw",
-            "cache_path" : "",
-            "send_cmd_tpl" : "{{ command }}",
-            "qsub_cmd_tpl" : "qsub {{ script_path_abs }}",
-            "qstat_cmd_tpl" : "qstat -as {{ cluster_job_id }}",
-            "qdel_cmd_tpl" : "qdel {{ cluster_job_id }}",
-            "qinfo_cmd_tpl" : "qstat -q"
-        }
-        ```
-    === "AL9 : cluster_info.json (actually the same as SL7-based cluster_info.json in this case)"
-        ``` yaml
-        {
-            "name" : "TEM-FARM",
-            "worker_bin_path" : "/tem/scratch/<GroupDir>/.cryosparc/cryosparc_worker/bin/cryosparcw",
-            "cache_path" : "",
-            "send_cmd_tpl" : "{{ command }}",
-            "qsub_cmd_tpl" : "qsub {{ script_path_abs }}",
-            "qstat_cmd_tpl" : "qstat -as {{ cluster_job_id }}",
-            "qdel_cmd_tpl" : "qdel {{ cluster_job_id }}",
-            "qinfo_cmd_tpl" : "qstat -q"
-        }
-        ```
     <br>
 
     === "SL7 : cluster_script.sh"
@@ -297,6 +269,7 @@
 
         {{ run_cmd }}
         ```
+
     You can cross-check the updated lane information (CryoSPARC WebGUI, left menu `More`->`Instance Information`)
 
     ![cryosparc_lane_info](../images/cryosparc_lane_info.png)
