@@ -14,11 +14,11 @@ Note that multiple jobs requiring CPU and/or GPU resources can be executed concu
 
 ### **cpuQ**
 
-???+ tip "More detailed information about `cpuQ`"
+???+ tip "More detailed information about cpuQ"
 
     **Category(shared or dedicated)** : Shared
 
-    **QueueName** : `cpuQ`
+    **QueueName** : cpuQ
 
     **Assigned Computing Resources**
     > * tem-cpu[00-13]-al9.sdfarm.kr : Intel® Xeon® CPU E5-2697v3@2.60GHz 28 Cores, 192GB Main Memory
@@ -29,11 +29,11 @@ Note that multiple jobs requiring CPU and/or GPU resources can be executed concu
 
 ### **gpuQ**
 
-???+ tip "More detailed information about `qpuQ`"
+???+ tip "More detailed information about qpuQ"
 
     **Category(shared or dedicated)** : Shared
 
-    **QueueName** : `gpuQ`
+    **QueueName** : gpuQ
     
     **Assigned Computing Resources**
     > * tem-gpu[01-02]-al9.sdfarm.kr : Intel® Xeon® Gold 6226R CPU@2.90GHz 32 Cores, 384GB Memory, NVIDIA A100 40GB * 2EA (Logically A100 20GB * 4EA using MIG)
