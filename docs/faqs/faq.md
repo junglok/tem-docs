@@ -266,7 +266,7 @@
         {{ run_cmd }}
         ```
 
-    You can cross-check the updated lane information (CryoSPARC WebGUI, left menu `More`->`Instance Information`)
+    You can do double-check the updated lane information in the CryoSPARC WebGUI, left menu `More`->`Instance Information`.
 
     ![cryosparc_lane_info](../images/cryosparc_lane_info.png)
     /// caption
@@ -282,7 +282,7 @@
 
 ??? note "How to resolve the problems on starting and/or restarting CryoSPARC daemons?"
 
-    First, you should check all the cryosparc related processes - supervisord, mongod, command_core, command_vis, command_rtp, webapp, app, liveapp - to be terminated successfully on the CryoSPARC master host. If necessary, you can kill the zombie processes.
+    First, you must guarantee all the cryosparc related processes - supervisord, mongod, command_core, command_vis, command_rtp, webapp, app, liveapp - to be terminated successfully on the CryoSPARC master host. If necessary, you can kill the zombie processes.
 
     ``` bash
     $> cryosparcm stop
@@ -296,9 +296,11 @@
     Shut down
     ```
 
+    After stopping cryosparc, in order to check and kill the running zombie processes, use the following commands. Please repalce `<AccountName>` with the representative account. 
+
     ``` bash
     $> ps aux | grep <AccountName> | grep cryosparc
-    $> ps aux | grep <userid> | grep -E "cryosparc|node" | awk '{print $2}' | xargs -I{} kill -9 {}
+    $> ps aux | grep <AccountName> | grep -E "cryosparc|node" | awk '{print $2}' | xargs -I{} kill -9 {}
     ```
 
     Second, find your own cryosparc unix socket files on `/tmp` directory, and if exists, delete the files using `rm` command.
