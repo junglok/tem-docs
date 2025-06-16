@@ -87,7 +87,7 @@ The example above contains several **directives** which are interpreted by the `
 * **`-l walltime=00:05:00`**
   > requests 5 minutes as the maximum job execution (*walltime*) time.  Specified in `HH:MM:SS` format.
 * **`-l select=2:ncpus=16:mem=64GB:mpiprocs=16`** 
-  > a computational *resource chunk* request, detailing the quantity and configuration of *compute nodes* required for this job. This example requests a *selection* of 2 nodes, where each node must have 16 CPU cores and 64GB free memory, each of which we will use as an MPI rank in our application.
+  > a computational *resource chunk* request, detailing the quantity and configuration of *compute nodes* required for this job. This example requests a *selection* of 2 nodes (chunks), where each node (chunk) must have 16 CPU cores and 64GB free memory, each of which we will use as an MPI rank in our application. In this document, *node* and *chunk* can be used interchangeably.
 
 
 ### **Script contents**
@@ -125,7 +125,7 @@ For example:
 #PBS -l walltime=00:05:00
 #PBS -l select=1:ncpus=64:mpiprocs=4:ngpus=4:mem=256GB
 ```
-specifies job `walltime` and compute node selection. See more details below.
+specifies job `walltime` and compute node (chunk) selection. See more details below.
 
 
 #### **`select` statements**
@@ -133,7 +133,7 @@ Resources are specified through a `select` statement. The general form of a *hom
 ```pre
 select=<# NODES>:ncpus=<# CPU Cores/node>:mem=<RAM/node>:mpiprocs=<# MPI Ranks/node>:ompthreads=<# OpenMP Threads/rank>:ngpus=<# GPUs/node>
 ```
-where
+where (*node* and *chunk* can be used interchangeably)
 
 **`<# NODES>`** 
 > the total number of compute nodes requested, followed by a colon-separated list (see below)
