@@ -131,7 +131,7 @@ cd $PBS_O_WORKDIR
 
 ### Run:
 module load apps/relion/4.0.1/gpu/cuda-12.6
-mpirun --mca btl tcp,self -n XXXmpinodesXXX -N XXXextra2XXX --machinefile $PBS_NODEFILE XXXcommandXXX
+mpirun --mca btl tcp,self --mca btl_tcp_port_min_v4 32768 --mca btl_tcp_port_range_v4 32768 -n XXXmpinodesXXX --map-by node:OVERSUBSCRIBE --machinefile $PBS_NODEFILE XXXcommandXXX
 
 echo "Done!"
 ```
