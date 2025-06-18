@@ -134,8 +134,8 @@
         $> ps aux | grep <AccountName> | grep cryosparc
         $> ps aux | grep <AccountName> | grep -E "cryosparc|node" | awk '{print $2}' | xargs -I{} kill -9 {}
         ```
-    2. Locate `/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master`, edit `config.sh` file and save (see above codeblock). 
-    3. Log-in new cryosparc servers (__`tem-ui-al9`__ or __`tem-cs-al9`__) using the same account, where your cryosparc master will be running. Start cryosparc.
+    2. Log-in new cryosparc servers (__`tem-ui-al9`__ or __`tem-cs-al9`__) using the same account, where your cryosparc master will be running. Locate `/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master`, edit `config.sh` file and save (see above codeblock). 
+    3. Start cryosparc.
         ```bash
         $> cat /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/config.sh
         $> cryosparcm start
