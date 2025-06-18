@@ -6,7 +6,7 @@ For the document of the old ScientificLinux 7.x based system, please visit [Scie
 
 ## **Notice**
 
-???+ info "Preventive Maintenance(PM) scheduled (from June 18 to 27)"
+???+ info "Preventive Maintenance(PM) scheduled (from June 18 to 27) : **Finished**"
 
     The reinstallation of operating systems for CPU/GPU compute servers and the integration with the AL9-based new analysis farm are scheduled from June 18(Wed.) 00:00 to 27(Fri.) 18:00.
 
@@ -22,6 +22,7 @@ For the document of the old ScientificLinux 7.x based system, please visit [Scie
 
 ## **Change Log**
 
+* `2025-06-18` - OS upgrades and migration completed
 * `2025-05-14` - AlmaLinux9-based TEM users guide released
 * `2025-04-21` - DevOps codes for all the analysis tools have been refactored and distributed on the new cluster system
 * `2025-02-28` - We are under migrating all the service nodes OS from ScientificLinux 7.x to AlmaLinux 9.x
