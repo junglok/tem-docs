@@ -128,6 +128,7 @@
         ```
 
     1. Log-in old cryosparc servers (__`tem-ui-el7`__ or __`tem-cs-el7`__) with each group's representative account, which your cryosparc master daemons have been running on. Stop all the cryosparc daemons.
+        If your cryosparc daemons were already successfully terminated on old login servers, you can skip this step.
         ```bash
         $> cryosparcm stop 
         $> ps aux | grep <AccountName> | grep cryosparc
