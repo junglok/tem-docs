@@ -253,10 +253,10 @@
         #PBS -N cryosparc_{{ project_uid }}_{{ job_uid }}
 
         {%- if num_gpu == 0 %}
-        #PBS -l select=1:ncpus={{ num_cpu }}:mem={{ (ram_gb*1000)|int }}mb
+        #PBS -l select=1:ncpus={{ num_cpu }}:mem={{ (ram_gb|float * (ram_gb_multiplier|default(1))|float)|int }}GB
         #PBS -q cpuQ
         {%- else %}
-        #PBS -l select=1:ncpus={{ num_cpu }}:ngpus={{ num_gpu }}:mem={{ (ram_gb*1000)|int }}mb
+        #PBS -l select=1:ncpus={{ num_cpu }}:ngpus={{ num_gpu }}:mem={{ (ram_gb|float * (ram_gb_multiplier|default(1))|float)|int }}GB
         #PBS -q gpuQ
         {%- endif %}
 
