@@ -6,11 +6,6 @@ For the document of the old ScientificLinux 7.x based system, please visit [Scie
 
 ## **Notice**
 
-???+ info "Preventive Maintenance(PM) scheduled (from June 18 to 27) : **Finished**"
-
-    The reinstallation of operating systems for CPU/GPU compute servers and the integration with the AL9-based new analysis farm are scheduled from June 18(Wed.) 00:00 to 27(Fri.) 18:00.
-
-
 ???+ tip "Creating tickets to request the support for resolving techinical problems/errors using GSDC services"
 
     Since March 2021, we launched GSDC ticketing system to support all the technical problems for users/operators, so feel free to create tickets. 
@@ -18,6 +13,11 @@ For the document of the old ScientificLinux 7.x based system, please visit [Scie
     `"Creating tickets"` simply means sending an e-mail to the following e-mail recipient. Based on the e-mail title's prefix, the tickets will be automatically assigned to the person in charge on our ticketing system.
     
     E-mail address : __gsdc-support at kisti.re.kr__ (__[TEM]__ prefix required in the e-mail title)
+
+
+??? info "Preventive Maintenance(PM) scheduled (from June 18 to 27) : **Finished**"
+
+    The reinstallation of operating systems for CPU/GPU compute servers and the integration with the AL9-based new analysis farm are scheduled from June 18(Wed.) 00:00 to 27(Fri.) 18:00.
 
 
 ## **Change Log**
