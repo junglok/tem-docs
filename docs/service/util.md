@@ -58,7 +58,6 @@ $> which cluster.status
 ```bash
 $> cluster.status
 
-        Refreshed every 10 seconds automatically. (To exit, press Ctrl+C)
         Current DateTime : 2025-06-18 09:49:22.880048
 ----------------------------------------------------------------------------------------------------------------------------------
 NODE          QUEUE     STATE                    [GPU]T/U/F  [CPU]T/U/F  UTILIZATION                          [MEM]T/U/F(GB)
@@ -89,6 +88,11 @@ tem-gpu12-al9  gpuQ      free   8/0/8 [--------] (a100.40g)     32/0/32  [------
         [CPU] Total 636 / Used 165 cores ( 25.94 % )
         [GPU] Total  38 / Used  18    ea ( 47.37 % )
 ----------------------------------------------------------------------------------------------------------------------------------
+Enter 'f' to refresh TEM cluster status. (f)
+Enter 'j' to display jobs with the refreshed cluster status. (j)
+Enter 'q' to quit. (q)
+
+ Select? (f/j/q) j
 List of Jobs:
 
 tem-ce-al9.sdfarm.kr:
