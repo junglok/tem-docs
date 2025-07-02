@@ -75,7 +75,7 @@
     Retype new password: {confirm_your_new_password}
     ```
 
-    ??? note+ __Important__
+    ??? note+ "**Important**"
     
         During the password change process, you'll need to enter your OTP (One-Time Password) twice. Each 6-digit OTP provided by Google Authenticator can only be used once, 
         indicated by the blue circular timer next to it showing its validity period. 
