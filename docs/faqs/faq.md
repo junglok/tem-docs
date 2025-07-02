@@ -57,6 +57,7 @@
 
     ```bash
     $> ssh -o Port=<port> UserID@Login-Server
+
     -- WARNING -- 
     This system is for the use of authorized users only. Individuals using this computer system without authority or in excess of their authority 
     are subject to having all their activities on this system monitored and recorded by system personnel. Anyone using this system expressly consents to 
@@ -66,8 +67,10 @@
     First Factor: {original_password} or {initialized_password}
     Second Factor: {your_OTP}
     Password expired. Change your password now.
+    
     First Factor (Current Password): {original_password} or {initialized_password}
-    Second Factor: {your_OTP} *Must wait for the OTP token refreshed
+    Second Factor: {your_OTP} **`Must wait for the OTP token refreshed`**
+    
     New password: {your_new_password}
     Retype new password: {confirm_your_new_password}
     ```
