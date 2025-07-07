@@ -15,10 +15,6 @@ For the document of the old ScientificLinux 7.x based system, please visit [Scie
     E-mail address : __gsdc-support at kisti.re.kr__ (__[TEM]__ prefix required in the e-mail title)
 
 
-??? info "Preventive Maintenance(PM) scheduled (from June 18 to 27) : **Finished**"
-
-    The reinstallation of operating systems for CPU/GPU compute servers and the integration with the AL9-based new analysis farm are scheduled from June 18(Wed.) 00:00 to 27(Fri.) 18:00.
-
 
 ## **Change Log**
 
