@@ -1013,3 +1013,11 @@
     As you submit a CryoSPARC job to TEM-FARM lane, you can encounter an error such as __Failed to launch!__. If you face with this error, you should check __`Number of GPUs to parallelize`__ option under `Compute Setttings` of job builder first. Unlike relion, it seems that all the CryoSPARC jobs can not distribute their worker processes onto multiple worker nodes (that is, all the cryoSPARC job is executed on a single CPU or GPU node). So, please remain the maximum number of GPUs which can be used to parallelize within a job is less than 2.
 
     ![cryosparc-maxgpus](../images/cryosparc-maxgpus.png)
+
+#### **No heartbeat received**
+
+??? note "Job is unresponsive - no heartbeat received in a few seconds"
+
+    The default memory-related policy of the PBSPro batch system applied to GSDC TEM cluster is to forcefully terminate jobs that exceed the memory requirements. If the following error occurs during job execution, please increase the memory requirements and re-submit the job.
+
+    ![cryosparc-maxgpus](../images/cryosparc-noheartbeat.png)
