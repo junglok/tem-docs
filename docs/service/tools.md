@@ -282,7 +282,7 @@ TBD
 
 
 
-## **Topaz for picking Filaments**
+## **Topaz for Picking Filaments**
 
 **Description**
 > A program with added support for filament start-end coordinate picking (new options -f, -fp and -fl in the extract command extract.py) in Topaz, for subsequent helical reconstruction in RELION.
