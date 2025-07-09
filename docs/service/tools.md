@@ -266,6 +266,22 @@ TBD
     apps/topaz/0.3.1/gpu/cuda-12.4
     ```
 
+## **Topaz for CryoSPARC**
+
+**Description**
+> A pipeline for particle detection in cryo-electron microscopy images using convolutional neural networks trained from positive and unlabeled examples. Topaz includes methods for micrograph denoising using deep denoising models. This module is based on python runtime 3.6.
+
+**URL**
+> [hhttps://guide.cryosparc.com/processing-data/all-job-types-in-cryosparc/deep-picking/topaz](https://guide.cryosparc.com/processing-data/all-job-types-in-cryosparc/deep-picking/topaz)
+
+???+ note "ModulePaths for Topaz (for CryoSPARC)"
+
+    ```bash
+    apps/topaz/0.2.5a/gpu/cuda-11.3
+    ```
+
+
+
 ## **Topaz for picking Filaments**
 
 **Description**
