@@ -272,7 +272,7 @@ TBD
 > A pipeline for particle detection in cryo-electron microscopy images using convolutional neural networks trained from positive and unlabeled examples. Topaz includes methods for micrograph denoising using deep denoising models. This module is based on python runtime 3.6.
 
 **URL**
-> [hhttps://guide.cryosparc.com/processing-data/all-job-types-in-cryosparc/deep-picking/topaz](https://guide.cryosparc.com/processing-data/all-job-types-in-cryosparc/deep-picking/topaz)
+> [https://guide.cryosparc.com/processing-data/all-job-types-in-cryosparc/deep-picking/topaz](https://guide.cryosparc.com/processing-data/all-job-types-in-cryosparc/deep-picking/topaz)
 
 ???+ note "ModulePaths for Topaz (for CryoSPARC)"
 
