@@ -1014,10 +1014,11 @@
 
     ![cryosparc-maxgpus](../images/cryosparc-maxgpus.png)
 
+
 #### **No heartbeat received**
 
 ??? note "Job is unresponsive - no heartbeat received in a few seconds"
 
-    The default memory-related policy of the PBSPro batch system applied to GSDC TEM cluster is to forcefully terminate jobs that exceed the memory requirements. If the following error occurs during job execution, please increase the memory requirements and re-submit the job.
+    The default memory-related policy of the PBSPro batch system applied to GSDC TEM cluster is to forcefully terminate jobs that exceed the memory requirements. If the following error occurs during job execution, please increase the memory requirements and submit the job again.
 
     ![cryosparc-maxgpus](../images/cryosparc-noheartbeat.png)
