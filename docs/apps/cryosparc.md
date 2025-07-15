@@ -297,7 +297,7 @@ Given e-mail and password, users can login to CryoSPARC web interfaces.
 
 ## Adjusting memory requirements of CryoSPARC jobs
 
-In order to increase or decrease memory requirement by adjusting `ram_gb_multiplier` variable defined in cluster submission script, please refer to the [guide-configuring-custom-variables-for-cluster-job-submission-scripts](https://guide.cryosparc.com/setup-configuration-and-management/software-system-guides/guide-configuring-custom-variables-for-cluster-job-submission-scripts).
+In order to increase or decrease memory requirement by adjusting `ram_gb_multiplier` variable defined in cluster submission script, please refer to the [https://guide.cryosparc.com/setup-configuration-and-management/software-system-guides/guide-configuring-custom-variables-for-cluster-job-submission-scripts](https://guide.cryosparc.com/setup-configuration-and-management/software-system-guides/guide-configuring-custom-variables-for-cluster-job-submission-scripts).
 
 
 Generally, this custom variable can be configured at the CryoSPARC instance level, the target-lane level, and the job level.
