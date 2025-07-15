@@ -12,7 +12,7 @@ For the document of the old ScientificLinux 7.x based system, please visit [Scie
     
     `"Creating tickets"` simply means sending an e-mail to the following e-mail recipient. Based on the e-mail title's prefix, the tickets will be automatically assigned to the person in charge on our ticketing system.
     
-    E-mail address : __gsdc-support at kisti.re.kr__ (__[TEM]__ prefix required in the e-mail title)
+    E-mail address : __gsdc-support at kisti.re.kr__ (__[TEM]__ prefix required in the e-mail subject)
 
 
 
