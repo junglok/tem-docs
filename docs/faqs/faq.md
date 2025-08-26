@@ -1027,4 +1027,4 @@
 
     2. Number of open files allowed per process
    
-        Another main reason of being terminated normal cryosparc worker (thus, no heartbeat received) is the number of allowed open files per process. As of 2025-08-26, we have increased the limit of maximum open files allowed per process from 16,384 (16k) to 1,048,576 (1m). 
+        Another main reason of being terminated normal cryosparc worker (thus, no heartbeat received) is the number of allowed open files per process. As of 2025-08-26, we have increased the soft and hard limit of maximum open files allowed per process from 16,384 (16k) to 1,048,576 (1m). 
