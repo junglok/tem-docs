@@ -19,7 +19,7 @@
 
 #### **Resolving "Unable to display QR code" error?**
 
-??? note "(OTP) How to resolve `Unable to display QR code` error?"
+??? note "(OTP) How to resolve 'Unable to display QR code' error?"
 
     When connecting to the GSDC login server via a lab workstation/desktop using the GNOME Terminal in a Linux system (e.g., Ubuntu), executing the `ipa otptoken-add` command results in the message `ipa: WARNING: Unable to display QR code using the configured output encoding. Please use the token URI to configure your OTP device`.
 
@@ -105,7 +105,7 @@
 
 #### **"module avail" can't find some modules. What do I do?**
 
-??? note "`module avail` can't find some modules. What do I do?"
+??? note "'module avail' can't find some modules. What do I do?"
 
     You might have an out-of-date cache. Try running:
 
