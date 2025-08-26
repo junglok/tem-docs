@@ -1019,6 +1019,12 @@
 
 ??? note "Job is unresponsive - no heartbeat received in a few seconds"
 
-    The default memory-related policy of the PBSPro batch system applied to GSDC TEM cluster is to forcefully terminate jobs that exceed the memory requirements. If the following error occurs during job execution, please increase the memory requirements and submit the job again.
+    1. Lack of memory
+    
+        The default memory-related policy of the PBSPro batch system applied to GSDC TEM cluster is to forcefully terminate jobs that exceed the memory requirements. If the following error occurs during job execution, please increase the memory requirements and submit the job again.
 
-    ![cryosparc-maxgpus](../images/cryosparc-noheartbeat.png)
+        ![cryosparc-maxgpus](../images/cryosparc-noheartbeat.png)
+
+    2. Number of open files allowed per process
+   
+        Another main reason of being terminated normal cryosparc worker (thus, no heartbeat received) is the number of allowed open files per process. As of 2025-08-26, we have increased the limit of maximum open files allowed per process from 16,384 (16k) to 1,048,576 (1m). 
