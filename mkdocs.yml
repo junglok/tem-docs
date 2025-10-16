@@ -76,7 +76,7 @@ nav:
     - Enabling OTP: account/otp.md
   - Data Transfer:
     - SFTP: transfer/sftp.md
-    - FileZilla: transfer/filezilla.md
+    - FileZilla: transfer/filezilla.m
     - WinSCP: transfer/winscp.md
     - Globus Online: transfer/globus.md
   - GSDC TEM Cluster:
