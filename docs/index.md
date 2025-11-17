@@ -11,14 +11,15 @@ For the document of the old ScientificLinux 7.x based system, please visit [Scie
     Please be informed that the GSDC TEM Farm will undergo scheduled preventive maintenance (PM), resulting in temporary system downtime.
     Kindly review the schedule below and plan your use of the farm accordingly.
 
-    1. Maintenance Schedule
+    * Maintenance Schedule
 
-    November 17 (Mon), 2025, 10:00 AM – November 20 (Thu), 2025, 6:00 PM
+        - November 17 (Mon), 2025, 10:00 AM – November 20 (Thu), 2025, 6:00 PM
 
-    2. Maintenance Details
-	• Storage firmware upgrade for the TEM Farm
-	• Additional IP routing configuration for storage management and service allocation
-	• Lustre Client Kernel module upgrade across all TEM Farm nodes (from 2.15.0.4 to 2.15.6.1)
+    * Maintenance Details
+
+	    - Storage firmware upgrade for the TEM Farm
+	    - Additional IP routing configuration for storage management and service allocation
+	    - Lustre Client Kernel module upgrade across all TEM Farm nodes (from 2.15.0.4 to 2.15.6.1)
 
 
 
