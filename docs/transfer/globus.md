@@ -42,7 +42,7 @@ You can log in with:
 ### 2. A remote Globus collection to transfer to/from
 
    - Typically an institutional (e.g., KISTI GSDC) collection on a data computing cluster or storage system.  
-   - KISTI GSDC collection name for TEM : `**TEM_Collection@KISTI-GSDC**`
+   - KISTI GSDC collection name for TEM : **`TEM_Collection@KISTI-GSDC`**
 
 ### 3. Permissions on your own computer
 
@@ -56,7 +56,7 @@ You can log in with:
 
 1. Visit the Globus Connect Personal page: [https://www.globus.org/globus-connect-personal](https://www.globus.org/globus-connect-personal).  
 2. Click **Install now** for Windows (or follow your institution’s documentation link).  
-3. On the download page, click **Download Globus Connect Personal for Windows**.  
+3. On the download link, click **Download Globus Connect Personal for Windows**.  
 
    ![Download Globus Connect Personal for Windows](https://docs.globus.org/globus-connect-personal/install/images/gcp-download-win.png)
 
@@ -77,9 +77,9 @@ After installation, GCP launches automatically and shows a **Log In** button.
 
 ### 1. Download
 
-1. Go to `https://www.globus.org/globus-connect-personal`.  
+1. Go to [https://www.globus.org/globus-connect-personal](https://www.globus.org/globus-connect-personal).  
 2. Under **Globus Connect Personal for Mac**, click **Install now**.  
-3. On the download page, click **Download Globus Connect Personal for Mac** to get a `.dmg` file.  
+3. On the download link, click **Download Globus Connect Personal for Mac** to get a `.dmg` file.  
 
    ![Download Globus Connect Personal for Mac](https://docs.globus.org/globus-connect-personal/install/images/gcp-download-mac.png)
 
