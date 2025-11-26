@@ -32,11 +32,12 @@ Before installation, you should have:
 
 ### 1. A Globus account/identity
 
-   You can log in with:
-      - Your institution (university / lab) single sign-on  
-      - Or Google, ORCID, GitHub, or a Globus ID account  
+You can log in with:
+  
+  - Your institution (university / lab) single-sign-on (SSO) 
+  - Or Google, ORCID, GitHub, or a Globus ID account
 
-   ![Globus login screen](https://docs.globus.org/guides/tutorials/manage-files/images/transfer-files/login-1.png)
+![Globus login screen](https://docs.globus.org/guides/tutorials/manage-files/images/transfer-files/login-1.png)
 
 ### 2. A remote Globus collection to transfer to/from
 
