@@ -1,4 +1,4 @@
-# Globus Connect Personal – Installation & Data Transfer Guide
+# **Globus Connect Personal – Installation & Data Transfer Guide**
 
 Globus Connect Personal (GCP) lets you turn your own workstation or desktop (Windows, macOS, or Linux) into a Globus collection, so you can move data to and from institutional (e.g., KISTI GSDC) storage using the Globus Web App.  ￼
 
