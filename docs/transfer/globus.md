@@ -13,11 +13,12 @@ This guide shows how to:
 4.	Transfer files between your PC and a remote Globus collection
 
 
-## 1. Overview & Concepts
+## Overview & Concepts
 
-- **Globus Web App** – Web interface at `https://app.globus.org` used to manage collections and transfers.  
+- **Globus Web App** – Web interface at `https://app.globus.org`(https://app.globus.org) used to manage collections and transfers.  
 - **Collection** – A named location (endpoint) that Globus can access. Your laptop with GCP installed becomes a *personal collection*.  
 - **Globus Connect Personal (GCP)** – Lightweight client that runs under your user account and connects your local filesystem to Globus. Available for:
+  
   - macOS 10.13+  
   - Currently supported Windows versions  
   - Common x86 Linux distributions  
@@ -26,15 +27,15 @@ GCP is free to install and use for users at non‑profit research and education 
 
 ---
 
-## 2. Prerequisites
+## Prerequisites
 
 Before installation, you should have:
 
 1. **A Globus account / identity**
 
    You can log in with:
-   - Your institution (university / lab) single sign-on  
-   - Or Google, ORCID, GitHub, or a Globus ID account  
+      - Your institution (university / lab) single sign-on  
+      - Or Google, ORCID, GitHub, or a Globus ID account  
 
    ![Globus login screen](https://docs.globus.org/guides/tutorials/manage-files/images/transfer-files/login-1.png)
 
