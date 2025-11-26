@@ -197,7 +197,7 @@ By default, only a limited part of your filesystem (typically your home director
     * Click **+** to add more folders (e.g., `D:\data\project1`).  
     * Optionally tick **Sharable** if your institution has a Globus subscription that allows creating guest collections.  
 
-3. **Path syntax from Globus:**
+3. Path syntax from Globus:
 
     * `/~/` maps to your Windows home directory (e.g., `C:\Users\yourname`).  
     * `/C/path/to/dir` corresponds to `C:\path\to\dir` and so on.  
@@ -218,14 +218,15 @@ On Linux, you can manage accessible paths via the GUI (if Tcl/Tk is installed) o
 
 - Paths and permissions are stored in `~/.globusonline/lta/config-paths` as CSV:
 
-```text
-<path>,<sharing flag>,<R/W flag>
-~/,0,1
+```bash
+<PATH>,<SHARING_FLAG>,<R/W_FLAG>
+
+/home/user,0,0
 /data/project,0,1
 ```
 
-- `sharing flag` – `1` allow sharing, `0` disable  
-- `R/W flag` – `1` read/write, `0` read‑only  
+- `SHARING_FLAG` : `1` allow sharing, `0` disable  
+- `R/W_FLAG` : `1` read/write, `0` read‑only  
 
 After editing `config-paths`, restart GCP:
 
@@ -242,7 +243,7 @@ Once GCP is installed, running, and configured, users can transfer files using a
 
 ### 1. Log In to Globus
 
-1. Go to **https://app.globus.org** (or visit `https://www.globus.org` and click **Login**).
+1. Go to [https://app.globus.org](https://app.globus.org) (and click **Login**).
   
 2. Log in with your institution or other identity.  
 
@@ -328,7 +329,9 @@ Even if you close your browser or log out, the transfer continues on the Globus 
 
 ### 2. Advanced (Windows) – Very Long Paths
 
-If you are working with extremely deep directory structures or very long filenames on Windows, you may need to enable **long path support** in the OS registry for GCP to handle paths up to 4096 characters. This change requires admin rights and a reboot; see the Windows GCP install documentation for details.  
+If you are working with extremely deep directory structures or very long filenames on Windows, you may need to enable **long path support** in the OS registry for GCP to handle paths up to 4096 characters.
+
+This change requires admin rights and a reboot; see the Windows GCP install documentation for details.  
 
 ### 3. Official Help
 
