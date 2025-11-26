@@ -201,8 +201,8 @@ By default, only a limited part of your filesystem (typically your home director
 
 3. **Path syntax from Globus:**
 
-   * `/~/` maps to your Windows home directory (e.g., `C:\Users\yourname`).  
-   * `/C/path/to/dir` corresponds to `C:\path\to\dir` and so on.  
+    * `/~/` maps to your Windows home directory (e.g., `C:\Users\yourname`).  
+    * `/C/path/to/dir` corresponds to `C:\path\to\dir` and so on.  
 
 ### 2. macOS – Accessible Directories
 
