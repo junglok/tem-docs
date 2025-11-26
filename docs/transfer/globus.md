@@ -1,6 +1,6 @@
 # Globus Connect Personal – Installation & Data Transfer Guide
 
-Globus Connect Personal (GCP) lets you turn your own laptop or desktop (Windows, macOS, or Linux) into a Globus collection, so you can move data to and from institutional (e.g., KISTI GSDC) storage using the Globus Web App.  ￼
+Globus Connect Personal (GCP) lets you turn your own workstation or desktop (Windows, macOS, or Linux) into a Globus collection, so you can move data to and from institutional (e.g., KISTI GSDC) storage using the Globus Web App.  ￼
 
 This guide shows how to:
 
@@ -16,7 +16,7 @@ This guide shows how to:
 ## **Overview & Concepts**
 
 - **Globus Web App** – Web interface at [https://app.globus.org](https://app.globus.org) used to manage collections and transfers.  
-- **Collection** – A named location (endpoint) that Globus can access. Your laptop with GCP installed becomes a *personal collection*.  
+- **Collection** – A named location (endpoint) that Globus can access. Your workstation with GCP installed becomes a *personal collection*.  
 - **Globus Connect Personal (GCP)** – Lightweight client that runs under your user account and connects your local filesystem to Globus. Available for:
     - macOS 10.13+  
     - Currently supported Windows versions  
@@ -41,8 +41,8 @@ You can log in with:
 
 ### 2. A remote Globus collection to transfer to/from
 
-   - Typically an institutional (e.g., KISTI GSDC) collection on an HPC/HTC cluster or storage system.  
-   - KISTI GSDC collection name for TEM : **TEM_Collection@KISTI-GSDC**
+   - Typically an institutional (e.g., KISTI GSDC) collection on a data computing cluster or storage system.  
+   - KISTI GSDC collection name for TEM : `**TEM_Collection@KISTI-GSDC**`
 
 ### 3. Permissions on your own computer
 
@@ -52,11 +52,9 @@ You can log in with:
 
 ## Install Globus Connect Personal on Windows
 
-> Works on currently supported Windows versions.  
+### 1 Download
 
-### 3.1 Download
-
-1. Visit the Globus Connect Personal page: `https://www.globus.org/globus-connect-personal`.  
+1. Visit the Globus Connect Personal page: `[https://www.globus.org/globus-connect-personal](https://www.globus.org/globus-connect-personal)`.  
 2. Click **Install now** for Windows (or follow your institution’s documentation link).  
 3. On the download page, click **Download Globus Connect Personal for Windows**.  
 
