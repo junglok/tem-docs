@@ -188,7 +188,7 @@ At this point, your PC is a Globus collection and can be used in the Web App.
 
 ## 7. Make Local Folders Accessible for Transfer
 
-By default, only a limited part of your filesystem (typically your home directory) is accessible to Globus. To upload/download to other paths (e.g., external drives), you must explicitly allow them.  
+By default, only a limited part of your filesystem (typically your home directory) is accessible to Globus. To upload/download to other paths (e.g., HDD/SSD external drives), you must explicitly allow them.  
 
 > **Security tip:** Only expose folders that actually need to be accessed via Globus.
 
@@ -263,7 +263,7 @@ After login you land on the **File Manager** page.
 You can run File Manager in **two‑panel mode**:
 
 1. Click **Transfer or Sync to…** on the right side to open a second panel.  
-2. In the right panel’s **Collection** field, search for your remote collection (e.g., your HPC system’s Globus collection).  
+2. In the right panel’s **Collection** field, search for your remote collection (e.g., **TEM_Collection@KISTI-GSDC**).  
 3. Navigate to the directory you’re allowed to read/write.
 
 ![Two‑panel File Manager with Transfer or Sync to…](https://docs.globus.org/guides/tutorials/manage-files/images/transfer-files/filemgr-5.png)
@@ -274,7 +274,7 @@ To **upload from your PC to the remote system**:
 
 1. Left panel: your **personal collection** (GCP)  
    - Navigate to the folder and select the files/directories you want to transfer.  
-2. Right panel: **remote collection** (HPC / storage)  
+2. Right panel: **remote collection** (HPC/storage)  
    - Navigate to the destination directory.  
 3. Click **Start** above the panel that represents the *destination* (depends on UI layout).  
 
