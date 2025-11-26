@@ -241,6 +241,8 @@ After editing `config-paths`, restart GCP:
 
 Once GCP is installed, running, and configured, users can transfer files using any browser.
 
+For more detailed step-by-step guides for file transfer, please refer to the following: [https://docs.globus.org/guides/tutorials/manage-files/transfer-files/](https://docs.globus.org/guides/tutorials/manage-files/transfer-files/) 
+
 ### 1. Log In to Globus
 
 1. Go to [https://app.globus.org](https://app.globus.org).
@@ -339,6 +341,6 @@ This change requires admin rights and a reboot; see the Windows GCP install docu
 
 - **Main GCP docs (Windows/macOS/Linux)** : detailed installation & configuration. [https://docs.globus.org/globus-connect-personal/#install](https://docs.globus.org/globus-connect-personal/#install)
   
-- **How to Log In and Transfer Files tutorial** : step‑by‑step File Manager walkthrough.  
+- **How to Log In and Transfer Files tutorial** : step‑by‑step File Manager walkthrough. [https://docs.globus.org/guides/tutorials/manage-files/transfer-files/](https://docs.globus.org/guides/tutorials/manage-files/transfer-files/) 
 
 - **GCP Troubleshooting Guide** : in‑depth help for install, firewall, and permission problems. [https://docs.globus.org/globus-connect-personal/#troubleshooting_configuration](https://docs.globus.org/globus-connect-personal/#troubleshooting_configuration) 
