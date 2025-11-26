@@ -31,7 +31,7 @@ GCP is free to install and use for users at non‑profit research and education 
 
 Before installation, you should have:
 
-1. **A Globus account / identity**
+### 1. **A Globus account / identity**
 
    You can log in with:
       - Your institution (university / lab) single sign-on  
@@ -39,18 +39,18 @@ Before installation, you should have:
 
    ![Globus login screen](https://docs.globus.org/guides/tutorials/manage-files/images/transfer-files/login-1.png)
 
-2. **A remote Globus collection to transfer to/from**
+### 2. **A remote Globus collection to transfer to/from**
 
    - Typically an institutional (e.g., KISTI GSDC) collection on an HPC/HTC cluster or storage system.  
    - KISTI GSDC collection name for TEM : **TEM_Collection@KISTI-GSDC**
 
-3. **Permissions on your own computer**
+### 3. **Permissions on your own computer**
 
    - Ability to install software in some directory you can write to (does *not* have to be system-wide Program Files, etc.).  
 
 ---
 
-## 3. Install Globus Connect Personal on Windows
+## Install Globus Connect Personal on Windows
 
 > Works on currently supported Windows versions.  
 
