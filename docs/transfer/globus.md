@@ -32,7 +32,7 @@ Before installation, you should have:
 
 ### 1. A Globus account/identity
 
-You can log in with:
+You can log in [https://app.globus.org](https://app.globus.org) with:
   
   - Your institution (university / lab) single-sign-on (SSO) 
   - Or Google, ORCID, GitHub, or a Globus ID account
