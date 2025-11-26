@@ -264,8 +264,9 @@ After login you land on the **File Manager** page.
 You can run File Manager in **two‑panel mode**:
 
 1. Click **Transfer or Sync to…** on the right side to open a second panel.  
-2. In the right panel’s **Collection** field, search for your remote collection (e.g., **TEM_Collection@KISTI-GSDC**).  
-3. Navigate to the directory you’re allowed to read/write.
+2. In the right panel’s **Collection** field, search for your remote collection (e.g., **TEM_Collection@KISTI-GSDC**).
+3. If additional authentication is required, you will be redirected to the GSDC TEM OIDC server, enter user ID and your password(+OTP) on that screen to complete the authentication.  
+4. Navigate to the directory you’re allowed to read/write.
 
 ![Two‑panel File Manager with Transfer or Sync to…](https://docs.globus.org/guides/tutorials/manage-files/images/transfer-files/filemgr-5.png)
 
@@ -279,6 +280,7 @@ To **upload from your PC to the remote system**:
 
 2. Right panel: **remote collection** (HPC/storage)  
 
+   - **`TEM_Collection@KISTI-GSDC`**
    - Navigate to the destination directory.  
 
 3. Click **Start** above the panel that represents the *destination* (depends on UI layout).  
