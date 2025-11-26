@@ -54,7 +54,7 @@ You can log in with:
 
 ### 1. Download
 
-1. Visit the Globus Connect Personal page: `[https://www.globus.org/globus-connect-personal](https://www.globus.org/globus-connect-personal)`.  
+1. Visit the Globus Connect Personal page: [https://www.globus.org/globus-connect-personal](https://www.globus.org/globus-connect-personal).  
 2. Click **Install now** for Windows (or follow your institution’s documentation link).  
 3. On the download page, click **Download Globus Connect Personal for Windows**.  
 
