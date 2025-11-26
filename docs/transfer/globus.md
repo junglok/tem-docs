@@ -243,19 +243,19 @@ Once GCP is installed, running, and configured, users can transfer files using a
 
 ### 1. Log In to Globus
 
-1. Go to [https://app.globus.org](https://app.globus.org) (and click **Login**).
+1. Go to [https://app.globus.org](https://app.globus.org).
   
-2. Log in with your institution or other identity.  
+2. Log in with your institution or other (Google, ORCID, GitHub, or a Globus ID account) identity.  
 
 ### 2. Open the File Manager
 
-After login you land on the **File Manager** page.
+After login, you land on the **File Manager** page.
 
 ![Globus File Manager – empty state](https://docs.globus.org/guides/tutorials/manage-files/images/transfer-files/filemgr-1.png)
 
 ### 3. Select Your Personal Collection
 
-1. In the **Collection** field, type the name you gave your PC’s collection (e.g., `MyWorkStation`).  
+1. On left panel, in the **Collection** field, type the name you gave your PC’s collection (e.g., `MyWorkStation`).  
 
 2. Select it from the list; Globus connects and shows the default path (e.g., `/~/`).  
 
@@ -278,7 +278,7 @@ To **upload from your PC to the remote system**:
  
    - Navigate to the folder and select the files/directories you want to transfer.  
 
-2. Right panel: **remote collection** (HPC/storage)  
+2. Right panel: **remote collection** (HPC Storage like KISTI-GSDC)  
 
    - **`TEM_Collection@KISTI-GSDC`**
    - Navigate to the destination directory.  
