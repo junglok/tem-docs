@@ -311,21 +311,21 @@ Even if you close your browser or log out, the transfer continues on the Globus 
 
 - **“Path not allowed” or missing folders in File Manager**
 
-  - Ensure the folder is added to Accessible Folders/Directories (Windows/macOS) or `config-paths` (Linux).  
-  - Confirm your OS user has permission to read/write that folder locally.
+    * Ensure the folder is added to Accessible Folders/Directories (Windows/macOS) or `config-paths` (Linux).  
+    * Confirm your OS user has permission to read/write that folder locally.
 
 - **Install permission errors (e.g., can’t write to `C:\Program Files`)**
 
-  - Install into a directory you own (e.g., your home directory).  
+    * Install into a directory you own (e.g., your home directory).  
 
 - **GCP icon shows “Not Connected”**
 
-  - A firewall or network rule may be blocking connections to the Globus service.  
-  - Try a different network (home vs campus VPN) or contact your IT staff with the Globus firewall requirements documentation.  
+    * A firewall or network rule may be blocking connections to the Globus service.  
+    * Try a different network (home vs campus VPN) or contact your IT staff with the Globus firewall requirements documentation.  
 
 - **Browser login cannot be started from GCP**
 
-  - Some security tools block launching a browser. In that case, you can use a **GCP Setup Key** as described in the troubleshooting guide.  
+    * Some security tools block launching a browser. In that case, you can use a **GCP Setup Key** as described in the troubleshooting guide.  
 
 ### 2. Advanced (Windows) – Very Long Paths
 
@@ -333,8 +333,10 @@ If you are working with extremely deep directory structures or very long filenam
 
 This change requires admin rights and a reboot; see the Windows GCP install documentation for details.  
 
-### 3. Official Help
+### 3. Globus Official Help
 
-- **Main GCP docs (Windows/macOS/Linux)** – detailed installation & configuration.  
-- **“How to Log In and Transfer Files” tutorial** – step‑by‑step File Manager walkthrough.  
-- **GCP Troubleshooting Guide** – in‑depth help for install, firewall, and permission problems.  
+- **Main GCP docs (Windows/macOS/Linux)** : detailed installation & configuration. [https://docs.globus.org/globus-connect-personal/#install](https://docs.globus.org/globus-connect-personal/#install)
+  
+- **How to Log In and Transfer Files tutorial** : step‑by‑step File Manager walkthrough.  
+
+- **GCP Troubleshooting Guide** : in‑depth help for install, firewall, and permission problems. [https://docs.globus.org/globus-connect-personal/#troubleshooting_configuration](https://docs.globus.org/globus-connect-personal/#troubleshooting_configuration) 
