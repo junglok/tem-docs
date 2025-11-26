@@ -189,8 +189,10 @@ By default, only a limited part of your filesystem (typically your home director
 
 ### 1. Windows – Accessible Folders
 
-1. Right‑click the **Globus** icon in the taskbar and choose **Options…**.  
+1. Right‑click the **Globus** icon in the taskbar and choose **Options…**.
+  
 2. In the **Access** tab:
+
    - You’ll see your home directory listed by default.  
    - Click **+** to add more folders (e.g., `D:\data\project1`).  
    - Optionally tick **Sharable** if your institution has a Globus subscription that allows creating guest collections.  
@@ -198,13 +200,16 @@ By default, only a limited part of your filesystem (typically your home director
    ![Windows File Manager (example environment)](https://docs.globus.org/guides/tutorials/manage-files/images/transfer-files/filemgr-1.png)
 
 3. **Path syntax from Globus:**
+
    - `/~/` maps to your Windows home directory (e.g., `C:\Users\yourname`).  
    - `/C/path/to/dir` corresponds to `C:\path\to\dir` and so on.  
 
 ### 2. macOS – Accessible Directories
 
 1. Click the **Globus** icon in the menu bar → **Preferences…**.  
+
 2. In **Access**:
+
    - Your home directory (e.g., `/Users/yourname`) is allowed by default.  
    - Click **+** to add additional directories.  
    - You can choose whether each directory is sharable (requires a subscription for sharing).  
@@ -239,7 +244,8 @@ Once GCP is installed, running, and configured, users can transfer files using a
 
 ### 1. Log In to Globus
 
-1. Go to **https://app.globus.org** (or visit `https://www.globus.org` and click **Login**).  
+1. Go to **https://app.globus.org** (or visit `https://www.globus.org` and click **Login**).
+  
 2. Log in with your institution or other identity.  
 
 ### 2. Open the File Manager
@@ -250,7 +256,8 @@ After login you land on the **File Manager** page.
 
 ### 3. Select Your Personal Collection
 
-1. In the **Collection** field, type the name you gave your PC’s collection (e.g., `MyLaptop`).  
+1. In the **Collection** field, type the name you gave your PC’s collection (e.g., `MyWorkStation`).  
+
 2. Select it from the list; Globus connects and shows the default path (e.g., `/~/`).  
 
 ### 4. Select the Remote Collection
@@ -267,10 +274,14 @@ You can run File Manager in **two‑panel mode**:
 
 To **upload from your PC to the remote system**:
 
-1. Left panel: your **personal collection** (GCP)  
+1. Left panel: your **personal collection** (GCP) 
+ 
    - Navigate to the folder and select the files/directories you want to transfer.  
+
 2. Right panel: **remote collection** (HPC/storage)  
+
    - Navigate to the destination directory.  
+
 3. Click **Start** above the panel that represents the *destination* (depends on UI layout).  
 
 To **download from the remote collection to your PC**, reverse which side is source/destination.
@@ -285,8 +296,10 @@ Globus will:
 
 ### 6. Monitor Transfer Status
 
-1. Click **Activity** in the left navigation to see current and past transfers.  
-2. Click a transfer’s details icon to see per‑file status and error messages if any.  
+1. Click **Activity** in the left navigation to see current and past transfers.
+  
+2. Click a transfer’s details icon to see per‑file status and error messages if any.
+
 3. You will also receive email notifications when transfers finish or fail.
 
 Even if you close your browser or log out, the transfer continues on the Globus service side.  
