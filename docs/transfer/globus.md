@@ -50,9 +50,9 @@ You can log in with:
 
 ---
 
-## Install Globus Connect Personal on Windows
+## **Install Globus Connect Personal on Windows**
 
-### 1 Download
+### 1. Download
 
 1. Visit the Globus Connect Personal page: `[https://www.globus.org/globus-connect-personal](https://www.globus.org/globus-connect-personal)`.  
 2. Click **Install now** for Windows (or follow your institution’s documentation link).  
@@ -60,7 +60,7 @@ You can log in with:
 
    ![Download Globus Connect Personal for Windows](https://docs.globus.org/globus-connect-personal/install/images/gcp-download-win.png)
 
-### 3.2 Run the Installer
+### 2. Run the Installer
 
 1. Double‑click the downloaded installer (`GlobusConnectPersonal-x.y.z.exe`).  
 2. If you are the only user and have administrator rights, you can accept the default install location and click **Install**.  
@@ -73,11 +73,9 @@ After installation, GCP launches automatically and shows a **Log In** button.
 
 ---
 
-## 4. Install Globus Connect Personal on macOS
+## **Install Globus Connect Personal on macOS**
 
-> Requires macOS 10.13 or higher.  
-
-### 4.1 Download
+### 1. Download
 
 1. Go to `https://www.globus.org/globus-connect-personal`.  
 2. Under **Globus Connect Personal for Mac**, click **Install now**.  
@@ -85,7 +83,7 @@ After installation, GCP launches automatically and shows a **Log In** button.
 
    ![Download Globus Connect Personal for Mac](https://docs.globus.org/globus-connect-personal/install/images/gcp-download-mac.png)
 
-### 4.2 Install the App
+### 2. Install the App
 
 1. Open the downloaded `.dmg` file.  
 2. Drag **Globus Connect Personal** into the **Applications** folder.  
@@ -95,11 +93,9 @@ GCP will show a **Log In** button for the first-time setup.
 
 ---
 
-## 5. Install Globus Connect Personal on Linux
+## **Install Globus Connect Personal on Linux**
 
-> Supports common x86 GNU/Linux distributions.  
-
-### 5.1 Optional GUI Prerequisite
+### 1. GUI Prerequisite (Optional)
 
 If you want to use the graphical interface, install Tcl/Tk:  
 
@@ -116,7 +112,7 @@ sudo zypper install tk tcllib
 
 Without Tcl/Tk you can still use GCP in command‑line mode only.
 
-### 5.2 Download & Extract
+### 2. Download & Extract
 
 You can either use a browser via the install page or download directly:
 
@@ -131,7 +127,7 @@ tar xzf globusconnectpersonal-latest.tgz
 cd globusconnectpersonal-x.y.z
 ```
 
-### 5.3 First Launch
+### 3. First Launch
 
 Run:
 
@@ -147,7 +143,7 @@ Later, you can start it in the background:
 ./globusconnectpersonal -start &
 ```
 
-## 6. First-Time Setup & Collection Creation
+## **First-Time Setup & Collection Creation**
 
 These steps are similar on all platforms.
 
@@ -169,7 +165,7 @@ These steps are similar on all platforms.
 
    You’ll be asked to provide:
 
-   - **Collection display name** – e.g., `MyLaptop`, `Lab-PC-01`, or something your users will recognize.  
+   - **Collection display name** – e.g., `MyWorkStation`, `Lab-PC-01`, or something your users will recognize.  
    - **Description** (optional).  
    - **Default directory** – typically your home directory.
 
@@ -185,13 +181,13 @@ At this point, your PC is a Globus collection and can be used in the Web App.
 
 ---
 
-## 7. Make Local Folders Accessible for Transfer
+## **Make Local Folders Accessible for Transfer**
 
 By default, only a limited part of your filesystem (typically your home directory) is accessible to Globus. To upload/download to other paths (e.g., HDD/SSD external drives), you must explicitly allow them.  
 
 > **Security tip:** Only expose folders that actually need to be accessed via Globus.
 
-### 7.1 Windows – Accessible Folders
+### 1. Windows – Accessible Folders
 
 1. Right‑click the **Globus** icon in the taskbar and choose **Options…**.  
 2. In the **Access** tab:
@@ -205,7 +201,7 @@ By default, only a limited part of your filesystem (typically your home director
    - `/~/` maps to your Windows home directory (e.g., `C:\Users\yourname`).  
    - `/C/path/to/dir` corresponds to `C:\path\to\dir` and so on.  
 
-### 7.2 macOS – Accessible Directories
+### 2. macOS – Accessible Directories
 
 1. Click the **Globus** icon in the menu bar → **Preferences…**.  
 2. In **Access**:
@@ -213,7 +209,7 @@ By default, only a limited part of your filesystem (typically your home director
    - Click **+** to add additional directories.  
    - You can choose whether each directory is sharable (requires a subscription for sharing).  
 
-### 7.3 Linux – Accessible Directories (config file)
+### 3. Linux – Accessible Directories (config file)
 
 On Linux, you can manage accessible paths via the GUI (if Tcl/Tk is installed) or via the config file:  
 
@@ -237,27 +233,27 @@ After editing `config-paths`, restart GCP:
 
 ---
 
-## 8. Transfer Data with the Globus Web App
+## **Transfer Data with the Globus Web App**
 
 Once GCP is installed, running, and configured, users can transfer files using any browser.
 
-### 8.1 Log In to Globus
+### 1. Log In to Globus
 
 1. Go to **https://app.globus.org** (or visit `https://www.globus.org` and click **Login**).  
 2. Log in with your institution or other identity.  
 
-### 8.2 Open the File Manager
+### 2. Open the File Manager
 
 After login you land on the **File Manager** page.
 
 ![Globus File Manager – empty state](https://docs.globus.org/guides/tutorials/manage-files/images/transfer-files/filemgr-1.png)
 
-### 8.3 Select Your Personal Collection
+### 3. Select Your Personal Collection
 
 1. In the **Collection** field, type the name you gave your PC’s collection (e.g., `MyLaptop`).  
 2. Select it from the list; Globus connects and shows the default path (e.g., `/~/`).  
 
-### 8.4 Select the Remote Collection
+### 4. Select the Remote Collection
 
 You can run File Manager in **two‑panel mode**:
 
@@ -267,7 +263,7 @@ You can run File Manager in **two‑panel mode**:
 
 ![Two‑panel File Manager with Transfer or Sync to…](https://docs.globus.org/guides/tutorials/manage-files/images/transfer-files/filemgr-5.png)
 
-### 8.5 Start a Transfer
+### 5. Start a Transfer
 
 To **upload from your PC to the remote system**:
 
@@ -287,7 +283,7 @@ Globus will:
 
 ![Transfer request submitted](https://docs.globus.org/guides/tutorials/manage-files/images/transfer-files/filemgr-7.png)
 
-### 8.6 Monitor Transfer Status
+### 6. Monitor Transfer Status
 
 1. Click **Activity** in the left navigation to see current and past transfers.  
 2. Click a transfer’s details icon to see per‑file status and error messages if any.  
@@ -297,9 +293,9 @@ Even if you close your browser or log out, the transfer continues on the Globus 
 
 ---
 
-## 9. Tips & Troubleshooting
+## **Tips & Troubleshooting**
 
-### 9.1 Common Issues
+### 1. Common Issues
 
 - **“Path not allowed” or missing folders in File Manager**
 
@@ -319,11 +315,11 @@ Even if you close your browser or log out, the transfer continues on the Globus 
 
   - Some security tools block launching a browser. In that case, you can use a **GCP Setup Key** as described in the troubleshooting guide.  
 
-### 9.2 Advanced (Windows) – Very Long Paths
+### 2. Advanced (Windows) – Very Long Paths
 
 If you are working with extremely deep directory structures or very long filenames on Windows, you may need to enable **long path support** in the OS registry for GCP to handle paths up to 4096 characters. This change requires admin rights and a reboot; see the Windows GCP install documentation for details.  
 
-### 9.3 Official Help
+### 3. Official Help
 
 - **Main GCP docs (Windows/macOS/Linux)** – detailed installation & configuration.  
 - **“How to Log In and Transfer Files” tutorial** – step‑by‑step File Manager walkthrough.  
