@@ -197,8 +197,6 @@ By default, only a limited part of your filesystem (typically your home director
     * Click **+** to add more folders (e.g., `D:\data\project1`).  
     * Optionally tick **Sharable** if your institution has a Globus subscription that allows creating guest collections.  
 
-![Windows File Manager (example environment)](https://docs.globus.org/guides/tutorials/manage-files/images/transfer-files/filemgr-1.png)
-
 3. **Path syntax from Globus:**
 
     * `/~/` maps to your Windows home directory (e.g., `C:\Users\yourname`).  
@@ -210,9 +208,9 @@ By default, only a limited part of your filesystem (typically your home director
 
 2. In **Access**:
 
-   - Your home directory (e.g., `/Users/yourname`) is allowed by default.  
-   - Click **+** to add additional directories.  
-   - You can choose whether each directory is sharable (requires a subscription for sharing).  
+    * Your home directory (e.g., `/Users/yourname`) is allowed by default.  
+    * Click **+** to add additional directories.  
+    * You can choose whether each directory is sharable (requires a subscription for sharing).  
 
 ### 3. Linux – Accessible Directories (config file)
 
