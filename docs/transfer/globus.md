@@ -15,12 +15,12 @@ This guide shows how to:
 
 ## Overview & Concepts
 
-- **Globus Web App** – Web interface at `https://app.globus.org`(https://app.globus.org) used to manage collections and transfers.  
+- **Globus Web App** – Web interface at [https://app.globus.org](https://app.globus.org) used to manage collections and transfers.  
 - **Collection** – A named location (endpoint) that Globus can access. Your laptop with GCP installed becomes a *personal collection*.  
 - **Globus Connect Personal (GCP)** – Lightweight client that runs under your user account and connects your local filesystem to Globus. Available for:
   
-  - macOS 10.13+  
-  - Currently supported Windows versions  
+   macOS 10.13+  
+  * Currently supported Windows versions  
   - Common x86 Linux distributions  
 
 GCP is free to install and use for users at non‑profit research and education institutions.  
