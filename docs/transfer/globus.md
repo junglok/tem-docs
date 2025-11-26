@@ -193,13 +193,13 @@ By default, only a limited part of your filesystem (typically your home director
   
 2. In the **Access** tab:
      
-- You’ll see your home directory listed by default.  
-- Click **+** to add more folders (e.g., `D:\data\project1`).  
-- Optionally tick **Sharable** if your institution has a Globus subscription that allows creating guest collections.  
+    * You’ll see your home directory listed by default.  
+    * Click **+** to add more folders (e.g., `D:\data\project1`).  
+    * Optionally tick **Sharable** if your institution has a Globus subscription that allows creating guest collections.  
 
-![Windows File Manager (example environment)](https://docs.globus.org/guides/tutorials/manage-files/images/transfer-files/filemgr-1.png)
+    ![Windows File Manager (example environment)](https://docs.globus.org/guides/tutorials/manage-files/images/transfer-files/filemgr-1.png)
 
-3. **Path syntax from Globus:**
+1. **Path syntax from Globus:**
 
    - `/~/` maps to your Windows home directory (e.g., `C:\Users\yourname`).  
    - `/C/path/to/dir` corresponds to `C:\path\to\dir` and so on.  
