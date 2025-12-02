@@ -335,7 +335,9 @@ Even if you close your browser or log out, the transfer continues on the Globus 
 
 If you are working with extremely deep directory structures or very long filenames on Windows, you may need to enable **long path support** in the OS registry for GCP to handle paths up to 4096 characters.
 
-This change requires admin rights and a reboot; see the Windows GCP install documentation for details. [https://docs.globus.org/globus-connect-personal/install/windows/#enable_long_path_support](https://docs.globus.org/globus-connect-personal/install/windows/#enable_long_path_support) 
+This change requires admin rights and a reboot; see the following Windows GCP install documentation for details. 
+
+[https://docs.globus.org/globus-connect-personal/install/windows/#enable_long_path_support](https://docs.globus.org/globus-connect-personal/install/windows/#enable_long_path_support) 
 
 ### 3. Globus Official Help
 
