@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="ko" class="theme-dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSDC TEM Cluster 사용자 가이드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script>if(typeof Chart !== 'undefined') Chart.defaults.animation = false;</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{interpolate-size:allow-keywords}
+
+html.theme-dark{
+  --bg:#080e1a;--surface:#0f1829;--surface-hover:#162038;
+  --border:rgba(0,188,212,0.12);
+  --text:#e8f4f8;--text-secondary:#7eb8c9;
+  --accent:#00bcd4;--accent-secondary:#0097a7;
+  --positive:#00e676;--negative:#ff5252;--warning:#ffd740;
+  --card-bg:#0d1f35;--section-bg:#06121f;
+}
+html.theme-light{
+  --bg:#f0f7fa;--surface:#ffffff;--surface-hover:#e8f4f8;
+  --border:rgba(0,150,180,0.15);
+  --text:#0d2535;--text-secondary:#3a7a92;
+  --accent:#0097a7;--accent-secondary:#006978;
+  --positive:#00897b;--negative:#e53935;--warning:#f9a825;
+  --card-bg:#ffffff;--section-bg:#e0f2f7;
+}
+
+body{
+  font-family:'Noto Sans KR','Inter',sans-serif;
+  background:var(--bg);color:var(--text);
+  line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow:hidden;height:100vh;width:100vw;
+}
+
+/* ===== SLIDE SYSTEM ===== */
+.slide-wrapper{position:relative;width:100vw;height:100vh;overflow:hidden}
+.slide{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.45s cubic-bezier(0.4,0,0.2,1),transform 0.45s cubic-bezier(0.4,0,0.2,1);
+  transform:translateX(60px);
+  overflow:hidden;
+}
+.slide.active{opacity:1;pointer-events:all;transform:translateX(0)}
+.slide.exit{opacity:0;transform:translateX(-60px)}
+
+/* ===== SLIDE TYPES ===== */
+.slide-cover{
+  background:linear-gradient(135deg,#020c18 0%,#051525 35%,#082040 70%,#051a33 100%);
+  justify-content:center;align-items:center;text-align:center;padding:60px;
+}
+.slide-section{
+  background:linear-gradient(135deg,#051525 0%,#082244 50%,#051e3d 100%);
+  justify-content:center;align-items:center;text-align:center;padding:60px;
+}
+.slide-content{
+  background:var(--bg);
+  padding:52px 64px 24px;
+}
+
+/* ===== TYPOGRAPHY ===== */
+.slide-cover h1{font-size:3.4rem;font-weight:800;color:#fff;letter-spacing:-0.04em;line-height:1.1;margin-bottom:20px;text-shadow:0 0 40px rgba(0,188,212,0.3)}
+.slide-cover .subtitle{font-size:1.25rem;color:#7eb8c9;font-weight:300;margin-bottom:12px}
+.slide-cover .meta{font-size:1rem;color:#4a90a8;margin-top:28px}
+.slide-section h2{font-size:3rem;font-weight:700;color:var(--accent);letter-spacing:-0.04em;margin-bottom:16px}
+.slide-section .sec-sub{font-size:1.2rem;color:var(--text-secondary)}
+.slide-content h2{font-size:2rem;font-weight:700;color:var(--accent);letter-spacing:-0.03em;margin-bottom:6px;line-height:1.15}
+.slide-content .slide-sub{font-size:0.9rem;color:var(--text-secondary);margin-bottom:28px;border-bottom:1px solid var(--border);padding-bottom:16px}
+h3{font-size:1.15rem;font-weight:600;color:var(--text);margin-bottom:10px}
+
+/* ===== GRID LAYOUTS ===== */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+
+/* ===== CARDS ===== */
+.card{
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:10px;padding:20px;
+  transition:box-shadow 0.2s,border-color 0.2s;
+}
+.card:hover{border-color:var(--accent);box-shadow:0 0 16px rgba(0,188,212,0.12)}
+.card-accent{border-left:3px solid var(--accent)}
+.card-title{font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-secondary);margin-bottom:8px}
+.card-value{font-size:2.2rem;font-weight:700;color:var(--accent);line-height:1}
+.card-label{font-size:0.85rem;color:var(--text-secondary);margin-top:4px}
+
+/* ===== CODE ===== */
+.code-block{
+  background:#010d1a;border:1px solid rgba(0,188,212,0.2);
+  border-radius:8px;padding:16px 20px;
+  font-family:'JetBrains Mono',monospace;font-size:0.82rem;
+  color:#80deea;line-height:1.7;overflow-x:auto;
+  margin:10px 0;white-space:pre;
+}
+.code-block .cmd{color:#00bcd4}
+.code-block .comment{color:#37474f}
+.code-block .str{color:#a5d6a7}
+.code-block .flag{color:#fff176}
+
+/* ===== BADGES & TAGS ===== */
+.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:0.78rem;font-weight:500}
+.badge-cyan{background:rgba(0,188,212,0.15);color:var(--accent);border:1px solid rgba(0,188,212,0.3)}
+.badge-green{background:rgba(0,230,118,0.12);color:var(--positive);border:1px solid rgba(0,230,118,0.25)}
+.badge-warn{background:rgba(255,215,64,0.12);color:var(--warning);border:1px solid rgba(255,215,64,0.25)}
+
+/* ===== FLOW DIAGRAM ===== */
+.flow{display:flex;align-items:center;gap:0;flex-wrap:nowrap;justify-content:center;margin:16px 0}
+.flow-box{
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:8px;padding:12px 18px;text-align:center;
+  font-size:0.82rem;font-weight:500;min-width:110px;flex-shrink:0;
+}
+.flow-box.highlight{border-color:var(--accent);background:rgba(0,188,212,0.08);color:var(--accent)}
+.flow-arrow{color:var(--accent);font-size:1.3rem;margin:0 6px;flex-shrink:0}
+
+/* ===== TABLE ===== */
+table{width:100%;border-collapse:collapse;font-size:0.83rem}
+th{background:rgba(0,188,212,0.1);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:1px solid var(--border)}
+td{padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text)}
+tr:hover td{background:rgba(0,188,212,0.04)}
+.mono{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#80deea}
+
+/* ===== TOC ===== */
+.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.toc-item{
+  display:flex;align-items:center;gap:12px;
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:8px;padding:14px 18px;cursor:pointer;
+  transition:border-color 0.2s,background 0.2s;
+}
+.toc-item:hover{border-color:var(--accent);background:rgba(0,188,212,0.07)}
+.toc-num{font-size:1.3rem;font-weight:800;color:var(--accent);min-width:28px}
+.toc-text{font-size:0.9rem;font-weight:500}
+.toc-sub{font-size:0.75rem;color:var(--text-secondary)}
+
+/* ===== STAT ROW ===== */
+.stat-row{display:flex;gap:16px;margin-bottom:16px}
+.stat-box{flex:1;text-align:center;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:16px 8px}
+.stat-num{font-size:2rem;font-weight:800;color:var(--accent);line-height:1}
+.stat-unit{font-size:0.75rem;color:var(--text-secondary);margin-top:4px}
+
+/* ===== ARCH DIAGRAM ===== */
+.arch-layer{
+  display:flex;align-items:stretch;gap:10px;margin-bottom:10px;
+}
+.arch-label{
+  writing-mode:vertical-rl;text-orientation:mixed;
+  transform:rotate(180deg);
+  font-size:0.68rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.12em;color:var(--text-secondary);
+  min-width:28px;display:flex;align-items:center;justify-content:center;
+  padding:4px 0;
+}
+.arch-nodes{display:flex;gap:8px;flex:1;flex-wrap:wrap}
+.arch-node{
+  flex:1;min-width:80px;
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:6px;padding:8px 10px;font-size:0.75rem;
+  text-align:center;display:flex;flex-direction:column;gap:2px;
+}
+.arch-node.accent-node{border-color:rgba(0,188,212,0.4);background:rgba(0,188,212,0.07)}
+.arch-node .node-name{font-weight:600;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.7rem}
+.arch-node .node-spec{color:var(--text-secondary);font-size:0.68rem}
+
+/* ===== STEP LIST ===== */
+.steps{display:flex;flex-direction:column;gap:10px}
+.step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#000;font-weight:700;font-size:0.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-content h4{font-size:0.9rem;font-weight:600;margin-bottom:3px}
+.step-content p{font-size:0.8rem;color:var(--text-secondary)}
+
+/* ===== TOOL PILLS ===== */
+.tool-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.tool-pill{
+  display:flex;align-items:center;gap:6px;
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:20px;padding:6px 14px;font-size:0.78rem;font-weight:500;
+  transition:border-color 0.2s;
+}
+.tool-pill:hover{border-color:var(--accent)}
+.tool-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+
+/* ===== PROGRESS ===== */
+.progress-bar{height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;margin-top:6px}
+.progress-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--accent-secondary))}
+
+/* ===== SLIDE NAV ===== */
+.slide-nav{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:10px;z-index:9998;
+  background:rgba(8,14,26,0.85);backdrop-filter:blur(12px);
+  border:1px solid var(--border);border-radius:30px;padding:6px 14px;
+}
+.slide-nav button{
+  width:32px;height:32px;border-radius:8px;
+  background:transparent;border:none;
+  color:var(--text-secondary);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0.6;transition:opacity 0.2s,color 0.2s;
+}
+.slide-nav button:hover{opacity:1;color:var(--accent)}
+.slide-counter{font-size:0.78rem;color:var(--text-secondary);min-width:52px;text-align:center;font-weight:500}
+
+/* ===== PROGRESS BAR TOP ===== */
+.progress-top{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-secondary));z-index:9999;transition:width 0.4s ease}
+
+/* ===== MENU ===== */
+.viz-menu{position:fixed;top:14px;right:14px;z-index:9999}
+.viz-menu-toggle{
+  width:40px;height:40px;border-radius:10px;
+  background:var(--surface);border:1px solid var(--border);
+  color:var(--text);cursor:pointer;display:flex;
+  align-items:center;justify-content:center;
+  backdrop-filter:blur(12px);transition:all 0.2s;
+}
+.viz-menu-toggle:hover{background:var(--surface-hover)}
+.viz-menu-dropdown{
+  position:absolute;top:48px;right:0;min-width:180px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:8px;
+  opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:all 0.2s;backdrop-filter:blur(16px);
+}
+.viz-menu-dropdown.open{opacity:1;visibility:visible;transform:translateY(0)}
+.viz-menu-dropdown button{
+  width:100%;padding:9px 13px;border:none;border-radius:7px;
+  background:transparent;color:var(--text);font-size:13px;
+  font-family:inherit;cursor:pointer;text-align:left;
+  display:flex;align-items:center;gap:9px;transition:background 0.15s;
+}
+.viz-menu-dropdown button:hover{background:var(--surface-hover)}
+
+/* ===== SLIDE # LABEL ===== */
+.slide-label{position:absolute;top:18px;left:28px;font-size:0.72rem;color:var(--text-secondary);opacity:0.5;font-weight:500}
+
+/* ===== SECTION COLOR BANDS ===== */
+.band{height:3px;border-radius:0 0 2px 2px;margin-bottom:24px;background:linear-gradient(90deg,var(--accent),transparent)}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.6}}
+.animate{animation:fadeInUp 0.5s ease-out both}
+.animate.d1{animation-delay:0.08s}
+.animate.d2{animation-delay:0.16s}
+.animate.d3{animation-delay:0.24s}
+.animate.d4{animation-delay:0.32s}
+.animate.d5{animation-delay:0.40s}
+.animate.d6{animation-delay:0.48s}
+
+.cover-glow{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(0,188,212,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.cover-dots{
+  position:absolute;inset:0;
+  background-image:radial-gradient(rgba(0,188,212,0.15) 1px,transparent 1px);
+  background-size:32px 32px;pointer-events:none;opacity:0.4;
+}
+
+@media(max-width:375px){body{overflow-x:hidden}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{
+  .viz-menu,.slide-nav,.progress-top{display:none!important}
+  .slide{opacity:1!important;transform:none!important;position:relative!important;pointer-events:all!important;page-break-after:always;height:100vh}
+  body{overflow:auto!important}
+}
+</style>
+</head>
+<body>
+<a href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:10000;padding:8px 16px;background:var(--accent);color:#000;text-decoration:none;border-radius:4px;" onfocus="this.style.cssText='position:fixed;left:16px;top:16px;z-index:10000;padding:8px 16px;background:var(--accent);color:#000;text-decoration:none;border-radius:4px;'" onblur="this.style.cssText='position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;'">Skip to content</a>
+
+<div class="progress-top" id="progressTop"></div>
+
+<!-- MENU -->
+<div class="viz-menu">
+  <button class="viz-menu-toggle" onclick="toggleMenu()" aria-label="Menu">
+    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="5" x2="17" y2="5"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="15" x2="17" y2="15"/></svg>
+  </button>
+  <div class="viz-menu-dropdown" id="vizMenuDropdown">
+    <button onclick="cycleTheme()"><span id="themeIcon">🌙</span><span id="themeLabel">다크 모드</span></button>
+    <button onclick="downloadImage()"><span>📥</span><span>PNG 저장</span></button>
+    <button onclick="window.print()"><span>🖨️</span><span>인쇄 / PDF</span></button>
+  </div>
+</div>
+
+<main id="main-content" role="main">
+<div class="slide-wrapper" id="slideWrapper">
+
+<!-- ===== SLIDE 01: COVER ===== -->
+<section class="slide slide-cover active" id="slide-1" aria-label="표지">
+  <div class="cover-dots"></div>
+  <div class="cover-glow"></div>
+  <div style="position:relative;z-index:1">
+    <div class="animate" style="margin-bottom:20px">
+      <span class="badge badge-cyan" style="font-size:0.85rem;padding:6px 16px">KISTI · GSDC · 2025</span>
+    </div>
+    <h1 class="animate d1">GSDC TEM Cluster<br>사용자 가이드</h1>
+    <p class="subtitle animate d2">AlmaLinux 9 기반 Cryo-EM 데이터 분석 클러스터</p>
+    <div class="animate d3" style="margin-top:36px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap">
+      <span class="badge badge-cyan">AlmaLinux 9.4</span>
+      <span class="badge badge-green">PBSPro 23.06</span>
+      <span class="badge badge-warn">CryoSPARC v4.5.3</span>
+    </div>
+    <p class="meta animate d4">한국과학기술정보연구원 · 과학데이터허브센터</p>
+  </div>
+</section>
+
+<!-- ===== SLIDE 02: TOC ===== -->
+<section class="slide slide-content" id="slide-2" aria-label="목차">
+  <div class="slide-label">02 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">목차</h2>
+  <p class="slide-sub animate d1">GSDC TEM Cluster 사용자 가이드 구성</p>
+  <div class="toc-grid animate d2">
+    <div class="toc-item" onclick="goToSlide(3)"><span class="toc-num">01</span><div><div class="toc-text">GSDC 소개</div><div class="toc-sub">서비스 개요 · 협력 기관</div></div></div>
+    <div class="toc-item" onclick="goToSlide(5)"><span class="toc-num">02</span><div><div class="toc-text">서비스 아키텍처</div><div class="toc-sub">전체 구성 · 지원 안내</div></div></div>
+    <div class="toc-item" onclick="goToSlide(7)"><span class="toc-num">03</span><div><div class="toc-text">컴퓨팅 & 스토리지</div><div class="toc-sub">서버 · GPU · 스토리지</div></div></div>
+    <div class="toc-item" onclick="goToSlide(11)"><span class="toc-num">04</span><div><div class="toc-text">시작하기</div><div class="toc-sub">계정 · SSH · OTP</div></div></div>
+    <div class="toc-item" onclick="goToSlide(14)"><span class="toc-num">05</span><div><div class="toc-text">데이터 전송</div><div class="toc-sub">SFTP · FileZilla · Globus</div></div></div>
+    <div class="toc-item" onclick="goToSlide(16)"><span class="toc-num">06</span><div><div class="toc-text">환경 모듈 (Lmod)</div><div class="toc-sub">module 명령어 · 계층 구조</div></div></div>
+    <div class="toc-item" onclick="goToSlide(18)"><span class="toc-num">07</span><div><div class="toc-text">데이터 분석 도구</div><div class="toc-sub">20종+ 분석 소프트웨어</div></div></div>
+    <div class="toc-item" onclick="goToSlide(22)"><span class="toc-num">08</span><div><div class="toc-text">배치 시스템 (PBS)</div><div class="toc-sub">큐 · 작업 제출 · 관리</div></div></div>
+    <div class="toc-item" onclick="goToSlide(26)"><span class="toc-num">09</span><div><div class="toc-text">CryoSPARC</div><div class="toc-sub">설치 · 접근 · 웹 UI</div></div></div>
+    <div class="toc-item" onclick="goToSlide(28)"><span class="toc-num">10</span><div><div class="toc-text">Relion</div><div class="toc-sub">실행 · Job 템플릿</div></div></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 03: GSDC SECTION ===== -->
+<section class="slide slide-section" id="slide-3" aria-label="GSDC 소개 섹션">
+  <div class="cover-dots" style="opacity:0.2"></div>
+  <div style="position:relative;z-index:1;text-align:center">
+    <span class="badge badge-cyan animate" style="margin-bottom:20px;font-size:0.9rem">섹션 01</span>
+    <h2 class="animate d1">GSDC 소개</h2>
+    <p class="sec-sub animate d2">Global Science experimental Data hub Center</p>
+  </div>
+</section>
+
+<!-- ===== SLIDE 04: GSDC OVERVIEW ===== -->
+<section class="slide slide-content" id="slide-4" aria-label="GSDC 개요">
+  <div class="slide-label">04 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">GSDC란?</h2>
+  <p class="slide-sub animate d1">Cryo-EM 시설과 GSDC 간 데이터 허브 연결</p>
+  <div class="grid-2 animate d2">
+    <div>
+      <div class="card card-accent" style="margin-bottom:14px">
+        <h3 style="color:var(--accent);margin-bottom:8px">GSDC 주요 역할</h3>
+        <div class="steps">
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--accent);font-size:1rem;flex-shrink:0">▸</span><div><b>대용량 데이터 전송 · 아카이빙</b><div style="font-size:0.8rem;color:var(--text-secondary)">Cryo-EM 원시 데이터 저장 및 백업</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--accent);font-size:1rem;flex-shrink:0">▸</span><div><b>CPU / GPU 컴퓨팅 자원 제공</b><div style="font-size:0.8rem;color:var(--text-secondary)">고성능 연산을 위한 클러스터 인프라</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:6px 0"><span style="color:var(--accent);font-size:1rem;flex-shrink:0">▸</span><div><b>데이터 분석 소프트웨어 운영</b><div style="font-size:0.8rem;color:var(--text-secondary)">Relion, CryoSPARC 등 20종+ 도구</div></div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">협력 Cryo-EM 시설</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px">
+          <span class="badge badge-cyan">KBSI</span>
+          <span class="badge badge-cyan">서울대 (SNU)</span>
+          <span class="badge badge-cyan">부산대 (PNU)</span>
+          <span class="badge badge-cyan">기타 국공립 연구기관</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="height:100%;display:flex;flex-direction:column;justify-content:center">
+        <div class="card-title" style="text-align:center;margin-bottom:16px">KREONET 연결 구성</div>
+        <div style="display:flex;flex-direction:column;gap:10px;align-items:center">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+            <div class="arch-node" style="min-width:90px;background:rgba(0,188,212,0.06)"><div class="node-name">KBSI</div><div class="node-spec">Cryo-EM Site</div></div>
+            <div class="arch-node" style="min-width:90px;background:rgba(0,188,212,0.06)"><div class="node-name">SNU</div><div class="node-spec">Cryo-EM Site</div></div>
+            <div class="arch-node" style="min-width:90px;background:rgba(0,188,212,0.06)"><div class="node-name">PNU</div><div class="node-spec">Cryo-EM Site</div></div>
+          </div>
+          <div style="text-align:center;color:var(--accent);font-size:0.8rem;font-weight:600">▼ KREONET 10Gbps+ 전용망 ▼</div>
+          <div class="arch-node accent-node" style="width:180px;padding:14px"><div class="node-name" style="font-size:0.85rem;color:var(--accent)">GSDC</div><div class="node-spec">데이터 허브</div></div>
+          <div style="text-align:center;color:var(--text-secondary);font-size:0.75rem">▼</div>
+          <div style="display:flex;gap:10px">
+            <div class="arch-node"><div class="node-name">Computing</div><div class="node-spec">CPU / GPU</div></div>
+            <div class="arch-node"><div class="node-name">Storage</div><div class="node-spec">PB 규모</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 05: SERVICE SECTION ===== -->
+<section class="slide slide-section" id="slide-5" aria-label="서비스 아키텍처 섹션">
+  <div class="cover-dots" style="opacity:0.2"></div>
+  <div style="position:relative;z-index:1;text-align:center">
+    <span class="badge badge-cyan animate" style="margin-bottom:20px;font-size:0.9rem">섹션 02</span>
+    <h2 class="animate d1">서비스 아키텍처</h2>
+    <p class="sec-sub animate d2">TEM 클러스터 전체 구성 및 지원</p>
+  </div>
+</section>
+
+<!-- ===== SLIDE 06: ARCHITECTURE ===== -->
+<section class="slide slide-content" id="slide-6" aria-label="전체 아키텍처">
+  <div class="slide-label">06 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">클러스터 전체 아키텍처</h2>
+  <p class="slide-sub animate d1">사용자 접속부터 연산 실행까지 흐름</p>
+  <div class="animate d2">
+    <!-- Layer: User -->
+    <div class="arch-layer">
+      <div class="arch-label">사용자</div>
+      <div class="arch-nodes">
+        <div class="arch-node"><div class="node-name">Linux / Mac</div><div class="node-spec">SSH Client</div></div>
+        <div class="arch-node"><div class="node-name">Windows</div><div class="node-spec">MobaXterm / PuTTy</div></div>
+        <div class="arch-node"><div class="node-name">Browser</div><div class="node-spec">CryoSPARC Web</div></div>
+      </div>
+    </div>
+    <div style="text-align:center;color:var(--accent);margin:4px 0 4px 36px;font-size:0.8rem">▼ SSH / SFTP / GridFTP ▼</div>
+    <!-- Layer: Login / Transfer -->
+    <div class="arch-layer">
+      <div class="arch-label">접속</div>
+      <div class="arch-nodes">
+        <div class="arch-node accent-node"><div class="node-name">tem-ui-al9</div><div class="node-spec">Login (UI)</div></div>
+        <div class="arch-node accent-node"><div class="node-name">tem-cs-al9</div><div class="node-spec">Login (CS)</div></div>
+        <div class="arch-node"><div class="node-name">tem-dm-al9</div><div class="node-spec">SFTP/GridFTP</div></div>
+        <div class="arch-node"><div class="node-name">tem-dtn-al9</div><div class="node-spec">Rclone/GridFTP</div></div>
+      </div>
+    </div>
+    <div style="text-align:center;color:var(--accent);margin:4px 0 4px 36px;font-size:0.8rem">▼ qsub (PBSPro) ▼</div>
+    <!-- Layer: Batch -->
+    <div class="arch-layer">
+      <div class="arch-label">스케줄러</div>
+      <div class="arch-nodes">
+        <div class="arch-node accent-node" style="max-width:200px"><div class="node-name">tem-ce-al9</div><div class="node-spec">PBSPro Scheduler</div></div>
+      </div>
+    </div>
+    <div style="text-align:center;color:var(--accent);margin:4px 0 4px 36px;font-size:0.8rem">▼ 작업 배분 ▼</div>
+    <!-- Layer: Compute -->
+    <div class="arch-layer">
+      <div class="arch-label">컴퓨팅</div>
+      <div class="arch-nodes">
+        <div class="arch-node"><div class="node-name">CPU Nodes</div><div class="node-spec">cpu[00-13] · 364 Cores</div></div>
+        <div class="arch-node"><div class="node-name">GPU Nodes</div><div class="node-spec">gpu[01-12] · 26 GPUs</div></div>
+      </div>
+    </div>
+    <div style="text-align:center;color:var(--text-secondary);margin:4px 0 4px 36px;font-size:0.8rem">↕ NFS Mount</div>
+    <!-- Layer: Storage -->
+    <div class="arch-layer">
+      <div class="arch-label">스토리지</div>
+      <div class="arch-nodes">
+        <div class="arch-node"><div class="node-name">Home</div><div class="node-spec">100GB/계정</div></div>
+        <div class="arch-node"><div class="node-name">Scratch</div><div class="node-spec">80TB/그룹</div></div>
+        <div class="arch-node"><div class="node-name">Archive</div><div class="node-spec">500TB/사이트</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 07: COMPUTING SECTION ===== -->
+<section class="slide slide-section" id="slide-7" aria-label="컴퓨팅 자원 섹션">
+  <div class="cover-dots" style="opacity:0.2"></div>
+  <div style="position:relative;z-index:1;text-align:center">
+    <span class="badge badge-cyan animate" style="margin-bottom:20px;font-size:0.9rem">섹션 03</span>
+    <h2 class="animate d1">컴퓨팅 & 스토리지 자원</h2>
+    <p class="sec-sub animate d2">서버 · GPU 클러스터 · 스토리지 구성</p>
+  </div>
+</section>
+
+<!-- ===== SLIDE 08: SERVERS ===== -->
+<section class="slide slide-content" id="slide-8" aria-label="로그인 및 전송 서버">
+  <div class="slide-label">08 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">로그인 & 데이터 전송 서버</h2>
+  <p class="slide-sub animate d1">사용자 접속 게이트웨이 노드</p>
+  <div class="animate d2">
+    <table style="margin-bottom:18px">
+      <thead><tr><th>구분</th><th>호스트명</th><th>CPU</th><th>메모리</th><th>용도</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge badge-cyan">로그인</span></td><td class="mono">tem-ui-al9.sdfarm.kr</td><td>Intel Xeon 3.1GHz 18C×2</td><td>384 GB</td><td>사용자 UI, 컴파일, 개발</td></tr>
+        <tr><td><span class="badge badge-cyan">로그인</span></td><td class="mono">tem-cs-al9.sdfarm.kr</td><td>Intel Xeon 2.7GHz 18C×2</td><td>384 GB</td><td>CryoSPARC 마스터 노드</td></tr>
+        <tr><td><span class="badge badge-green">전송</span></td><td class="mono">tem-dm-al9.sdfarm.kr</td><td>Intel Xeon 3.1GHz 18C×2</td><td>384 GB</td><td>SFTP, GridFTP</td></tr>
+        <tr><td><span class="badge badge-green">전송</span></td><td class="mono">tem-dtn-al9.sdfarm.kr</td><td>Intel Xeon 2.7GHz 18C×2</td><td>384 GB</td><td>Rclone, GridFTP</td></tr>
+        <tr><td><span class="badge badge-warn">배치</span></td><td class="mono">tem-ce-al9.sdfarm.kr</td><td>Intel Xeon 2.7GHz 18C×2</td><td>384 GB</td><td>PBSPro 스케줄러</td></tr>
+      </tbody>
+    </table>
+    <div class="card" style="background:rgba(0,188,212,0.05);border-color:rgba(0,188,212,0.3)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="color:var(--warning);font-size:1rem">⚠</span>
+        <span style="font-size:0.85rem"><b>중요:</b> 로그인 노드에서 직접 무거운 연산 실행 금지 — 반드시 배치 시스템(qsub) 사용</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 09: GPU NODES ===== -->
+<section class="slide slide-content" id="slide-9" aria-label="GPU 노드">
+  <div class="slide-label">09 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">GPU 컴퓨팅 노드</h2>
+  <p class="slide-sub animate d1">총 300 코어 · 26 GPU · MIG 포함 38 인스턴스</p>
+  <div class="animate d2">
+    <table style="font-size:0.8rem;margin-bottom:14px">
+      <thead><tr><th>노드</th><th>CPU</th><th>메모리</th><th>GPU</th><th>MIG 구성</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">gpu01-02</td><td>Xeon Gold 6226R 32C</td><td>384 GB</td><td>A100 40GB × 2</td><td>20GB × 4 인스턴스</td></tr>
+        <tr><td class="mono">gpu05</td><td>Xeon Gold 6334R 32C</td><td>384 GB</td><td>V100 32GB × 4</td><td>—</td></tr>
+        <tr><td class="mono">gpu06-08</td><td>Xeon E5-2690v4 28C</td><td>384 GB</td><td>P100 16GB × 2</td><td>—</td></tr>
+        <tr><td class="mono">gpu09-10</td><td>Xeon E5-2690v4 28C</td><td>256 GB</td><td>P40 24GB × 2</td><td>—</td></tr>
+        <tr><td class="mono">gpu11-12</td><td>Xeon Gold 6334R 32C</td><td>384 GB</td><td><b style="color:var(--accent)">A100 80GB × 4</b></td><td>40GB × 8 인스턴스</td></tr>
+      </tbody>
+    </table>
+    <div class="stat-row">
+      <div class="stat-box"><div class="stat-num" data-count="300">300</div><div class="stat-unit">CPU 코어</div></div>
+      <div class="stat-box"><div class="stat-num" data-count="26">26</div><div class="stat-unit">물리 GPU</div></div>
+      <div class="stat-box"><div class="stat-num" data-count="38">38</div><div class="stat-unit">MIG 인스턴스</div></div>
+      <div class="stat-box"><div class="stat-num">A100</div><div class="stat-unit">최고 사양 GPU</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 10: STORAGE ===== -->
+<section class="slide slide-content" id="slide-10" aria-label="스토리지 자원">
+  <div class="slide-label">10 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">스토리지 자원</h2>
+  <p class="slide-sub animate d1">계층형 스토리지 구조</p>
+  <div class="grid-3 animate d2">
+    <div class="card card-accent" style="text-align:center">
+      <div style="font-size:2rem;margin-bottom:8px">🏠</div>
+      <div class="card-title">홈 디렉토리</div>
+      <div class="card-value">100 GB</div>
+      <div class="card-label">계정당</div>
+      <div class="code-block" style="margin-top:12px;text-align:left;font-size:0.72rem">/tem/home/<span class="cmd">UserID</span></div>
+    </div>
+    <div class="card card-accent" style="text-align:center">
+      <div style="font-size:2rem;margin-bottom:8px">⚡</div>
+      <div class="card-title">스크래치 디렉토리</div>
+      <div class="card-value">80 TB</div>
+      <div class="card-label">연구그룹당</div>
+      <div class="code-block" style="margin-top:12px;text-align:left;font-size:0.72rem">/tem/scratch/<span class="cmd">GroupDir</span></div>
+    </div>
+    <div class="card card-accent" style="text-align:center">
+      <div style="font-size:2rem;margin-bottom:8px">📦</div>
+      <div class="card-title">아카이브 디렉토리</div>
+      <div class="card-value">500 TB</div>
+      <div class="card-label">Cryo-EM 사이트당</div>
+      <div class="code-block" style="margin-top:12px;text-align:left;font-size:0.72rem">/tem/archive/<span class="cmd">SiteDir</span></div>
+    </div>
+  </div>
+  <div class="card animate d3" style="margin-top:16px;background:rgba(255,215,64,0.06);border-color:rgba(255,215,64,0.3)">
+    <div style="display:flex;gap:10px">
+      <span style="font-size:1rem">💡</span>
+      <div>
+        <b>스크래치 디렉토리 주의:</b> 임시 작업 공간이므로 정기적으로 백업 필요.
+        CryoSPARC 인스턴스도 스크래치 디렉토리에 설치됩니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 11: GETTING STARTED SECTION ===== -->
+<section class="slide slide-section" id="slide-11" aria-label="시작하기 섹션">
+  <div class="cover-dots" style="opacity:0.2"></div>
+  <div style="position:relative;z-index:1;text-align:center">
+    <span class="badge badge-cyan animate" style="margin-bottom:20px;font-size:0.9rem">섹션 04</span>
+    <h2 class="animate d1">시작하기</h2>
+    <p class="sec-sub animate d2">계정 신청 · SSH 접속 · OTP 설정</p>
+  </div>
+</section>
+
+<!-- ===== SLIDE 12: ACCOUNT ===== -->
+<section class="slide slide-content" id="slide-12" aria-label="계정 신청">
+  <div class="slide-label">12 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">계정 신청 & SSH 로그인</h2>
+  <p class="slide-sub animate d1">처음 사용자를 위한 접속 절차</p>
+  <div class="grid-2 animate d2">
+    <div>
+      <h3 style="margin-bottom:12px">계정 신청 절차</h3>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-content"><h4>신청서 작성</h4><p>GSDC TEM Application Form 다운로드 및 작성</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-content"><h4>이메일 제출</h4><p>gsdc-support@kisti.re.kr — [TEM] prefix 필수</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-content"><h4>계정 발급</h4><p>관리자 승인 후 아이디/임시 비밀번호 안내</p></div></div>
+      </div>
+    </div>
+    <div>
+      <h3 style="margin-bottom:12px">SSH 로그인</h3>
+      <div class="card" style="margin-bottom:10px">
+        <div class="card-title">Linux / macOS</div>
+        <div class="code-block"><span class="cmd">ssh</span> <span class="str">userid</span>@tem-ui-al9.sdfarm.kr
+<span class="comment"># 또는 CS 노드</span>
+<span class="cmd">ssh</span> <span class="str">userid</span>@tem-cs-al9.sdfarm.kr</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Windows</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+          <span class="badge badge-cyan">MobaXterm</span>
+          <span class="badge badge-cyan">PuTTy</span>
+          <span class="badge badge-cyan">Windows Terminal (WSL)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 13: OTP ===== -->
+<section class="slide slide-content" id="slide-13" aria-label="OTP 설정">
+  <div class="slide-label">13 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">OTP(이중 인증) 설정</h2>
+  <p class="slide-sub animate d1">보안을 위한 One-Time Password 설정 방법</p>
+  <div class="grid-2 animate d2">
+    <div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-content"><h4>OTP 토큰 생성</h4><div class="code-block" style="margin-top:6px"><span class="cmd">ipa otptoken-add</span></div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-content"><h4>QR코드 스캔</h4><p>터미널에 출력된 QR코드를 Google Authenticator 등으로 스캔</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-content"><h4>로그인 시 적용</h4><p>First Factor: 비밀번호, Second Factor: OTP 6자리</p></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="card card-accent" style="margin-bottom:12px">
+        <div class="card-title">SSH 접속 시 인증 흐름</div>
+        <div class="code-block" style="margin-top:8px">(<span class="str">userid</span>@tem-ui-al9) First Factor:
+<span class="comment">▶ 비밀번호 입력</span>
+(<span class="str">userid</span>@tem-ui-al9) Second Factor:
+<span class="comment">▶ OTP 6자리 입력</span></div>
+      </div>
+      <div class="card" style="background:rgba(255,82,82,0.06);border-color:rgba(255,82,82,0.3)">
+        <div style="font-size:0.82rem">
+          <b style="color:var(--warning)">⚠ OTP 에러 발생 시:</b><br>
+          인증 크리덴셜이 만료된 경우 kinit으로 갱신
+          <div class="code-block" style="margin-top:6px"><span class="cmd">kinit</span>
+Password for UserID@SDFARM.KR:</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 14: DATA TRANSFER SECTION ===== -->
+<section class="slide slide-section" id="slide-14" aria-label="데이터 전송 섹션">
+  <div class="cover-dots" style="opacity:0.2"></div>
+  <div style="position:relative;z-index:1;text-align:center">
+    <span class="badge badge-cyan animate" style="margin-bottom:20px;font-size:0.9rem">섹션 05</span>
+    <h2 class="animate d1">데이터 전송</h2>
+    <p class="sec-sub animate d2">SFTP · FileZilla · WinSCP · Globus Online</p>
+  </div>
+</section>
+
+<!-- ===== SLIDE 15: DATA TRANSFER ===== -->
+<section class="slide slide-content" id="slide-15" aria-label="데이터 전송 방법">
+  <div class="slide-label">15 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">데이터 전송 방법</h2>
+  <p class="slide-sub animate d1">목적에 맞는 전송 수단 선택</p>
+  <div class="grid-2 animate d2">
+    <div class="card card-accent">
+      <div class="card-title">SFTP (커맨드라인)</div>
+      <div class="code-block" style="margin-top:8px"><span class="cmd">sftp</span> <span class="str">userid</span>@tem-dm-al9.sdfarm.kr
+sftp> <span class="cmd">put</span> localfile.mrc /tem/scratch/group/
+sftp> <span class="cmd">get</span> /tem/scratch/group/result.mrcs</div>
+      <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:8px">전용 전송 노드: <b style="color:var(--accent)">tem-dm-al9</b></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div class="card-title">FileZilla / WinSCP</div>
+            <div style="font-size:0.82rem">GUI 기반 드래그앤드롭 전송<br><span style="color:var(--text-secondary)">프로토콜: SFTP · 포트: 사용자 지정</span></div>
+          </div>
+          <span class="badge badge-cyan">GUI</span>
+        </div>
+      </div>
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div class="card-title">Globus Online</div>
+            <div style="font-size:0.82rem">대용량 데이터 자동 전송<br><span style="color:var(--text-secondary)">기관 간 공유 · 재시도 자동화</span></div>
+          </div>
+          <span class="badge badge-green">대용량</span>
+        </div>
+        <div class="code-block" style="margin-top:8px;font-size:0.72rem">전송 노드: <span class="cmd">tem-dtn-al9</span> (Rclone/GridFTP)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 16: LMOD SECTION ===== -->
+<section class="slide slide-section" id="slide-16" aria-label="환경 모듈 섹션">
+  <div class="cover-dots" style="opacity:0.2"></div>
+  <div style="position:relative;z-index:1;text-align:center">
+    <span class="badge badge-cyan animate" style="margin-bottom:20px;font-size:0.9rem">섹션 06</span>
+    <h2 class="animate d1">환경 모듈 시스템</h2>
+    <p class="sec-sub animate d2">Lmod v8.7.53 · 동적 환경변수 관리</p>
+  </div>
+</section>
+
+<!-- ===== SLIDE 17: LMOD COMMANDS ===== -->
+<section class="slide slide-content" id="slide-17" aria-label="Lmod 사용법">
+  <div class="slide-label">17 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">Lmod 환경 모듈 사용법</h2>
+  <p class="slide-sub animate d1">소프트웨어 환경을 동적으로 로드/언로드</p>
+  <div class="grid-2 animate d2">
+    <div>
+      <h3 style="margin-bottom:10px">주요 module 명령어</h3>
+      <table style="font-size:0.8rem">
+        <thead><tr><th>명령어</th><th>설명</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">module avail</td><td>사용 가능한 모듈 목록</td></tr>
+          <tr><td class="mono">module list</td><td>현재 로드된 모듈</td></tr>
+          <tr><td class="mono">module load &lt;path&gt;</td><td>모듈 로드</td></tr>
+          <tr><td class="mono">module unload &lt;path&gt;</td><td>모듈 언로드</td></tr>
+          <tr><td class="mono">module purge</td><td>모든 모듈 제거</td></tr>
+          <tr><td class="mono">module spider &lt;keyword&gt;</td><td>전체 모듈 검색</td></tr>
+          <tr><td class="mono">module keyword &lt;word&gt;</td><td>설명에서 키워드 검색</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h3 style="margin-bottom:10px">사용 예시: Relion GPU 로드</h3>
+      <div class="code-block"><span class="comment"># 1. 키워드로 검색</span>
+<span class="cmd">module keyword</span> relion
+
+<span class="comment"># 2. GPU 버전 로드</span>
+<span class="cmd">module load</span> apps/relion/5.0.0/gpu/cuda-12.6
+
+<span class="comment"># 3. 의존성 자동 로드 확인</span>
+<span class="cmd">module list</span>
+<span class="comment"># → gcc/11.5.0</span>
+<span class="comment"># → cuda/12.6</span>
+<span class="comment"># → openmpi/5.0.3/gcc-11.5.0</span>
+<span class="comment"># → apps/relion/5.0.0/gpu/cuda-12.6</span></div>
+      <div class="card" style="margin-top:10px;background:rgba(0,188,212,0.05);border-color:rgba(0,188,212,0.25);font-size:0.8rem">
+        <b>모듈 계층 구조:</b><br>
+        <span style="color:var(--text-secondary)">compiler → MPI → CUDA → Applications</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 18: TOOLS SECTION ===== -->
+<section class="slide slide-section" id="slide-18" aria-label="데이터 분석 도구 섹션">
+  <div class="cover-dots" style="opacity:0.2"></div>
+  <div style="position:relative;z-index:1;text-align:center">
+    <span class="badge badge-cyan animate" style="margin-bottom:20px;font-size:0.9rem">섹션 07</span>
+    <h2 class="animate d1">데이터 분석 도구</h2>
+    <p class="sec-sub animate d2">Cryo-EM 분석을 위한 20종+ 소프트웨어</p>
+  </div>
+</section>
+
+<!-- ===== SLIDE 19: TOOLS OVERVIEW ===== -->
+<section class="slide slide-content" id="slide-19" aria-label="도구 목록 개요">
+  <div class="slide-label">19 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">분석 도구 전체 목록</h2>
+  <p class="slide-sub animate d1">카테고리별 제공 소프트웨어 (AlmaLinux 9 기반)</p>
+  <div class="animate d2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div class="card">
+      <h3 style="color:var(--accent);margin-bottom:8px;font-size:0.95rem">모션 보정</h3>
+      <div class="tool-grid">
+        <span class="tool-pill"><span class="tool-dot" style="background:#00bcd4"></span>MotionCor2 1.6.4</span>
+        <span class="tool-pill"><span class="tool-dot" style="background:#00bcd4"></span>MotionCor3 1.1.1</span>
+        <span class="tool-pill"><span class="tool-dot" style="background:#00bcd4"></span>Unblur 1.0.2</span>
+        <span class="tool-pill"><span class="tool-dot" style="background:#00bcd4"></span>SumMovie 1.0.2</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="color:var(--positive);margin-bottom:8px;font-size:0.95rem">CTF 추정</h3>
+      <div class="tool-grid">
+        <span class="tool-pill"><span class="tool-dot" style="background:#00e676"></span>CTFFind4 4.1.14</span>
+        <span class="tool-pill"><span class="tool-dot" style="background:#00e676"></span>GCtfFind 1.0.0</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="color:var(--warning);margin-bottom:8px;font-size:0.95rem">입자 픽킹</h3>
+      <div class="tool-grid">
+        <span class="tool-pill"><span class="tool-dot" style="background:#ffd740"></span>CrYOLO 1.9.9</span>
+        <span class="tool-pill"><span class="tool-dot" style="background:#ffd740"></span>Topaz 0.2.5 / 0.3.1</span>
+        <span class="tool-pill"><span class="tool-dot" style="background:#ffd740"></span>Topaz (Filaments)</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="color:#ce93d8;margin-bottom:8px;font-size:0.95rem">정렬 & 재구성</h3>
+      <div class="tool-grid">
+        <span class="tool-pill"><span class="tool-dot" style="background:#ce93d8"></span>AreTomo 1/2/3</span>
+        <span class="tool-pill"><span class="tool-dot" style="background:#ce93d8"></span>IMOD 5.1.1</span>
+        <span class="tool-pill"><span class="tool-dot" style="background:#ce93d8"></span>IsoNet 0.2/0.3</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="color:#80cbc4;margin-bottom:8px;font-size:0.95rem">단일입자 분석</h3>
+      <div class="tool-grid">
+        <span class="tool-pill"><span class="tool-dot" style="background:#80cbc4"></span>CryoSPARC v4.5.3</span>
+        <span class="tool-pill"><span class="tool-dot" style="background:#80cbc4"></span>Relion 4.0.1 / 5.0.0</span>
+        <span class="tool-pill"><span class="tool-dot" style="background:#80cbc4"></span>CisTEM 1.0.0</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="color:#ffab91;margin-bottom:8px;font-size:0.95rem">보조 & 특수 도구</h3>
+      <div class="tool-grid">
+        <span class="tool-pill"><span class="tool-dot" style="background:#ffab91"></span>PyTOM 1.1</span>
+        <span class="tool-pill"><span class="tool-dot" style="background:#ffab91"></span>PyEM 0.65</span>
+        <span class="tool-pill"><span class="tool-dot" style="background:#ffab91"></span>ResMap 1.1.4</span>
+        <span class="tool-pill"><span class="tool-dot" style="background:#ffab91"></span>EMRNA 1.5</span>
+        <span class="tool-pill"><span class="tool-dot" style="background:#ffab91"></span>EternaFold 1.3.1</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 20: MOTION CORRECTION ===== -->
+<section class="slide slide-content" id="slide-20" aria-label="모션 보정 도구">
+  <div class="slide-label">20 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">모션 보정 & CTF 추정 도구</h2>
+  <p class="slide-sub animate d1">데이터 전처리의 핵심 단계</p>
+  <div class="grid-2 animate d2">
+    <div>
+      <h3 style="color:var(--accent);margin-bottom:10px">모션 보정</h3>
+      <div class="card" style="margin-bottom:10px">
+        <b>MotionCor2 / MotionCor3</b>
+        <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px">멀티-GPU 빔 유도 모션 보정. 전역 + 비균일 국소 모션 보정</p>
+        <div class="code-block" style="margin-top:8px;font-size:0.72rem">apps/motioncor2/1.6.4/<span class="flag">gpu</span>/cuda-11.8
+apps/motioncor3/1.1.1/<span class="flag">gpu</span>/cuda-12.6</div>
+      </div>
+      <div class="card">
+        <b>Unblur / SumMovie</b>
+        <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px">프레임 정렬 및 합산 처리</p>
+        <div class="code-block" style="margin-top:8px;font-size:0.72rem">apps/unblur/1.0.2
+apps/summovie/1.0.2</div>
+      </div>
+    </div>
+    <div>
+      <h3 style="color:var(--positive);margin-bottom:10px">CTF 추정</h3>
+      <div class="card" style="margin-bottom:10px">
+        <b>CTFFind4 4.1.14</b>
+        <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px">전자현미경 이미지의 대비 전달 함수(CTF) 추정. CPU/Intel 빌드 제공</p>
+        <div class="code-block" style="margin-top:8px;font-size:0.72rem">apps/ctffind/4.1.14/<span class="flag">cpu</span>/gcc-11.5.0
+apps/ctffind/4.1.14/<span class="flag">cpu</span>/intel-compiler-2024</div>
+      </div>
+      <div class="card">
+        <b>GCtfFind 1.0.0</b>
+        <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px">크리오ET 틸트 시리즈 및 미크로그래프의 CTF 추정</p>
+        <div class="code-block" style="margin-top:8px;font-size:0.72rem">apps/gctffind/1.0.0/<span class="flag">gpu</span>/cuda-11.8
+apps/gctffind/1.0.0/<span class="flag">gpu</span>/cuda-12.6</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 21: PICKING & RECONSTRUCTION ===== -->
+<section class="slide slide-content" id="slide-21" aria-label="입자 픽킹 및 재구성">
+  <div class="slide-label">21 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">입자 픽킹 & 재구성 도구</h2>
+  <p class="slide-sub animate d1">딥러닝 기반 픽킹부터 3D 재구성까지</p>
+  <div class="grid-2 animate d2">
+    <div>
+      <h3 style="color:var(--warning);margin-bottom:10px">입자 픽킹</h3>
+      <div class="card" style="margin-bottom:10px">
+        <b>CrYOLO 1.9.9</b>
+        <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px">YOLO 기반 CNN 입자 자동 픽킹. GPU 가속</p>
+        <div class="code-block" style="margin-top:8px;font-size:0.72rem">apps/cryolo/1.9.9/<span class="flag">gpu</span>/cuda-11.x</div>
+      </div>
+      <div class="card">
+        <b>Topaz 0.2.5 / 0.3.1</b>
+        <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px">Positive-unlabeled 학습 기반 픽킹 + 노이즈 제거</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
+          <span class="badge badge-cyan" style="font-size:0.72rem">일반</span>
+          <span class="badge badge-cyan" style="font-size:0.72rem">필라멘트용</span>
+          <span class="badge badge-cyan" style="font-size:0.72rem">CryoSPARC용</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 style="color:#ce93d8;margin-bottom:10px">정렬 & 재구성</h3>
+      <div class="card" style="margin-bottom:10px">
+        <b>AreTomo 1 / 2 / 3</b>
+        <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px">GPU 가속 Cryo-ET 피듀셜-프리 정렬 및 재구성</p>
+        <div class="code-block" style="margin-top:8px;font-size:0.72rem">apps/aretomo3/2.0.3/<span class="flag">gpu</span>/cuda-12.6</div>
+      </div>
+      <div class="card">
+        <b>IMOD 5.1.1 / IsoNet 0.3</b>
+        <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px">토모그램 재구성 패키지 / 미싱 웨지 딥러닝 보정</p>
+        <div class="code-block" style="margin-top:8px;font-size:0.72rem">apps/imod/5.1.1/<span class="flag">gpu</span>/cuda-12.6
+apps/isonet/0.3.0/<span class="flag">gpu</span>/cuda-12.5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 22: PBS SECTION ===== -->
+<section class="slide slide-section" id="slide-22" aria-label="배치 시스템 섹션">
+  <div class="cover-dots" style="opacity:0.2"></div>
+  <div style="position:relative;z-index:1;text-align:center">
+    <span class="badge badge-cyan animate" style="margin-bottom:20px;font-size:0.9rem">섹션 08</span>
+    <h2 class="animate d1">배치 시스템 (PBS Pro)</h2>
+    <p class="sec-sub animate d2">PBSPro 23.06.06 · 작업 제출 & 관리</p>
+  </div>
+</section>
+
+<!-- ===== SLIDE 23: PBS QUEUES ===== -->
+<section class="slide slide-content" id="slide-23" aria-label="PBS 큐 구성">
+  <div class="slide-label">23 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">배치 큐 구성</h2>
+  <p class="slide-sub animate d1">First-come-first-served + 백필링 스케줄링</p>
+  <div class="grid-2 animate d2">
+    <div class="card card-accent" style="padding:24px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
+        <div>
+          <div class="card-title">CPU 전용 큐</div>
+          <div style="font-size:1.6rem;font-weight:800;color:var(--accent)">cpuQ</div>
+        </div>
+        <span class="badge badge-cyan">Shared</span>
+      </div>
+      <div style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:12px">tem-cpu[00-13]-al9.sdfarm.kr<br>Intel Xeon E5-2697v3 2.60GHz 28C</div>
+      <div class="stat-row" style="margin-bottom:0">
+        <div class="stat-box"><div class="stat-num" style="font-size:1.6rem">14</div><div class="stat-unit">노드</div></div>
+        <div class="stat-box"><div class="stat-num" style="font-size:1.6rem">380</div><div class="stat-unit">CPU 코어</div></div>
+      </div>
+    </div>
+    <div class="card card-accent" style="padding:24px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
+        <div>
+          <div class="card-title">GPU 큐</div>
+          <div style="font-size:1.6rem;font-weight:800;color:var(--accent)">gpuQ</div>
+        </div>
+        <span class="badge badge-green">Shared + GPU</span>
+      </div>
+      <div style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:12px">tem-gpu[01-02,05-12]-al9.sdfarm.kr<br>A100 · V100 · P100 · P40</div>
+      <div class="stat-row" style="margin-bottom:0">
+        <div class="stat-box"><div class="stat-num" style="font-size:1.6rem">300</div><div class="stat-unit">CPU 코어</div></div>
+        <div class="stat-box"><div class="stat-num" style="font-size:1.6rem">38</div><div class="stat-unit">GPU 인스턴스</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="card animate d3" style="margin-top:16px;background:rgba(0,188,212,0.04)">
+    <div style="font-size:0.83rem"><b style="color:var(--accent)">큐 선택 기준:</b> GPU가 필요한 작업(CryoSPARC, Relion GPU, AreTomo 등)은 <b>gpuQ</b>,<br>CPU 집약적 작업(Relion CPU, CTFFind4 등)은 <b>cpuQ</b> 사용</div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 24: JOB SUBMISSION ===== -->
+<section class="slide slide-content" id="slide-24" aria-label="작업 제출">
+  <div class="slide-label">24 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">작업 제출 & 관리</h2>
+  <p class="slide-sub animate d1">qsub / qstat / qdel 핵심 명령어</p>
+  <div class="grid-2 animate d2">
+    <div>
+      <h3 style="margin-bottom:10px">Job Script 구조</h3>
+      <div class="code-block">#!/bin/bash
+<span class="comment">### 큐 지정</span>
+<span class="flag">#PBS -q</span> gpuQ
+<span class="comment">### 자원 요청</span>
+<span class="flag">#PBS -l</span> select=1:ncpus=6:ngpus=2:mem=64GB
+<span class="comment">### 출력 파일</span>
+<span class="flag">#PBS -o</span> job.out
+<span class="flag">#PBS -e</span> job.err
+<span class="comment">### 환경변수 전달</span>
+<span class="flag">#PBS -V</span>
+
+<span class="cmd">module load</span> apps/relion/5.0.0/gpu/cuda-12.6
+<span class="cmd">mpirun</span> -n 6 relion_refine_mpi ...</div>
+    </div>
+    <div>
+      <h3 style="margin-bottom:10px">핵심 관리 명령어</h3>
+      <table style="font-size:0.8rem">
+        <thead><tr><th>명령어</th><th>설명</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">qsub job.pbs</td><td>배치 작업 제출</td></tr>
+          <tr><td class="mono">qsub -I -q cpuQ ...</td><td>인터랙티브 작업</td></tr>
+          <tr><td class="mono">qsub -X -V -I ...</td><td>X11 GUI 인터랙티브</td></tr>
+          <tr><td class="mono">qstat -u $USER</td><td>내 작업 상태 확인</td></tr>
+          <tr><td class="mono">qstat -x jobID</td><td>특정 작업 상태 (72시간)</td></tr>
+          <tr><td class="mono">qdel jobID</td><td>작업 취소</td></tr>
+          <tr><td class="mono">qdel `qselect -u $USER`</td><td>내 모든 작업 취소</td></tr>
+        </tbody>
+      </table>
+      <div class="card" style="margin-top:10px;background:rgba(0,188,212,0.04);font-size:0.8rem">
+        <b>작업 상태 코드:</b> <span class="badge badge-cyan" style="font-size:0.72rem">Q</span> 대기 &nbsp;<span class="badge badge-green" style="font-size:0.72rem">R</span> 실행중 &nbsp;<span class="badge badge-warn" style="font-size:0.72rem">H</span> 홀드
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 25: INTERACTIVE JOBS ===== -->
+<section class="slide slide-content" id="slide-25" aria-label="인터랙티브 작업">
+  <div class="slide-label">25 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">인터랙티브 작업</h2>
+  <p class="slide-sub animate d1">디버깅 · 테스트 · GUI 애플리케이션 실행</p>
+  <div class="animate d2" style="display:flex;flex-direction:column;gap:16px">
+    <div class="card card-accent">
+      <div class="card-title">기본 인터랙티브 작업</div>
+      <div class="code-block" style="margin-top:8px"><span class="comment"># CPU 큐에서 4코어, 32GB, 1시간 인터랙티브 세션</span>
+<span class="cmd">qsub</span> <span class="flag">-I</span> -q cpuQ -l select=1:ncpus=4:mem=32GB -l walltime=01:00:00
+
+<span class="comment"># 결과: 컴퓨팅 노드에 직접 접속</span>
+[userid@tem-cpu00-al9 ~]$</div>
+    </div>
+    <div class="card card-accent">
+      <div class="card-title">GUI(X11) 인터랙티브 작업 — Relion, CisTEM 등 GUI 실행 시</div>
+      <div class="code-block" style="margin-top:8px"><span class="comment"># X11 포워딩 + 환경변수 전달 포함</span>
+<span class="cmd">qsub</span> <span class="flag">-X -V -I</span> -q cpuQ -l select=1:ncpus=1:mem=16GB -l walltime=01:00:00
+
+<span class="comment"># X11 환경 확인</span>
+[userid@tem-cpu00-al9 ~]$ <span class="cmd">echo</span> $DISPLAY
+localhost:50.0
+[userid@tem-cpu00-al9 ~]$ <span class="cmd">relion</span>   <span class="comment"># GUI 실행</span></div>
+    </div>
+    <div class="card" style="background:rgba(255,215,64,0.06);border-color:rgba(255,215,64,0.3);font-size:0.82rem">
+      <b style="color:var(--warning)">💡 팁:</b> 로컬 PC에서 SSH 접속 시 <b>-X</b> 또는 <b>-Y</b> 옵션으로 X11 포워딩 활성화 필요
+      <div class="code-block" style="margin-top:6px;font-size:0.72rem"><span class="cmd">ssh</span> <span class="flag">-X</span> userid@tem-ui-al9.sdfarm.kr</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 26: CRYOSPARC SECTION ===== -->
+<section class="slide slide-section" id="slide-26" aria-label="CryoSPARC 섹션">
+  <div class="cover-dots" style="opacity:0.2"></div>
+  <div style="position:relative;z-index:1;text-align:center">
+    <span class="badge badge-cyan animate" style="margin-bottom:20px;font-size:0.9rem">섹션 09</span>
+    <h2 class="animate d1">CryoSPARC</h2>
+    <p class="sec-sub animate d2">v4.5.3 · 그룹별 독립 인스턴스 구조</p>
+  </div>
+</section>
+
+<!-- ===== SLIDE 27: CRYOSPARC DETAIL ===== -->
+<section class="slide slide-content" id="slide-27" aria-label="CryoSPARC 설치 및 접근">
+  <div class="slide-label">27 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">CryoSPARC 아키텍처 & 접근 방법</h2>
+  <p class="slide-sub animate d1">그룹별 독립 인스턴스 · SSH 터널링으로 웹 UI 접근</p>
+  <div class="grid-2 animate d2">
+    <div>
+      <h3 style="margin-bottom:10px">인스턴스 구조</h3>
+      <div class="card card-accent" style="margin-bottom:10px">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:10px;padding:6px 8px;background:rgba(0,188,212,0.08);border-radius:6px">
+            <span style="color:var(--accent);font-size:0.75rem;font-weight:600">MASTER</span>
+            <span style="font-size:0.8rem">WebApp + command_core + Database</span>
+          </div>
+          <div style="text-align:center;color:var(--text-secondary);font-size:0.75rem">↕ PBS 작업 제출</div>
+          <div style="display:flex;align-items:center;gap:10px;padding:6px 8px;background:rgba(0,150,136,0.08);border-radius:6px">
+            <span style="color:var(--positive);font-size:0.75rem;font-weight:600">WORKER</span>
+            <span style="font-size:0.8rem">데이터 처리 & 이미지 분석</span>
+          </div>
+        </div>
+        <div class="code-block" style="margin-top:10px;font-size:0.72rem">/tem/scratch/<span class="cmd">GroupDir</span>/.cryosparc/
+├── cryosparc_master/
+├── cryosparc_worker/
+└── cryosparc_database/</div>
+      </div>
+      <div class="card" style="font-size:0.8rem">
+        <b>라이선스:</b> 비상업 학술용 무료<br>
+        <span style="color:var(--text-secondary)">관리자가 Ansible로 설치 대행 (약 10분)</span>
+      </div>
+    </div>
+    <div>
+      <h3 style="margin-bottom:10px">웹 UI 접근 (SSH 터널링)</h3>
+      <div class="card" style="margin-bottom:10px">
+        <div class="card-title">Linux / macOS</div>
+        <div class="code-block" style="margin-top:6px;font-size:0.72rem"><span class="comment"># SSH 터널 생성</span>
+<span class="cmd">ssh</span> <span class="flag">-N -f -L</span> localhost:39500:
+  tem-cs-al9.sdfarm.kr:<span class="str">BASE_PORT</span>
+  userid@tem-cs-al9.sdfarm.kr
+
+<span class="comment"># 브라우저에서 접속</span>
+http://localhost:<span class="str">39500</span></div>
+      </div>
+      <div class="card" style="margin-bottom:10px">
+        <div class="card-title">Windows</div>
+        <div style="font-size:0.8rem;margin-top:6px">
+          <b>MobaXterm:</b> Tools → MobaSSHTunnel<br>
+          <b>PuTTy:</b> Connection → SSH → Tunnels
+        </div>
+      </div>
+      <div class="card" style="background:rgba(0,188,212,0.05);font-size:0.8rem">
+        <b>CRYOSPARC_BASE_PORT</b> 확인:
+        <div class="code-block" style="margin-top:4px;font-size:0.72rem"><span class="cmd">cryosparcm env</span> | grep BASE_PORT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 28: RELION SECTION ===== -->
+<section class="slide slide-section" id="slide-28" aria-label="Relion 섹션">
+  <div class="cover-dots" style="opacity:0.2"></div>
+  <div style="position:relative;z-index:1;text-align:center">
+    <span class="badge badge-cyan animate" style="margin-bottom:20px;font-size:0.9rem">섹션 10</span>
+    <h2 class="animate d1">Relion</h2>
+    <p class="sec-sub animate d2">4.0.1 / 5.0.0 · CPU & GPU 빌드</p>
+  </div>
+</section>
+
+<!-- ===== SLIDE 29: RELION DETAIL ===== -->
+<section class="slide slide-content" id="slide-29" aria-label="Relion 사용법">
+  <div class="slide-label">29 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">Relion 실행 & Job 템플릿</h2>
+  <p class="slide-sub animate d1">module load → GUI 실행 → PBS 배치 제출</p>
+  <div class="grid-2 animate d2">
+    <div>
+      <h3 style="margin-bottom:10px">실행 절차</h3>
+      <div class="code-block" style="margin-bottom:10px"><span class="comment"># 1. 모듈 검색</span>
+<span class="cmd">module keyword</span> relion
+
+<span class="comment"># 2. GPU 버전 로드</span>
+<span class="cmd">module load</span> apps/relion/5.0.0/gpu/cuda-12.6
+
+<span class="comment"># 3. 경로 확인</span>
+<span class="cmd">which</span> relion
+<span class="comment"># /tem/al9/applications/relion-5.0.0-gpu-cuda-12.6/bin/relion</span>
+
+<span class="comment"># 4. GUI 실행 (X11 필요)</span>
+<span class="cmd">relion</span></div>
+      <div class="card" style="font-size:0.8rem">
+        <b>Job 템플릿 위치:</b>
+        <div class="code-block" style="margin-top:4px;font-size:0.72rem">/tem/al9/templates/relion/
+├── relion-4.0.1-gpu-cuda12.bash
+├── relion-5.0.0-gpu-cuda12.bash
+└── relion-5.0.0-cpu.bash ...</div>
+      </div>
+    </div>
+    <div>
+      <h3 style="margin-bottom:10px">GPU Job 템플릿 파라미터</h3>
+      <table style="font-size:0.78rem">
+        <thead><tr><th>변수</th><th>의미</th><th>권장값</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">XXXqueueXXX</td><td>큐 이름</td><td>gpuQ</td></tr>
+          <tr><td class="mono">XXXextra1XXX</td><td>노드 수</td><td>1-2</td></tr>
+          <tr><td class="mono">XXXextra2XXX</td><td>노드당 프로세스 수</td><td>3-6</td></tr>
+          <tr><td class="mono">XXXextra3XXX</td><td>노드당 GPU 수</td><td>1-2</td></tr>
+          <tr><td class="mono">XXXextra4XXX</td><td>메모리(GB)</td><td>프로세스×6GB</td></tr>
+          <tr><td class="mono">XXXmpinodesXXX</td><td>총 MPI 수</td><td>노드×프로세스</td></tr>
+        </tbody>
+      </table>
+      <div class="card" style="margin-top:10px;background:rgba(0,188,212,0.04);font-size:0.78rem">
+        Relion GUI에서 External scheduler 설정 시 위 변수들이 자동으로 PBS 스크립트에 대입됩니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 30: SUPPORT ===== -->
+<section class="slide slide-content" id="slide-30" aria-label="지원 안내">
+  <div class="slide-label">30 / 30</div>
+  <div class="band"></div>
+  <h2 class="animate">지원 안내 & FAQ</h2>
+  <p class="slide-sub animate d1">문제 해결 및 기술 지원 받기</p>
+  <div class="grid-2 animate d2">
+    <div>
+      <div class="card card-accent" style="margin-bottom:14px">
+        <h3 style="color:var(--accent);margin-bottom:10px">기술 지원 티켓</h3>
+        <div style="font-size:0.85rem;line-height:1.8">
+          <div>📧 <b>gsdc-support@kisti.re.kr</b></div>
+          <div style="color:var(--text-secondary)">제목 prefix: <span class="badge badge-warn" style="font-size:0.75rem">[TEM]</span> 반드시 포함</div>
+          <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary)">이메일 제목 예시:<br><i>"[TEM] CryoSPARC 인스턴스 설치 요청"</i></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:10px">자주 묻는 질문 (FAQ)</h3>
+        <div style="font-size:0.82rem;display:flex;flex-direction:column;gap:8px">
+          <div style="padding:6px 10px;background:var(--card-bg);border-radius:6px;border:1px solid var(--border)">
+            <b style="color:var(--warning)">Q:</b> ipa otptoken-add 오류?<br>
+            <span style="color:var(--text-secondary)">A: <code style="font-family:monospace">kinit</code> 으로 인증 갱신</span>
+          </div>
+          <div style="padding:6px 10px;background:var(--card-bg);border-radius:6px;border:1px solid var(--border)">
+            <b style="color:var(--warning)">Q:</b> QR코드가 표시 안됨?<br>
+            <span style="color:var(--text-secondary)">A: <code style="font-family:monospace">LANG</code> 설정 변경 후 재실행</span>
+          </div>
+          <div style="padding:6px 10px;background:var(--card-bg);border-radius:6px;border:1px solid var(--border)">
+            <b style="color:var(--warning)">Q:</b> CryoSPARC 설치 요청?<br>
+            <span style="color:var(--text-secondary)">A: 라이선스 키와 함께 티켓 제출</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:14px;text-align:center;padding:30px">
+        <div style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:12px">문서 사이트</div>
+        <div style="font-size:1.2rem;font-weight:700;color:var(--accent)">tem-docs.readthedocs.io</div>
+        <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:6px">AlmaLinux 9 기반 (현재 버전)</div>
+        <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:4px">구버전: el7 브랜치</div>
+      </div>
+      <div class="card" style="text-align:center;padding:24px;background:linear-gradient(135deg,rgba(0,188,212,0.08),rgba(0,150,136,0.06))">
+        <div style="font-size:2rem;margin-bottom:8px">🎉</div>
+        <div style="font-size:1rem;font-weight:600;margin-bottom:6px">감사합니다</div>
+        <div style="font-size:0.82rem;color:var(--text-secondary)">GSDC TEM Cluster 사용자 가이드<br>추가 문의사항은 티켓 시스템을 이용해 주세요</div>
+        <div style="margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+          <span class="badge badge-cyan">AlmaLinux 9.4</span>
+          <span class="badge badge-green">PBSPro 23.06</span>
+          <span class="badge badge-cyan">KISTI GSDC 2025</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- end slide-wrapper -->
+</main>
+
+<!-- SLIDE NAV -->
+<nav class="slide-nav" aria-label="슬라이드 탐색">
+  <button onclick="prevSlide()" aria-label="이전 슬라이드">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <span class="slide-counter" id="slideCounter">1 / 30</span>
+  <button onclick="nextSlide()" aria-label="다음 슬라이드">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+</nav>
+
+<script>
+var currentSlide = 1;
+var totalSlides = 30;
+var isAnimating = false;
+
+function getSlide(n){ return document.getElementById('slide-'+n); }
+
+function goToSlide(n){
+  if(isAnimating || n===currentSlide || n<1 || n>totalSlides) return;
+  isAnimating = true;
+  var prev = getSlide(currentSlide);
+  var next = getSlide(n);
+  var dir = n > currentSlide ? 1 : -1;
+
+  prev.classList.remove('active');
+  prev.style.transform = 'translateX('+(dir*-60)+'px)';
+  prev.style.opacity = '0';
+
+  next.style.transform = 'translateX('+(dir*60)+'px)';
+  next.style.opacity = '0';
+  next.style.transition = 'none';
+  next.classList.add('active');
+
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      next.style.transition = '';
+      next.style.transform = 'translateX(0)';
+      next.style.opacity = '1';
+    });
+  });
+
+  setTimeout(function(){
+    prev.style.transform = '';
+    prev.style.opacity = '';
+    isAnimating = false;
+  }, 480);
+
+  currentSlide = n;
+  updateNav();
+
+  // Trigger entrance animations for active slide
+  var els = next.querySelectorAll('.animate');
+  els.forEach(function(el){ el.style.animation='none'; el.offsetHeight; el.style.animation=''; });
+
+  // Animate counters
+  setTimeout(animateCounters, 200);
+}
+
+function nextSlide(){ goToSlide(currentSlide+1); }
+function prevSlide(){ goToSlide(currentSlide-1); }
+
+function updateNav(){
+  document.getElementById('slideCounter').textContent = currentSlide+' / '+totalSlides;
+  document.getElementById('progressTop').style.width = (currentSlide/totalSlides*100)+'%';
+}
+
+document.addEventListener('keydown', function(e){
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') nextSlide();
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp') prevSlide();
+  if(e.key==='Escape'){
+    var dd=document.getElementById('vizMenuDropdown');
+    if(dd) dd.classList.remove('open');
+  }
+});
+
+// Touch swipe
+var touchStartX = 0;
+document.addEventListener('touchstart',function(e){touchStartX=e.changedTouches[0].screenX;},{passive:true});
+document.addEventListener('touchend',function(e){
+  var dx=e.changedTouches[0].screenX-touchStartX;
+  if(Math.abs(dx)>50){dx<0?nextSlide():prevSlide();}
+});
+
+// Menu
+function toggleMenu(){
+  var d=document.getElementById('vizMenuDropdown');
+  if(d) d.classList.toggle('open');
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.viz-menu')){
+    var d=document.getElementById('vizMenuDropdown');
+    if(d) d.classList.remove('open');
+  }
+});
+
+// Theme
+var currentTheme = localStorage.getItem('viz-theme')||(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+function applyTheme(t){
+  document.documentElement.className='theme-'+t;
+  document.getElementById('themeIcon').textContent=t==='dark'?'🌙':'☀️';
+  document.getElementById('themeLabel').textContent=t==='dark'?'다크 모드':'라이트 모드';
+  localStorage.setItem('viz-theme',t);
+  currentTheme=t;
+}
+function cycleTheme(){ applyTheme(currentTheme==='dark'?'light':'dark'); }
+applyTheme(currentTheme);
+
+// Counter animation
+function animateCounters(){
+  var slide = getSlide(currentSlide);
+  if(!slide) return;
+  slide.querySelectorAll('[data-count]').forEach(function(el){
+    if(el.dataset.counted) return;
+    el.dataset.counted='1';
+    var target=parseFloat(el.dataset.count);
+    var start=performance.now(),duration=800;
+    (function tick(now){
+      var p=Math.min((now-start)/duration,1),eased=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*eased).toLocaleString();
+      if(p<1) requestAnimationFrame(tick);
+    })(start);
+  });
+}
+
+// Download
+async function downloadImage(){
+  var menu=document.querySelector('.viz-menu');
+  var nav=document.querySelector('.slide-nav');
+  var prog=document.getElementById('progressTop');
+  menu.style.display='none'; nav.style.display='none'; prog.style.display='none';
+  try{
+    var slide=getSlide(currentSlide);
+    var url=await htmlToImage.toPng(slide,{quality:1,pixelRatio:2});
+    var a=document.createElement('a');a.href=url;
+    a.download='gsdc-tem-slide-'+currentSlide+'.png';a.click();
+  }catch(e){console.error('Download failed:',e);}
+  menu.style.display='';nav.style.display='';prog.style.display='';
+}
+
+// Init
+updateNav();
+setTimeout(animateCounters, 300);
+</script>
+</body>
+</html>
