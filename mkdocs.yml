@@ -84,6 +84,7 @@ nav:
     - Cluster Managment Softwares: service/softwares.md
     - Environment Modules: service/modules.md
     - Data Analysis Tools: service/tools.md
+    - Conda: service/conda.md
     - Utilities: service/util.md
   - Batch Systems:
     - Running Jobs (PBS): batch/pbspro.md
