@@ -1,13 +1,13 @@
-# cryoDRGN User Guide
+# CryoDRGN
 
-This page is a basic guide for using **cryoDRGN** on the AlmaLinux 9.x based GSDC TEM cluster.
-cryoDRGN is a deep-learning-based tool for continuous particle structure and heterogeneity analysis in Cryo-EM. On the GSDC cluster, it is distributed via a **Conda environment**.
+This page is a basic guide for using [**CryoDRGN**](https://ez-lab.gitbook.io/cryodrgn) on the AlmaLinux 9.x based GSDC TEM cluster.
+CryoDRGN is a deep-learning-based tool for continuous particle structure and heterogeneity analysis in Cryo-EM. On the GSDC cluster, it is distributed via a **Conda environment**.
 
 ---
 
 ## 1. Environment Setup
 
-cryoDRGN is installed within a Conda virtual environment on the system. Before running any tasks, you must load Conda using `Environment Modules` and activate the cryoDRGN environment.
+CryoDRGN is installed within a Conda virtual environment on the system. Before running any tasks, you must load Conda using `Environment Modules` and activate the CryoDRGN environment.
 
 ```bash
 # Load the Conda module
@@ -21,7 +21,7 @@ module load apps/cryodrgn/4.3.0/gpu/cuda-12.x
 
 ## 2. Workspace Setup & PBS Job Submission
 
-The GSDC TEM cluster uses PBSPro as its job scheduler. Since the cryoDRGN model training process heavily relies on GPU computation, you must not run it directly on the login node.
+The GSDC TEM cluster uses PBSPro as its job scheduler. Since the CryoDRGN model training process heavily relies on GPU computation, you must not run it directly on the login node.
 Instead, you need to write a **PBSPro batch script** and submit the job to a queue with GPU resources.
 
 ### Recommended Directory Structure
@@ -75,10 +75,10 @@ For more detailed information on queues and job management commands, please refe
 
 ## 3. Basic Pipeline
 
-The typical data processing workflow using cryoDRGN is outlined below. You can check detailed options for specific commands by running `cryodrgn [command] --help`.
+The typical data processing workflow using CryoDRGN is outlined below. You can check detailed options for specific commands by running `cryodrgn [command] --help`.
 
 ### Step 1: Metadata Parsing
-Before training, convert metadata (such as STAR files) derived from Relion or CryoSPARC into a format (`.pkl`) that cryoDRGN can read. Since this requires minimal computational resources, you can run this preprocessing directly on the login node.
+Before training, convert metadata (such as STAR files) derived from Relion or CryoSPARC into a format (`.pkl`) that CryoDRGN can read. Since this requires minimal computational resources, you can run this preprocessing directly on the login node.
 ```bash
 # Parse pose information
 cryodrgn parse_pose_vd inputs/run_data.star -o inputs/poses.pkl
