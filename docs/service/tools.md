@@ -32,6 +32,22 @@
     apps/cistem/1.0.0/cpu/gcc-11.5.0
     ```
 
+## **CryoDRGN**
+
+**Description**
+> CryoDRGN is a neural network based algorithm for heterogeneous cryo-EM reconstruction. In particular, the method models a continuous distribution over 3D structures by using a neural network based representation for the volume.
+
+
+**URL**
+> [https://github.com/ml-struct-bio/cryodrgn](https://github.com/ml-struct-bio/cryodrgn)
+> [https://ez-lab.gitbook.io/cryodrgn](https://ez-lab.gitbook.io/cryodrgn)
+
+???+ note "ModulePaths for cryoDRGN"
+
+    ```bash
+    apps/cryodrgn/4.3.0/gpu/cuda-12.x
+    ```
+
 ## **CrYOLO**
 
 **Description**
