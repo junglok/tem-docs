@@ -68,7 +68,8 @@ After writing the job script, use the `qsub` command from within your project di
 ```bash
 qsub run_cryodrgn.sh
 ```
-You can check your job status using the `qstat` command. For more detailed information on queues and job management commands, please refer to the [Running Jobs (PBS)](./running_jobs.md) page.
+You can check your job status using the `qstat` command.
+For more detailed information on queues and job management commands, please refer to the [Job Scripts](../batch/jobscripts.md) and [Running Jobs (PBSPro)](../batch/pbspro.md) pages.
 
 ---
 
@@ -94,3 +95,7 @@ After the training is complete, analyze the results to generate volumes or visua
 ```bash
 cryodrgn analyze outputs/vae_results/00_vae128/ -o outputs/analysis_results
 ```
+
+---
+
+For more details on CryoDRGN usage guide, please refer to [CryoDRGN User Guide](https://ez-lab.gitbook.io/cryodrgn).

@@ -40,6 +40,7 @@
 
 **URL**
 > [https://github.com/ml-struct-bio/cryodrgn](https://github.com/ml-struct-bio/cryodrgn)
+
 > [https://ez-lab.gitbook.io/cryodrgn](https://ez-lab.gitbook.io/cryodrgn)
 
 ???+ note "ModulePaths for cryoDRGN"
