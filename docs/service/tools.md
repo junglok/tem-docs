@@ -92,6 +92,20 @@
     apps/ctffind/4.1.14/cpu/intel-compiler-2024.0.2
     ```
 
+## **deepEMhancer**
+
+**Description**
+> DeepEMhancer is a python package designed to perform post-processing of cryo-EM maps as described in "DeepEMhancer: a deep learning solution for cryo-EM volume post-processing", by Sanchez-Garcia et al, 2021. DeepEMhancer is a deep learning model trained on pairs of experimental volumes and atomic model-corrected volumes that is able to obtain post-processed maps using as input raw volumes, preferably half maps.
+
+**URL**
+> [https://github.com/rsanchezgarc/deepEMhancer](https://github.com/rsanchezgarc/deepEMhancer)
+
+???+ note "ModulePaths for deepEMhancer"
+
+    ```bash
+    apps/deepemhancer/0.17/gpu/cuda-11.x
+    ```
+
 ## **Dynamo**
 
 TBD
