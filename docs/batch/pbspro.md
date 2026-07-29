@@ -1,10 +1,10 @@
 # Starting and managing jobs with PBS
 
-Batch processing is a method of running software programs called jobs in batches automatically. 
-While users are required to submit the jobs, no other interaction by the user is required to process the batch.
-Batches may automatically be run at scheduled times as well as being run on the available computer resources.
-For additional background, see [Batch Computing Overview](https://en.wikipedia.org/wiki/Batch_processing). 
-GSDC TEM computing cluster uses the Portable Batch System as implemented in Altair's PBS Pro across shared resources.
+Batch processing runs programs, called jobs, automatically in batches.
+Users submit the jobs; no further interaction is needed to process them.
+Batches can run at scheduled times or whenever computer resources become available.
+For more background, see [Batch Computing Overview](https://en.wikipedia.org/wiki/Batch_processing). 
+The GSDC TEM computing cluster uses the Portable Batch System, as implemented in Altair's PBS Pro, across its shared resources.
 
 **URL**
 > [PBS Pro (Community Edition)](https://github.com/openpbs/openpbs)
@@ -14,16 +14,16 @@ GSDC TEM computing cluster uses the Portable Batch System as implemented in Alta
 ---
 
 ## **Job scripts**
-[Job scripts](./jobscripts.md) form the basis of batch jobs. A job script is simply a text file with instructions of the work to
-execute. Job scripts are usually written in `bash` and thus mimic commands a user would execute interactively through a shell,
-but instead are executed on specific resources allocated by the scheduler when available.
-Scripts can also be written in other languages - commonly Python.
-See our [job scripts](./jobscripts.md) page for a detailed discussion of job scripts and examples.
+[Job scripts](./jobscripts.md) form the basis of batch jobs. A job script is simply a text file containing instructions for the work to
+execute. Job scripts are usually written in `bash`, mimicking commands a user would run interactively through a shell,
+but they execute on specific resources allocated by the scheduler when available.
+Scripts can also be written in other languages, commonly Python.
+See our [job scripts](./jobscripts.md) page for a detailed discussion and examples.
 
 ## **Submitting jobs**
 
-In the examples that follow, `job.pbs`, `script_name` etc. represent a job script files submitted for batch execution.
-[PBS Pro](https://github.com/openpbs/openpbs) can be used to schedule both interactive jobs and batch compute jobs.
+In the examples below, `job.pbs`, `script_name`, etc., represent job script files submitted for batch execution.
+[PBS Pro](https://github.com/openpbs/openpbs) can schedule both interactive jobs and batch compute jobs.
 
 To submit a batch job, use the `qsub` command followed by the name of your PBS batch script file.
 
@@ -33,25 +33,25 @@ $> qsub job.pbs
 
 ## **Propagating environment settings**
 
-Some users find it useful to set environment variables in their login environment that can be temporarily used for multiple batch jobs without modifying the job script.
-This practice can be particularly useful during iterative development and debugging work.
+Some users find it useful to set environment variables in their login environment that can be reused across multiple batch jobs without modifying the job script.
+This is especially handy during iterative development and debugging.
 
-PBSPro has two approaches to propagation:
+PBSPro supports two approaches to propagation:
 
-1. Specific variables can be forwarded to the job upon request.
-2. The entire environment can be forwarded to the job.
+1. Forward specific variables to the job on request.
+2. Forward the entire environment to the job.
 
-In general, the first approach is preferred because the second may have unintended consequences.
+The first approach is generally preferred, since the second can have unintended consequences.
 
-These settings are controlled by qsub arguments that can be used at the command line or as directives within job scripts. Here are examples of both approaches:
+These settings are controlled by qsub arguments, usable either at the command line or as directives within job scripts. Here are examples of both:
 
 ```bash
 # Selectively forward runtime variables to the job (lower-case v)
 $> qsub -v DEBUG=true,CASE_NAME job.pbs
 ```
 
-When you use the selective option (lower-case `v`), you can either specify only the variable name to propagate the current value (as in `CASE_NAME` in the example), 
-or you can explicitly set it to a given value at submission time (as in `DEBUG`).
+With the selective option (lower-case `v`), you can either specify just the variable name to propagate its current value (as with `CASE_NAME` above), 
+or explicitly set a value at submission time (as with `DEBUG`).
 
 ```bash
 # Forward the entire environment to the job (upper-case V)
@@ -60,19 +60,19 @@ $> qsub -V job.pbs
 
 ## **Managing jobs**
 
-Here are some of the most useful commands for managing and monitoring jobs that have been launched with PBS. Most of these commands will only modify or query data from jobs that are active on the same system.
+Here are the most useful commands for managing and monitoring jobs launched with PBS. Most of them only modify or query data for jobs active on the same system.
 
 ### **qdel**
 
 #### **Canceling a single job**
-Run `qdel` with the job ID to kill a pending or running job.
+Run `qdel` with the job ID to cancel a pending or running job.
 
 ```bash
 $> qdel jobID
 ```
 
 #### **Stopping all of your own jobs**
-Kill all of your own pending or running jobs. (Be sure to use backticks as shown.)
+Cancel all of your own pending or running jobs. (Be sure to use backticks as shown.)
 
 ```bash
 $> qdel `qselect -u $USER`
@@ -87,10 +87,10 @@ Run this to see the status of all of your own unfinished jobs.
 $> qstat -u $USER
 ```
 
-Your output will be similar to what is shown just below. Most column headings are self-explanatory – `NDS` for nodes, `TSK` for tasks, and so on.
+Your output will look similar to what's shown below. Most column headings are self-explanatory – `NDS` for nodes, `TSK` for tasks, and so on.
 
-In the status `(S)` column, most jobs are either queued `(Q)` or running `(R)`. Sometimes jobs are held `(H)`, which might mean 
-they are dependent on the completion of another job.
+In the status `(S)` column, most jobs are either queued `(Q)` or running `(R)`. Jobs are sometimes held `(H)`, which usually means 
+they depend on another job finishing first.
 
 ```pre
 tem-ce-al9.sdfarm.kr:
@@ -102,20 +102,20 @@ Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
 841.tem-ce-al9* USERID   gpuQ     cryosparc*  84594   1   6   16gb   --  R 00:00
 ```
 
-Following are examples of `qstat` with some other commonly used options and arguments.
+Below are examples of `qstat` with other commonly used options and arguments.
 
 #### **Status of an unfinished job**
 
-Get a long-form summary of the status of an unfinished job.
+Get a detailed summary of an unfinished job's status.
 
 ```bash
 $> qstat -f jobID
 ```
 !!! warning
-    Use the above command only sparingly; it places a high load on PBSPro.
+    Use this command sparingly; it places a heavy load on PBSPro.
 
 #### **Status of jobs within some periods**
-Get a single-line summary of the status of an unfinished or recently completed job (within 72 hours).
+Get a one-line summary of an unfinished or recently completed job's status (within 72 hours).
 
 ```bash
 $> qstat -x jobID
@@ -129,7 +129,7 @@ $> qstat queue_name
 ```
 
 #### **Status of jobs by queue**
-See job activity by queue (e.g., pending, running) in terms of numbers of jobs.
+See job activity by queue (e.g., pending, running) as a count of jobs.
 
 ```bash
 $> qstat -Q
@@ -143,14 +143,14 @@ $> qstat -x -u $USER
 ```
 
 #### **Status of all your own jobs with comments**
-Display information for all of your unfinished jobs with `exec_host` and any `scheduler_comment` below the basic information.
+Show information for all your unfinished jobs, with `exec_host` and any `scheduler_comment` listed below the basic information.
 
 ```bash
 $> qstat -n -s -u $USER
 ```
 
 #### **Status of all jobs**
-Display information for all the jobs (including other users jobs)
+Show information for all jobs, including other users' jobs.
 
 ```bash
 $> qstat -a
@@ -158,16 +158,16 @@ $> qstat -a
 
 ## **Interactive jobs**
 
-Interactive jobs provide an interactive session on a compute node, useful for debugging, testing code, and running short tasks that require user interaction.
+Interactive jobs give you an interactive session on a compute node, useful for debugging, testing code, and running short tasks that need user interaction.
 
-Users can start an interactive job on GSDC TEM login nodes using the `qsub -I` command. 
-The `-I` flag is used to request an interactive session. The following example shows how to start an interactive job with specified resources on `cpuQ`:
+Start an interactive job on GSDC TEM login nodes with the `qsub -I` command. 
+The `-I` flag requests an interactive session. The example below starts an interactive job with specified resources on `cpuQ`:
 
 ```bash
 $> qsub -I -q cpuQ -l select=1:ncpus=4:mem=32GB -l walltime=01:00:00
 ```
 
-The result for the above command is following:
+The result of the above command is as follows:
 
 ```bash
 qsub: waiting for job 850.tem-ce-al9.sdfarm.kr to start
@@ -184,15 +184,15 @@ qsub: job 850.tem-ce-al9.sdfarm.kr completed
 
 ## **Interactive jobs with GUI(X11)-based applications**
 
-User can also start an interactive job supporting GUI(X11)-based applications using `qsub -X -V -I` command.
+You can also start an interactive job supporting GUI (X11)-based applications with the `qsub -X -V -I` command.
 
-The following example shows how to start an interactive job with specified resources on `cpuQ`, having environment variables and X11-forwarding attributes to be set:
+The example below starts an interactive job with specified resources on `cpuQ`, with environment variables and X11-forwarding set:
 
 ```bash
 $> qsub -X -V -I -q cpuQ -l select=1:ncpus=1:mem=16GB -l walltime=01:00:00
 ```
 
-The result for the above command is following:
+The result of the above command is as follows:
 
 ```bash
 qsub: waiting for job 900.tem-ce-al9.sdfarm.kr to start

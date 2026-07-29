@@ -2,7 +2,7 @@
 
 ## **cluster.mydata**
 
-Users can perform the following command (`cluster.mydata`) to check storage quota limit, usage ratio and so on. `cluster.mydata` tool is available on all the login nodes.
+Run the `cluster.mydata` command to check storage quota limits, usage ratios, and more. This tool is available on all login nodes.
 
 ```bash
 $> which cluster.mydata
@@ -46,8 +46,8 @@ ____ ____  ____   ____   _____ _____ __  __    ____ _           _
 
 ## **cluster.status**
 
-Users can monitor the status and the usage ratio of all worker nodes with the following command (`cluster.status`).
-`cluster.status` tool is available on all the login nodes.
+Run the `cluster.status` command to monitor the status and usage ratio of all worker nodes.
+This tool is available on all login nodes.
 
 
 ```bash
@@ -120,16 +120,16 @@ Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
 
 ## **TMUX**
 
-Tmux is a terminal multiplexer. It allows you to create several "pseudo terminals (sessions)" from a single terminal. 
-This is very useful for running multiple programs with a single connection, such as when you're remotely connecting to a machine using Secure Shell (SSH).
+Tmux is a terminal multiplexer that lets you create several "pseudo terminals (sessions)" from a single terminal. 
+This is useful for running multiple programs over a single connection, such as when connecting remotely via SSH.
 
-Tmux also decouples your programs from the main terminal, protecting them from accidentally disconnecting. You can detach tmux from the current terminal, 
-and all your programs will continue to run safely in the background. Later, you can reattach tmux to the same or a different terminal.
+Tmux also decouples your programs from the main terminal, protecting them from accidental disconnects. You can detach tmux from the current terminal, 
+and your programs will keep running safely in the background. Later, you can reattach tmux to the same or a different terminal.
 
 ### **Get started with tmux**
 
-When you login-in the login server, a tmux session will be created by default for your convenience.
-If the default session is not activated, type `tmux` in order to start using tmux. This command launches a tmux server, creates a session with a single window, and attaches to it.   
+When you log in to the login server, a tmux session is created by default for your convenience.
+If the default session isn't active, type `tmux` to start one. This command launches a tmux server, creates a session with a single window, and attaches to it.   
 
 ![alt text](../images/tmux-1.png)
 /// caption
@@ -138,7 +138,7 @@ Default tmux session (session number is 22 in this example)
 
 ### **Listing all the tmux sessions**
 
-To list all the tmux sessions created by an user, type **`tmux ls`**.
+To list all tmux sessions created by a user, type **`tmux ls`**.
 
 ```bash
 $> tmux ls
@@ -149,11 +149,11 @@ $> tmux ls
 
 ### **Switching between tmux sessions or windows**
 
-Tmux operates using a series of keybindings (keyboard shortcuts) triggered by pressing the **prefix** combination.
+Tmux operates through keybindings (keyboard shortcuts) triggered by pressing the **prefix** combination.
 
 By default, the prefix is **`Ctrl+b`**. After that, for instance, press **`c`** to create a new window in the current session.
 
-To traverse between tmux sessions (or windows), press **`Ctrl+b`** and **`w`**.
+To switch between tmux sessions (or windows), press **`Ctrl+b`**, then **`w`**.
 
 ```bash
 (0)   - 2: 9 windows (attached)
@@ -175,7 +175,7 @@ To traverse between tmux sessions (or windows), press **`Ctrl+b`** and **`w`**.
 
 ### **Useful keybindings**
 
-Tmux provides several keybindings to execute commands quickly in a tmux session. Here are some of the most useful ones.
+Tmux provides several keybindings for running commands quickly in a session. Here are some of the most useful ones.
 
 ```bash
 Tmux prefix key: Ctrl-b

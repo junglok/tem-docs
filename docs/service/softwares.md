@@ -42,13 +42,13 @@
 ## Environment Modules
 * Name : LMOD
 * Version : 8.7.53
-* Description : A Lua based module system that easily handles the MODULEPATH Hierarchical problem. Environment Modules provide a convenient way to dynamically change the users’ environment through modulefiles.
+* Description : A Lua-based module system that handles the MODULEPATH hierarchy problem. Environment Modules let users dynamically change their environment through modulefiles.
 * URL : [https://lmod.readthedocs.io/en/latest](https://lmod.readthedocs.io/en/latest)
 
 ## Batch System
 * Name : PBS Professional (Community Edition)
 * Version : 23.06.06
-* Description : Job scheduling and workload management in high-performance computing (HPC) environments – clusters, clouds, and supercomputers – improving system efficiency and people’s productivity.
+* Description : Job scheduling and workload management for high-performance computing (HPC) environments—clusters, clouds, and supercomputers—improving system efficiency and productivity.
 * URL : [https://github.com/openpbs/openpbs](https://github.com/openpbs/openpbs)
 
 ## MPI (Message Passing Interfaces)
@@ -67,7 +67,7 @@
 ## Virtual Environments
 * Name : Miniconda
 * Version : py312_25.1.1-2
-* Description : A collection of tools and a distribution of the Python and R programming languages for data science and machine learning. It's used to develop and manage data science and AI projects.
+* Description : A distribution of Python and R with a collection of tools for data science and machine learning, used to develop and manage data science and AI projects.
 * URL : [https://anaconda.com](https://anaconda.com)
 
 ???+ note "ModulePaths for Miniconda"

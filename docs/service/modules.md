@@ -2,15 +2,15 @@
 
 ## Overview
 
-The Environment Modules (Lmod) is a tool to help users manage their Unix or Linux shell environment, by allowing groups of related environment-variable settings to be made or removed dynamically.
+Environment Modules (Lmod) is a tool that helps users manage their Unix or Linux shell environment by dynamically adding or removing groups of related environment-variable settings.
 
-Lmod is a Lua-based module system that easily handles the MODULEPATH hierarchical problem. Lmod provide a convenient way to dynamically change the users’ environment through modulefiles. 
+Lmod is a Lua-based module system that handles the MODULEPATH hierarchy problem. It provides a convenient way to dynamically change your environment through modulefiles. 
 
-This includes easily adding or removing directories to the PATH environment variable. Modulefiles for library packages provide environment variables that specify where the library and header files can be found.
+This includes easily adding or removing directories from the PATH environment variable. Modulefiles for library packages set environment variables that specify where the library and header files can be found.
 
 ## Listing the loaded modules
 
-* To list all the modules already loaded by the user
+* To list all the modules the user has already loaded:
 
 === ":material-powershell: Command"
 
@@ -29,7 +29,7 @@ This includes easily adding or removing directories to the PATH environment vari
 
 ## Finding out what modules are available
 
-* To find out what modules are available to be loaded a user can do
+* To find out what modules are available to load:
 
 === ":material-powershell: Command"
 
@@ -95,7 +95,7 @@ This includes easily adding or removing directories to the PATH environment vari
     Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
     ```
 
-* If there are many modules on a system, it can be difficult to see what modules are available to load. Lmod provides the **overview command** to provide a concise listing
+* When a system has many modules, it can be hard to see what's available. Lmod's **overview command** gives a concise listing.
 
 === ":material-powershell: Command"
 
@@ -146,7 +146,7 @@ This includes easily adding or removing directories to the PATH environment vari
 
 ## Searching modules
 
-* Keyword search tool : This will search any help message or whatis description for the word(s) given on the command
+* Keyword search tool: searches any help message or `whatis` description for the given word(s).
 
 === ":material-powershell: Command"
 
@@ -173,7 +173,7 @@ This includes easily adding or removing directories to the PATH environment vari
     -----------------------------------------------------------
     ```
 
-* Spider command : Another way to search for modules is with the “module spider” command. This command searches the entire list of possible modules. 
+* Spider command: another way to search for modules is the "module spider" command, which searches the entire list of possible modules. 
 
 === ":material-powershell: Command"
 
@@ -203,9 +203,9 @@ This includes easily adding or removing directories to the PATH environment vari
     ------------------------------------------------------------------
     ```
 
-## Showing the defails of the module
+## Showing the details of a module
 
-There are several ways to use the show sub-command to show the contents of a modulefile. The first is to show the module functions instead of executing them:
+There are several ways to use the show sub-command to view a modulefile's contents. The first shows the module's functions instead of executing them:
 
 === ":material-powershell: Command"
 
@@ -259,9 +259,9 @@ There are several ways to use the show sub-command to show the contents of a mod
     ```
 
 
-## Accessing a modulesfile's help
+## Accessing a modulefile's help
 
-Modulefiles can contain help messages. To access a modulefile’s help do:
+Modulefiles can contain help messages. To access a modulefile's help:
 
 === ":material-powershell: Command"
 
@@ -281,9 +281,9 @@ Modulefiles can contain help messages. To access a modulefile’s help do:
     https://relion.readthedocs.io/en/release-5.0/index.html
     ```
 
-## Loding modules
+## Loading modules
 
-* To load packages a user simply does:
+* To load packages, simply run:
 
 === ":material-powershell: Command"
 
@@ -304,7 +304,7 @@ Modulefiles can contain help messages. To access a modulefile’s help do:
 
 ## Unloading modules
 
-* To unload packages a user does:
+* To unload packages, run:
 
 === ":material-powershell: Command"
 
@@ -346,7 +346,7 @@ Modulefiles can contain help messages. To access a modulefile’s help do:
 
 ## Modules help
 
-* To get a list of all the commands that module knows about 
+* To get a list of all the commands `module` supports:
 
 === ":material-powershell: Command"
 

@@ -2,11 +2,11 @@
 
 ## SSH/SFTP programs with 2FA
 
-Your client (e.g., Terminal-based ssh/sftp/scp/rsync commands on Linux/Mac etc.) programs may natively support interactive or multi-factor authentication methods.
+Terminal-based clients (e.g., ssh/sftp/scp/rsync on Linux/Mac) often support interactive or multi-factor authentication natively.
 
-* CLI (Command Line Interface) terminal programs (for Linux or Mac) : [SSH/SFTP/SCP/RSYNC](../account/ssh.md)
+* CLI (Command Line Interface) terminal programs (for Linux or Mac): [SSH/SFTP/SCP/RSYNC](../account/ssh.md)
 
-However, many GUI programs do not have this functionality built in. Known GUI applications for SSH that support 2FA natively:
+Many GUI programs, however, lack this built-in support. Known GUI applications for SSH that support 2FA natively:
 
 * MobaXterm (for Windows only) : [SSH using MobaXterm](https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp#mobaxterm-connecting-via-mobaxterm-on-windows)
 * XShell (for Windows only) : [SSH using Xshell](https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp#xshell-connecting-using-xshell)

@@ -1,8 +1,8 @@
 # OTP (One-Time-Password)
 
 ## Two-factor Authentication(2FA) with OTP Guide
-We have introduced a Two-Factor Authentication (2FA) using One-Time-Password (OTP) to enhance the security environment. 
-Please follow the GSDC OTP guide (written in both Korean and English) through the link below to enable it on your TEM account or sub-IDs. You are strongly recommended to do so as soon as possible because once all TEM user accounts are OTP enabled, then we plan to suspend the policy requiring source IPs. 
+We've introduced Two-Factor Authentication (2FA) using One-Time-Password (OTP) to strengthen security. 
+Follow the GSDC OTP guide below (available in Korean and English) to enable it on your TEM account or sub-IDs. We strongly recommend doing this as soon as possible, since once all TEM user accounts have OTP enabled, we plan to lift the source IP restriction policy. 
 
 !!! note "GSDC OTP (One-Time-Password) Setup Guide"
 
@@ -11,5 +11,5 @@ Please follow the GSDC OTP guide (written in both Korean and English) through th
 
 !!! warning 
 
-    * You must follow the guide when you are already logged-in GSDC login server using SSH terminal.
-    * Based on the security guidelines, accounts (and sub-IDs) that do not have OTP enabled will be temporarily disabled through the regular checks by service managers.
+    * Follow the guide only after you're already logged in to the GSDC login server via SSH.
+    * Per our security guidelines, service managers' regular checks will temporarily disable accounts (and sub-IDs) that don't have OTP enabled.

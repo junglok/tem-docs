@@ -1,6 +1,6 @@
 # Relion
 
-RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-alone computer program that employs an empirical Bayesian approach to refinement of (multiple) 3D reconstructions or 2D class averages in electron cryo-microscopy (cryo-EM).
+RELION (for REgularised LIkelihood OptimisatioN, pronounced "rely-on") is a stand-alone program that uses an empirical Bayesian approach to refine 3D reconstructions or 2D class averages in electron cryo-microscopy (cryo-EM).
 
 ## Executing relion
 
@@ -37,8 +37,8 @@ RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-a
     ------------------------------------------------------------------------------------------------------------
     ```
 
-    Here, relion-related module paths (e.g., apps/relion/5.0.0/cpu/intel-compiler-2024.0.2, where the module is for the relion version 5.0.0 application built upon using intel compiler) are shown,
-    as each module with different version of relion with the variants of depending on the underlying architectures (x86 or CUDA).
+    This shows relion-related module paths (e.g., apps/relion/5.0.0/cpu/intel-compiler-2024.0.2, a module for Relion 5.0.0 built with the Intel compiler),
+    with different Relion versions and variants depending on the underlying architecture (x86 or CUDA).
 
 2. Load the environment module of relion which you want to use.
 
@@ -51,7 +51,7 @@ RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-a
 
     ```
 
-     As the module specified is loaded, all other dependent modules are also automatically loaded (you can check these modules with `module list` command)
+     Loading the specified module automatically loads all its dependent modules too (check them with the `module list` command).
     
 3. Check the binary path of the relion application
 
@@ -60,7 +60,7 @@ RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-a
     /tem/al9/applications/relion-4.0.1-gpu-cuda-12.6/bin/relion
     ```
 
-4. Execute the relion (we assume that X11 forwarding is enabled)
+4. Run relion (assuming X11 forwarding is enabled)
 
     ``` bash
     $> relion
@@ -71,7 +71,7 @@ RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-a
 
 ## Relion job templates (Standard submission scripts)
 
-All the relion job templates (also known as standard submission scripts) for PBSPro is located at the following directory : 
+All Relion job templates (also known as standard submission scripts) for PBSPro are located in the following directory: 
 
 **/tem/al9/templates/relion**
 
@@ -91,8 +91,8 @@ $> tree .
 
 ## Relion pre-defined strings
 
-The job templates file contains **some pre-defined strings (XXX...XXX)**. 
-Each string is replaced with some values provided by users (or automatically by the program) in the relion tool when a relion job is submitted using the template.
+The job template file contains **some pre-defined strings (XXX...XXX)**. 
+Each string is replaced with values provided by the user (or set automatically by the program) when a Relion job is submitted using the template.
 
 
 ``` bash

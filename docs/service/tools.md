@@ -3,7 +3,7 @@
 ## **AreTomo**
 
 **Description**
-> (Alignment and Reconstruction for Electron Tomography) GPU-accelerated software package that provides an integrated solution to both fiducial-free alignment and reconstruction for cryoEM tomography.
+> (Alignment and Reconstruction for Electron Tomography) A GPU-accelerated software package providing an integrated solution for fiducial-free alignment and reconstruction in cryoEM tomography.
 
 **URL**
 > [https://msg.ucsf.edu/software](https://msg.ucsf.edu/software)
@@ -21,7 +21,7 @@
 ## **CisTEM**
 
 **Description**
-> GUI-based software to process cryo-EM images of macromolecular complexes and obtain high-resolution 3D reconstructions. It provides a number of tools to process image data including movies, micrographs and stacks of single-particle images, implementing a complete “pipeline” of processing steps to obtain high-resolution single-particle reconstructions
+> GUI-based software for processing cryo-EM images of macromolecular complexes to obtain high-resolution 3D reconstructions. It provides tools for processing image data—movies, micrographs, and stacks of single-particle images—implementing a complete "pipeline" of steps for high-resolution single-particle reconstructions.
 
 **URL**
 > [https://cistem.org](https://cistem.org)
@@ -35,7 +35,7 @@
 ## **CryoDRGN**
 
 **Description**
-> CryoDRGN is a neural network based algorithm for heterogeneous cryo-EM reconstruction. In particular, the method models a continuous distribution over 3D structures by using a neural network based representation for the volume.
+> CryoDRGN is a neural-network-based algorithm for heterogeneous cryo-EM reconstruction. It models a continuous distribution over 3D structures using a neural-network-based representation of the volume.
 
 
 **URL**
@@ -52,7 +52,7 @@
 ## **CrYOLO**
 
 **Description**
-> An application for fast and accurate cryo-EM particle picking. It’s based on convolutional neural networks and utilizes the popular You Only Look Once (YOLO) object detection system.
+> An application for fast, accurate cryo-EM particle picking, based on convolutional neural networks and the popular You Only Look Once (YOLO) object detection system.
 
 **URL**
 > [https://cryolo.readthedocs.io](https://cryolo.readthedocs.io)
@@ -66,21 +66,21 @@
 ## [**CryoSPARC**](../apps/cryosparc.md)
 
 **Description**
-> A state of the art scientific software platform for cryo-electron microscopy (cryo-EM) used in research and drug discovery pipelines.
+> A state-of-the-art scientific software platform for cryo-electron microscopy (cryo-EM), used in research and drug discovery pipelines.
 
 **URL**
 > [https://cryosparc.com](https://cryosparc.com)
 
 ???+ tip "Remarks on CryoSPARC"
 
-    Running CryoSPARC instance is provided per each Research Group basis on their scratch directory (/tem/scratch/__GroupDir__/.cryosparc).
-    For more details, please refer to [CryoSPARC](../apps/cryosparc.md)
+    Each research group gets its own running CryoSPARC instance in its scratch directory (/tem/scratch/__GroupDir__/.cryosparc).
+    For more details, see [CryoSPARC](../apps/cryosparc.md).
 
 
 ## **CTFFind4**
 
 **Description**
-> A new version of ctffind (a program for finding CTFs of electron micrographs) that should run significantly faster than CTFFind3 and may give slightly improved results when processing data from detectors other than scanned photographic film.
+> A new version of ctffind (a program for finding the CTFs of electron micrographs) that runs significantly faster than CTFFind3 and may give slightly better results when processing data from detectors other than scanned photographic film.
 
 **URL**
 > [https://grigoriefflab.umassmed.edu/ctffind4](https://grigoriefflab.umassmed.edu/ctffind4)
@@ -95,7 +95,7 @@
 ## **deepEMhancer**
 
 **Description**
-> DeepEMhancer is a python package designed to perform post-processing of cryo-EM maps as described in "DeepEMhancer: a deep learning solution for cryo-EM volume post-processing", by Sanchez-Garcia et al, 2021. DeepEMhancer is a deep learning model trained on pairs of experimental volumes and atomic model-corrected volumes that is able to obtain post-processed maps using as input raw volumes, preferably half maps.
+> DeepEMhancer is a Python package for post-processing cryo-EM maps, as described in "DeepEMhancer: a deep learning solution for cryo-EM volume post-processing" (Sanchez-Garcia et al., 2021). It's a deep learning model trained on pairs of experimental volumes and atomic-model-corrected volumes, able to produce post-processed maps from raw volume input, preferably half maps.
 
 **URL**
 > [https://github.com/rsanchezgarc/deepEMhancer](https://github.com/rsanchezgarc/deepEMhancer)
@@ -113,7 +113,7 @@ TBD
 ## **EMRNA**
 
 **Description**
-> A tool that performs Deep learning based automated RNA modeling from cryo-EM maps.
+> A tool that performs deep-learning-based automated RNA modeling from cryo-EM maps.
 
 **URL**
 > [http://huanglab.phys.hust.edu.cn/EMRNA](http://huanglab.phys.hust.edu.cn/EMRNA)
@@ -127,7 +127,7 @@ TBD
 ## **EternaFold**
 
 **Description**
-> A tool that performs multitask learning to improve RNA structure prediction. Its training tasks include 1) predicting single structures, 2) maximizing the likelihood of structure probing data, and 3) predicting experimentally-measured affinities of RNA molecules to proteins and small molecules.
+> A tool that uses multitask learning to improve RNA structure prediction. Its training tasks include: 1) predicting single structures, 2) maximizing the likelihood of structure probing data, and 3) predicting experimentally measured affinities of RNA molecules to proteins and small molecules.
 
 **URL**
 > [https://github.com/eternagame/EternaFold](https://github.com/eternagame/EternaFold)
@@ -141,7 +141,7 @@ TBD
 ## **GCtfFind**
 
 **Description**
-> GCtfFind is a new application that robustly estimates the contrast transfer function (CTF) of cryoET tilt series and cryoEM micrographs, essential information needed for cryoET subtomogram averaging and cryoEM single-particle reconstruction.
+> GCtfFind is a new application that robustly estimates the contrast transfer function (CTF) of cryoET tilt series and cryoEM micrographs—essential information for cryoET subtomogram averaging and cryoEM single-particle reconstruction.
 
 **URL**
 > [https://github.com/czimaginginstitute/GCtfFind](https://github.com/czimaginginstitute/GCtfFind)
@@ -156,7 +156,7 @@ TBD
 ## **IMOD**
 
 **Description**
-> IMOD is a set of image processing, modeling and display programs used for tomographic reconstruction and for 3D reconstruction of EM serial sections and optical sections. The package contains tools for assembling and aligning data within multiple types and sizes of image stacks, viewing 3-D data from any orientation, and modeling and display of the image files.
+> IMOD is a set of image processing, modeling, and display programs for tomographic reconstruction and 3D reconstruction of EM serial and optical sections. It contains tools for assembling and aligning data across image stacks of various types and sizes, viewing 3D data from any orientation, and modeling and displaying image files.
 
 **URL**
 > [https://bio3d.colorado.edu/imod](https://bio3d.colorado.edu/imod)
@@ -170,7 +170,7 @@ TBD
 ## **IsoNet**
 
 **Description**
-> (ISOtropic reconstructioN of Electron Tomography) A tool that trains deep convolutional neural networks to reconstruct meaningful contents in the missing wedge for electron tomography, and to increase signal-to-noise ratio, using the information learned from the original tomogram.
+> (ISOtropic reconstructioN of Electron Tomography) A tool that trains deep convolutional neural networks to reconstruct meaningful content in the missing wedge for electron tomography and increase signal-to-noise ratio, using information learned from the original tomogram.
 
 **URL**
 > [https://github.com/IsoNet-cryoET/IsoNet](https://github.com/IsoNet-cryoET/IsoNet)
@@ -185,7 +185,7 @@ TBD
 ## **MotionCor**
 
 **Description**
-> A multi-GPU program that corrects beam-induced sample motion on dose fractionated movie stacks. It implements a robust iterative alignment algorithm that delivers precise measurement and correction of both global and non-uniform local motions at single pixel level across the whole frame, suitable for both single-particle and tomographic images.
+> A multi-GPU program that corrects beam-induced sample motion in dose-fractionated movie stacks. It uses a robust iterative alignment algorithm to precisely measure and correct both global and non-uniform local motion at single-pixel level across the whole frame, suitable for single-particle and tomographic images alike.
 
 **URL**
 > * [MotionCor2](https://msg.ucsf.edu/software)
@@ -216,7 +216,7 @@ TBD
 ## **PyTOM**
 
 **Description**
-> PyTom is a software package for the analysis of volumetric data obtained by cryo electron tomography (cryo-ET). It covers a complete pipeline of processing steps for tomogram reconstruction, localization of macromolecular complexes in tomograms, fine alignment of subtomograms extracted at these locations, and their classification.
+> PyTom is a software package for analyzing volumetric data from cryo electron tomography (cryo-ET). It covers a complete pipeline: tomogram reconstruction, localizing macromolecular complexes in tomograms, fine alignment of subtomograms extracted at these locations, and their classification.
 
 **URL**
 > * [https://pytom.sites.uu.nl](https://pytom.sites.uu.nl)
@@ -231,7 +231,7 @@ TBD
 ## [**Relion**](../apps/relion.md)
 
 **Description**
-> Relion (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a software package that employs an empirical Bayesian approach for electron cryo-microscopy (cryo-EM) structure determination. It is developed in the group of Sjors Scheres at the MRC Laboratory of Molecular Biology.
+> Relion (for REgularised LIkelihood OptimisatioN, pronounced "rely-on") is a software package that uses an empirical Bayesian approach for electron cryo-microscopy (cryo-EM) structure determination. It's developed by Sjors Scheres's group at the MRC Laboratory of Molecular Biology.
 
 **URL**
 > * [Relion 4.x](https://relion.readthedocs.io/en/release-4.0)
@@ -254,7 +254,7 @@ TBD
 ## **ResMap**
 
 **Description**
-> (Resolution Map) a Python (NumPy/SciPy) application with a Tkinter GUI. It is an easy to use software package for computing the local resolution of 3D density maps studied in structural biology, primarily electron cryo-microscopy (cryo-EM). ResMap has a both a GUI (window) and a command line interface.
+> (Resolution Map) A Python (NumPy/SciPy) application with a Tkinter GUI. It's an easy-to-use package for computing the local resolution of 3D density maps in structural biology, primarily electron cryo-microscopy (cryo-EM). ResMap has both a GUI (window) and a command-line interface.
 
 **URL**
 > [https://resmap.sourceforge.net](https://resmap.sourceforge.net)
@@ -268,7 +268,7 @@ TBD
 ## **SumMovie**
 
 **Description**
-> A tool that uses the alignment results from the software application Unblur to calculate movie frame sums.
+> A tool that uses alignment results from the Unblur software to calculate movie frame sums.
 
 **URL**
 > [https://grigoriefflab.umassmed.edu/unblur_summovie](https://grigoriefflab.umassmed.edu/unblur_summovie)
@@ -282,7 +282,7 @@ TBD
 ## **Topaz**
 
 **Description**
-> A pipeline for particle detection in cryo-electron microscopy images using convolutional neural networks trained from positive and unlabeled examples. Topaz includes methods for micrograph denoising using deep denoising models.
+> A pipeline for particle detection in cryo-electron microscopy images, using convolutional neural networks trained on positive and unlabeled examples. Topaz also includes deep-learning-based micrograph denoising methods.
 
 **URL**
 > [https://github.com/tbepler/topaz](https://github.com/tbepler/topaz)
@@ -300,7 +300,7 @@ TBD
 ## **Topaz for CryoSPARC**
 
 **Description**
-> A pipeline for particle detection in cryo-electron microscopy images using convolutional neural networks trained from positive and unlabeled examples. Topaz includes methods for micrograph denoising using deep denoising models. This module is based on python runtime 3.6.
+> A pipeline for particle detection in cryo-electron microscopy images, using convolutional neural networks trained on positive and unlabeled examples. Topaz also includes deep-learning-based micrograph denoising methods. This module runs on Python 3.6.
 
 **URL**
 > [https://guide.cryosparc.com/processing-data/all-job-types-in-cryosparc/deep-picking/topaz](https://guide.cryosparc.com/processing-data/all-job-types-in-cryosparc/deep-picking/topaz)
@@ -316,7 +316,7 @@ TBD
 ## **Topaz for Picking Filaments**
 
 **Description**
-> A program with added support for filament start-end coordinate picking (new options -f, -fp and -fl in the extract command extract.py) in Topaz, for subsequent helical reconstruction in RELION.
+> A version of Topaz with added support for filament start-end coordinate picking (new options -f, -fp, and -fl in the extract.py command), for subsequent helical reconstruction in RELION.
 
 **URL**
 > [https://github.com/3dem/topaz](https://github.com/3dem/topaz)
@@ -331,7 +331,7 @@ TBD
 ## **Unblur**
 
 **Description**
-> A tool used to align the frames of movies recorded on an electron microscope to reduce image blurring due to beam-induced motion. It reads stacks of movies that are stored in MRC/CCP4 format and generates frame sums that can be used in subsequent image processing.
+> A tool that aligns movie frames recorded on an electron microscope to reduce image blurring from beam-induced motion. It reads movie stacks stored in MRC/CCP4 format and generates frame sums for use in subsequent image processing.
 
 **URL**
 > [https://grigoriefflab.umassmed.edu/unblur_summovie](https://grigoriefflab.umassmed.edu/unblur_summovie)

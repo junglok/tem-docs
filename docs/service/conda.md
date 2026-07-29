@@ -14,7 +14,7 @@ The default `envs` directory is **read-only** and managed by the system administ
 /tem/al9/system/miniconda3-py312_25.1.1-2/envs
 ```
 
-To create and manage your own Conda environments, you must add a writable `envs` directory under your group's scratch space. This guide explains how to configure it.
+To create and manage your own Conda environments, add a writable `envs` directory under your group's scratch space. This guide explains how to configure it.
 
 ---
 
@@ -34,7 +34,7 @@ To create and manage your own Conda environments, you must add a writable `envs`
 
 ## Step 1: Load the Conda Module
 
-Before using Conda, load the module:
+Before using Conda, load its module:
 
 ```bash
 module load miniconda3/py312_25.1.1-2
@@ -57,7 +57,7 @@ Create the `envs` directory under your group's scratch space if it does not alre
 mkdir -p /tem/scratch/<GroupDir>/envs
 ```
 
-> **Note:** This directory is shared within your group. Coordinate with your group members to avoid naming conflicts when creating environments.
+> **Note:** This directory is shared within your group, so coordinate with group members to avoid naming conflicts when creating environments.
 
 ---
 
@@ -83,7 +83,7 @@ envs_dirs:
   - /tem/al9/system/miniconda3-py312_25.1.1-2/envs
 ```
 
-> The newly added path is prepended to the list, so Conda will search it **first** when looking up environments.
+> The newly added path is prepended to the list, so Conda searches it **first** when looking up environments.
 
 ---
 
@@ -101,7 +101,7 @@ Or, since the directory is already registered, you can use the shorthand `--name
 conda create --name <env-name> python=3.12
 ```
 
-> When using `--name`, Conda will automatically place the environment in the first writable path listed in `envs_dirs` — which is `/tem/scratch/<GroupDir>/envs`.
+> When using `--name`, Conda automatically places the environment in the first writable path listed in `envs_dirs` — `/tem/scratch/<GroupDir>/envs`.
 
 ---
 
@@ -127,13 +127,13 @@ conda deactivate
 
 ### If the Active Environment Name Is Not Shown in the Prompt
 
-After activation, the shell prompt should display the active environment name, for example:
+After activation, the shell prompt should show the active environment's name, for example:
 
 ```
 (<env-name>) [user@hostname ~]$
 ```
 
-If the environment name does **not** appear in your prompt, set the following environment variable before activating:
+If the environment name does **not** appear in your prompt, set the following environment variable before activating it:
 
 ```bash
 export BASH_POWERLINE=yes
@@ -178,10 +178,10 @@ conda config --remove envs_dirs /tem/scratch/<GroupDir>/envs
 
 ## Notes and Best Practices
 
-- **Module must be loaded first.** Always run `module load miniconda3/py312_25.1.1-2` before using Conda in a new shell session. Consider adding it to your `~/.bashrc` or job script.
-- **The `conda config` change is persistent.** It is saved to `~/.condarc` in your home directory and applies to all future sessions automatically.
-- **Do not install packages into the base environment.** The base environment is system-managed and read-only. Always create and activate a dedicated environment.
-- **Disk quota.** Conda environments can be large. Monitor your group's scratch usage periodically:
+- **Load the module first.** Always run `module load miniconda3/py312_25.1.1-2` before using Conda in a new shell session. Consider adding it to your `~/.bashrc` or job script.
+- **The `conda config` change persists.** It's saved to `~/.condarc` in your home directory and applies automatically to all future sessions.
+- **Don't install packages into the base environment.** It's system-managed and read-only. Always create and activate a dedicated environment instead.
+- **Watch your disk quota.** Conda environments can grow large. Monitor your group's scratch usage periodically:
 
   ```bash
   cluster.mydata

@@ -1,8 +1,8 @@
 # PBS (Portable Batch System) Job Scripts
 
-**Job scripts** form the basis of batch jobs. A job script is simply a text file with instructions of the work to execute.
-Job scripts are *usually* written in `bash` and thus mimic commands a user would execute interactively through a shell; but instead are executed on 
-specific resources allocated by the scheduler when available. Scripts can also be written in other languages - commonly *Python*.
+**Job scripts** form the basis of batch jobs. A job script is simply a text file containing instructions for the work to execute.
+Job scripts are *usually* written in `bash`, mimicking commands a user would run interactively through a shell, but they execute on 
+specific resources allocated by the scheduler when available. Scripts can also be written in other languages, commonly *Python*.
 
 ## **Basics of a Job Script**
 Sample basic PBS scripts are shown below:
@@ -33,7 +33,7 @@ Sample basic PBS scripts are shown below:
 
         ---
 
-        The first line denotes the interpreter to be used for the script:
+        The first line specifies the interpreter for the script:
         ```bash
         #!/bin/bash
         ```
@@ -58,67 +58,67 @@ Sample basic PBS scripts are shown below:
 
         ---
 
-        The  first line denotes the interpreter to be used for the script:
+        The first line specifies the interpreter for the script:
         ```python
         #!/usr/bin/python
         ```
-        indicates this is a `python` script
+        indicating this is a `python` script
 
-**Focusing on the `bash` example for discussion**, the remainder of the script contains two main sections:
+**Focusing on the `bash` example**, the rest of the script contains two main sections:
 
-1.  The lines beginning with `#PBS` are **directives** that will be interpreted by PBS when this script is submitted with `qsub`.
-    Each of these lines contains an instruction that will be used by `qsub` to control job resources, execution, etc...
+1.  Lines beginning with `#PBS` are **directives** that PBS interprets when the script is submitted with `qsub`.
+    Each line gives `qsub` an instruction for controlling job resources, execution, and so on.
 
-2.  The remaining **script contents** are simply `bash` commands that will be run inside the batch environment on the selected resources and define the work to be done in this job.
+2.  The remaining **script contents** are simply `bash` commands that run inside the batch environment on the selected resources, defining the job's work.
 
 
 ### **PBS directives**
 
-The example above contains several **directives** which are interpreted by the `qsub` submission program:
+The example above contains several **directives** interpreted by the `qsub` submission program:
 
 * **`-N hello_pbs`**
-  > provides a *job name*. This name will be displayed by the scheduler for diagnostic and file output. 
-  > If omitted, and a script is used to submit the job, the job's name is the name of the script.
+  > sets a *job name*, displayed by the scheduler for diagnostics and file output. 
+  > If omitted, and a script is used to submit the job, the job's name defaults to the script's name.
 * **`-j oe`**
-  > requests we *combine any standard text output (`o`) and error (`e`) into one output file*.
-  > (By default, PBS will write program output and error to different log files. This behavior is contrary to what many users expect from terminal interaction, where output and error are generally interspersed. This optional flag changes that behavior.)
+  > *combines standard output (`o`) and error (`e`) into one output file*.
+  > (By default, PBS writes program output and error to separate log files. This differs from typical terminal interaction, where output and error are usually interspersed. This optional flag changes that behavior.)
 * **`-q cpuQ`**
-  > specifies the desired PBS *queue* for this job.
+  > specifies the PBS *queue* for this job.
 * **`-l walltime=00:05:00`**
-  > requests 5 minutes as the maximum job execution (*walltime*) time.  Specified in `HH:MM:SS` format.
+  > sets 5 minutes as the maximum job execution (*walltime*) time, specified in `HH:MM:SS` format.
 * **`-l select=2:ncpus=16:mem=64GB:mpiprocs=16`** 
-  > a computational *resource chunk* request, detailing the quantity and configuration of *compute nodes* required for this job. This example requests a *selection* of 2 nodes (chunks), where each node (chunk) must have 16 CPU cores and 64GB free memory, each of which we will use as an MPI rank in our application. In this document, *node* and *chunk* can be used interchangeably.
+  > a computational *resource chunk* request, detailing the quantity and configuration of *compute nodes* required. This example requests 2 nodes (chunks), each with 16 CPU cores and 64GB of free memory, with each core used as an MPI rank. In this document, *node* and *chunk* are used interchangeably.
 
 
 ### **Script contents**
 
-The remaining script contains shell commands that define the job execution workflow. 
-The commands here are arbitrary, however we strongly recommend the general structure presented above.  This includes:
+The remaining script contains shell commands that define the job's execution workflow. 
+These commands are arbitrary, but we strongly recommend the general structure shown above, which includes:
 
 1.  **(*Optional*) Explicitly setting the `TMPDIR` variable.**
 
-    Many programs can write temporary data to `TMPDIR`, which is usually small (e.g., 30 ~ 40 GBytes) and shared among normal users. Specifying your own directory for temporary
-    files can help you avoid the risk of your own programs and other users' programs failing when no more space is available.
+    Many programs write temporary data to `TMPDIR`, which is usually small (e.g., 30–40 GB) and shared among all users. Specifying your own directory for temporary
+    files helps avoid the risk of your own or other users' programs failing when space runs out.
 
 2.  **Loading and reporting the specific module environment required for this job.**
 
-    While strictly not necessary, we recommend this as best practice as it facilitates debugging and reproducing later. (Manually specifying module versions allows you to recreate the same execution environment in the future.)
+    While not strictly necessary, we recommend this as best practice, since it makes debugging and later reproduction easier. (Manually specifying module versions lets you recreate the same execution environment in the future.)
 
 3.  **Defining any environment variables specific to the chosen module environment.**
 
-    Occasionally users will want to define particular run time environment variables e.g. for a specific MPI or library chosen via the `module load` commands.
+    Users occasionally need to define specific runtime environment variables, e.g., for an MPI implementation or library chosen via the `module load` commands.
 
 4.  **Remaining job-specific steps.**
 
-    In the example above, we first compile and then execute `hello_c.c`, a simple MPI program with having total 32 processes on 2 nodes.
-    `btl_tcp_port_min_v4` and `btl_tcp_port_range_v4` describe OpenMPI specific parameters, which are written to specify the port range for TCP connections to be used in the MPI application. 
+    In the example above, we first compile and then execute `hello_c.c`, a simple MPI program running a total of 32 processes across 2 nodes.
+    `btl_tcp_port_min_v4` and `btl_tcp_port_range_v4` are OpenMPI-specific parameters that set the TCP port range used by the MPI application. 
 
 ---
 
 ## Common `#PBS` directives
 
 ### **Resource requests**
-Resources (compute node configuration, job duration) are requested through a combination of *resource selection* flags, each preceded with `-l`.
+Resources (compute node configuration, job duration) are requested through a combination of *resource selection* flags, each preceded by `-l`.
 
 For example:
 ```pre
@@ -133,29 +133,29 @@ Resources are specified through a `select` statement. The general form of a *hom
 ```pre
 select=<# NODES>:ncpus=<# CPU Cores/node>:mem=<RAM/node>:mpiprocs=<# MPI Ranks/node>:ompthreads=<# OpenMP Threads/rank>:ngpus=<# GPUs/node>
 ```
-where (*node* and *chunk* can be used interchangeably)
+where *node* and *chunk* can be used interchangeably:
 
 **`<# NODES>`** 
 > the total number of compute nodes requested, followed by a colon-separated list (see below)
 
 **`<# CPU Cores/node>`** 
-> the *total* number of CPUs requested *on each node*, which can be a mix of MPI Ranks and/or OpenMP threads,
+> the *total* number of CPUs requested *on each node*, which can be a mix of MPI ranks and/or OpenMP threads
 
 **`<RAM/node>`** 
-> how much main memory (RAM) the job will be able to access *on each node*. 
-> (Optional, default is system dependent, but system default is very small amount memory 256MBytes, so as the best practice, we recommend to explicitly specify the size of memory required),
+> how much main memory (RAM) the job can access *on each node*. 
+> (Optional; the default is system-dependent, but the system default is a very small amount, 256MB, so as best practice we recommend explicitly specifying the memory size required.)
   
 **`<# MPI Ranks/node>`** 
-> the number of MPI Ranks *on each node* (Optional, defaults to 1),
+> the number of MPI ranks *on each node* (optional, defaults to 1)
 
 **`<# OpenMP Threads/node>`** 
-> the number of OpenMP ranks *per MPI Rank on each node* (Optional, defaults to 1)
+> the number of OpenMP threads *per MPI rank on each node* (optional, defaults to 1)
 
 **`<# GPUs/node>`** 
-> the number of GPUs *per node*. (Optional, defaults to 0).
+> the number of GPUs *per node* (optional, defaults to 0)
 
-Taken together, this specifies a *resource chunk*. Homogeneous resource chunks are the most common case, however, 
-*heterogeneous* selection statements can be constructed by multiple chunks separated by a **+** (examples below).
+Together, these specify a *resource chunk*. Homogeneous resource chunks are the most common case, but 
+*heterogeneous* selection statements can be built from multiple chunks separated by a **+** (examples below).
 
 ##### Examples
 *  4 128-core nodes, each running 128 MPI ranks (4 `x` 128 = 512 MPI ranks total).
@@ -186,13 +186,13 @@ walltime=HH:MM:SS
 ```
 
 ## **Execution environment variables**
-Within the **script contents** of the job script, it is common for the specifics of the job to depend slightly on the PBS and specific `module` execution environment.
-Both running under PBS and loading certain [module files](../service/modules.md) create some environment variables that might be useful when writing
-portable scripts; for example scripts that might be shared among users or executed within several different configurations.
+Within the **script contents**, a job's specifics often depend slightly on the PBS and `module` execution environment.
+Both running under PBS and loading certain [module files](../service/modules.md) create environment variables useful when writing
+portable scripts—for example, scripts shared among users or run across several different configurations.
 
 ### PBS execution environment variables
-PBS creates a number of environment variables that are accessible within a job's execution environment.
-Some of the more useful ones are:
+PBS creates several environment variables accessible within a job's execution environment.
+Some of the more useful ones:
 
 |  <div style="width:110px">Variable</div> | Value |
 |---------------|-------|

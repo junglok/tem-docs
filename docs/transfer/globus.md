@@ -1,6 +1,6 @@
 # **Globus Connect Personal – Installation & Data Transfer Guide**
 
-Globus Connect Personal (GCP) lets you turn your own workstation or desktop (Windows, macOS, or Linux) into a Globus collection, so you can move data to and from institutional (e.g., KISTI GSDC) storage using the Globus Web App.  ￼
+Globus Connect Personal (GCP) turns your own workstation or desktop (Windows, macOS, or Linux) into a Globus collection, so you can move data to and from institutional storage (e.g., KISTI GSDC) using the Globus Web App.
 
 This guide shows how to:
 
@@ -15,14 +15,14 @@ This guide shows how to:
 
 ## **Overview & Concepts**
 
-- **Globus Web App** – Web interface at [https://app.globus.org](https://app.globus.org) used to manage collections and transfers.  
-- **Collection** – A named location (endpoint) that Globus can access. Your workstation with GCP installed becomes a *personal collection*.  
-- **Globus Connect Personal (GCP)** – Lightweight client that runs under your user account and connects your local filesystem to Globus. Available for:
+- **Globus Web App** – the web interface at [https://app.globus.org](https://app.globus.org) for managing collections and transfers.  
+- **Collection** – a named location (endpoint) Globus can access. Once GCP is installed, your workstation becomes a *personal collection*.  
+- **Globus Connect Personal (GCP)** – a lightweight client that runs under your user account and connects your local filesystem to Globus. Available for:
     - macOS 10.13+  
     - Currently supported Windows versions  
     - Common x86 Linux distributions  
 
-GCP is free to install and use for users at non‑profit research and education institutions.  
+GCP is free for users at non‑profit research and education institutions.  
 
 ---
 
@@ -41,12 +41,12 @@ You can log in [https://app.globus.org](https://app.globus.org) with:
 
 ### 2. A remote Globus collection to transfer to/from
 
-   - Typically an institutional (e.g., KISTI GSDC) collection on a data computing cluster or storage system.  
-   - KISTI GSDC collection name for TEM : **`TEM_Collection@KISTI-GSDC`**
+   - Typically an institutional collection (e.g., KISTI GSDC) on a data computing cluster or storage system.  
+   - KISTI GSDC collection name for TEM: **`TEM_Collection@KISTI-GSDC`**
 
 ### 3. Permissions on your own computer
 
-   - Ability to install software in some directory you can write to (does *not* have to be system-wide Program Files, etc.).  
+   - Ability to install software into any directory you can write to (it doesn't need to be a system-wide location like Program Files).  
 
 ---
 
@@ -63,11 +63,11 @@ You can log in [https://app.globus.org](https://app.globus.org) with:
 ### 2. Run the Installer
 
 1. Double‑click the downloaded installer (`GlobusConnectPersonal-x.y.z.exe`).  
-2. If you are the only user and have administrator rights, you can accept the default install location and click **Install**.  
-3. If you **don’t** have admin privileges or want a different location:
+2. If you're the only user and have administrator rights, accept the default install location and click **Install**.  
+3. If you don't have admin privileges, or want a different location:
    - Click **Browse**  
    - Choose a directory you can write to (e.g., `C:\Users\<you>\Apps\GlobusConnectPersonal`)  
-   - Continue with installation.  
+   - Continue the installation.  
 
 After installation, GCP launches automatically and shows a **Log In** button.  
 
@@ -87,9 +87,9 @@ After installation, GCP launches automatically and shows a **Log In** button.
 
 1. Open the downloaded `.dmg` file.  
 2. Drag **Globus Connect Personal** into the **Applications** folder.  
-3. Open **Finder → Applications**, then double‑click **Globus Connect Personal** to launch it.  
+3. Open **Finder → Applications** and double‑click **Globus Connect Personal** to launch it.  
 
-GCP will show a **Log In** button for the first-time setup.
+GCP shows a **Log In** button for first-time setup.
 
 ---
 
@@ -110,7 +110,7 @@ sudo yum install tk tcllib
 sudo zypper install tk tcllib
 ```
 
-Without Tcl/Tk you can still use GCP in command‑line mode only.
+Without Tcl/Tk, GCP still works in command‑line mode only.
 
 ### 2. Download & Extract
 
@@ -135,9 +135,9 @@ Run:
 ./globusconnectpersonal
 ```
 
-The first run walks you through setup (GUI or text prompts depending on environment).  
+The first run walks you through setup (GUI or text prompts, depending on your environment).  
 
-Later, you can start it in the background:
+Later, start it in the background with:
 
 ```bash
 ./globusconnectpersonal -start &
@@ -147,32 +147,32 @@ Later, you can start it in the background:
 
 These steps are similar on all platforms.
 
-1. **Click “Log In” in the GCP window**
+1. **Click "Log In" in the GCP window**
 
    - GCP opens your default browser to complete authentication.
 
 2. **Authenticate with Globus**
 
-   - Choose your organization or another identity provider, and log in.
-   - If asked, consent to allow GCP/Globus to use your identity.
+   - Choose your organization or another identity provider and log in.
+   - If asked, consent to let GCP/Globus use your identity.
 
 3. **Grant GCP permissions**
 
-   - You’ll see a consent page requesting permission for GCP to create and manage a personal collection on your behalf.  
+   - A consent page will ask permission for GCP to create and manage a personal collection on your behalf.  
    - Click **Allow**.  
 
 4. **Configure your collection**
 
-   You’ll be asked to provide:
+   You'll be asked to provide:
 
-   - **Collection display name** – e.g., `MyWorkStation`, `Lab-PC-01`, or something your users will recognize.  
+   - **Collection display name** – e.g., `MyWorkStation`, `Lab-PC-01`, or something recognizable.  
    - **Description** (optional).  
    - **Default directory** – typically your home directory.
 
 5. **Finish setup**
 
-   - After setup completes, GCP starts running and connects to the Globus service.  
-   - You’ll see a Globus icon:
+   - Once setup completes, GCP starts running and connects to the Globus service.  
+   - You'll see a Globus icon:
      - **Windows:** in the system tray / taskbar.  
      - **macOS:** in the menu bar (top of the screen).  
      - **Linux:** GUI status window or CLI messages; you can check status via `./globusconnectpersonal -status`.  
@@ -183,7 +183,7 @@ At this point, your PC is a Globus collection and can be used in the Web App.
 
 ## **Make Local Folders Accessible for Transfer**
 
-By default, only a limited part of your filesystem (typically your home directory) is accessible to Globus. To upload/download to other paths (e.g., HDD/SSD external drives), you must explicitly allow them.  
+By default, Globus can only access a limited part of your filesystem (typically your home directory). To upload or download to other paths (e.g., external drives), you must explicitly allow them.  
 
 > **Security tip:** Only expose folders that actually need to be accessed via Globus.
 
@@ -193,14 +193,14 @@ By default, only a limited part of your filesystem (typically your home director
   
 2. In the **Access** tab:
      
-    * You’ll see your home directory listed by default.  
+    * Your home directory is listed by default.  
     * Click **+** to add more folders (e.g., `D:\data\project1`).  
-    * Optionally tick **Sharable** if your institution has a Globus subscription that allows creating guest collections.  
+    * Optionally tick **Sharable** if your institution's Globus subscription allows guest collections.  
 
 3. Path syntax from Globus:
 
     * `/~/` maps to your Windows home directory (e.g., `C:\Users\yourname`).  
-    * `/C/path/to/dir` corresponds to `C:\path\to\dir` and so on.  
+    * `/C/path/to/dir` corresponds to `C:\path\to\dir`, and so on.  
 
 ### 2. macOS – Accessible Directories
 
@@ -209,12 +209,12 @@ By default, only a limited part of your filesystem (typically your home director
 2. In **Access**:
 
     * Your home directory (e.g., `/Users/yourname`) is allowed by default.  
-    * Click **+** to add additional directories.  
-    * You can choose whether each directory is sharable (requires a subscription for sharing).  
+    * Click **+** to add more directories.  
+    * You can choose whether each directory is sharable (sharing requires a subscription).  
 
 ### 3. Linux – Accessible Directories (config file)
 
-On Linux, you can manage accessible paths via the GUI (if Tcl/Tk is installed) or via the config file:  
+On Linux, manage accessible paths via the GUI (if Tcl/Tk is installed) or via the config file:  
 
 - Paths and permissions are stored in `~/.globusonline/lta/config-paths` as CSV:
 
@@ -239,15 +239,15 @@ After editing `config-paths`, restart GCP:
 
 ## **Transfer Data with the Globus Web App**
 
-Once GCP is installed, running, and configured, users can transfer files using any browser.
+Once GCP is installed, running, and configured, you can transfer files from any browser.
 
-For more detailed step-by-step guides for file transfer, please refer to the following: [https://docs.globus.org/guides/tutorials/manage-files/transfer-files/](https://docs.globus.org/guides/tutorials/manage-files/transfer-files/) 
+For a detailed step-by-step guide on file transfer, see [https://docs.globus.org/guides/tutorials/manage-files/transfer-files/](https://docs.globus.org/guides/tutorials/manage-files/transfer-files/) 
 
 ### 1. Log In to Globus
 
 1. Go to [https://app.globus.org](https://app.globus.org).
   
-2. Log in with your institution or other (Google, ORCID, GitHub, or a Globus ID account) identity.  
+2. Log in with your institution or another identity (Google, ORCID, GitHub, or a Globus ID account).  
 
 ### 2. Open the File Manager
 
@@ -257,18 +257,18 @@ After login, you land on the **File Manager** page.
 
 ### 3. Select Your Personal Collection
 
-1. On left panel, in the **Collection** field, type the name you gave your PC’s collection (e.g., `MyWorkStation`).  
+1. In the left panel's **Collection** field, type the name you gave your PC's collection (e.g., `MyWorkStation`).  
 
-2. Select it from the list; Globus connects and shows the default path (e.g., `/~/`).  
+2. Select it from the list. Globus connects and shows the default path (e.g., `/~/`).  
 
 ### 4. Select the Remote Collection
 
 You can run File Manager in **two‑panel mode**:
 
 1. Click **Transfer or Sync to…** on the right side to open a second panel.  
-2. In the right panel’s **Collection** field, search for your remote collection (e.g., **TEM_Collection@KISTI-GSDC**).
-3. If additional authentication is required, you will be redirected to the GSDC TEM OIDC server, enter user ID and your password(+OTP) on that screen to complete the authentication.  
-4. Navigate to the directory you’re allowed to read/write.
+2. In the right panel's **Collection** field, search for your remote collection (e.g., **TEM_Collection@KISTI-GSDC**).
+3. If additional authentication is required, you'll be redirected to the GSDC TEM OIDC server. Enter your user ID and password (+OTP) there to complete authentication.  
+4. Navigate to the directory you're allowed to read/write.
 
 ![Two‑panel File Manager with Transfer or Sync to…](https://docs.globus.org/guides/tutorials/manage-files/images/transfer-files/filemgr-5.png)
 
@@ -278,21 +278,21 @@ To **upload from your PC to the remote system**:
 
 1. Left panel: your **personal collection** (GCP) 
  
-   - Navigate to the folder and select the files/directories you want to transfer.  
+   - Navigate to the folder and select the files/directories to transfer.  
 
-2. Right panel: **remote collection** (HPC Storage like KISTI-GSDC)  
+2. Right panel: **remote collection** (HPC storage like KISTI-GSDC)  
 
    - **`TEM_Collection@KISTI-GSDC`**
    - Navigate to the destination directory.  
 
-3. Click **Start** above the panel that represents the *destination* (depends on UI layout).  
+3. Click **Start** above the panel representing the *destination* (this depends on the UI layout).  
 
-To **download from the remote collection to your PC**, reverse which side is source/destination.
+To **download from the remote collection to your PC**, reverse the source and destination.
 
 Globus will:
 
 - Queue the transfer  
-- Automatically retry on network glitches  
+- Retry automatically on network glitches  
 - Verify file integrity with checksums by default.  
 
 ![Transfer request submitted](https://docs.globus.org/guides/tutorials/manage-files/images/transfer-files/filemgr-7.png)
@@ -301,11 +301,11 @@ Globus will:
 
 1. Click **Activity** in the left navigation to see current and past transfers.
   
-2. Click a transfer’s details icon to see per‑file status and error messages if any.
+2. Click a transfer's details icon to see per‑file status and any error messages.
 
-3. You will also receive email notifications when transfers finish or fail.
+3. You'll also get email notifications when transfers finish or fail.
 
-Even if you close your browser or log out, the transfer continues on the Globus service side.  
+The transfer continues on the Globus service side even if you close your browser or log out.  
 
 ---
 
@@ -313,29 +313,29 @@ Even if you close your browser or log out, the transfer continues on the Globus 
 
 ### 1. Common Issues
 
-- **“Path not allowed” or missing folders in File Manager**
+- **"Path not allowed" or missing folders in File Manager**
 
-    * Ensure the folder is added to Accessible Folders/Directories (Windows/macOS) or `config-paths` (Linux).  
-    * Confirm your OS user has permission to read/write that folder locally.
+    * Make sure the folder is added to Accessible Folders/Directories (Windows/macOS) or `config-paths` (Linux).  
+    * Confirm your OS user has local read/write permission for that folder.
 
-- **Install permission errors (e.g., can’t write to `C:\Program Files`)**
+- **Install permission errors (e.g., can't write to `C:\Program Files`)**
 
     * Install into a directory you own (e.g., your home directory).  
 
-- **GCP icon shows “Not Connected”**
+- **GCP icon shows "Not Connected"**
 
     * A firewall or network rule may be blocking connections to the Globus service.  
-    * Try a different network (home vs campus VPN) or contact your IT staff with the Globus firewall requirements documentation.  
+    * Try a different network (home vs. campus VPN), or contact your IT staff with the Globus firewall requirements documentation.  
 
-- **Browser login cannot be started from GCP**
+- **Browser login won't start from GCP**
 
-    * Some security tools block launching a browser. In that case, you can use a **GCP Setup Key** as described in the troubleshooting guide.  
+    * Some security tools block launching a browser. In that case, use a **GCP Setup Key** as described in the troubleshooting guide.  
 
 ### 2. Advanced (Windows) – Very Long Paths
 
-If you are working with extremely deep directory structures or very long filenames on Windows, you may need to enable **long path support** in the OS registry for GCP to handle paths up to 4096 characters.
+If you work with extremely deep directory structures or very long filenames on Windows, you may need to enable **long path support** in the OS registry so GCP can handle paths up to 4096 characters.
 
-This change requires admin rights and a reboot; see the following Windows GCP install documentation for details. 
+This change requires admin rights and a reboot; see the Windows GCP install documentation below for details. 
 
 [https://docs.globus.org/globus-connect-personal/install/windows/#enable_long_path_support](https://docs.globus.org/globus-connect-personal/install/windows/#enable_long_path_support) 
 

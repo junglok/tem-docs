@@ -2,11 +2,11 @@
 
 ## Overview
 
-GSDC (Global Science experimental Data hub Center) provides data computing services - transfering/archiving large volume of Cryo-EM data and processing the data for Cryo-EM operators and/or end users. Cryo-EM facilities which are operated by government-funded research institutes or academies, could be directly connected to GSDC via KREONET with 10+Gbps dedicated or shared network links. GSDC also provides CPU/GPU computing servers and Peta-bytes scale of high performance storages to accelerate Cryo-EM users R&D activities. GSDC's computing and storage infrastructres for Cryo-EM operators/users are as below.
+GSDC (Global Science experimental Data hub Center) provides data computing services—transferring and archiving large volumes of Cryo-EM data and processing it for Cryo-EM operators and end users. Cryo-EM facilities operated by government-funded research institutes or academies can connect directly to GSDC via KREONET, over 10+Gbps dedicated or shared network links. GSDC also provides CPU/GPU computing servers and petabyte-scale high-performance storage to accelerate Cryo-EM users' R&D activities. GSDC's computing and storage infrastructure for Cryo-EM operators and users is outlined below.
 
 ## Collaboration between Cryo-EM sites and GSDC
 
-10 feet views from between Cryo-EM facilities (operated by KBSI, SNU, PNU and so on) and GSDC.
+A high-level view of the collaboration between Cryo-EM facilities (operated by KBSI, SNU, PNU, and others) and GSDC.
 
 ![gsdc-cryoem](../images/gsdc-cryoem.jpg)
 /// caption
