@@ -7,6 +7,6 @@ body {
   font-size: 16px
 }
 
-.md-grid {
-  max-width: 1440px; /* 기본값은 약 61rem(≈1220px), 원하는 값으로 조정 */
+.md-content {
+  max-width: 60rem; /* 필요 시 조정 */
 }
