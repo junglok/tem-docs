@@ -18,6 +18,9 @@ For the guide covering the old ScientificLinux 7.x based system, see [Scientific
 
 ## **Change Log**
 
+* `2026-07-28` - CryoDRGN, DeepEMHancer added for analysis tools
+* `2026-04-13` - Conda environment configuration guide added
+* `2025-11-20` - GlobusOnline data transfer guide added
 * `2025-06-18` - OS upgrades and migration completed
 * `2025-05-14` - AlmaLinux9-based TEM users guide released
 * `2025-04-21` - DevOps codes for all the analysis tools have been refactored and distributed on the new cluster system
