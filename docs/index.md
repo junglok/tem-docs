@@ -10,7 +10,7 @@ For the guide covering the old ScientificLinux 7.x based system, see [Scientific
 
     Since September 2026, we've launched GSDC DigitalHub Portal to provide users supports to handle technical problems. 
     
-    GSDC DigitalHub Portal (https://portal.gsdc.kr) : "Technical Support" -> "Contact Support"
+    __[GSDC DigitalHub Portal](https://portal.gsdc.kr)__ : __Technical Support__ -> __Contact Support__
 
     For technical support requests regarding issues, errors, usage guidance, or additional improvements encountered while using the GSDC TEM analysis infrastructure and environment, please use “Technical Support” -> “Contact Support” in the sidebar menu.
 
