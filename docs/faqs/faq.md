@@ -130,7 +130,7 @@
     
     During the OS upgrade to AlmaLinux 9.x, these login servers' hostnames changed. 
     So {==CryoSPARC's master configuration must be updated to run correctly on the new login servers
-    (__`tem-ui-al9.sdfarm.kr`__ and __`tem-cs-al9.sdfarm.kr`__)==}. 
+    (__`tem-ui-al9.gsdc.internal`__ and __`tem-cs-al9.gsdc.internal`__)==}. 
     
     Follow the step-by-step guide below to run CryoSPARC on the new login servers.
 
@@ -149,13 +149,13 @@
     === "New AL9-based login servers (config.sh)"
         ``` yaml
         ...
-        export CRYOSPARC_MASTER_HOSTNAME="tem-ui-al9.sdfarm.kr"
+        export CRYOSPARC_MASTER_HOSTNAME="tem-ui-al9.gsdc.internal"
         ...
         ```
         or
         ``` yaml
         ...
-        export CRYOSPARC_MASTER_HOSTNAME="tem-cs-al9.sdfarm.kr"
+        export CRYOSPARC_MASTER_HOSTNAME="tem-cs-al9.gsdc.internal"
         ...
         ```
 
@@ -166,7 +166,7 @@
         $> ps aux | grep <AccountName> | grep cryosparc
         $> ps aux | grep <AccountName> | grep -E "cryosparc|node" | awk '{print $2}' | xargs -I{} kill -9 {}
         ```
-    2. Log in to the new cryosparc server (__`tem-ui-al9`__ or __`tem-cs-al9`__) using the same account, where your cryosparc master will run. Locate `/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master`, edit the `config.sh` file, and save it (see the code block above). 
+    2. Log in to the new cryosparc server (__`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__) using the same account, where your cryosparc master will run. Locate `/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master`, edit the `config.sh` file, and save it (see the code block above). 
     3. Start cryosparc.
         ```bash
         $> cat /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/config.sh
@@ -183,9 +183,9 @@
     The file to update is located at: `/tem/scratch/<GroupDir>/.croysparc/cluster_script.sh`
 
 
-    1. As a prerequisite, stop all cryosparc daemons on the old SL7-based login servers and change your cryosparc master hostname to a new AL9-based login server (__`tem-ui-al9`__ or __`tem-cs-al9`__). 
+    1. As a prerequisite, stop all cryosparc daemons on the old SL7-based login servers and change your cryosparc master hostname to a new AL9-based login server (__`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__). 
 
-    2. Start CryoSPARC (`cryosparcm start`) on one of the new login servers (__`tem-ui-al9`__ or __`tem-cs-al9`__).
+    2. Start CryoSPARC (`cryosparcm start`) on one of the new login servers (__`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__).
 
     3. Locate the `/tem/scratch/<GroupDir>/.cryosparc` directory. You'll find the original `cluster_info.json` and `cluster_script.sh`.
 
@@ -971,9 +971,9 @@
             http://localhost:39037
 
         From other machines on the network, access cryoSPARC at
-            http://tem-[cs|ui]-al9.sdfarm.kr:39030
+            http://tem-[cs|ui]-al9.gsdc.internal:39030
         and access cryoSPARC Live at
-            http://tem-[cs|ui]-al9.sdfarm.kr:39036
+            http://tem-[cs|ui]-al9.gsdc.internal:39036
 
 
         Startup can take several minutes. Point your browser to the address

@@ -88,7 +88,7 @@ Run the `cryosparcm env` command on the node (tem-cs-al9.sdfarm.kr or tem-ui-al9
 ```bash
 $> cryosparcm env
 export "CRYOSPARC_HTTP_PORT=39xxx"
-export "CRYOSPARC_MASTER_HOSTNAME=tem-xx-al9.sdfarm.kr"
+export "CRYOSPARC_MASTER_HOSTNAME=tem-xx-al9.gsdc.internal"
 export "CRYOSPARC_CLICK_WRAP=true"
 export "CRYOSPARC_COMMAND_VIS_PORT=39xxx"
 export "CRYOSPARC_CONDA_ENV=cryosparc_master_env"
@@ -98,7 +98,7 @@ export "CRYOSPARC_DEVELOP=false"
 export "CRYOSPARC_DB_PATH=/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database"
 export "CRYOSPARC_HTTP_RTP_PORT=39xxx"
 export "CRYOSPARC_LICENSE_ID=<license_key>"
-export "CRYOSPARC_HOSTNAME_CHECK=tem-cs-al9.sdfarm.kr"
+export "CRYOSPARC_HOSTNAME_CHECK=tem-xx-al9.gsdc.internal"
 export "CRYOSPARC_MONGO_PORT=39xxx"
 export "CRYOSPARC_MONGO_CACHE_GB=4"
 export "CRYOSPARC_HEARTBEAT_SECONDS=60"
@@ -165,7 +165,7 @@ License is valid
 
 global config variables:
 export CRYOSPARC_LICENSE_ID="<license_key>"
-export CRYOSPARC_MASTER_HOSTNAME="tem-xx-al9.sdfarm.kr"
+export CRYOSPARC_MASTER_HOSTNAME="tem-xx-al9.gsdc.internal"
 export CRYOSPARC_DB_PATH="/tem/scratch/<GroupDir>/.cryosparc/cryosparc_database"
 export CRYOSPARC_BASE_PORT=39xxx
 export CRYOSPARC_DB_CONNECTION_TIMEOUT_MS=20000
@@ -194,7 +194,7 @@ Use the following command to start an SSH tunnel exporting **CRYOSPARC_BASE_PORT
 If your CryoSPARC instance is deployed/running on the **tem-cs-al9.sdfarm.kr** node:
 
 ```bash
-localhost $> ssh -N -f -L localhost:39500:tem-cs-al9.sdfarm.kr:<CRYOSPARC_BASE_PORT> -o Port=<ssh_port> <userid>@tem-cs-al9.sdfarm.kr
+localhost $> ssh -N -f -L localhost:39500:tem-cs-al9.gsdc.internal:<CRYOSPARC_BASE_PORT> -o Port=<ssh_port> <userid>@tem-cs-al9.sdfarm.kr
 (<userID>@tem-cs-al9.sdfarm.kr) First Factor:
 (<userID>@tem-cs-al9.sdfarm.kr) Second Factor:
 ```
@@ -210,7 +210,7 @@ localhost $> ssh -N -f -L localhost:39500:tem-cs-al9.sdfarm.kr:<CRYOSPARC_BASE_P
 Otherwise, if the CryoSPARC instance is running on **tem-ui-al9.sdfarm.kr**:
 
 ```bash
-localhost $> ssh -N -f -L localhost:39500:tem-ui-al9.sdfarm.kr:<CRYOSPARC_BASE_PORT> -o Port=<ssh_port> <userid>@tem-ui-al9.sdfarm.kr
+localhost $> ssh -N -f -L localhost:39500:tem-ui-al9.gsdc.internal:<CRYOSPARC_BASE_PORT> -o Port=<ssh_port> <userid>@tem-ui-al9.sdfarm.kr
 (<userID>@tem-ui-al9.sdfarm.kr) First Factor:
 (<userID>@tem-ui-al9.sdfarm.kr) Second Factor:
 ```
@@ -225,7 +225,7 @@ localhost $> ssh -N -f -L localhost:39500:tem-ui-al9.sdfarm.kr:<CRYOSPARC_BASE_P
 
 !!! note
 
-    Run this 'ssh' command on **YOUR LOCAL PC/WORKSTATION** to create a secure tunnel between your local machine and the GSDC server (tem-cs-al9.sdfarm.kr or tem-ui-al9.sdfarm.kr): localhost:39500 <--> tem-[cs|ui]-al9.sdfarm.kr:<CRYOSPARC_BASE_PORT>.
+    Run this 'ssh' command on **YOUR LOCAL PC/WORKSTATION** to create a secure tunnel between your local machine and the GSDC server (tem-cs-al9.sdfarm.kr or tem-ui-al9.sdfarm.kr): localhost:39500 <--> tem-[cs|ui]-al9.gsdc.internal:CRYOSPARC_BASE_PORT.
 
 !!! note
 
@@ -259,7 +259,7 @@ Now open your browser (Chrome/Firefox/Safari recommended) and go to [http://loca
 
 !!! note
 
-    Use **tem-[cs|ui]-al9.sdfarm.kr:CRYOSPARC_BASE_PORT** for the 'Destination' field. 
+    Use **tem-[cs|ui]-al9.gsdc.internal:CRYOSPARC_BASE_PORT** for the 'Destination' field. 
 
 
 ![putty-tunnel](../images/putty-tunnel-al9.jpg)
