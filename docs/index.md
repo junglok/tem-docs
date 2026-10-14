@@ -29,6 +29,7 @@ For the guide covering the old ScientificLinux 7.x based system, see [Scientific
 
 ## **Change Log**
 
+* `2026-10-14` - cluster.status/cluster.mydata deprecated. Use cluster.monitor/cluster.quota instead.
 * `2026-10-01` - CryoSPARC and its FAQs modified (for CRYOSPARC_MASTER_HOSTNAME change and also SSH tunneling method)
 * `2026-07-28` - CryoDRGN, DeepEMHancer added for analysis tools
 * `2026-04-13` - Conda environment configuration guide added

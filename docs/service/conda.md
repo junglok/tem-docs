@@ -184,5 +184,5 @@ conda config --remove envs_dirs /tem/scratch/<GroupDir>/envs
 - **Watch your disk quota.** Conda environments can grow large. Monitor your group's scratch usage periodically:
 
   ```bash
-  cluster.mydata
+  cluster.quota
   ```
