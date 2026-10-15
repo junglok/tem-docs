@@ -3,7 +3,7 @@
 ## **cluster.quota**
 
 Run the `cluster.quota` command to check storage quota limits and usage on the Lustre filesystem (`/tem`).
-This tool is available on all login nodes and on the data transfer node `tem-dtn-el7`.
+This tool is available on **every node you can log in to** — all three login nodes and both data transfer nodes.
 
 It shows three sections — your home directory, your group's scratch directories, and site archive
 directories — but **only the ones you have permission to read**. Directories belonging to other users
@@ -114,7 +114,7 @@ $> cluster.quota --json | python3 -c 'import json,sys; [print(e["path"], e["quot
 ## **cluster.monitor**
 
 Run the `cluster.monitor` command to watch the utilization of all compute nodes and the jobs currently
-running on them. This tool is available on all login nodes.
+running on them. This tool is available on all login nodes and on the `tem-dm-al9` data transfer node.
 
 It refreshes automatically every 10 seconds and is interactive. Unlike a plain node listing, it shows
 **per-job host memory and GPU memory**, so you can see how much of what you requested a job is
