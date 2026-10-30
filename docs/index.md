@@ -6,7 +6,7 @@ For the guide covering the old ScientificLinux 7.x based system, see [Scientific
 
 ## **Notice**
 
-???+ tip "Unified technial supports to request the support for resolving techinical problems/errors using GSDC services"
+???+ tip "Unified technical support to request the support for resolving technical problems/errors using GSDC services"
 
     Since September 2026, we've launched GSDC DigitalHub Portal to provide users supports to handle technical problems. 
     
@@ -17,7 +17,7 @@ For the guide covering the old ScientificLinux 7.x based system, see [Scientific
     When you submit a new ticket (inquiry), it will be immediately delivered to the service manager. You can check the entire processing status and details of your ticket on the GSDC Digital Hub portal.
     
 
-???+ tip "(Deprecated) Creating tickets to request the support for resolving techinical problems/errors using GSDC services"
+???+ tip "(Deprecated) Creating tickets to request the support for resolving technical problems/errors using GSDC services"
 
     Since March 2021, we've run a GSDC ticketing system to handle technical problems for users and operators, so feel free to create tickets. 
     
@@ -30,6 +30,7 @@ For the guide covering the old ScientificLinux 7.x based system, see [Scientific
 ## **Change Log**
 
 * `2026-10-14` - cluster.status/cluster.mydata deprecated. Use [cluster.monitor](https://tem-docs.readthedocs.io/en/al9/service/util/#clustermonitor)/[cluster.quota](https://tem-docs.readthedocs.io/en/al9/service/util/#clusterquota) instead.
+* `2026-10-01` - Technical support requests moved to [GSDC DigitalHub Portal](https://portal.gsdc.kr) (e-mail ticketing deprecated)
 * `2026-10-01` - CryoSPARC and its FAQs modified (for CRYOSPARC_MASTER_HOSTNAME change and also SSH tunneling method)
 * `2026-07-28` - CryoDRGN, DeepEMHancer added for analysis tools
 * `2026-04-13` - Conda environment configuration guide added
