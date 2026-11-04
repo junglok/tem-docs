@@ -120,6 +120,58 @@
     $> module avail
     ```
 
+## **Batch Jobs (PBSPro)**
+
+#### **Job killed for exceeding its memory limit**
+
+??? note "My job ended unexpectedly. How do I know whether it ran out of memory, and how much memory should I request?"
+
+    Every batch job runs under the memory limit you request (`mem=` in the `select` statement, or the value CryoSPARC fills in for you). When a job's memory usage reaches that limit, **PBSPro terminates the job immediately**. The computation done so far is lost, and resubmitting the job with the same request will fail the same way.
+
+    This is one of the most common causes of failed jobs on the TEM cluster, so please check it first when a job ends unexpectedly.
+
+    **1. Check whether the job was killed for memory**
+
+    * **CryoSPARC jobs** : open `cluster.err` in the job directory (e.g., `<project directory>/J71/cluster.err`). The cluster submission script writes the job's error output there. If the job was killed for memory, you will see a line similar to:
+
+        ```pre
+        =>> PBS: job killed: mem 335544540kb exceeded limit 335544320kb
+        ```
+
+        ```bash
+        $> tail <project directory>/J71/cluster.err
+        ```
+
+    * **Any job** : for jobs that finished within about the last two weeks, compare the memory actually used with the memory requested:
+
+        ```bash
+        $> qstat -xf <job ID> | grep -E "resources_used.mem|Resource_List.mem|Exit_status"
+        ```
+
+        If `resources_used.mem` equals `Resource_List.mem` and `Exit_status = -27`, the job was terminated because it reached its memory limit.
+
+    **2. Find out how much memory your job actually needs**
+
+    While a job is running, run `cluster.monitor` on a login node. It shows each job's host memory as **used / requested**, so you can see how close the job is to its limit (see [cluster.monitor](../service/util.md#clustermonitor)).
+
+    ```bash
+    $> cluster.monitor
+    ```
+
+    For jobs that completed successfully, `resources_used.mem` from `qstat -xf` (above) shows how much memory they used.
+
+    **3. Set the memory request**
+
+    * **Job scripts** : set `mem=` in the `select` statement, e.g. `#PBS -l select=1:ncpus=4:ngpus=1:mem=128GB` (see [PBS Job Scripts](../batch/jobscripts.md)).
+    * **CryoSPARC** : adjust the `ram_gb_multiplier` custom variable defined in the cluster submission script. It can be set at the instance, lane, or job level (see [CryoSPARC](../apps/cryosparc.md)).
+
+    We recommend requesting the memory your job actually uses **plus a margin of about 10–20%**. Requesting far more than needed makes other users' jobs wait longer.
+
+    !!! tip "If even a very large request fails"
+        A single compute node can provide only a limited amount of memory (at most about 370 GB on GPU nodes). If your job still fails near that limit, raising the request further will not help. Reduce the job's memory footprint instead, for example by downsampling (Fourier cropping) particle images or splitting the dataset into smaller jobs.
+
+    The memory a job needs depends on your data and settings, so the operations team cannot set it for you. If you are unsure, contact the administrator with the job ID.
+
 ## **CryoSPARC**
 
 #### **Changing CryoSPARC's master host name?**
@@ -1021,7 +1073,7 @@
 
     1. Lack of memory
     
-        The PBSPro batch system on the GSDC TEM cluster forcibly terminates jobs that exceed their memory requirements by default. If you see the following error during job execution, increase the memory requirement and resubmit the job.
+        The PBSPro batch system on the GSDC TEM cluster forcibly terminates jobs that exceed their memory requirements by default. If you see the following error during job execution, increase the memory requirement and resubmit the job. See [Job killed for exceeding its memory limit](#job-killed-for-exceeding-its-memory-limit) for how to confirm the cause and choose the request.
 
         ![cryosparc-maxgpus](../images/cryosparc-noheartbeat.png)
 
