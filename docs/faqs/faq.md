@@ -91,9 +91,9 @@
     Entering the wrong password (including OTP) more than 5 times when logging in with a GSDC UserID may lock the account. 
     While locked, access to the server is restricted for a period of time. 
     
-    To unlock the account, send **a ticket email** to the person in charge.
+    To unlock the account, submit a technical support ticket on the GSDC DigitalHub Portal.
     
-    E-mail address : __gsdc-support at kisti.re.kr__ (__[TEM]__ prefix required in the e-mail title)
+    __[GSDC DigitalHub Portal](https://portal.gsdc.kr)__ : __Technical Support__ -> __Contact Support__
 
 ## **X11 Forwarding**
 
