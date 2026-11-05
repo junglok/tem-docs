@@ -215,9 +215,9 @@
         If your cryosparc daemons are already terminated on the old login server, skip this step.
         ```bash
         $> cryosparcm stop 
-        $> ps aux | grep <AccountName> | grep cryosparc
-        $> ps aux | grep <AccountName> | grep -E "cryosparc|node" | awk '{print $2}' | xargs -I{} kill -9 {}
+        $> pgrep -u $USER -af cryosparc
         ```
+        If processes are still listed, stop only those PIDs as described in [Resolving the problems on starting and/or restarting CryoSPARC daemons](#resolving-the-problems-on-starting-andor-restarting-cryosparc-daemons).
     2. Log in to the new cryosparc server (__`tem-ui-al9.sdfarm.kr`__ or __`tem-cs-al9.sdfarm.kr`__) using the same account, where your cryosparc master will run. Locate `/tem/scratch/<GroupDir>/.cryosparc/cryosparc_master`, edit the `config.sh` file, and save it (see the code block above). 
     3. Start cryosparc.
         ```bash
@@ -367,7 +367,7 @@
 
 ??? note "How to resolve the problems on starting and/or restarting CryoSPARC daemons?"
 
-    First, make sure all cryosparc-related processes—supervisord, mongod, command_core, command_vis, command_rtp, webapp, app, liveapp—have terminated successfully on the CryoSPARC master host. If necessary, kill any zombie processes.
+    First, make sure all cryosparc-related processes—supervisord, mongod, command_core, command_vis, command_rtp, webapp, app, liveapp—have terminated successfully on the CryoSPARC master host. Log in to that host with the representative account and stop CryoSPARC normally.
 
     ``` bash
     $> cryosparcm stop
@@ -381,12 +381,28 @@
     Shut down
     ```
 
-    After stopping cryosparc, use the following commands to check for and kill any running zombie processes. Replace `<AccountName>` with the representative account. 
+    After stopping cryosparc, list your own processes that are still related to CryoSPARC. `-u $USER` limits the list to the account you are logged in with, and `-a` shows each process's full command line so you can check it.
 
     ``` bash
-    $> ps aux | grep <AccountName> | grep cryosparc
-    $> ps aux | grep <AccountName> | grep -E "cryosparc|node" | awk '{print $2}' | xargs -I{} kill -9 {}
+    $> pgrep -u $USER -af cryosparc
     ```
+
+    If nothing is printed, all processes have terminated; go on to the next step. If some are still listed, check that each line belongs to your instance — its command line contains `/tem/scratch/<GroupDir>/.cryosparc` or `cryosparc_command` — and stop **only those PIDs**, then list again:
+
+    ``` bash
+    $> kill <PID> [<PID> ...]
+    $> sleep 10
+    $> pgrep -u $USER -af cryosparc
+    ```
+
+    Use `kill -9` only as a last resort, for a PID that is still listed after the step above:
+
+    ``` bash
+    $> kill -9 <PID>
+    ```
+
+    !!! warning
+        Do not kill processes by matching a broad word such as `node`, or by your account name alone. That also kills your other, unrelated programs on the same login server — for example other analysis tools or terminal sessions you are running.
 
     Second, find your own cryosparc Unix socket files in the `/tmp` directory, and delete them with `rm` if present.
 
@@ -510,18 +526,10 @@
         database: stopped
         Shut down
 
-        userid@tem-[cs|ui]-al9 $>  ps aux | grep <userid> | grep cryosparc
-        userid    2449  0.0  0.0 152792 17480 ?        Ss   Jun24   0:18 python /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/deps/anaconda/envs/cryosparc_master_env/bin/supervisord -c /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/supervisord.conf
-        userid    2472  1.2  0.0 1429268 57412 ?       Sl   Jun24  13:19 mongod --dbpath /tem/scratch/<GroupDir>/.cryosparc/cryosparc_database --port 
-        userid    2900  0.2  0.0 860572 83028 ?        Sl   Jun24   2:23 python -c import cryosparc_command.command_core as serv; serv.start
-        userid    4332  0.1  0.1 854192 236396 ?       Sl   Jun24   1:53 python -c import cryosparc_command.command_vis as serv; serv.start
-        userid    4378  0.4  0.0 1190536 196316 ?      Sl   Jun24   4:59 python -c import cryosparc_command.command_rtp as serv; serv.start
-        userid    5586  0.1  0.0 1331136 116972 ?      Sl   Jun24   1:17 /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/cryosparc_webapp/nodejs/bin/node ./bundle/main.js
-        userid    5625  0.1  0.0 1049868 97640 ?       Sl   Jun24   1:22 /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/cryosparc_app/nodejs/bin/node ./bundle/main.js
-        userid    5690  0.2  0.0 1326136 81432 ?       Sl   Jun24   2:12 /tem/scratch/<GroupDir>/.cryosparc/cryosparc_master/cryosparc_liveapp/nodejs/bin/node ./bundle/main.js
-
-        userid@tem-[cs|ui]-al9 $> ps aux | grep <userid> | grep -E "cryosparc|node" | awk '{print $2}' | xargs -I{} kill -9 {}
+        userid@tem-[cs|ui]-al9 $> pgrep -u $USER -af cryosparc
         ```
+
+        If processes are still listed, stop only those PIDs as described in [Resolving the problems on starting and/or restarting CryoSPARC daemons](#resolving-the-problems-on-starting-andor-restarting-cryosparc-daemons).
 
         Find your own cryosparc Unix socket files in the /tmp directory, and delete them with the rm command if present.
 
