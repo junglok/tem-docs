@@ -19,7 +19,7 @@ Sample basic PBS scripts are shown below:
         #PBS -l select=2:ncpus=16:mem=64GB:mpiprocs=16
 
         ### Set temp to scratch (note that <GroupDir> should be replaced with the proper name)
-        setenv TMPDIR /tem/scratch/<GroupDir>/temp && mkdir -p ${TMPDIR}
+        export TMPDIR=/tem/scratch/<GroupDir>/temp && mkdir -p ${TMPDIR}
 
         ### Specify desired module environment to be loaded
         module purge
@@ -27,7 +27,7 @@ Sample basic PBS scripts are shown below:
         module list
 
         ### Compile and Run MPI Program
-        mpicc -o hello_c /tem/el9/samples/hello_c.c -fopenmp
+        mpicc -o hello_c /tem/al9/samples/hello_c.c -fopenmp
         mpirun --mca btl tcp,self --mca btl_tcp_port_min_v4 32768 --mca btl_tcp_port_range_v4 32768 -n 32 --machinefile $PBS_NODEFILE ./hello_c
         ```
 
@@ -123,7 +123,7 @@ Resources (compute node configuration, job duration) are requested through a com
 For example:
 ```pre
 #PBS -l walltime=00:05:00
-#PBS -l select=1:ncpus=64:mpiprocs=4:ngpus=4:mem=256GB
+#PBS -l select=1:ncpus=32:mpiprocs=4:ngpus=4:mem=256GB
 ```
 specifies job `walltime` and compute node (chunk) selection. See more details below.
 
@@ -157,25 +157,28 @@ where *node* and *chunk* can be used interchangeably:
 Together, these specify a *resource chunk*. Homogeneous resource chunks are the most common case, but 
 *heterogeneous* selection statements can be built from multiple chunks separated by a **+** (examples below).
 
+A chunk can never be larger than a single node. See [Batch Queues](queue.md) for the cores, memory and GPUs each node can provide —
+for example, a `cpuQ` node accepts at most `ncpus=28` and `mem=187GB`.
+
 ##### Examples
-*  4 128-core nodes, each running 128 MPI ranks (4 `x` 128 = 512 MPI ranks total).
+*  4 28-core nodes (`cpuQ`), each running 28 MPI ranks (4 `x` 28 = 112 MPI ranks total).
    ```pre
-   select=4:ncpus=128:mpiprocs=128
+   select=4:ncpus=28:mpiprocs=28
    ```
 
-*  4 128-core nodes, each running 32 MPI ranks with 4 OpenMP threads per rank (4 `x` 32 = 128 MPI ranks total, each with 4 threads = 512 total CPU cores).
+*  4 28-core nodes (`cpuQ`), each running 7 MPI ranks with 4 OpenMP threads per rank (4 `x` 7 = 28 MPI ranks total, each with 4 threads = 112 total CPU cores).
    ```pre
-   select=4:ncpus=128:mpiprocs=32:ompthreads=4
+   select=4:ncpus=28:mpiprocs=7:ompthreads=4
    ```
 
-*  2 64-core nodes, each running 4 MPI ranks, 4 GPUS, and 384 GB memory (8 GPUs total, with 8 MPI ranks).
+*  2 32-core GPU nodes (`gpuQ`), each running 4 MPI ranks, 4 GPUs, and 375 GB memory (8 GPUs total, with 8 MPI ranks). Only `tem-gpu05`, `tem-gpu11` and `tem-gpu12` have 4 GPUs per node.
    ```pre
-   select=2:ncpus=64:mpiprocs=4:ngpus=4:mem=384GB
+   select=2:ncpus=32:mpiprocs=4:ngpus=4:mem=375GB
    ```
 
-*  A heterogeneous selection, 96 128-core nodes each with 128 MPI ranks, and 32 128-core nodes each with 16 MPI ranks and 8 OpenMP threads
+*  A heterogeneous selection (`cpuQ`), 2 28-core nodes each with 28 MPI ranks, and 2 28-core nodes each with 4 MPI ranks and 7 OpenMP threads
    ```pre
-   select=96:ncpus=128:mpiprocs=128+32:ncpus=128:mpiprocs=16:ompthreads=8
+   select=2:ncpus=28:mpiprocs=28+2:ncpus=28:mpiprocs=4:ompthreads=7
    ```
 
 #### `walltime` statements
@@ -199,6 +202,6 @@ Some of the more useful ones:
 | `PBS_JOBID`     | The PBS Job ID for this job.<br>Example: `1473351.tem-ce-al9` |
 | `PBS_JOBNAME`   | The name of this job. Matches the `-N` specified.<br>Example: `hello_pbs` |
 | `PBS_O_WORKDIR` | The working directory from where the job was submitted. |
-| `PBS_SELECT`    | The resource specification `-l select=` line for this job.<br>This can be useful for setting runtime-specific configuration options that might depend on resource selection.<br>(e.g. processor layout, CPU binding, etc...)<br>Example: `2:ncpus=128:mpiprocs=2:ompthreads=2:mem=200GB:ngpus=1`  |
+| `PBS_SELECT`    | The resource specification `-l select=` line for this job.<br>This can be useful for setting runtime-specific configuration options that might depend on resource selection.<br>(e.g. processor layout, CPU binding, etc...)<br>Example: `2:ncpus=4:mpiprocs=2:ompthreads=2:mem=200GB:ngpus=1`  |
 | `PBS_NODEFILE`  | A file whose contents lists the nodes assigned to this job.<br> Typically listed as one node name per line, for each MPI rank in the job.<br>Each node will be listed for as many times as it has MPI ranks. <br>Example: `/var/spool/pbs/aux/1473351.tem-ce-al9` |
 <!-- | `PBS_QUEUE`     | The name of the PBS execution queue.<br>In general this will be an *execution* queue, and different than the *routing* queue specified by `-q` in the job script.<br>Example: `cpu` | -->

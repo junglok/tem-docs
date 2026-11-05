@@ -232,8 +232,9 @@ $> cluster.monitor --gpu-detail
     If the bar is full, raise `-l mem=` before the job is killed for exceeding its limit.
 
 !!! note "Node specifications are not uniform"
-    CPU nodes have 28 cores and 188 GB each, but GPU nodes differ — both in card model (P100 16GB
-    through A100 80GB) and in host memory (250 GB on `tem-gpu09`/`tem-gpu10`, 376 GB elsewhere).
+    CPU nodes have 28 cores and accept up to 187 GB each, but GPU nodes differ — both in card model (P100 16GB
+    through A100 80GB) and in host memory (up to 250 GB on `tem-gpu09`/`tem-gpu10`, 375–376 GB elsewhere;
+    see [Batch Queues](../batch/queue.md)).
     Check the node your job landed on before concluding that a failure is a program bug.
 
 ## **TMUX**
