@@ -1,8 +1,8 @@
 # SSH Login
 
-!!! note "Enabling OTP"
+!!! note "Set your password and OTP on the portal first"
 
-    When first connecting to the login servers, you can log in using only your password (or initial password), but you MUST set up OTP (One-Time-Password) for two-factor authentication right after. Once logged in, follow the [GSDC OTP GUIDE](./otp.md) in your SSH terminal to enable it. 
+    Before connecting to the login servers, log in to the __[GSDC DigitalHub Portal](https://portal.gsdc.kr)__ with the initial password from your approval e-mail, set a new password and register OTP (One-Time-Password). See [Requesting Accounts — Step 2](account.md#step-2-first-login-change-password-and-register-otp) and [OTP](otp.md). Use the same password and OTP for SSH login.
 
 ## Linux/Mac Users
 
@@ -25,8 +25,8 @@ On Linux/Mac, use the built-in `ssh` command to connect to GSDC TEM login server
 !!! note
 
     * line 1: `-Y (-X)` enables trusted (or untrusted) X11 forwarding. `port` is the port number your administrator gave you.
-    * line 2: `First Factor` is your own password.
-    * line 3: `Second Factor` is the six-digit OTP code. Just press `enter` if you haven't enabled OTP yet.
+    * line 2: `First Factor` is the password you set on the portal.
+    * line 3: `Second Factor` is the six-digit OTP code from the authenticator app you registered on the portal.
 
 ## Windows Users
 
